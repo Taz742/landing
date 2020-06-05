@@ -1,0 +1,25 @@
+{
+  "name": "gex",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 3000"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.10.7",
+    "next": "9.4.0",
+    "next-redux-wrapper": "^6.0.0",
+    "react": "16.13.1",
+    "react-accessible-accordion": "^3.0.1",
+    "react-dom": "16.13.1",
+    "react-number-format": "^4.4.1",
+    "sass": "^1.26.5",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0",
+    "eslint-plugin-react": "^7.20.0"
+  }
+}
