@@ -12,7 +12,7 @@ export default function Layout(props) {
                 content="Gex Bitcoin Coins"></meta>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header />
+            <Header props={props} />
             <div className="Content">
                 {props.children}
             </div>

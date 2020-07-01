@@ -2,21 +2,30 @@ import {FooterComp} from './styled';
 
 export default function footer(props) {
     const data = props.props.props.extra;
+    const menu = props.props.props.footerMenu;
     return (
         <FooterComp>
             <div className="container">
                 <div className="footer-container flex-container">
                     <div>
-                        <a>Exchange</a>
-                        <a>Buy/Sell</a>
-                        <a>Advantages</a>
-                        <a href="/terms">Terms</a>
+                        {menu && menu.length > 0 && menu.map((item, index) =>
+                            (index < 4 && 
+                                <a  href={item.type === 'custom' ? item.url : item.slug} 
+                                    key={index}>
+                                        {item.title}
+                                </a>
+                            )
+                        )}
                     </div>
                     <div>
-                        <a>About Company</a>
-                        <a>AML Policy</a>
-                        <a>Knowledge base</a>
-                        <a>AML</a>
+                        {menu && menu.length > 0 && menu.map((item, index) =>
+                            (index > 3 && 
+                                <a  href={item.type === 'custom' ? item.url : item.slug} 
+                                    key={index}>
+                                        {item.title}
+                                </a>
+                            )
+                        )}
                     </div>
                     <div>
                         <h3>
@@ -24,11 +33,11 @@ export default function footer(props) {
                         </h3>
                         <p>
                             <img src="/images/call.svg" />
-                            + 995 599 123 123
+                            +995 599 123 123
                         </p>
                         <p>
                             <img src="/images/email.svg" />
-                            Testmail@gmail.com
+                            info@gex.ge
                         </p>
                         <p>
                             <img src="/images/map.svg" />

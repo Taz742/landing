@@ -36,7 +36,7 @@ export default function Home(props) {
     GEL: [],
     USD: [],
   })
-  const [currency, setCurrency] = useState('GEL');
+  const [currency, setCurrency] = useState('');
   const [coin, setCoin] = useState({});
   const [pairs, setPairs] = useState({
     GEL: [],
@@ -47,6 +47,8 @@ export default function Home(props) {
   const [sizeVal, setSize] = useState('');
   const [priceVal, setPrice] = useState('');
   const [update, setUpdate] = useState(0);
+  const [allCurencies, setAllCurencies] = useState([]);
+  const [activeDropDown, setDropDown] = useState(false);
 
   useEffect(() => {
     fetch(PAIRS)
@@ -67,22 +69,28 @@ export default function Home(props) {
         USD: usdArr
       })
     })
-  }, []);
 
-  useEffect(() => {
     fetch(Offers)
     .then(response => response.json())
     .then(data => {
+      const currencies = Object.keys(data);
+      setAllCurencies(currencies);
+      setCurrency(currencies[0]);
+      const currentCurrency = currency ? currency : currencies[0];
       setCoin({
         index: 0,
-        baseScale: data[currency][0].pair.baseScale,
-        coin: data[currency][0].pair.baseCurrency
+        buyPrice: data[currentCurrency][0].buyPrice,
+        sellPrice: data[currentCurrency][0].sellPrice,
+        baseScale: data[currentCurrency][0].pair.baseScale,
+        coin: data[currentCurrency][0].pair.baseCurrency
       });
       setTrades(data);
       let lists = [];
-      data[currency].forEach((item, index) => {
+      data[currentCurrency].forEach((item, index) => {
         lists.push({
           index: index,
+          buyPrice: item.buyPrice,
+          sellPrice: item.sellPrice,
           baseScale: item.pair.baseScale,
           coin: item.pair.baseCurrency
         })
@@ -103,10 +111,11 @@ export default function Home(props) {
 	}, 100);
 
   const changeCurrency = () => {
-    if (currency === 'GEL') {
-      setCurrency('USD');
+    const index = allCurencies.indexOf(currency);
+    if (allCurencies[index + 1]) {
+      setCurrency(allCurencies[index + 1]);
     } else {
-      setCurrency('GEL');
+      setCurrency(allCurencies[0]);
     }
   }
 
@@ -131,12 +140,12 @@ export default function Home(props) {
           The Most Liquid Crypto Exchange In Region
         </h1>
         <HomeComp>
-          <button className="registration">
+          <button onClick={() => window.location.href = 'http://10.10.5.4/?action=registration'} className="registration">
             Registration
           </button>
 
           <TopCoins className="flex-container">
-            {pairs && pairs[currency].length > 0 && (
+            {currency && pairs && pairs[currency].length > 0 && (
               pairs[currency] && pairs[currency].map((item, index) => 
                 <div key={index} className="item">
                   <img src={getImage(item.pair)} />
@@ -155,7 +164,10 @@ export default function Home(props) {
             <h3>
               Simple Trade
               <div className="trade-right">
-                <div className="coin">
+                <div
+                  onMouseEnter={() => setDropDown(true)}
+                  onMouseLeave={() => setDropDown(false)}
+                  className={activeDropDown ? 'active coin' : 'coin'}>
                   <div className="active-coin">
                     {coin.coin} - {currency}
                     <img src="/images/dropdown.svg" />
@@ -163,7 +175,7 @@ export default function Home(props) {
                   <div className="coin-list-dropdown">
                     {coinsList.map(item => 
                       <p key={item.index} 
-                        onClick={() => setCoin(item)}>
+                        onClick={() => {setCoin(item); setDropDown(false)}}>
                         {item.coin}
                       </p>
                     )}
@@ -209,8 +221,34 @@ export default function Home(props) {
                   <span>want to {sellType === 'BID' ? 'buy' : 'sell'}</span>
                 </p>
                 <div className="inputs">
-                  <NumberFormat decimalScale="2" value={priceVal} onChange={(e) => setPrice(e.target.value)} placeholder="Enter price" />
-                  <NumberFormat decimalScale={coin.baseScale} value={sizeVal} onChange={(e) => setSize(e.target.value)} placeholder="Enter amount" />
+                  <NumberFormat 
+                    decimalScale={2} 
+                    value={priceVal} 
+                    onChange={(e) => {
+                      setPrice(e.target.value);
+                      let newSize = 0;
+                      if (sellType === 'BID') {
+                        newSize = Number(e.target.value / coin.buyPrice);
+                      } else {
+                        newSize = Number(e.target.value / coin.sellPrice);
+                      }
+                      setSize(newSize)
+                    }} 
+                    placeholder="Enter price" />
+                  <NumberFormat 
+                    decimalScale={coin.baseScale} 
+                    value={sizeVal} 
+                    onChange={(e) => {
+                      setSize(e.target.value);
+                      let newSize = 0;
+                      if (sellType === 'BID') {
+                        newSize = Number(e.target.value * coin.buyPrice);
+                      } else {
+                        newSize = Number(e.target.value * coin.sellPrice);
+                      }
+                      setPrice(newSize)
+                    }} 
+                    placeholder="Enter amount" />
                 </div>
                 <button onClick={(e) => redirect()}>
                   {sellType === 'BID' ? 'Buy' : 'Sell'} now

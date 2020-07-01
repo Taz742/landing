@@ -323,7 +323,7 @@ export const SimpleTrade = styled.div`
                 z-index: 2;
                 background: #fafafa;
                 max-height: 0px;
-                border-radius: 8px;
+                /* border-radius: 8px; */
                 overflow: hidden;
 
                 p {
@@ -332,7 +332,7 @@ export const SimpleTrade = styled.div`
                     font-size: 15px;
                     color: #6C7686;
                     border: 1px solid #cdd6e3;
-                    border-radius: 8px;
+                    /* border-radius: 8px; */
                     /* border-bottom: 1px solid #cdd6e3; */
                     cursor: pointer;
 
@@ -342,7 +342,7 @@ export const SimpleTrade = styled.div`
                 }
             }
 
-            &:hover {
+            &.active {
                 .coin-list-dropdown {
                     max-height: 200px;
                 }
@@ -525,6 +525,7 @@ export const SimpleTrade = styled.div`
                     color: #6C7686;
                     padding-left: 8px;
                     margin: 5px 0;
+                    outline: none;
                 }
             }
         }

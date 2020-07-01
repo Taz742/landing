@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react'
 import Layout from '../../components/layout'
-import {AboutComp, HiringComp} from '../../styled/about'
-import {PricingComp} from '../../styled/pricing'
-import { replaceEnterSymbol, stripHtml } from '../../utils';
+import { AboutComp, HiringComp } from '../../styled/about'
+import { PricingComp } from '../../styled/pricing'
+import { replaceEnterSymbol } from '../../utils'
+import Modal from '../../components/global/modal'
+import { toast, ToastContainer } from 'react-nextjs-toast'
 
 export default function Pricing(props) {
     const page = props.pages['about'];
+    const [open, setOpen] = useState(false)
 
     return (
         <Layout props={props} title="Gex About">
+            <ToastContainer />
             <PricingComp className="container-large">
                 <h1 className="dark">
                   About company
@@ -41,12 +45,21 @@ export default function Pricing(props) {
                     We’re Hiring
                   </h3>
                   <p dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.about) }}></p>
-                  <a className="hire" target="_blank" href={page.link}>
+                  <a onClick={(e) => {e.preventDefault(); setOpen(true)}} className="hire">
                     Apply
                   </a>
                 </div>
               </div>
             </HiringComp>
+            <Modal close={(data) => {
+                  if (data) {
+                    toast.notify('Your e-mail has been sent successfuly', {
+                        duration: 5,
+                        type: "success"
+                    })
+                  }
+                  setOpen(false)
+                }} open={open}/>
         </Layout>
     )
 }
