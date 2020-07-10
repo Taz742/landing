@@ -638,3 +638,16 @@ export const CareerTableContainer = styled.div`
     }
   }
 `;
+
+export const LanguageChangerWrapper = styled.div`
+  font-size: 12px;
+  line-height: 1.75;
+  letter-spacing: 0.02px;
+  color: #b3c6d8;
+  padding-top: 1px;
+  cursor: pointer;
+
+  svg {
+    margin: 0px 0 3px 6px;
+  }
+`;

@@ -6,6 +6,7 @@ import { ThemeProvider } from '@material-ui/styles';
 // @ts-ignore
 import NextNprogress from 'nextjs-progressbar';
 
+import WithLocale from '@/components/with-locale';
 import { Header, Footer } from '@/components';
 import theme from '@/material/theme';
 import { useGaTrackPage } from '@/hooks/ga-hook';
@@ -20,9 +21,9 @@ const RouterComponent: React.FC<{ children: React.ReactNode }> = ({ children, ..
 
   return (
     <div className="app-wrapper">
-      <Header {...props} />
+      {asPath !== '/' && <Header {...props} />}
       <div className="contents-wrapper">{children}</div>
-      <Footer {...props} />
+      {asPath !== '/' && <Footer {...props} />}
     </div>
   );
 };
@@ -58,4 +59,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+export default WithLocale(MyApp);
