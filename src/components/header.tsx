@@ -7,14 +7,19 @@ import Button from '@/components/library/button';
 import MobileMenu from '@/components/pc-drawer';
 import {
   StyledHeader,
+  HeaderLeft,
+  HeaderRight,
   HeaderMenu,
   HeaderMenuItem,
   HamburgerMenuButton,
-  HeaderMenuDropdown,
-  HeaderMenuDropdownItem,
-  HeaderMenuItemDiv
+  LanguageChangerWrapper,
+  HeaderSeperator
+  // HeaderMenuDropdown,
+  // HeaderMenuDropdownItem,
+  // HeaderMenuItemDiv,
 } from '@/styled';
 import config from '@/utils/config';
+import { H2 } from '@/styled/typography';
 
 export const Header = (props: any) => {
   const pages: any[] = Object.values(props.headerMenu);
@@ -24,40 +29,48 @@ export const Header = (props: any) => {
 
   return (
     <StyledHeader fix={trigger}>
-      <Link href="/">
-        <a className="logo">
-          <img src="/main_logo.svg" />
-        </a>
-      </Link>
-      <HeaderMenu>
-        {pages.map(({ children = [], title = '', slug = '' }) => {
-          if (children.length > 0) {
-            return (
-              <HeaderMenuItemDiv key={title}>
-                <span>{title}</span>
-                <HeaderMenuDropdown className="header-dropdown">
-                  {children.map((i: any) => (
-                    <Link href={`/${i.slug}`} key={i.title} passHref>
-                      <HeaderMenuDropdownItem key={i.title} active={router.pathname === `/${i.slug}`}>
-                        {i.title}
-                      </HeaderMenuDropdownItem>
-                    </Link>
-                  ))}
-                </HeaderMenuDropdown>
-              </HeaderMenuItemDiv>
-            );
-          }
+      <HeaderLeft>
+        <Link href="/">
+          <div className="logo">
+            <H2>GEX</H2>
+          </div>
+        </Link>
+        <HeaderMenu>
+          {pages.map(({ title = '', slug = '' }) => {
+            // if (children.length > 0) {
+            //   return (
+            //     <HeaderMenuItemDiv key={title}>
+            //       <span>{title}</span>
+            //       <HeaderMenuDropdown className="header-dropdown">
+            //         {children.map((i: any) => (
+            //           <Link href={`/${i.slug}`} key={i.title} passHref>
+            //             <HeaderMenuDropdownItem key={i.title} active={router.pathname === `/${i.slug}`}>
+            //               {i.title}
+            //             </HeaderMenuDropdownItem>
+            //           </Link>
+            //         ))}
+            //       </HeaderMenuDropdown>
+            //     </HeaderMenuItemDiv>
+            //   );
+            // }
 
-          return (
-            <Link href={`/${slug}`} key={title} passHref>
-              <HeaderMenuItem active={router.pathname === `/${slug}`}>{title}</HeaderMenuItem>
-            </Link>
-          );
-        })}
-        <a href={`${config.targetWebsite}/login`} target="_blank" rel="noopener" style={{ marginLeft: '24px' }}>
-          <Button text="Login" />
+            return (
+              <Link href={`/${slug}`} key={title} passHref>
+                <HeaderMenuItem active={router.pathname === `/${slug}`}>{title}</HeaderMenuItem>
+              </Link>
+            );
+          })}
+        </HeaderMenu>
+      </HeaderLeft>
+      <HeaderRight>
+        <LanguageChangerWrapper>
+          <img src="/images/eng.png" />
+        </LanguageChangerWrapper>
+        <HeaderSeperator />
+        <a href={`${config.targetWebsite}/login`} target="_blank" rel="noopener">
+          <Button text="Sign in" />
         </a>
-      </HeaderMenu>
+      </HeaderRight>
       <Hidden smUp>
         <div>
           <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>

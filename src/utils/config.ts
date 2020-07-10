@@ -4,5 +4,6 @@ export default {
   targetWebsite: process.env.targetWebsite,
   getDataUrl: process.env.getDataUrl || '',
   contactPostUrl: process.env.contactPostUrl || '',
-  exchangeApi: process.env.exchangeApi || ''
+  exchangeApi: process.env.exchangeApi || '',
+  exchangeBaseUrl: process.env.exchangeBaseUrl || ''
 };

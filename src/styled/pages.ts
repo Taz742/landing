@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import { responsive } from './responsive';
 
 export const DefaultFooter = styled.footer`
-  padding: 90px 0;
   position: relative;
   overflow: hidden;
   background: #f6f9fc;
@@ -30,24 +29,29 @@ export const DefaultFooterContainer = styled.div`
 `;
 
 export const PageHeader = styled.div`
-  padding: 165px 0 95px;
-  background: #edf8ff;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  background-image: url(/images/BG.png);
+  background-position: center;
+  background-size: cover;
+  height: 540px;
 
-  @media ${responsive.lg} {
-    padding: 130px 0 60px;
-  }
+  // padding: 165px 0 95px;
+  // background: #edf8ff;
+  // text-align: center;
+  // position: relative;
+  // overflow: hidden;
 
-  @media ${responsive.sm} {
-    padding: 80px 40px 55px;
-  }
+  // @media ${responsive.lg} {
+  //   padding: 130px 0 60px;
+  // }
 
-  h2,
-  h3 {
-    padding-bottom: 20px;
-  }
+  // @media ${responsive.sm} {
+  //   padding: 80px 40px 55px;
+  // }
+
+  // h2,
+  // h3 {
+  //   padding-bottom: 20px;
+  // }
 `;
 
 export const SearchPageHeader = styled.div`

@@ -16,8 +16,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   transition: all 0.15s ease-in-out;
 
   .logo {
-    display: flex;
-    align-items: center;
+    cursor: pointer;
   }
 
   @media ${responsive.lg} {
@@ -66,14 +65,14 @@ export const HeaderMenuItem = styled.a<{ active?: boolean }>`
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0;
-  color: ${(props) => (props.active ? '#328af7' : '#79798E')};
+  color: ${(props) => (props.active ? '#0ECBFD' : '#DBE2ED')};
   transition: 0.15s ease-in-out;
   padding: 11px 0;
   margin: 0 24px;
   position: relative;
 
   :hover {
-    color: #328af7;
+    color: #0ECBFD;
   }
 
   :after {
@@ -98,6 +97,41 @@ export const HeaderMenuItem = styled.a<{ active?: boolean }>`
         width: 30px;
       }
     `}
+`;
+
+export const HeaderTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const HeaderLeft = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const HeaderRight = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const LanguageChangerWrapper = styled.div`
+	font-size: 12px;
+	line-height: 1.75;
+	letter-spacing: 0.02px;
+	color: #b3c6d8;
+	padding-top: 1px;
+	cursor: pointer;
+	svg {
+		margin: 0px 0 3px 6px;
+	}
+`;
+
+export const HeaderSeperator = styled.div`
+	background: #829cb4;
+	opacity: 0.1;
+	width: 2px;
+	height: 21px;
+	margin: 0 18px 0 18px;
 `;
 
 export const HeaderMenuItemDiv = styled.div<{ active?: boolean }>`
@@ -187,7 +221,7 @@ export const Container = styled.div<{ maxWidth?: string }>`
   ${({ maxWidth }) =>
     maxWidth &&
     css`
-      max-width: maxWidth;
+      max-width: ${maxWidth};
     `}
 `;
 
@@ -305,12 +339,12 @@ export const HeroSection = styled.section`
 export const RegisterButton = styled.button`
   height: 65px;
   padding: 20px 70px;
-  background-color: #328af7;
+  background-color: #0ECBFD;
   color: #fff;
   position: relative;
   width: auto;
   border: 0px;
-  border-radius: 50px;
+  border-radius: 8px;
   box-shadow: none;
   outline: none;
   transition: all 0.2s ease-in-out;
@@ -340,7 +374,6 @@ export const RegisterButton = styled.button`
   }
 
   :hover {
-    background-color: #0680ea;
   }
 
   @media ${responsive.md} {
@@ -547,42 +580,42 @@ export const CoinImages = styled.div<{ height?: string }>`
   }
 `;
 
-export const CoinItem = styled.div`
-  flex: 0 0 19%;
-  max-width: 19%;
-  max-height: 100%;
-  display: inline-flex;
-  position: relative;
-  overflow: hidden;
-  padding: 10px 24px;
+// export const CoinItem = styled.div`
+//   flex: 0 0 19%;
+//   max-width: 19%;
+//   max-height: 100%;
+//   display: inline-flex;
+//   position: relative;
+//   overflow: hidden;
+//   padding: 10px 24px;
 
-  :nth-child(1) {
-    justify-content: flex-start;
-  }
+//   :nth-child(1) {
+//     justify-content: flex-start;
+//   }
 
-  :nth-child(2),
-  :nth-child(3),
-  :nth-child(4) {
-    justify-content: center;
-  }
+//   :nth-child(2),
+//   :nth-child(3),
+//   :nth-child(4) {
+//     justify-content: center;
+//   }
 
-  :nth-child(4),
-  :nth-child(5) {
-    justify-content: flex-end;
-  }
+//   :nth-child(4),
+//   :nth-child(5) {
+//     justify-content: flex-end;
+//   }
 
-  @media ${responsive.sm} {
-    flex: 0 0 100%;
-    max-width: 100%;
-    height: 80px;
-    justify-content: center !important;
-    padding: 10px 75px;
+//   @media ${responsive.sm} {
+//     flex: 0 0 100%;
+//     max-width: 100%;
+//     height: 80px;
+//     justify-content: center !important;
+//     padding: 10px 75px;
 
-    :nth-child(5) img {
-      object-fit: contain;
-    }
-  }
-`;
+//     :nth-child(5) img {
+//       object-fit: contain;
+//     }
+//   }
+// `;
 
 export const CoinImg = styled.img`
   max-width: 100%;
@@ -595,6 +628,7 @@ export const CoinImg = styled.img`
 export const StyledFooter = styled.footer`
   padding: 156px 0 80px;
   position: relative;
+  background-color: #1C2730;
 
   @media ${responsive.sm} {
     padding: 100px 0 50px;
@@ -623,6 +657,22 @@ export const FooterContainer = styled.div`
   }
 `;
 
+export const FooterAboutUs = styled.div`
+  color: #C4C9D1;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    text-indent: 10px;
+  }
+
+  h3 {
+    &:hover {
+      color: #ffffff;
+    }
+  }
+`;
+
 export const FooterMenu = styled.div<{ maxHeight?: string; width?: string }>`
   display: flex;
   flex-wrap: wrap;
@@ -636,14 +686,14 @@ export const FooterMenu = styled.div<{ maxHeight?: string; width?: string }>`
 
 export const FooterMenuItem = styled.a<{ flex?: string }>`
   display: inline-flex;
-  color: #79798e;
+  color: #C4C9D1;
   font-size: 20px;
   margin: 15px 0;
   cursor: pointer;
   flex: ${(props) => props.flex || '0 0 50%'};
 
   :hover {
-    color: #545454;
+    color: #ffffff;
   }
 `;
 
@@ -665,12 +715,16 @@ export const FooterSocial = styled.div`
 
 export const FooterSocialButtons = styled.div<{ justify?: string; margin?: string }>`
   display: flex;
-  justify-content: ${(props) => props.justify || 'flex-start'};
-  margin: ${(props) => props.margin || '30px 0 0'};
+  justify-content: ${(props) => props.justify || 'flex-end'};
+  margin-bottom: 20px;
+  align-items: flex-end;
 
   a {
     transition: 0.2s;
-    margin-left: 25px;
+
+    &:not(:first-child) {
+      margin-left: 25px;
+    }
 
     :hover {
       filter: brightness(1.02);
@@ -680,8 +734,8 @@ export const FooterSocialButtons = styled.div<{ justify?: string; margin?: strin
   @media ${responsive.lg} {
     a,
     img {
-      width: 52px;
-      height: 52px;
+      width: 32px;
+      height: 32px;
     }
   }
 
@@ -692,6 +746,13 @@ export const FooterSocialButtons = styled.div<{ justify?: string; margin?: strin
       margin: 0 13px;
     }
   }
+`;
+
+export const Copyright = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: .6;
 `;
 
 export const FooterBg1 = styled.img`
@@ -856,6 +917,288 @@ export const CoinModalContainer = styled.div`
       img {
         object-fit: contain;
       }
+    }
+  }
+`;
+
+
+export const OtcComp = styled.div`
+  margin-top: -380px;
+
+  @media screen and (max-width: 992px) {
+      margin-top: 25px;
+  }
+
+  .otc-item {
+    display: flex;
+    margin-top: 60px;
+
+    @media screen and (max-width: 992px) {
+        margin-top: 25px;
+    }
+
+    & > div {
+      border-radius: 15px;
+      /* height: 260px; */
+      margin-right: 2%;
+      background: #fff;
+      flex: 1;
+      align-content: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding: 60px 0 50px 0;
+      -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.1);
+      -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.1);
+      box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.1);
+
+      @media screen and (max-width: 992px) {
+        margin-bottom: 30px;
+      }
+
+      div {
+        width: 100px;
+        height: 70px;
+        margin: 0 auto;
+        padding-top: 25px;
+        background: url('/images/otc.svg');
+      }
+
+      span {
+        margin-top: 30px;
+        color: #6C7686;
+      }
+
+      img {
+        height: 55px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+`;
+
+export const TopCoins = styled.div`
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px 0;
+    margin-top: 70px;
+    display: flex;
+    margin-bottom: 100px;
+    box-shadow: 0px 6px 12px #EDEEF2C6;
+
+    @media screen and (max-width: 992px) {
+      padding: 20px 0;
+      margin-top: 25px;
+      margin-bottom: 50px;
+    }
+`;
+
+export const TopCoinItem = styled.div`
+  text-align: center;
+  width: 20%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  @media ${responsive.md} {
+    margin-bottom: 30px;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 150px;
+    width: 0;
+    border: 1px solid #E6E8F2;
+    top: 18px;
+  }
+`;
+
+export const TopCointLastTradePrice = styled.p`
+  color: #242A33;
+  font-size: 32px;   
+  margin: 18px 0 8px 0;
+  height: 38px;
+
+  @media ${responsive.md} {
+    font-size: 22px;
+  }
+`;
+
+export const TopCoinBaseVolume = styled.p`
+  color: #6C7686;
+  margin: 0 0 18px 0;
+  height: 19px;
+`;
+
+export const TopCoinPricePercent = styled.p`
+  color: #06B787;
+  margin: 0;
+
+  img {
+    height: 13px;
+    width: auto;
+    margin-right: 5px;
+  }
+`;
+
+
+export const WhyComp = styled.div`
+  background-color: #1C2730;
+  padding: 140px 0 40px 0px;
+  
+  @media ${responsive.sm} {
+    padding: 100px 0 40px 0px;
+  }
+  
+  h2 {
+    margin-bottom: 100px;
+
+    @media ${responsive.sm} {
+      text-align: center;
+    }
+  }
+`;
+
+export const SolutionsBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  @media ${responsive.sm} {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const SolutionItem = styled.div`
+  float: left;
+  width: 22%;
+  margin-right: 3%;
+  margin-bottom: 100px;
+
+  @media ${responsive.md} {
+    margin-bottom: 50px;
+  }
+  
+  @media ${responsive.sm} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &:nth-child(4n) {
+    margin-right: 0px;
+  }
+
+  img {
+    height: 55px;
+  }
+
+  h5 {
+    color: #FFFFFF;
+    font-weight: normal;
+    padding: 0;
+    margin: 35px 0 15px 0;
+
+    @media screen and (max-width: 992px) {
+      font-size: 20px;
+      margin: 20px 0 12px 0;
+    }
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+    color: #6C7686;
+  }
+`;
+
+
+export const CoinsComp = styled.div`
+  background-color: #fff;
+  padding: 120px 0 0px 0;
+
+  @media screen and (max-width: 992px) {
+    padding-top: 60px;
+  }
+
+  h2 {
+    color: #242A33;
+    padding: 0;
+    margin: 0 0 90px 0;
+    font-weight: normal;
+
+    @media screen and (max-width: 992px) {
+      margin: 0 0 45px 0;
+      font-size: 34px;
+      text-align: center;
+    }
+  }
+`;
+
+export const CoinsBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  @media ${responsive.sm} {
+    flex-direction: column;
+    align-items: center
+  }
+`;
+
+export const CoinItem = styled.div`
+  float: left;
+  width: 18%;
+  margin-right: 1.25%;
+  margin-bottom: 80px;
+
+  @media ${responsive.md} {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  
+  @media ${responsive.sm} {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &:nth-child(5n) {
+    margin-right: 0px;
+  }
+
+  img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin-right: 15px;
+    float: left;
+      
+    @media ${responsive.sm} {
+      margin-right: 0;
+    }
+  }
+
+  h5 {
+    color: #6C7686;
+    font-weight: normal;
+
+    @media ${responsive.sm} {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    a {
+      font-size: 16px;
+      color: #A5B1C3;
     }
   }
 `;

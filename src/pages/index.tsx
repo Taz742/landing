@@ -1,47 +1,191 @@
-import React from 'react';
-import Link from 'next/link';
-import Grid from '@material-ui/core/Grid';
+import React, { useEffect, useState } from 'react';
+// import Link from 'next/link';
+// import Grid from '@material-ui/core/Grid';
 
 import CustomHead from '@/components/custom-head';
-import Button from '@/components/library/button';
+// import Button from '@/components/library/button';
 import { Layout } from '@/components/index';
-import CoinModal from '@/components/coin-modal';
+// import CoinModal from '@/components/coin-modal';
 import {
   Container,
-  Hero,
-  InnerPage,
-  HeroH1,
-  HeroH2,
-  HeroSection,
+  OtcComp,
   RegisterButton,
-  HeroBg,
-  HeroImg,
-  Section,
-  SolutionImg,
-  Solution,
-  AdvantageSection,
-  AdvantageItem,
-  ClientsImg,
-  ClientsSection,
-  CoinsSupported,
-  CoinImg,
-  CoinImages,
-  CoinItem,
-  CoinsSection
+  TopCoins,
+  TopCoinItem,
+  TopCointLastTradePrice,
+  TopCoinBaseVolume,
+  TopCoinPricePercent,
+  WhyComp,
+  SolutionsBox,
+  SolutionItem,
+  CoinsComp,
+  CoinsBox,
+  CoinItem
+  // Hero,
+  // InnerPage,
+  // HeroH1,
+  // HeroH2,
+  // HeroSection,
+  // RegisterButton,
+  // HeroBg,
+  // HeroImg,
+  // Section,
+  // SolutionImg,
+  // Solution,
+  // AdvantageSection,
+  // AdvantageItem,
+  // ClientsImg,
+  // ClientsSection,
+  // CoinsSupported,
+  // CoinImg,
+  // CoinImages,
+  // CoinItem,
+  // CoinsSection
 } from '@/styled';
-import { H2, Text, H3, H5, Subtext } from '@/styled/typography';
+// import { H2, Text, H3, H5, Subtext } from '@/styled/typography';
+import { H1, H2, H5, Subtext } from '@/styled/typography';
+// import config from '@/utils/config';
+// import data from '@/utils/data';
+// import { getCoins, stripHtml } from '@/utils/helpers';
+import { stripHtml } from '@/utils/helpers';
+import { PageHeader } from '@/styled/pages';
 import config from '@/utils/config';
-import data from '@/utils/data';
-import { getCoins, stripHtml } from '@/utils/helpers';
 
 const IndexPage = (props: any) => {
   const { home } = props;
+  const [pairs, setPairs] = useState<any>({
+    GEL: [],
+    USD: [],
+  });
+  const [allCurencies, setAllCurencies] = useState<string[]>([]);
+  const [currency, setCurrency] = useState('');
+  const [coin, setCoin] = useState({});
+  const [trades, setTrades] = useState<any>({
+    GEL: [],
+    USD: [],
+  });
+  const [coinsList, setCoinsList] = useState<any>([]);
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      const pairsResponse: any[] = await (await fetch(`${config.exchangeApi}public/ticker`)).json();
+      const gelPairs = pairsResponse.filter((item) => item.pair.endsWith('-GEL'));
+      const usdPairs = pairsResponse.filter((item) => item.pair.endsWith('-USD'));
+      setPairs({
+        GEL: gelPairs,
+        USD: usdPairs
+      });
+
+      const offers = await (await fetch(`${config.exchangeApi}private/simpleTrade/offers`)).json();
+      const currencies = Object.keys(offers);
+      setAllCurencies(currencies);
+      setCurrency(currencies[0]);
+      const currentCurrency = currency || currencies[0];
+
+      setCoin({
+        index: 0,
+        buyPrice: offers[currentCurrency][0].buyPrice,
+        sellPrice: offers[currentCurrency][0].sellPrice,
+        baseScale: offers[currentCurrency][0].pair.baseScale,
+        coin: offers[currentCurrency][0].pair.baseCurrency
+      });
+      setTrades(offers);
+      let lists: any[] = [];
+      offers[currentCurrency].forEach((item: any, index: number) => {
+        lists.push({
+          index: index,
+          buyPrice: item.buyPrice,
+          sellPrice: item.sellPrice,
+          baseScale: item.pair.baseScale,
+          coin: item.pair.baseCurrency
+        })
+      })
+      setCoinsList(lists);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [config]);
+
+  const getImage = (baseCurrency: string) => {
+    baseCurrency = baseCurrency.substr(0, baseCurrency.indexOf('-'));
+    return `${config.exchangeBaseUrl}/icons/SVG/${baseCurrency.toLowerCase()}.svg`;
+  }
+
+  console.log(pairs, allCurencies, coin, trades, coinsList);
 
   return (
     <>
       <CustomHead title="CryptX Crypto Wallet" page="" description={stripHtml(String(home.why.why_content))} />
       <Layout>
-        <Hero>
+        <PageHeader />
+        <OtcComp>
+          <Container>
+            <Container maxWidth="75%" style={{ padding: 0 }}>
+              <H1>{home?.hero?.hero_title || 'The Most Liquid Crypto Exchange In Region'}</H1>
+              <RegisterButton>
+                <span>Register now</span>
+              </RegisterButton>
+            </Container>
+
+            {currency && (
+              <TopCoins className="flex-container">
+                {pairs[currency].map((item: any, index: number) => (
+                  <TopCoinItem key={index}>
+                    <img src={getImage(item.pair)} />
+                    <TopCointLastTradePrice>
+                      {currency === 'GEL' ? <>&#8382;</> : '$'} {item.lastTradePrice}
+                    </TopCointLastTradePrice>
+                    <TopCoinBaseVolume>
+                      {currency === 'GEL' ? <>&#8382;</> : '$'} {item.baseVolume} <span>24 H</span>
+                    </TopCoinBaseVolume>
+                    <TopCoinPricePercent>
+                      <img src="/images/Arrow.svg" />
+                      {item.priceChange}%
+                    </TopCoinPricePercent>
+                  </TopCoinItem>
+                ))}
+              </TopCoins>
+            )}
+          </Container>
+        </OtcComp>
+        <WhyComp>
+          <Container>
+            <H2>
+              Why Choose us?
+            </H2>
+            <SolutionsBox className="items flex-container">
+              {(home?.solutions?.solutions || []).map((item: any, index: number) =>
+                <SolutionItem className="item" key={index}>
+                  <img src={item.sol_file} />
+                  <H5>{item.sol_title}</H5>
+                  <Subtext align='left'>{item.sol_text}</Subtext>
+                </SolutionItem>
+              )}
+            </SolutionsBox>
+          </Container>
+        </WhyComp>
+        <CoinsComp>
+          <Container>
+            <H2>
+              Multi Currency Platform
+            </H2>
+            <CoinsBox className="items">
+              {(home?.advantages?.advantages || []).map((item: any, index: number) =>
+                <CoinItem className="item" key={index}>
+                  <img src={item.sol_file} />
+                  <H5>
+                    {item.sol_title}
+                    <br />
+                    <a href={item.sol_link}>
+                      View Rates
+                    </a>
+                  </H5>
+                </CoinItem>
+              )}
+            </CoinsBox>
+          </Container>
+        </CoinsComp>
+        {/* <Hero>
           <HeroBg src="/bg_home.svg" />
           <InnerPage>
             <Container>
@@ -166,7 +310,7 @@ const IndexPage = (props: any) => {
               <CoinModal {...props} />
             </CoinsSupported>
           </Container>
-        </CoinsSection>
+        </CoinsSection> */}
       </Layout>
     </>
   );

@@ -24,7 +24,7 @@ export const ButtonStyled = styled.button<IProps>`
 	width: ${(props) => (props.inline ? 'auto' : '100%')};
 	margin: ${(props) => props.margin || '0'};
 	border: 0px;
-	border-radius: 50px;
+	border-radius: 6px;
 	box-shadow: none;
 	outline: none;
 	transition: all 0.2s ease-in-out;
@@ -67,8 +67,8 @@ export const ButtonStyled = styled.button<IProps>`
     `}
 
     ${({ loading, buttonType }) =>
-      loading &&
-      css`
+    loading &&
+    css`
         pointer-events: none;
         color: transparent !important;
         opacity: 0.8;
@@ -158,16 +158,16 @@ export const ButtonStyled = styled.button<IProps>`
         return css`
            {
             height: 50px;
-            padding: ${(props: IProps) => (props.circle ? '10px 13px' : props.padding || '14px 50px')};
-            background-color: #328af7;
-            color: #fff;
+            padding: ${(props: IProps) => (props.circle ? '10px 13px' : props.padding || '14px 40px')};
+            background-color: #1A4D60;
+            color: #0ECBFD;
 
             path:not(.icon-background) {
               fill: #328af7;
             }
 
             :hover {
-              background-color: #0680ea;
+              opacity: 0.8;
             }
           }
         `;

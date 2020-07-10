@@ -10,10 +10,10 @@ import {
   FooterMenuItem,
   FooterSocial,
   FooterSocialButtons,
-  FooterBg1,
-  FooterBg2
+  FooterAboutUs,
+  Copyright
 } from '@/styled';
-import { Subtext } from '@/styled/typography';
+import { Subtext, H3 } from '@/styled/typography';
 import { DefaultFooter, DefaultFooterContainer } from '@/styled/pages';
 
 export const Footer = (props: any) => {
@@ -21,41 +21,50 @@ export const Footer = (props: any) => {
   const pages = Object.values(props.footerMenu);
   const path = useRouter().asPath;
 
+  console.log(props);
+
   if (['/', 'home'].includes(path)) {
     return (
       <StyledFooter>
-        <FooterBg1 src="/footer_bg_2.svg" />
-        <FooterBg2 src="/footer_bg_1.svg" />
         <Container>
           <FooterContainer>
-            <FooterMenu>
+            <FooterMenu width="55%">
               {pages.map((page: any) => (
                 <Link href={`/${page.slug}`} key={page.slug} passHref>
                   <FooterMenuItem>{page.title}</FooterMenuItem>
                 </Link>
               ))}
-              <FooterMenuItem flex="0 0 33%" href="https://api.cryptx.com" target="_blank" rel="noopener">
-                API
-              </FooterMenuItem>
             </FooterMenu>
+            <FooterAboutUs>
+              <H3>Write us</H3>
+              <FooterMenuItem>
+                <img src="/images/call.svg" />
+                <p>+995 599 123 123</p>
+              </FooterMenuItem>
+              <FooterMenuItem>
+                <img src="/images/email.svg" />
+                <p>info@gex.ge</p>
+              </FooterMenuItem>
+              <FooterMenuItem>
+                <img src="/images/map.svg" />
+                <p>12 Sulkhan Tsintsadze str.</p>
+              </FooterMenuItem>
+            </FooterAboutUs>
             <FooterSocial>
-              <Subtext align="right" size="18px" opacity="0.6">
-                Follow us on
-              </Subtext>
               <FooterSocialButtons>
                 <a href={extra.linkedin} target="_blank" rel="noopener">
-                  <img src="/linkedin.svg" />
+                  <img src="/images/linkedin.svg" />
                 </a>
                 <a href={extra.facebook} target="_blank" rel="noopener">
-                  <img src="/fb.svg" />
+                  <img src="/images/facebook.svg" />
                 </a>
               </FooterSocialButtons>
+              <Copyright>
+                <img src='/images/copyright.svg' />
+                &nbsp; Copyright 2020
+              </Copyright>
             </FooterSocial>
           </FooterContainer>
-          <Subtext align="center" size="16px" opacity="0.8">
-            <img src="/copyright.svg" style={{ position: 'relative', marginRight: '10px', top: '3px' }} />
-            <span>{extra.copy} All Rights Reserved</span>
-          </Subtext>
         </Container>
       </StyledFooter>
     );
@@ -78,10 +87,10 @@ export const Footer = (props: any) => {
           <FooterSocial>
             <FooterSocialButtons justify="flex-end" margin="0 4px 30px">
               <a href={extra.linkedin} target="_blank" rel="noopener">
-                <img src="/linkedin.svg" />
+                <img src="/images/linkedin.svg" />
               </a>
               <a href={extra.facebook} target="_blank" rel="noopener">
-                <img src="/fb.svg" />
+                <img src="/images/fb.svg" />
               </a>
             </FooterSocialButtons>
             <Subtext align="center" size="16px" opacity="0.7">

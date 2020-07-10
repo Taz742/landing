@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Ubuntu', sans-serif;
     padding: 0;
     margin:  0;
-    color: #2D2D52;
+    color: #ffffff;
     background-color: #FDFEFF;
   }
 
