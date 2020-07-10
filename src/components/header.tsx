@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Hidden, useScrollTrigger } from '@material-ui/core';
 
+import LocaleSwitcher from '@/components/locale-swither';
 import Button from '@/components/library/button';
 import MobileMenu from '@/components/pc-drawer';
 import {
@@ -12,7 +13,6 @@ import {
   HeaderMenu,
   HeaderMenuItem,
   HamburgerMenuButton,
-  LanguageChangerWrapper,
   HeaderSeperator
   // HeaderMenuDropdown,
   // HeaderMenuDropdownItem,
@@ -20,17 +20,19 @@ import {
 } from '@/styled';
 import config from '@/utils/config';
 import { H2 } from '@/styled/typography';
+import useTranslation from '@/hooks/useTranslation';
 
 export const Header = (props: any) => {
   const pages: any[] = Object.values(props.headerMenu);
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
+  const { locale } = useTranslation();
 
   return (
     <StyledHeader fix={trigger}>
       <HeaderLeft>
-        <Link href="/">
+        <Link href="/[lang]" as={`/${locale}`}>
           <div className="logo">
             <H2>GEX</H2>
           </div>
@@ -63,9 +65,7 @@ export const Header = (props: any) => {
         </HeaderMenu>
       </HeaderLeft>
       <HeaderRight>
-        <LanguageChangerWrapper>
-          <img src="/images/eng.png" />
-        </LanguageChangerWrapper>
+        <LocaleSwitcher />
         <HeaderSeperator />
         <a href={`${config.targetWebsite}/login`} target="_blank" rel="noopener">
           <Button text="Sign in" />

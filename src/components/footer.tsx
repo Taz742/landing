@@ -21,9 +21,7 @@ export const Footer = (props: any) => {
   const pages = Object.values(props.footerMenu);
   const path = useRouter().asPath;
 
-  console.log(props);
-
-  if (['/', 'home'].includes(path)) {
+  if (['/ka', '/en', 'home'].includes(path)) {
     return (
       <StyledFooter>
         <Container>
@@ -53,14 +51,14 @@ export const Footer = (props: any) => {
             <FooterSocial>
               <FooterSocialButtons>
                 <a href={extra.linkedin} target="_blank" rel="noopener">
-                  <img src="/images/linkedin.svg" />
+                  <img src="/linkedin.svg" />
                 </a>
                 <a href={extra.facebook} target="_blank" rel="noopener">
-                  <img src="/images/facebook.svg" />
+                  <img src="/fb.svg" />
                 </a>
               </FooterSocialButtons>
               <Copyright>
-                <img src='/images/copyright.svg' />
+                <img src="/copyright.svg" />
                 &nbsp; Copyright 2020
               </Copyright>
             </FooterSocial>
@@ -87,10 +85,10 @@ export const Footer = (props: any) => {
           <FooterSocial>
             <FooterSocialButtons justify="flex-end" margin="0 4px 30px">
               <a href={extra.linkedin} target="_blank" rel="noopener">
-                <img src="/images/linkedin.svg" />
+                <img src="/linkedin.svg" />
               </a>
               <a href={extra.facebook} target="_blank" rel="noopener">
-                <img src="/images/fb.svg" />
+                <img src="/fb.svg" />
               </a>
             </FooterSocialButtons>
             <Subtext align="center" size="16px" opacity="0.7">
