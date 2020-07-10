@@ -307,7 +307,7 @@ export const SolutionContent = styled.div`
 `;
 
 export const Input = styled.input`
-  height: 80px;
+  height: 96px;
   background: #fff;
   border-radius: 10px;
   border: 1px solid #fff;
@@ -347,7 +347,7 @@ export const FaqInput = styled.div`
   img {
     position: absolute;
     right: 0;
-    padding: 31px 44px;
+    padding: 39px 44px;
   }
 
   @media ${responsive.lg} {

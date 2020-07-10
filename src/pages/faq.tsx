@@ -10,7 +10,7 @@ import { SearchPageHeader, PageHeaderBg1, PageHeaderBg2, PageInner, PageSubHeade
 import { replaceEnterSymbol } from '@/utils/helpers';
 
 const Faq = (props: any) => {
-  const page = props.pages['FAQ'];
+  const page = props.pages['faq'];
   const [search, setSearch] = useState('');
   const [filteredQuestions, setFiltered] = useState(page.meta);
 
@@ -31,7 +31,7 @@ const Faq = (props: any) => {
 
   return (
     <>
-      <CustomHead title="CryptX - FAQ" page="/faq" description="CryptX - Frequently Asked Questions. How can we help?" />
+      <CustomHead title="GEX - FAQ" page="/faq" description="GEX - Frequently Asked Questions. How can we help?" />
       <Layout>
         <SearchPageHeader>
           <PageHeaderBg1 />
@@ -58,11 +58,10 @@ const Faq = (props: any) => {
             </Accordion>
             <FaqText>
               <img src="/info.svg" />
-              If you haven’t found answer to your questions here, please, feel free to contact our support team at the following e-mail
-              address:
-              <a href="mailto:support@cryptx.com?subject=F.A.Q">
+              For more information, contact our customer support at the following e-mail address:
+              <a href="mailto:support@gex.ge?subject=F.A.Q">
                 <Button inline buttonType="text">
-                  support@cryptx.com
+                  support@gex.ge
                 </Button>
               </a>
             </FaqText>
