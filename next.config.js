@@ -1,10 +1,11 @@
 module.exports = {
   env: {
     gaTrackingId: '',
-    website: 'https://cryptx.com',
-    targetWebsite: 'https://app.cryptx.com',
-    getDataUrl: 'https://content.cryptx.com/index.php/wp-json/getGeneralData/get',
-    contactPostUrl: 'https://content.cryptx.com/index.php/wp-json/sendMail/send'
+    website: 'https://gex.ge',
+    targetWebsite: 'https://gex.ge/exchange',
+    getDataUrl: 'https://content.gex.ge/index.php?rest_route=/getGeneralData/get',
+    contactPostUrl: 'https://content.cryptx.com/index.php/wp-json/sendMail/send',
+    exchangeApi: 'http://10.10.5.4:8080/exchange-connector-1.0/api/'
   },
   devIndicators: {
     autoPrerender: false
