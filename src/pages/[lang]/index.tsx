@@ -24,7 +24,7 @@ import {
   SimpleTrade,
   SimpleTradeLine
 } from '@/styled';
-import { H1, H2, H5, Subtext } from '@/styled/typography';
+import { H1, H2, H5, Subtext, H3 } from '@/styled/typography';
 import { stripHtml } from '@/utils/helpers';
 import { PageHeader } from '@/styled/pages';
 import config from '@/utils/config';
@@ -196,8 +196,8 @@ const IndexPage = (_props: any) => {
 
         <Container>
           <SimpleTrade>
-            <h3>
-              Simple Trade
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <H3>Simple Trade</H3>
               <div className="trade-right">
                 <div
                   onMouseEnter={() => setDropDown(true)}
@@ -222,7 +222,7 @@ const IndexPage = (_props: any) => {
                   <span className="right" onClick={() => changeCurrency()}></span>
                 </div>
               </div>
-            </h3>
+            </div>
 
             <div className="tabs">
               <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'active' : ''}>Buy {coin.coin}</button>
