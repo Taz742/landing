@@ -6,7 +6,6 @@ import useModal from '@/hooks/use-modal';
 import { H3, Subtext } from '@/styled/typography';
 import { CoinImg, CoinImages, CoinItem, CoinModalContainer } from '@/styled';
 import { getCoins } from '@/utils/helpers';
-import data from '@/utils/data';
 
 export const CoinModal: React.FC = (props: any) => {
   const { home } = props;
@@ -21,7 +20,6 @@ export const CoinModal: React.FC = (props: any) => {
       {isOpen && (
         <Modal isOpen={isOpen} closeModal={closeModal}>
           <H3 align="center" margin="0 0 15px" lineHeight="32px">
-            {data.homePage.coins.title}
           </H3>
           <div style={{ maxWidth: '71%', margin: '0 auto' }}>
             <Subtext size="16px" lineHeight="20px">

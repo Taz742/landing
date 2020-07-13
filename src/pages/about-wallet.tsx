@@ -20,8 +20,7 @@ import {
   CoinsSection
 } from '@/styled';
 import { H3, H5, Subtext } from '@/styled/typography';
-import { replaceEnterSymbol, getCoins, stripHtml } from '@/utils/helpers';
-import data from '@/utils/data';
+import { getCoins, stripHtml } from '@/utils/helpers';
 
 const Wallet = (props: any) => {
   const { home } = props;
@@ -38,8 +37,6 @@ const Wallet = (props: any) => {
               <HeroSection>
                 <Grid container>
                   <Grid item xs={12} sm={5}>
-                    <h1>{page.data.post_title}</h1>
-                    <h4 dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.data.post_content) }} />
                   </Grid>
                   <Grid item xs={12} sm={7}>
                     <div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end' }}>
@@ -70,7 +67,6 @@ const Wallet = (props: any) => {
           <Container>
             <CoinsSupported>
               <H3 align="center" margin="0 0 15px">
-                {data.homePage.coins.title}
               </H3>
               <div style={{ maxWidth: '71%', margin: '0 auto' }}>
                 <Subtext size="16px">{home.coins.coins_title}</Subtext>

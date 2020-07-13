@@ -46,7 +46,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   ${({ fix }) =>
     fix &&
     css`
-      background-color: #fff;
+      background-color: #1C2730;
       box-shadow: 0 6px 6px #a3a1bc29;
     `}
 `;
@@ -1198,4 +1198,309 @@ export const CoinItem = styled.div`
       color: #a5b1c3;
     }
   }
+`;
+
+export const SimpleTrade = styled.div`
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  
+  .trade-right {
+    float: right;
+    width: 318px;
+
+    .coin {
+      width: 193px;
+      height: 47px;
+      float: left;
+      margin-right: 16px;
+      border: 1px solid #CDD6E3;
+      border-radius: 8px;
+      position: relative;
+
+      .active-coin {
+        font-size: 16px;
+        color: #6C7686;
+        position: relative;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+
+        img {
+          position: absolute;
+          top: 22px;
+          right: 15px;
+          width: 11px;
+        }
+      }
+
+      .coin-list-dropdown {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        z-index: 2;
+        background: #fafafa;
+        max-height: 0px;
+        /* border-radius: 8px; */
+        overflow: hidden;
+
+        p {
+          margin: 0;
+          padding: 15px 10px;
+          font-size: 15px;
+          color: #6C7686;
+          border: 1px solid #cdd6e3;
+          /* border-radius: 8px; */
+          /* border-bottom: 1px solid #cdd6e3; */
+          cursor: pointer;
+
+          &:hover {
+            background: #e2e2e2;
+          }
+        }
+      }
+
+      &.active {
+        .coin-list-dropdown {
+          max-height: 200px;
+        }
+      }
+    }
+
+    .currency {
+      float: left;
+      width: 104px;
+      height: 50px;
+      background: #DBF7FF 0% 0% no-repeat padding-box;
+      border-radius: 8px;
+      line-height: 23px;
+      text-align: center;
+      position: relative;
+
+      .value {
+        font-size: 16px;
+        color: #0ECBFD;
+        text-transform: uppercase;
+      }
+
+      .left {
+        position: absolute;
+        top: 19px;
+        left: 20px;
+        cursor: pointer;
+        width: 0px;
+        height: 0px;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-right: 9px solid #0ECBFD;
+      }
+
+      .right {
+        position: absolute;
+        top: 19px;
+        right: 20px;
+        cursor: pointer;
+        width: 0px;
+        height: 0px;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-left: 9px solid #0ECBFD;
+      }
+    }
+  }
+
+  h3 {
+    color: #242A33;
+    font-size: 58px;
+    font-weight: normal;
+    margin: 0 0 50px 0;
+
+    @media screen and (max-width: 992px) {
+      font-size: 33px;
+      margin: 0 0 25px 0;
+    }
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 45px;
+
+    @media screen and (max-width: 992px) {
+      margin-bottom: 22px;
+      margin-top: 20px;
+    }
+
+    button {
+      flex: 1;
+      background-color: #D9DCE6;
+      height: 60px;
+      font-size: 18px;
+      color: #6C7686;
+      border: 0;
+      outline: none;
+
+      @media screen and (max-width: 992px) {
+        height: 40px;
+      }
+
+      &.active:first-child {
+        background-color: #08AA7D;
+        color: #FFFFFF;
+      } 
+
+      &.active:last-child {
+        background-color: #D85947;
+        color: #FFFFFF;
+      } 
+    }
+  }
+
+  .tabs-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .tab-coin {
+      margin-right: 1.5%;
+      flex: 1;
+      background-color: #FFFFFF;
+      box-shadow: 0px 6px 12px #EDEEF2C6;
+      border-radius: 11px;
+      padding: 30px 0;
+
+      @media ${responsive.sm} {
+        padding: 15px;
+        margin-bottom: 25px;
+        min-width: 100%;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      button {
+        background-color: #DBF7FF;
+        width: 100%;
+        border-radius: 6px;
+        border: 0;
+        outline: none;
+        color: #0ECBFD;
+        font-size: 14px;
+        height: 42px;
+        width: 80%;
+        margin-left: 10%;
+
+        @media screen and (max-width: 992px) {
+          height: 32px;
+        }
+      }
+
+      p {
+        color: #6C7686;
+        font-size: 13px;
+        text-align: center;
+        font-weight: 100;
+
+        span {
+          display: block;
+          font-weight: normal;
+        }
+      }
+
+      h4 {
+        color: #242A33;
+        font-size: 36px;
+        margin: 35px 0 45px 0;
+        text-align: center;
+
+        @media screen and (max-width: 992px) {
+          font-size: 26px;
+          margin: 25px 0 20px 0;
+        }
+      }
+
+      .inputs {
+        height: 110px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #6C7686;
+          opacity: 1; /* Firefox */
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+          color: #6C7686;
+        }
+
+        ::-ms-input-placeholder { /* Microsoft Edge */
+          color: #6C7686;
+        }
+
+        input {
+          border: 1px solid #CDD6E3;
+          border-radius: 6px;
+          height: 35px;
+          color: #6C7686;
+          padding-left: 8px;
+          outline: none;
+          margin-left: 30px;
+          margin-right: 30px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+`;
+
+
+export const SimpleTradeLine = styled.div`
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 130px;
+
+    @media screen and (max-width: 992px) {
+        margin-bottom: 60px;
+        margin-top: 30px;
+    }
+
+    .line {
+        width: calc(100% - 240px);
+        height: 9px;
+        background-color: #F2F3F6;
+
+        .active-line {
+            width: 30%;
+            height: 9px;
+            transition: all 0.1s ease;
+            border-radius: 12px;
+            background: transparent linear-gradient(90deg, #08AA7D 0%, #2765C9 100%) 0% 0% no-repeat padding-box;
+
+            &.active-line-ask {
+              background: transparent linear-gradient(90deg, #F7A13C 0%, #D85947 100%) 0% 0% no-repeat padding-box;
+            }
+        }
+    }
+
+    .line-data {
+        margin-left: auto;
+        color: #6C7686;
+        font-size: 16px;
+        text-align: right;
+        position: relative;
+        top: -15px;
+
+        span {
+            color: #0ECBFD;
+        }
+
+        img {
+            margin-right: 12px;
+            position: relative;
+            top: 5px;
+        }
+    }
 `;
