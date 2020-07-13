@@ -46,7 +46,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   ${({ fix }) =>
     fix &&
     css`
-      background-color: #fff;
+      background-color: #1C2730;
       box-shadow: 0 6px 6px #a3a1bc29;
     `}
 `;
