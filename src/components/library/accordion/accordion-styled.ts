@@ -37,6 +37,14 @@ export const AccordionTitle = styled.div<ISectionProps>`
       font-size: 24px;
     }
   }
+
+  @media ${responsive.sm} {
+    padding: 30px 4px;
+
+    h4 {
+      font-size: 20px;
+    }
+  }
 `;
 
 export const AccordionIcon = styled.div<ISectionProps>`

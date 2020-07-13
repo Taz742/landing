@@ -23,9 +23,13 @@ export const AppProvider = ({ children, data }: any) => {
     }
 
     const getData = async () => {
-      const res = await fetch(`${config.getDataUrl}?lang=${locale}`);
+      const dataUrl = locale === 'en' ? config.getDataUrl : `${config.getDataUrl}?lang=${locale}`;
+      const res = await fetch(dataUrl);
       const json = await res.json();
-      setData(json);
+      const menuUrl = locale === 'en' ? config.getMenuUrl : `${config.getMenuUrl}?lang=${locale}`;
+      const resMenu = await fetch(menuUrl);
+      const jsonMenu = await resMenu.json();
+      setData({ pages: json, menu: jsonMenu });
     };
 
     getData();

@@ -21,13 +21,15 @@ import {
 import config from '@/utils/config';
 import { H2 } from '@/styled/typography';
 import useTranslation from '@/hooks/useTranslation';
+import { DataContext } from '@/context/app-context';
 
-export const Header = (props: any) => {
-  const pages: any[] = Object.values(props.headerMenu);
+export const Header = () => {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
   const { locale } = useTranslation();
+  const { data } = React.useContext(DataContext);
+  const pages = data.menu;
 
   return (
     <StyledHeader fix={trigger}>
@@ -38,30 +40,11 @@ export const Header = (props: any) => {
           </div>
         </Link>
         <HeaderMenu>
-          {pages.map(({ title = '', slug = '' }) => {
-            // if (children.length > 0) {
-            //   return (
-            //     <HeaderMenuItemDiv key={title}>
-            //       <span>{title}</span>
-            //       <HeaderMenuDropdown className="header-dropdown">
-            //         {children.map((i: any) => (
-            //           <Link href={`/${i.slug}`} key={i.title} passHref>
-            //             <HeaderMenuDropdownItem key={i.title} active={router.pathname === `/${i.slug}`}>
-            //               {i.title}
-            //             </HeaderMenuDropdownItem>
-            //           </Link>
-            //         ))}
-            //       </HeaderMenuDropdown>
-            //     </HeaderMenuItemDiv>
-            //   );
-            // }
-
-            return (
-              <Link href={`/${slug}`} key={title} passHref>
-                <HeaderMenuItem active={router.pathname === `/${slug}`}>{title}</HeaderMenuItem>
-              </Link>
-            );
-          })}
+          {pages.map(({ title = '', slug = '' }) => (
+            <Link href={`/[lang]/${slug}`} as={`/${locale}/${slug}`} key={title} passHref>
+              <HeaderMenuItem active={router.pathname === `/${slug}`}>{title}</HeaderMenuItem>
+            </Link>
+          ))}
         </HeaderMenu>
       </HeaderLeft>
       <HeaderRight>
@@ -76,7 +59,7 @@ export const Header = (props: any) => {
           <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
             <img src="/hamburger.svg" />
           </HamburgerMenuButton>
-          <MobileMenu pages={props.pages} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={props.extra} />
+          <MobileMenu pages={pages} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={{}} />
         </div>
       </Hidden>
     </StyledHeader>

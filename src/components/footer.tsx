@@ -15,11 +15,12 @@ import {
 } from '@/styled';
 import { Subtext, H3 } from '@/styled/typography';
 import { DefaultFooter, DefaultFooterContainer } from '@/styled/pages';
+import { DataContext } from '@/context/app-context';
 
-export const Footer = (props: any) => {
-  const { extra } = props;
-  const pages = Object.values(props.footerMenu);
+export const Footer = () => {
   const path = useRouter().asPath;
+  const { data } = React.useContext(DataContext);
+  const pages = data.menu;
 
   if (['/ka', '/en', 'home'].includes(path)) {
     return (
@@ -50,10 +51,10 @@ export const Footer = (props: any) => {
             </FooterAboutUs>
             <FooterSocial>
               <FooterSocialButtons>
-                <a href={extra.linkedin} target="_blank" rel="noopener">
+                <a href="#" target="_blank" rel="noopener">
                   <img src="/linkedin.svg" />
                 </a>
-                <a href={extra.facebook} target="_blank" rel="noopener">
+                <a href="#" target="_blank" rel="noopener">
                   <img src="/fb.svg" />
                 </a>
               </FooterSocialButtons>
@@ -78,22 +79,19 @@ export const Footer = (props: any) => {
                 <FooterMenuItem flex="0 0 33%">{page.title}</FooterMenuItem>
               </Link>
             ))}
-            <FooterMenuItem flex="0 0 33%" href="https://api.cryptx.com" target="_blank" rel="noopener">
-              API
-            </FooterMenuItem>
           </FooterMenu>
           <FooterSocial>
             <FooterSocialButtons justify="flex-end" margin="0 4px 30px">
-              <a href={extra.linkedin} target="_blank" rel="noopener">
+              <a href="#" target="_blank" rel="noopener">
                 <img src="/linkedin.svg" />
               </a>
-              <a href={extra.facebook} target="_blank" rel="noopener">
+              <a href="#" target="_blank" rel="noopener">
                 <img src="/fb.svg" />
               </a>
             </FooterSocialButtons>
             <Subtext align="center" size="16px" opacity="0.7">
               <img src="/copyright.svg" style={{ position: 'relative', marginRight: '10px', top: '3px' }} />
-              <span>{extra.copy} All Rights Reserved</span>
+              <span> All Rights Reserved</span>
             </Subtext>
           </FooterSocial>
         </DefaultFooterContainer>

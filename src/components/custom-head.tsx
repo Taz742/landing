@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const CustomHead = ({ title, description, page, image }: Props) => {
-  const desc = description || 'CryptX digital cryptocurrency wallet. With set of features and high level of security';
+  const desc = description || 'The Most Liquid Crypto Exchange In Region';
   const img = image || `${config.url}/logo.jpg`;
 
   return (

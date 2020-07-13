@@ -20,8 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Ubuntu', sans-serif;
     padding: 0;
     margin:  0;
-    color: #ffffff;
-    background-color: #FDFEFF;
+    color: #242A33;
+    background-color: #fafafa;
   }
 
   .app-wrapper {
@@ -51,6 +51,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-block-end: unset;
     margin-inline-start: unset;
     margin-inline-end: unset;
+    font-weight: unset;
   }
 
   * {
