@@ -9,12 +9,15 @@ import { H3, Text } from '@/styled/typography';
 import { SearchPageHeader, PageHeaderBg1, PageHeaderBg2, PageInner, PageSubHeader, Input, FaqInput, FaqText } from '@/styled/pages';
 import { replaceEnterSymbol } from '@/utils/helpers';
 import useTranslation from '@/hooks/useTranslation';
+import { DataContext } from '@/context/app-context';
 
 const Faq = (props: any) => {
-  const page = props.pages['faq'];
   const [search, setSearch] = useState('');
-  const [filteredQuestions, setFiltered] = useState(page.meta);
   const { t } = useTranslation();
+  const { data } = React.useContext(DataContext);
+  console.log('data: ', data);
+  const page = props.pages['faq'];
+  const [filteredQuestions, setFiltered] = useState(page.meta);
 
   const handleChange = (e: any) => {
     const val = e.target.value;

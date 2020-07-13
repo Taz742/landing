@@ -12,6 +12,8 @@ import theme from '@/material/theme';
 import { useGaTrackPage } from '@/hooks/ga-hook';
 import { GlobalStyle } from '@/styled/global';
 import config from '@/utils/config';
+import { AppProvider } from '@/context/app-context';
+import { isLocale } from '@/translations/types';
 
 const RouterComponent: React.FC<{ children: React.ReactNode }> = ({ children, ...props }) => {
   const { asPath } = useRouter();
@@ -36,17 +38,20 @@ class MyApp extends App {
     }
   }
 
-  static async getInitialProps() {
-    const res = await fetch(config.getDataUrl);
-    const json = await res.json();
-    return { pageProps: json };
+  static async getInitialProps(ctx: any) {
+    if (isLocale(ctx.router.query.lang)) {
+      const res = await fetch(config.getDataUrl);
+      const json = await res.json();
+      return { pageProps: json };
+    }
+    return { pageProps: {} };
   }
 
   render() {
     const { Component, pageProps } = this.props;
 
     return (
-      <>
+      <AppProvider data={pageProps}>
         <NextNprogress color="#328af7" />
         <GlobalStyle />
         <ThemeProvider theme={theme}>
@@ -54,7 +59,7 @@ class MyApp extends App {
             <Component {...pageProps} />
           </RouterComponent>
         </ThemeProvider>
-      </>
+      </AppProvider>
     );
   }
 }
