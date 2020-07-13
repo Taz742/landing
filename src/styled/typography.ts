@@ -9,8 +9,8 @@ export const H1 = styled.h1<IH>`
   margin: 0 0 35px;
 
   @media ${responsive.lg} {
-    font-size: 46px;
-    line-height: 55px;
+    font-size: 44px;
+    line-height: 52px;
   }
 
   @media ${responsive.sm} {
@@ -149,7 +149,7 @@ export const H5 = styled.h5<IH>`
     `}
 `;
 
-export const Text = styled.p<IH>`
+export const Text = styled.div<IH>`
   font-size: ${(props) => props.size || '18px'};
   line-height: ${(props) => props.lineHeight || '33px'};
   text-align: ${(props) => props.align || 'center'};
@@ -166,7 +166,7 @@ export const Text = styled.p<IH>`
     `}
 `;
 
-export const Subtext = styled.p<IH>`
+export const Subtext = styled.div<IH>`
   font-size: ${(props) => props.size || '14px'};
   line-height: ${(props) => props.lineHeight || '23px'};
   text-align: ${(props) => props.align || 'center'};

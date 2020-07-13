@@ -55,18 +55,22 @@ export const PageHeader = styled.div`
 `;
 
 export const SearchPageHeader = styled.div`
-  padding: 180px 0 80px;
   background: #edf8ff;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-image: url('/images/BG.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  height: 424px;
 
   @media ${responsive.lg} {
-    padding: 160px 0 70px;
+    height: 350px;
   }
 
   @media ${responsive.sm} {
-    padding: 80px 40px 55px;
+    height: 270px;
   }
 
   h2,
@@ -127,11 +131,55 @@ export const PageHeaderBg2 = styled.div<{ opacity?: string; top?: string }>`
 `;
 
 export const PageInner = styled.div`
-  padding: 80px 0;
+  padding: 30px 0;
+
+  @media ${responsive.sm} {
+    padding: 40px 0;
+  }
+`;
+
+export const PageInnerTitle = styled.div<{ maxWidth?: string }>`
+  background: #fafafa;
+  margin: 0 9%;
+  border-radius: 8px 8px 0 0;
+  padding: 80px 102px 22px;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 18%);
+  text-align: left;
+
+  h1 {
+    margin: 0;
+  }
 
   @media ${responsive.lg} {
-    padding: 60px 0;
+    margin: 0 6%;
+    width: calc(100% - 12%);
+    padding: 60px 55px 22px;
   }
+
+  @media ${responsive.md} {
+    margin: 0 6%;
+    width: calc(100% - 12%);
+    padding: 60px 55px 22px;
+  }
+
+  @media ${responsive.sm} {
+    margin: 0 10%;
+    width: calc(100% - 20%);
+    padding: 20px 30px 14px;
+    text-align: center;
+
+    h1 {
+      font-size: 21px;
+    }
+  }
+
+  ${({ maxWidth }) =>
+    maxWidth &&
+    css`
+      max-width: ${maxWidth};
+    `}
 `;
 
 export const PricingContainer = styled.div`
@@ -318,6 +366,7 @@ export const Input = styled.input`
   box-shadow: none;
   position: relative;
   transition: all 0.25s ease;
+  box-shadow: 0px 6px 12px #edeef2c6;
 
   :focus {
     border-color: #aac4e4;
@@ -342,7 +391,7 @@ export const Input = styled.input`
 
 export const FaqInput = styled.div`
   position: relative;
-  margin-top: 60px;
+  margin-bottom: 45px;
 
   img {
     position: absolute;
@@ -351,16 +400,12 @@ export const FaqInput = styled.div`
   }
 
   @media ${responsive.lg} {
-    margin-top: 50px;
-
     img {
       padding: 24px 40px;
     }
   }
 
   @media ${responsive.sm} {
-    margin-top: 40px;
-
     img {
       padding: 19px 30px;
     }

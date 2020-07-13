@@ -39,10 +39,15 @@ class MyApp extends App {
   }
 
   static async getInitialProps(ctx: any) {
-    if (isLocale(ctx.router.query.lang)) {
-      const res = await fetch(config.getDataUrl);
+    const lang = ctx.router.query.lang;
+    if (isLocale(lang)) {
+      const dataUrl = lang === 'en' ? config.getDataUrl : `${config.getDataUrl}?lang=${lang}`;
+      const res = await fetch(dataUrl);
       const json = await res.json();
-      return { pageProps: json };
+      const menuUrl = lang === 'en' ? config.getMenuUrl : `${config.getMenuUrl}?lang=${lang}`;
+      const resMenu = await fetch(menuUrl);
+      const jsonMenu = await resMenu.json();
+      return { pageProps: { pages: json, menu: jsonMenu } };
     }
     return { pageProps: {} };
   }

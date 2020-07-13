@@ -5,6 +5,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 import { MobileMenuContainer, MobileMenu, MobileMenuItem, FooterSocial, FooterSocialButtons } from '@/styled';
 import { Subtext } from '@/styled/typography';
+import useTranslation from '@/hooks/useTranslation';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,10 +26,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const PcDrawer: React.FC<ResponsiveDrawerProps> = (props: ResponsiveDrawerProps) => {
   const { open, onClose, pages, router, extra } = props;
-  const p: any[] = Object.keys(pages)
-    .map((p: any) => props.pages[p])
-    .filter((i) => i.data.post_name !== 'about');
   const classes = useStyles();
+  const { locale } = useTranslation();
 
   return (
     <nav className={classes.drawer}>
@@ -42,21 +41,18 @@ export const PcDrawer: React.FC<ResponsiveDrawerProps> = (props: ResponsiveDrawe
       >
         <MobileMenuContainer>
           <MobileMenu>
-            <Link href="/">
+            <Link href="/[lang]" as={`/${locale}`}>
               <a className="logo">
                 <img src="/main_logo.svg" />
               </a>
             </Link>
-            {p.map((page: any, i: number) => (
-              <Link href={`/${page.data.post_name}`} key={`${page.data.post_name}-${i}`} passHref>
-                <MobileMenuItem active={router.pathname === `/${page.data.post_name}`} onClick={onClose}>
-                  {page.data.post_title}
+            {pages.map((page: any, i: number) => (
+              <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={i} passHref>
+                <MobileMenuItem active={router.pathname === `/${page.slug}`} onClick={onClose}>
+                  {page.title}
                 </MobileMenuItem>
               </Link>
             ))}
-            <MobileMenuItem active={false} href="https://api.cryptx.com" target="_blank" rel="noopener">
-              API
-            </MobileMenuItem>
           </MobileMenu>
           <FooterSocial>
             <FooterSocialButtons justify="flex-end" margin="0 4px 30px" className="social-buttons">

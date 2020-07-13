@@ -72,7 +72,7 @@ export const HeaderMenuItem = styled.a<{ active?: boolean }>`
   position: relative;
 
   :hover {
-    color: #0ECBFD;
+    color: #0ecbfd;
   }
 
   :after {
@@ -115,23 +115,23 @@ export const HeaderRight = styled.div`
 `;
 
 export const LanguageChangerWrapper = styled.div`
-	font-size: 12px;
-	line-height: 1.75;
-	letter-spacing: 0.02px;
-	color: #b3c6d8;
-	padding-top: 1px;
-	cursor: pointer;
-	svg {
-		margin: 0px 0 3px 6px;
-	}
+  font-size: 12px;
+  line-height: 1.75;
+  letter-spacing: 0.02px;
+  color: #b3c6d8;
+  padding-top: 1px;
+  cursor: pointer;
+  svg {
+    margin: 0px 0 3px 6px;
+  }
 `;
 
 export const HeaderSeperator = styled.div`
-	background: #829cb4;
-	opacity: 0.1;
-	width: 2px;
-	height: 21px;
-	margin: 0 18px 0 18px;
+  background: #829cb4;
+  opacity: 0.1;
+  width: 2px;
+  height: 21px;
+  margin: 0 18px 0 18px;
 `;
 
 export const HeaderMenuItemDiv = styled.div<{ active?: boolean }>`
@@ -211,11 +211,11 @@ export const Container = styled.div<{ maxWidth?: string }>`
   padding: 0 14.5%;
 
   @media ${responsive.lg} {
-    padding: 0 6%;
+    padding: 0 10%;
   }
 
   @media ${responsive.md} {
-    padding: 0 6%;
+    padding: 0 10%;
   }
 
   ${({ maxWidth }) =>
@@ -339,7 +339,7 @@ export const HeroSection = styled.section`
 export const RegisterButton = styled.button`
   height: 65px;
   padding: 20px 70px;
-  background-color: #0ECBFD;
+  background-color: #0ecbfd;
   color: #fff;
   position: relative;
   width: auto;
@@ -628,7 +628,7 @@ export const CoinImg = styled.img`
 export const StyledFooter = styled.footer`
   padding: 156px 0 80px;
   position: relative;
-  background-color: #1C2730;
+  background-color: #1c2730;
 
   @media ${responsive.sm} {
     padding: 100px 0 50px;
@@ -658,7 +658,7 @@ export const FooterContainer = styled.div`
 `;
 
 export const FooterAboutUs = styled.div`
-  color: #C4C9D1;
+  color: #c4c9d1;
   display: flex;
   flex-direction: column;
 
@@ -686,7 +686,7 @@ export const FooterMenu = styled.div<{ maxHeight?: string; width?: string }>`
 
 export const FooterMenuItem = styled.a<{ flex?: string }>`
   display: inline-flex;
-  color: #C4C9D1;
+  color: #c4c9d1;
   font-size: 20px;
   margin: 15px 0;
   cursor: pointer;
@@ -752,7 +752,7 @@ export const Copyright = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  opacity: .6;
+  opacity: 0.6;
 `;
 
 export const FooterBg1 = styled.img`
@@ -921,12 +921,11 @@ export const CoinModalContainer = styled.div`
   }
 `;
 
-
 export const OtcComp = styled.div`
   margin-top: -380px;
 
   @media screen and (max-width: 992px) {
-      margin-top: 25px;
+    margin-top: 25px;
   }
 
   .otc-item {
@@ -934,7 +933,7 @@ export const OtcComp = styled.div`
     margin-top: 60px;
 
     @media screen and (max-width: 992px) {
-        margin-top: 25px;
+      margin-top: 25px;
     }
 
     & > div {
@@ -948,9 +947,9 @@ export const OtcComp = styled.div`
       flex-direction: column;
       text-align: center;
       padding: 60px 0 50px 0;
-      -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.1);
-      -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.1);
-      box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.1);
+      -webkit-box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.1);
 
       @media screen and (max-width: 992px) {
         margin-bottom: 30px;
@@ -966,7 +965,7 @@ export const OtcComp = styled.div`
 
       span {
         margin-top: 30px;
-        color: #6C7686;
+        color: #6c7686;
       }
 
       img {
@@ -981,19 +980,19 @@ export const OtcComp = styled.div`
 `;
 
 export const TopCoins = styled.div`
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 40px 0;
-    margin-top: 70px;
-    display: flex;
-    margin-bottom: 100px;
-    box-shadow: 0px 6px 12px #EDEEF2C6;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 40px 0;
+  margin-top: 70px;
+  display: flex;
+  margin-bottom: 100px;
+  box-shadow: 0px 6px 12px #edeef2c6;
 
-    @media screen and (max-width: 992px) {
-      padding: 20px 0;
-      margin-top: 25px;
-      margin-bottom: 50px;
-    }
+  @media screen and (max-width: 992px) {
+    padding: 20px 0;
+    margin-top: 25px;
+    margin-bottom: 50px;
+  }
 `;
 
 export const TopCoinItem = styled.div`
@@ -1015,14 +1014,14 @@ export const TopCoinItem = styled.div`
     right: 0;
     height: 150px;
     width: 0;
-    border: 1px solid #E6E8F2;
+    border: 1px solid #e6e8f2;
     top: 18px;
   }
 `;
 
 export const TopCointLastTradePrice = styled.p`
-  color: #242A33;
-  font-size: 32px;   
+  color: #242a33;
+  font-size: 32px;
   margin: 18px 0 8px 0;
   height: 38px;
 
@@ -1032,13 +1031,13 @@ export const TopCointLastTradePrice = styled.p`
 `;
 
 export const TopCoinBaseVolume = styled.p`
-  color: #6C7686;
+  color: #6c7686;
   margin: 0 0 18px 0;
   height: 19px;
 `;
 
 export const TopCoinPricePercent = styled.p`
-  color: #06B787;
+  color: #06b787;
   margin: 0;
 
   img {
@@ -1048,15 +1047,14 @@ export const TopCoinPricePercent = styled.p`
   }
 `;
 
-
 export const WhyComp = styled.div`
-  background-color: #1C2730;
+  background-color: #1c2730;
   padding: 140px 0 40px 0px;
-  
+
   @media ${responsive.sm} {
     padding: 100px 0 40px 0px;
   }
-  
+
   h2 {
     margin-bottom: 100px;
 
@@ -1085,7 +1083,7 @@ export const SolutionItem = styled.div`
   @media ${responsive.md} {
     margin-bottom: 50px;
   }
-  
+
   @media ${responsive.sm} {
     display: flex;
     flex-direction: column;
@@ -1102,7 +1100,7 @@ export const SolutionItem = styled.div`
   }
 
   h5 {
-    color: #FFFFFF;
+    color: #ffffff;
     font-weight: normal;
     padding: 0;
     margin: 35px 0 15px 0;
@@ -1116,10 +1114,9 @@ export const SolutionItem = styled.div`
   p {
     padding: 0;
     margin: 0;
-    color: #6C7686;
+    color: #6c7686;
   }
 `;
-
 
 export const CoinsComp = styled.div`
   background-color: #fff;
@@ -1130,7 +1127,7 @@ export const CoinsComp = styled.div`
   }
 
   h2 {
-    color: #242A33;
+    color: #242a33;
     padding: 0;
     margin: 0 0 90px 0;
     font-weight: normal;
@@ -1149,7 +1146,7 @@ export const CoinsBox = styled.div`
 
   @media ${responsive.sm} {
     flex-direction: column;
-    align-items: center
+    align-items: center;
   }
 `;
 
@@ -1163,7 +1160,7 @@ export const CoinItem = styled.div`
     margin-right: 0;
     margin-bottom: 40px;
   }
-  
+
   @media ${responsive.sm} {
     width: 100%;
     display: flex;
@@ -1181,14 +1178,14 @@ export const CoinItem = styled.div`
     object-fit: contain;
     margin-right: 15px;
     float: left;
-      
+
     @media ${responsive.sm} {
       margin-right: 0;
     }
   }
 
   h5 {
-    color: #6C7686;
+    color: #6c7686;
     font-weight: normal;
 
     @media ${responsive.sm} {
@@ -1198,7 +1195,7 @@ export const CoinItem = styled.div`
 
     a {
       font-size: 16px;
-      color: #A5B1C3;
+      color: #a5b1c3;
     }
   }
 `;

@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
+import parse from 'html-react-parser';
 
 import CustomHead from '@/components/custom-head';
 import { Layout } from '@/components/index';
 import Button from '@/components/library/button';
 import Accordion, { AccordionSection } from '@/components/library/accordion';
 import { Container } from '@/styled';
-import { H3, Text } from '@/styled/typography';
-import { SearchPageHeader, PageHeaderBg1, PageHeaderBg2, PageInner, PageSubHeader, Input, FaqInput, FaqText } from '@/styled/pages';
+import { H1, Text } from '@/styled/typography';
+import { SearchPageHeader, PageInner, Input, FaqInput, FaqText, PageInnerTitle } from '@/styled/pages';
 import { replaceEnterSymbol } from '@/utils/helpers';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 
-const Faq = (props: any) => {
+const Faq = () => {
   const [search, setSearch] = useState('');
   const { t } = useTranslation();
   const { data } = React.useContext(DataContext);
-  console.log('data: ', data);
-  const page = props.pages['faq'];
+  const page: any = data.pages.find((p: any) => p.slug === 'soso') || { meta: [], title: {}, content: {} };
   const [filteredQuestions, setFiltered] = useState(page.meta);
+  const content = parse(page.content.rendered);
 
   const handleChange = (e: any) => {
     const val = e.target.value;
@@ -36,24 +37,23 @@ const Faq = (props: any) => {
 
   return (
     <>
-      <CustomHead title={t('faq_title')} page="/faq" description={t('faq_description')} />
+      <CustomHead title={page.title.rendered} page="/faq" description={t('faq_description')} />
       <Layout>
         <SearchPageHeader>
-          <PageHeaderBg1 />
-          <PageHeaderBg2 />
+          <PageInnerTitle>
+            <H1>{t('faq')}</H1>
+          </PageInnerTitle>
+        </SearchPageHeader>
+
+        <PageInner>
           <Container>
-            <PageSubHeader>
-              <H3>{t('faq')}</H3>
-              <Text dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.data.post_content) }} />
-            </PageSubHeader>
             <FaqInput>
               <Input name="search" placeholder={t('How can we help?')} value={search} onChange={handleChange} autoComplete="off" />
               <img src="/search.svg" />
             </FaqInput>
-          </Container>
-        </SearchPageHeader>
-        <PageInner>
-          <Container>
+
+            <Text>{content}</Text>
+
             <Accordion>
               {filteredQuestions.map((p: any) => (
                 <AccordionSection title={p.client_title} key={p.client_title}>
