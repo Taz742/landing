@@ -30,7 +30,7 @@ import { PageHeader } from '@/styled/pages';
 import config from '@/utils/config';
 import NumberFormat from 'react-number-format';
 import useBreakpoint from '@/hooks/use-breakpoints';
-
+import data from '@/utils/data';
 const loadTime = 90;
 
 function useInterval(callback: any, delay: number) {
@@ -55,8 +55,8 @@ function useInterval(callback: any, delay: number) {
 }
 
 
-const IndexPage = (props: any) => {
-  const { home } = props;
+const IndexPage = (_props: any) => {
+  const { home } = data;
   const [pairs, setPairs] = useState<any>({
     GEL: [],
     USD: []

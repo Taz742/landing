@@ -1322,7 +1322,6 @@ export const SimpleTrade = styled.div`
     @media screen and (max-width: 992px) {
       font-size: 33px;
       margin: 0 0 25px 0;
-      text-align: center;
     }
   }
 
@@ -1333,6 +1332,7 @@ export const SimpleTrade = styled.div`
 
     @media screen and (max-width: 992px) {
       margin-bottom: 22px;
+      margin-top: 20px;
     }
 
     button {
