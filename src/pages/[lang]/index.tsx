@@ -20,36 +20,40 @@ import {
   SolutionItem,
   CoinsComp,
   CoinsBox,
-  CoinItem
-  // Hero,
-  // InnerPage,
-  // HeroH1,
-  // HeroH2,
-  // HeroSection,
-  // RegisterButton,
-  // HeroBg,
-  // HeroImg,
-  // Section,
-  // SolutionImg,
-  // Solution,
-  // AdvantageSection,
-  // AdvantageItem,
-  // ClientsImg,
-  // ClientsSection,
-  // CoinsSupported,
-  // CoinImg,
-  // CoinImages,
-  // CoinItem,
-  // CoinsSection
+  CoinItem,
+  SimpleTrade,
+  SimpleTradeLine
 } from '@/styled';
-// import { H2, Text, H3, H5, Subtext } from '@/styled/typography';
 import { H1, H2, H5, Subtext } from '@/styled/typography';
-// import config from '@/utils/config';
-// import data from '@/utils/data';
-// import { getCoins, stripHtml } from '@/utils/helpers';
 import { stripHtml } from '@/utils/helpers';
 import { PageHeader } from '@/styled/pages';
 import config from '@/utils/config';
+import NumberFormat from 'react-number-format';
+import useBreakpoint from '@/hooks/use-breakpoints';
+
+const loadTime = 90;
+
+function useInterval(callback: any, delay: number) {
+  const savedCallback = React.useRef<any>();
+
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
+
 
 const IndexPage = (props: any) => {
   const { home } = props;
@@ -59,22 +63,32 @@ const IndexPage = (props: any) => {
   });
   const [allCurencies, setAllCurencies] = useState<string[]>([]);
   const [currency, setCurrency] = useState('');
-  const [coin, setCoin] = useState({});
+  const [coin, setCoin] = useState<any>({});
   const [trades, setTrades] = useState<any>({
     GEL: [],
     USD: []
   });
   const [coinsList, setCoinsList] = useState<any>([]);
+  const [activeDropDown, setDropDown] = useState(false);
+  const [sellType, setSellType] = useState<'BID' | 'ASK'>('BID');
+  const [sizeVal, setSize] = useState(0);
+  const [priceVal, setPrice] = useState(0);
+  const [time, setTime] = useState<number>(loadTime);
+  const [update, setUpdate] = useState(0);
+  const [initialized, setInitialized] = useState(false);
+  const breakpoint = useBreakpoint();
 
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      const pairsResponse: any[] = await (await fetch(`${config.exchangeApi}public/ticker`)).json();
-      const gelPairs = pairsResponse.filter((item) => item.pair.endsWith('-GEL'));
-      const usdPairs = pairsResponse.filter((item) => item.pair.endsWith('-USD'));
-      setPairs({
-        GEL: gelPairs,
-        USD: usdPairs
-      });
+  const getData = async () => {
+    const pairsResponse: any[] = await (await fetch(`${config.exchangeApi}public/ticker`)).json();
+    const gelPairs = pairsResponse.filter((item) => item.pair.endsWith('-GEL'));
+    const usdPairs = pairsResponse.filter((item) => item.pair.endsWith('-USD'));
+    setPairs({
+      GEL: gelPairs,
+      USD: usdPairs
+    });
+
+    if (!initialized) {
+      setInitialized(true);
 
       const offers = await (await fetch(`${config.exchangeApi}private/simpleTrade/offers`)).json();
       const currencies = Object.keys(offers);
@@ -101,17 +115,48 @@ const IndexPage = (props: any) => {
         });
       });
       setCoinsList(lists);
-    }, 1000);
+    }
+  }
 
-    return () => clearInterval(interval);
-  }, [config]);
+  useInterval(() => {
+    let timeVal = time;
+    timeVal = timeVal - 0.1;
+    setTime(timeVal);
+
+    console.log("called", timeVal);
+
+    if (timeVal < 0) {
+      setTime(loadTime);
+      setUpdate(update + 1);
+    }
+  }, 100);
+
+  useEffect(() => {
+    getData();
+  }, [update]);
 
   const getImage = (baseCurrency: string) => {
     baseCurrency = baseCurrency.substr(0, baseCurrency.indexOf('-'));
     return `${config.exchangeBaseUrl}/icons/SVG/${baseCurrency.toLowerCase()}.svg`;
   };
 
-  console.log(pairs, allCurencies, coin, trades, coinsList);
+  const changeCurrency = () => {
+    const index = allCurencies.indexOf(currency);
+    if (allCurencies[index + 1]) {
+      setCurrency(allCurencies[index + 1]);
+    } else {
+      setCurrency(allCurencies[0]);
+    }
+  };
+
+  const redirect = (size = 0, price = 0) => {
+    if (!size && !price) {
+      size = sizeVal;
+      price = priceVal;
+    }
+    const url = `${""}/simple-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}`
+    window.open(url, '_blank');
+  };
 
   return (
     <>
@@ -148,6 +193,124 @@ const IndexPage = (props: any) => {
             )}
           </Container>
         </OtcComp>
+
+        <Container>
+          <SimpleTrade>
+            <h3>
+              Simple Trade
+              <div className="trade-right">
+                <div
+                  onMouseEnter={() => setDropDown(true)}
+                  onMouseLeave={() => setDropDown(false)}
+                  className={activeDropDown ? 'active coin' : 'coin'}>
+                  <div className="active-coin">
+                    {coin.coin} - {currency}
+                    <img src="/images/dropdown.svg" />
+                  </div>
+                  <div className="coin-list-dropdown">
+                    {coinsList.map((item: any) =>
+                      <p key={item.index}
+                        onClick={() => { setCoin(item); setDropDown(false) }}>
+                        {item.coin}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="currency">
+                  <span className="left" onClick={() => changeCurrency()}></span>
+                  <span className="value">{currency}</span>
+                  <span className="right" onClick={() => changeCurrency()}></span>
+                </div>
+              </div>
+            </h3>
+
+            <div className="tabs">
+              <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'active' : ''}>Buy {coin.coin}</button>
+              <button onClick={() => setSellType('ASK')} className={sellType !== 'BID' ? 'active' : ''}>Sell {coin.coin}</button>
+            </div>
+
+            <div className="tabs-list flex-container">
+              {trades && currency && trades[currency].length > 0 && (
+                trades[currency][coin.index]['offerEntriesMap'][sellType].map((item: any, index: number) =>
+                  <div key={index} className="tab-coin">
+                    <p>
+                      I f you {sellType === 'BID' ? 'buy' : 'sell'} now, you will
+                      <span>receive
+                        {sellType === 'BID' ? item.size : item.price}
+                        {sellType === 'BID' ? coin.coin : currency}
+                      </span>
+                    </p>
+                    <h4>
+                      {sellType === 'BID' ? item.price : item.size}
+                      {sellType === 'BID' ? currency : coin.coin}
+                    </h4>
+                    <button onClick={() => redirect(item.size, item.price)}>
+                      {sellType === 'BID' ? 'Buy' : 'Sell'} now
+                    </button>
+                  </div>
+                )
+              )}
+              <div className="tab-coin">
+                <p>
+                  Enter amount you
+                  <span>want to {sellType === 'BID' ? 'buy' : 'sell'}</span>
+                </p>
+                <div className="inputs">
+                  <NumberFormat
+                    decimalScale={2}
+                    value={priceVal}
+                    onChange={(e: any) => {
+                      setPrice(e.target.value);
+                      let newSize = 0;
+                      if (sellType === 'BID') {
+                        newSize = Number(e.target.value / coin.buyPrice);
+                      } else {
+                        newSize = Number(e.target.value / coin.sellPrice);
+                      }
+                      setSize(newSize)
+                    }}
+                    placeholder="Enter price" />
+                  <NumberFormat
+                    decimalScale={coin.baseScale}
+                    value={sizeVal}
+                    onChange={(e: any) => {
+                      setSize(e.target.value);
+                      let newSize = 0;
+                      if (sellType === 'BID') {
+                        newSize = Number(e.target.value * coin.buyPrice);
+                      } else {
+                        newSize = Number(e.target.value * coin.sellPrice);
+                      }
+                      setPrice(newSize)
+                    }}
+                    placeholder="Enter amount" />
+                </div>
+                <button onClick={() => redirect()}>
+                  {sellType === 'BID' ? 'Buy' : 'Sell'} now
+                </button>
+              </div>
+            </div>
+          </SimpleTrade>
+          <SimpleTradeLine>
+            <div className="line">
+              <div style={{ width: `${(100 * (loadTime - time)) / loadTime}%` }} className={`active-line ${sellType === 'ASK' ? 'active-line-ask' : ''}`} />
+            </div>
+            <div className="line-data">
+              <img src="/images/access_alarm.svg" />
+              {'Price change in '}
+              {parseInt(time.toFixed(0)) > 60 ? (
+                <span>
+                  {' '}
+                  {`0${(time / 60).toFixed(0)}:${
+                    (parseInt((time - 60).toFixed(0))) <= 9 ? `0${(time - 60).toFixed(0)}` : (time - 60).toFixed(0)
+                    }`}
+                </span>
+              ) : (
+                  <span> 00:{parseInt(time.toFixed(0)) <= 9 ? `0${time.toFixed(0)}` : time.toFixed(0)}</span>
+                )}
+            </div>
+          </SimpleTradeLine>
+        </Container>
         <WhyComp>
           <Container>
             <H2>Why Choose us?</H2>
@@ -156,7 +319,7 @@ const IndexPage = (props: any) => {
                 <SolutionItem className="item" key={index}>
                   <img src={item.sol_file} />
                   <H5>{item.sol_title}</H5>
-                  <Subtext align="left">{item.sol_text}</Subtext>
+                  <Subtext align={breakpoint === 'md' || breakpoint === 'lg' ? 'left' : 'center'}>{item.sol_text}</Subtext>
                 </SolutionItem>
               ))}
             </SolutionsBox>
