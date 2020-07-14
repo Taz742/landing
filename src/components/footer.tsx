@@ -22,7 +22,7 @@ export const Footer = () => {
   const { data } = React.useContext(DataContext);
   const pages = data.menu;
 
-  if (['/ka', '/en', 'home'].includes(path)) {
+  if (['/ka', '/en', 'home'].includes(path) || true) {
     return (
       <StyledFooter>
         <Container>

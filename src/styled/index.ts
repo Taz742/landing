@@ -16,20 +16,21 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   transition: all 0.15s ease-in-out;
 
   .logo {
+    color: #F4F5FA;
     cursor: pointer;
   }
 
   @media ${responsive.lg} {
-    padding: 10px 6%;
+    padding: 10px 10%;
     height: 100px;
   }
 
   @media ${responsive.md} {
-    padding: 25px 6%;
+    padding: 25px 10%;
   }
 
   @media ${responsive.sm} {
-    padding: 14px 6%;
+    padding: 14px 10%;
     height: 66px;
 
     p {
@@ -383,8 +384,7 @@ export const RegisterButton = styled.button`
   }
 
   @media ${responsive.sm} {
-    width: 69%;
-    margin: 0 auto;
+    width: auto;
     display: block;
     height: 48px;
     padding: 10px 29px;
@@ -753,6 +753,7 @@ export const Copyright = styled.div`
   justify-content: space-between;
   align-items: center;
   opacity: 0.6;
+  color: #C4C9D1;
 `;
 
 export const FooterBg1 = styled.img`
@@ -922,10 +923,14 @@ export const CoinModalContainer = styled.div`
 `;
 
 export const OtcComp = styled.div`
-  margin-top: -380px;
+  margin-top: -440px;
 
-  @media screen and (max-width: 992px) {
-    margin-top: 25px;
+  @media ${responsive.md} {
+    margin-top: -380px;
+  }
+
+  @media ${responsive.sm} {
+    margin-top: -340px;
   }
 
   .otc-item {
@@ -1212,7 +1217,6 @@ export const CoinItem = styled.div`
 `;
 
 export const SimpleTrade = styled.div`
-  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   
@@ -1389,13 +1393,20 @@ export const SimpleTrade = styled.div`
     flex-wrap: wrap;
 
     .tab-coin {
-      margin-right: 1.5%;
-      flex: 1;
       background-color: #FFFFFF;
       box-shadow: 0px 6px 12px #EDEEF2C6;
       border-radius: 11px;
       padding: 30px 0;
       font-weight: 500;
+      width: 18.3%;
+
+      &:not(:first-child) {
+        margin-left: 2%;
+
+        @media ${responsive.sm} {
+          margin-left: 0%;
+        }
+      }
 
       @media ${responsive.sm} {
         padding: 15px;
@@ -1415,9 +1426,6 @@ export const SimpleTrade = styled.div`
         width: 80%;
         margin-left: 10%;
         cursor: pointer;
-
-        @media screen and (max-width: 992px) {
-        }
       }
 
       p {
@@ -1472,10 +1480,11 @@ export const SimpleTrade = styled.div`
           color: #6C7686;
           padding-left: 8px;
           outline: none;
-          margin-left: 30px;
-          margin-right: 30px;
           margin-top: 15px;
           text-indent: 15px;
+          font-size: 11px;
+          margin-left: 10%;
+          margin-right: 10%;
 
           &:hover {
             border: 1px solid #0ECBFD;
@@ -1498,48 +1507,129 @@ export const SimpleTradeTop = styled.div`
 
 export const SimpleTradeLine = styled.div`
     display: flex;
-    margin-top: 60px;
-    margin-bottom: 130px;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 100px;
 
     @media screen and (max-width: 992px) {
-        margin-bottom: 60px;
-        margin-top: 30px;
+      margin-bottom: 60px;
+      margin-top: 30px;
+    }
+
+    @media ${responsive.sm} {
+      flex-direction: column-reverse;
     }
 
     .line {
-        width: calc(100% - 240px);
+      width: calc(100% - 240px);
+      height: 9px;
+      background-color: #F2F3F6;
+
+      @media ${responsive.sm} {
+        width: 100%;
+      }
+
+      .active-line {
+        width: 30%;
         height: 9px;
-        background-color: #F2F3F6;
+        transition: all 0.1s ease;
+        border-radius: 12px;
+        background: transparent linear-gradient(90deg, #08AA7D 0%, #2765C9 100%) 0% 0% no-repeat padding-box;
 
-        .active-line {
-            width: 30%;
-            height: 9px;
-            transition: all 0.1s ease;
-            border-radius: 12px;
-            background: transparent linear-gradient(90deg, #08AA7D 0%, #2765C9 100%) 0% 0% no-repeat padding-box;
-
-            &.active-line-ask {
-              background: transparent linear-gradient(90deg, #F7A13C 0%, #D85947 100%) 0% 0% no-repeat padding-box;
-            }
+        &.active-line-ask {
+          background: transparent linear-gradient(90deg, #F7A13C 0%, #D85947 100%) 0% 0% no-repeat padding-box;
         }
+      }
     }
 
     .line-data {
-        margin-left: auto;
-        color: #6C7686;
-        font-size: 16px;
-        text-align: right;
+      color: #6C7686;
+      font-size: 16px;
+      margin-left: auto;
+      color: #6C7686;
+      font-size: 16px;
+      text-align: right;
+      position: relative;
+      top: -15px;
+      width: 35%;
+      
+      @media ${responsive.sm} {
+        margin-left: 0;
+        text-align: left;
+      }
+
+      span {
+        color: #0ECBFD;
+      }
+
+      img {
+        margin-right: 12px;
         position: relative;
-        top: -15px;
-
-        span {
-            color: #0ECBFD;
-        }
-
-        img {
-            margin-right: 12px;
-            position: relative;
-            top: 5px;
-        }
+        top: 5px;
+      }
     }
+`;
+
+export const WeAreHiringBox = styled.div`
+  background-image: url('/hiring.png');
+  background-repeat: no-repeat;
+  min-height: 557px;
+  background-color: #1C2730;
+  padding: 0px 40px;
+  margin-bottom: 60px;
+
+  @media ${responsive.sm} {
+    padding: 0px 20px;
+    background-image: none;
+
+    .hiring-container {
+      padding: 0;
+    }
+  }
+`;
+
+export const WeAreHiring = styled.div`
+  width: 600px;
+  min-height: 557px;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  @media ${responsive.sm} {
+    width: 100%;
+    align-items: center;
+  }
+
+  h2 {
+    color: #FFFFFF;
+  }
+
+  span {
+    color: #707B8D;
+    line-height: 200%;
+  }
+
+  button {
+    height: 65px;
+    padding: 20px 70px;
+    background-color: rgba(14, 203, 253, 0.15);
+    color: #0ECBFD;
+    position: relative;
+    width: auto;
+    max-width: 200px;
+    border: 0px;
+    border-radius: 8px;
+    box-shadow: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 400;
+  }
 `;

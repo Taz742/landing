@@ -32,26 +32,24 @@ export const PageHeader = styled.div`
   background-image: url(/images/BG.png);
   background-position: center;
   background-size: cover;
-  height: 540px;
+  height: 667px;
 
-  // padding: 165px 0 95px;
-  // background: #edf8ff;
-  // text-align: center;
-  // position: relative;
-  // overflow: hidden;
+  @media ${responsive.lg} {
+    /* padding: 130px 0 60px; */
+  }
 
-  // @media ${responsive.lg} {
-  //   padding: 130px 0 60px;
-  // }
+  @media ${responsive.md} {
+    height: 540px;
+  }
+  
+  @media ${responsive.sm} {
+    height: 440px;
+  }
 
-  // @media ${responsive.sm} {
-  //   padding: 80px 40px 55px;
-  // }
-
-  // h2,
-  // h3 {
-  //   padding-bottom: 20px;
-  // }
+  h2,
+  h3 {
+    padding-bottom: 20px;
+  }
 `;
 
 export const SearchPageHeader = styled.div`
@@ -297,12 +295,8 @@ export const ContactSuccess = styled.div`
 `;
 
 export const PageSubHeader = styled.div`
-  max-width: 73%;
-  margin: 0 auto;
-
-  @media ${responsive.sm} {
-    max-width: 100%;
-  }
+  max-width: 100%;
+  margin-top: 60px;
 `;
 
 export const SolutionItem = styled.div`
@@ -428,7 +422,11 @@ export const FaqText = styled.div`
 
 export const TeamContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  
+  @media ${responsive.sm} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const TeamItem = styled.div`
@@ -467,7 +465,6 @@ export const TeamItem = styled.div`
     img {
       width: 47px;
       height: 47px;
-      border-radius: 10rem;
     }
   }
 

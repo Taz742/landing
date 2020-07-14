@@ -32,6 +32,8 @@ import config from '@/utils/config';
 import NumberFormat from 'react-number-format';
 import useBreakpoint from '@/hooks/use-breakpoints';
 import data from '@/utils/data';
+import useTranslation from '@/hooks/useTranslation';
+
 const loadTime = 90;
 
 function useInterval(callback: any, delay: number) {
@@ -78,6 +80,7 @@ const IndexPage = (_props: any) => {
   const [update, setUpdate] = useState(0);
   const [initialized, setInitialized] = useState(false);
   const breakpoint = useBreakpoint();
+  const { t } = useTranslation();
 
   const getData = async () => {
     const pairsResponse: any[] = await (await fetch(`${config.exchangeApi}public/ticker`)).json();
@@ -124,8 +127,6 @@ const IndexPage = (_props: any) => {
     timeVal = timeVal - 0.1;
     setTime(timeVal);
 
-    console.log("called", timeVal);
-
     if (timeVal < 0) {
       setTime(loadTime);
       setUpdate(update + 1);
@@ -166,10 +167,10 @@ const IndexPage = (_props: any) => {
         <PageHeader />
         <OtcComp>
           <Container>
-            <Container maxWidth="75%" style={{ padding: 0 }}>
-              <H1>{home?.hero?.hero_title || 'The Most Liquid Crypto Exchange In Region'}</H1>
+            <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? "100%" : "75%"} style={{ padding: 0 }}>
+              <H1 style={{ color: '#FFFFFF' }}>{home?.hero?.hero_title || 'The Most Liquid Crypto Exchange In Region'}</H1>
               <RegisterButton>
-                <span>Register now</span>
+                <span>{t('register')}</span>
               </RegisterButton>
             </Container>
 
@@ -198,7 +199,7 @@ const IndexPage = (_props: any) => {
         <Container>
           <SimpleTrade>
             <SimpleTradeTop style={{ display: "flex", justifyContent: "space-between", marginBottom: 25 }}>
-              <H3>Simple Trade</H3>
+              <H3>{t('simple_trade')}</H3>
               <div className="trade-right">
                 <div
                   onMouseEnter={() => setDropDown(true)}
@@ -214,7 +215,6 @@ const IndexPage = (_props: any) => {
                       <p
                         key={index}
                         onClick={() => { setCoin(item); setDropDown(false) }}
-                      // style={index === coinsList.length - 1 ? { borderBottomLeftRadius: 8, borderBottomRightRadius: 8 } : {}}
                       >
                         {item.coin}
                       </p>
@@ -230,8 +230,8 @@ const IndexPage = (_props: any) => {
             </SimpleTradeTop>
 
             <div className="tabs">
-              <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'active' : ''}>Buy {coin.coin}</button>
-              <button onClick={() => setSellType('ASK')} className={sellType !== 'BID' ? 'active' : ''}>Sell {coin.coin}</button>
+              <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'active' : ''}>{t('buy')} {coin.coin}</button>
+              <button onClick={() => setSellType('ASK')} className={sellType !== 'BID' ? 'active' : ''}>{t('sell')} {coin.coin}</button>
             </div>
 
             <div className="tabs-list">
@@ -239,8 +239,9 @@ const IndexPage = (_props: any) => {
                 trades[currency][coin.index]['offerEntriesMap'][sellType].map((item: any, index: number) =>
                   <div key={index} className="tab-coin">
                     <p>
-                      I f you {sellType === 'BID' ? 'buy' : 'sell'} now, you will
-                      <span>receive
+                      {sellType === 'BID' ? t('if_you_buy_now') : t('if_you_sell_now')}
+                      <span>
+                        {t('receive')}
                         {sellType === 'BID' ? item.size : item.price}
                         {sellType === 'BID' ? coin.coin : currency}
                       </span>
@@ -250,15 +251,15 @@ const IndexPage = (_props: any) => {
                       <span style={{ fontSize: 22, marginLeft: 10 }}>{sellType === 'BID' ? currency : coin.coin}</span>
                     </h4>
                     <button onClick={() => redirect(item.size, item.price)}>
-                      {sellType === 'BID' ? 'Buy' : 'Sell'} now
+                      {sellType === 'BID' ? t('buy_now') : t('sell_now')}
                     </button>
                   </div>
                 )
               )}
               <div className="tab-coin">
                 <p>
-                  Enter amount you
-                  <span>want to {sellType === 'BID' ? 'buy' : 'sell'}</span>
+                  {t('enter_amount_you')}
+                  <span>{sellType === 'BID' ? t('want_to_buy') : t('want_to_sell')}</span>
                 </p>
                 <div className="inputs">
                   <NumberFormat
@@ -274,7 +275,7 @@ const IndexPage = (_props: any) => {
                       }
                       setSize(newSize)
                     }}
-                    placeholder="Enter price"
+                    placeholder={t('enter_price')}
                   />
                   <NumberFormat
                     decimalScale={coin.baseScale}
@@ -289,11 +290,11 @@ const IndexPage = (_props: any) => {
                       }
                       setPrice(newSize)
                     }}
-                    placeholder="Enter amount"
+                    placeholder={t('enter_amount')}
                   />
                 </div>
                 <button onClick={() => redirect(null, null)} style={{ marginTop: 10 }}>
-                  {sellType === 'BID' ? 'Buy' : 'Sell'} now
+                  {sellType === 'BID' ? t('buy_now') : t('sell_now')}
                 </button>
               </div>
             </div>
@@ -304,7 +305,7 @@ const IndexPage = (_props: any) => {
             </div>
             <div className="line-data">
               <img src="/images/access_alarm.svg" />
-              {'Price change in '}
+              {t('price_change_in')}
               {parseInt(time.toFixed(0)) > 60 ? (
                 <span>
                   {' '}
@@ -320,7 +321,7 @@ const IndexPage = (_props: any) => {
         </Container>
         <WhyComp>
           <Container>
-            <H2>Why Choose us?</H2>
+            <H2 style={{ color: "#FFFFFF" }}>{t('why_choose_us')}</H2>
             <SolutionsBox className="items flex-container">
               {(home?.solutions?.solutions || []).map((item: any, index: number) => (
                 <SolutionItem className="item" key={index}>
@@ -334,7 +335,7 @@ const IndexPage = (_props: any) => {
         </WhyComp>
         <CoinsComp>
           <Container>
-            <H2>Multi Currency Platform</H2>
+            <H2>{t('multi_currency_platform')}</H2>
             <CoinsBox className="items">
               {(home?.advantages?.advantages || []).map((item: any, index: number) => (
                 <CoinItem className="item" key={index}>
@@ -342,139 +343,13 @@ const IndexPage = (_props: any) => {
                   <H5>
                     {item.sol_title}
                     <br />
-                    <a href={item.sol_link}>View Rates</a>
+                    <a href={item.sol_link}>{t('view_rates')}</a>
                   </H5>
                 </CoinItem>
               ))}
             </CoinsBox>
           </Container>
         </CoinsComp>
-        {/* <Hero>
-          <HeroBg src="/bg_home.svg" />
-          <InnerPage>
-            <Container>
-              <HeroSection>
-                <Grid container>
-                  <Grid item xs={12} sm={4}>
-                    <HeroH1>{home.hero.hero_title}</HeroH1>
-                    <HeroH2>{home.hero.hero_sub_title}</HeroH2>
-                    <a href={`${config.targetWebsite}/register`} target="_blank" rel="noopener">
-                      <RegisterButton>
-                        <span>
-                          Register now
-                          <img src="/arrow_right.svg"></img>
-                        </span>
-                      </RegisterButton>
-                    </a>
-                  </Grid>
-                  <Grid item xs={12} sm={8}>
-                    <div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end' }}>
-                      <HeroImg src="/hero_main_image_hd.png"></HeroImg>
-                    </div>
-                  </Grid>
-                </Grid>
-              </HeroSection>
-            </Container>
-          </InnerPage>
-        </Hero>
-
-        <Section>
-          <Container>
-            <div style={{ maxWidth: '88%', margin: '0 auto' }}>
-              <H2 align="center" margin="0 0 40px">
-                {home.why.why_title}
-              </H2>
-              <Text>
-                {String(home.why.why_content)
-                  .replace(/\u00a0/g, ' ')
-                  .replace(/<[^>]+>/g, '')}
-              </Text>
-            </div>
-          </Container>
-        </Section>
-
-        <Section>
-          <Container>
-            <H3 align="center" margin="0 0 70px">
-              {home.solutions.title}
-            </H3>
-            <Grid container spacing={4}>
-              {home.solutions.solutions.map((solution: any) => (
-                <Grid item xs={6} sm={6} md={3} key={solution.sol_title}>
-                  <Link href={{ pathname: '/solutions', query: { el: solution.sol_title } }} passHref>
-                    <Solution>
-                      <SolutionImg src={solution.sol_file} />
-                      <H5>{solution.sol_title}</H5>
-                      <Subtext align="left">{solution.sol_text}</Subtext>
-                    </Solution>
-                  </Link>
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
-        </Section>
-
-        <AdvantageSection>
-          <Container>
-            <div style={{ maxWidth: '56%', margin: '0 auto' }}>
-              <H2 align="center" margin="0 0 20px">
-                {data.homePage.advantages.adv_title}
-              </H2>
-              <Text>{home.advantages.adv_title}</Text>
-            </div>
-            <Grid container>
-              {home.advantages.advantages.map((advantage: any) => (
-                <Grid item xs={12} sm={4} key={advantage.sol_title}>
-                  <AdvantageItem>
-                    <SolutionImg src={advantage.sol_file || ''} />
-                    <H5>{advantage.sol_title}</H5>
-                    <Subtext>{advantage.sol_text}</Subtext>
-                  </AdvantageItem>
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
-        </AdvantageSection>
-
-        <CoinsSection>
-          <Container>
-            <Grid container>
-              <Grid item xs={12} sm={6}>
-                <ClientsSection>
-                  <H2 margin="0 0 40px">{home.clients.clients_title}</H2>
-                  <Subtext size="16px" lineHeight="33px" align="left">
-                    {home.clients.clients_sub_title}
-                  </Subtext>
-                  <Link href="/clients">
-                    <a>
-                      <Button buttonType="normal" margin="40px 0 0" inline>
-                        Read more
-                      </Button>
-                    </a>
-                  </Link>
-                </ClientsSection>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <ClientsImg src={home.clients.clients_img} />
-              </Grid>
-            </Grid>
-
-            <CoinsSupported>
-              <H3 align="center" margin="0 0 15px">
-                {data.homePage.coins.title}
-              </H3>
-              <Subtext size="16px">{home.coins.coins_title}</Subtext>
-              <CoinImages>
-                {getCoins(home.coins.coins, 5).map((coin: any, i: number) => (
-                  <CoinItem key={i}>
-                    <CoinImg src={coin} />
-                  </CoinItem>
-                ))}
-              </CoinImages>
-              <CoinModal {...props} />
-            </CoinsSupported>
-          </Container>
-        </CoinsSection> */}
       </Layout>
     </>
   );
