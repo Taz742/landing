@@ -1021,18 +1021,24 @@ export const TopCoinItem = styled.div`
   align-items: center;
   position: relative;
 
+  img {
+    width: 60px;
+  }
+
   @media ${responsive.md} {
     margin-bottom: 30px;
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    right: 0;
-    height: 150px;
-    width: 0;
-    border: 1px solid #e6e8f2;
-    top: 18px;
+  &:not(:last-child) {
+    &:before {
+      content: '';
+      position: absolute;
+      right: 0;
+      height: 150px;
+      width: 0;
+      border: 1px solid #e6e8f2;
+      top: 18px;
+    }
   }
 `;
 
@@ -1041,6 +1047,7 @@ export const TopCointLastTradePrice = styled.p`
   font-size: 32px;
   margin: 18px 0 8px 0;
   height: 38px;
+  font-weight: 500;
 
   @media ${responsive.md} {
     font-size: 22px;
@@ -1051,6 +1058,10 @@ export const TopCoinBaseVolume = styled.p`
   color: #6c7686;
   margin: 0 0 18px 0;
   height: 19px;
+
+  span {
+    color: black;
+  }
 `;
 
 export const TopCoinPricePercent = styled.p`
@@ -1223,8 +1234,8 @@ export const SimpleTrade = styled.div`
   flex-direction: column;
 
   .trade-right {
-    float: right;
-    width: 318px;
+    width: auto;
+    display: flex;
 
     .coin {
       width: 193px;
@@ -1232,35 +1243,46 @@ export const SimpleTrade = styled.div`
       float: left;
       margin-right: 16px;
       border: 1px solid #cdd6e3;
-      border-radius: 8px;
       position: relative;
+      border-radius: 8px;
+
+      @media ${responsive.sm} {
+        width: 60%;
+      }
+
+      &:hover {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
 
       .active-coin {
         font-size: 16px;
         color: #6c7686;
         position: relative;
         height: 50px;
-        text-align: center;
-        line-height: 50px;
         cursor: pointer;
+        padding: 13px 26px;
+        font-weight: 500;
 
         img {
           position: absolute;
-          top: 22px;
+          top: 21px;
           right: 15px;
-          width: 11px;
+          width: 9px;
         }
       }
 
       .coin-list-dropdown {
         position: absolute;
         top: 100%;
-        width: 100%;
+        width: calc(100% + 2px);
+        margin-left: -1px;
         z-index: 2;
         background: #fafafa;
         max-height: 0px;
-        /* border-radius: 8px; */
         overflow: hidden;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
 
         p {
           margin: 0;
@@ -1271,6 +1293,7 @@ export const SimpleTrade = styled.div`
           /* border-radius: 8px; */
           /* border-bottom: 1px solid #cdd6e3; */
           cursor: pointer;
+          font-weight: 500;
 
           &:hover {
             background: #e2e2e2;
@@ -1286,43 +1309,45 @@ export const SimpleTrade = styled.div`
     }
 
     .currency {
-      float: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
       width: 104px;
       height: 50px;
       background: #dbf7ff 0% 0% no-repeat padding-box;
       border-radius: 8px;
-      line-height: 23px;
       text-align: center;
-      position: relative;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      @media ${responsive.sm} {
+        width: 35%;
+        margin-left: 5%;
+      }
 
       .value {
         font-size: 16px;
         color: #0ecbfd;
         text-transform: uppercase;
+        font-weight: 500;
       }
 
       .left {
-        position: absolute;
-        top: 19px;
-        left: 20px;
         cursor: pointer;
         width: 0px;
         height: 0px;
-        border-top: 7px solid transparent;
-        border-bottom: 7px solid transparent;
-        border-right: 9px solid #0ecbfd;
+        border-top: 4.5px solid transparent;
+        border-bottom: 4.5px solid transparent;
+        border-right: 6.5px solid #0ecbfd;
       }
 
       .right {
-        position: absolute;
-        top: 19px;
-        right: 20px;
         cursor: pointer;
         width: 0px;
         height: 0px;
-        border-top: 7px solid transparent;
-        border-bottom: 7px solid transparent;
-        border-left: 9px solid #0ecbfd;
+        border-top: 4.5px solid transparent;
+        border-bottom: 4.5px solid transparent;
+        border-left: 6.5px solid #0ecbfd;
       }
     }
   }
@@ -1357,9 +1382,11 @@ export const SimpleTrade = styled.div`
       color: #6c7686;
       border: 0;
       outline: none;
+      cursor: pointer;
+      font-weight: 500;
 
       @media screen and (max-width: 992px) {
-        height: 40px;
+        height: 50px;
       }
 
       &.active:first-child {
@@ -1385,15 +1412,12 @@ export const SimpleTrade = styled.div`
       box-shadow: 0px 6px 12px #edeef2c6;
       border-radius: 11px;
       padding: 30px 0;
+      font-weight: 500;
 
       @media ${responsive.sm} {
         padding: 15px;
         margin-bottom: 25px;
         min-width: 100%;
-      }
-
-      &:last-child {
-        margin-right: 0;
       }
 
       button {
@@ -1407,9 +1431,9 @@ export const SimpleTrade = styled.div`
         height: 42px;
         width: 80%;
         margin-left: 10%;
+        cursor: pointer;
 
         @media screen and (max-width: 992px) {
-          height: 32px;
         }
       }
 
@@ -1417,11 +1441,13 @@ export const SimpleTrade = styled.div`
         color: #6c7686;
         font-size: 13px;
         text-align: center;
-        font-weight: 100;
 
         span {
           display: block;
-          font-weight: normal;
+          color: #333;
+          font-weight: 500;
+          font-size: 14px;
+          margin-top: 5px;
         }
       }
 
@@ -1462,17 +1488,30 @@ export const SimpleTrade = styled.div`
         input {
           border: 1px solid #cdd6e3;
           border-radius: 6px;
-          height: 35px;
+          height: 40px;
           color: #6c7686;
           padding-left: 8px;
           outline: none;
           margin-left: 30px;
           margin-right: 30px;
-          margin-top: 10px;
-          margin-bottom: 10px;
+          margin-top: 15px;
+          text-indent: 15px;
+
+          &:hover {
+            border: 1px solid #0ecbfd;
+          }
         }
       }
     }
+  }
+`;
+
+export const SimpleTradeTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media ${responsive.sm} {
+    flex-direction: column;
   }
 `;
 

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
-const getDeviceConfig = (width: number) => {
+type BreakPointTypes = 'xs' | 'sm' | 'md' | 'lg';
+
+const getDeviceConfig = (width: number): BreakPointTypes => {
   if (width < 320) {
     return 'xs';
   } else if (width >= 320 && width < 720) {
@@ -13,7 +15,7 @@ const getDeviceConfig = (width: number) => {
 };
 
 const useBreakpoint = () => {
-  const [brkPnt, setBrkPnt] = useState<'xs' | 'sm' | 'md' | 'lg'>('lg');
+  const [brkPnt, setBrkPnt] = useState<BreakPointTypes>('lg');
 
   useEffect(() => {
     const calcInnerWidth = () => setBrkPnt(getDeviceConfig(window.innerWidth));
@@ -24,4 +26,5 @@ const useBreakpoint = () => {
 
   return brkPnt;
 }
+
 export default useBreakpoint;
