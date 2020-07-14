@@ -54,7 +54,7 @@ export const PageHeader = styled.div`
   // }
 `;
 
-export const SearchPageHeader = styled.div`
+export const SearchPageHeader = styled.div<{ height?: string }>`
   background: #edf8ff;
   text-align: center;
   position: relative;
@@ -63,7 +63,7 @@ export const SearchPageHeader = styled.div`
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  height: 424px;
+  height: ${({ height }) => height || '424px'};
 
   @media ${responsive.lg} {
     height: 350px;
@@ -297,11 +297,25 @@ export const ContactSuccess = styled.div`
 `;
 
 export const PageSubHeader = styled.div`
-  max-width: 73%;
-  margin: 0 auto;
+  padding: 175px 0 70px;
+  text-align: left;
 
-  @media ${responsive.sm} {
-    max-width: 100%;
+  p {
+    font-size: 20px;
+    line-height: 34px;
+    color: #ffffff;
+    opacity: 0.6;
+    font-weight: 100;
+    max-width: 65%;
+
+    @media ${responsive.sm} {
+      font-size: 18px;
+    }
+  }
+
+  h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
   }
 `;
 
@@ -694,5 +708,52 @@ export const LanguageChangerWrapper = styled.div`
 
   svg {
     margin: 0px 0 3px 6px;
+  }
+`;
+
+export const OtcContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  bottom: 160px;
+`;
+
+export const OtcItem = styled.div`
+  flex: 0 1 23.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 40px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 1px -1px 17px #a3a1bc29;
+
+  .logo {
+    margin-bottom: 34px;
+  }
+
+  h4 {
+    color: #6c7686;
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+  @media ${responsive.lg} {
+    padding: 40px 30px;
+
+    h4 {
+      font-size: 22px;
+    }
+  }
+
+  @media ${responsive.sm} {
+    padding: 24px 14px;
+    flex: 0 1 50%;
+
+    h4 {
+      font-size: 20px;
+    }
   }
 `;
