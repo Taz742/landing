@@ -1,3 +1,5 @@
+import parse from 'html-react-parser';
+
 export const splitText = (text = '') => text.split(/&nbsp;/);
 
 export const replaceEnterSymbol = (text = '') => text.replace(/(\r\n|\n|\r)/gm, '<br />').replace(/&nbsp;/, '');
@@ -12,3 +14,5 @@ export const stripHtml = (text = '') =>
     .replace(/&nbsp;/, '')
     .replace(/<[^>]+>/g, '')
     .replace(/(\r\n|\n|\r)/gm, ' ');
+
+export const parseHTML = (html: string) => parse(html);

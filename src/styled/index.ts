@@ -46,7 +46,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   ${({ fix }) =>
     fix &&
     css`
-      background-color: #1C2730;
+      background-color: #1c2730;
       box-shadow: 0 6px 6px #a3a1bc29;
     `}
 `;
@@ -644,7 +644,7 @@ export const FooterContainer = styled.div`
   padding: 0 0 70px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
 
   @media ${responsive.sm} {
     align-items: center;
@@ -661,15 +661,27 @@ export const FooterAboutUs = styled.div`
   color: #c4c9d1;
   display: flex;
   flex-direction: column;
+  color: #c4c9d1;
+
+  a {
+    cursor: default;
+
+    :hover {
+      color: unset;
+    }
+
+    img {
+      margin-right: 12px;
+    }
+  }
 
   p {
     text-indent: 10px;
   }
 
   h3 {
-    &:hover {
-      color: #ffffff;
-    }
+    margin-bottom: 10px;
+    font-size: 26px;
   }
 `;
 
@@ -695,12 +707,17 @@ export const FooterMenuItem = styled.a<{ flex?: string }>`
   :hover {
     color: #ffffff;
   }
+
+  @media ${responsive.lg} {
+    font-size: 18px;
+  }
 `;
 
 export const FooterSocial = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px 0;
+  align-self: flex-end;
 
   p {
     padding: 0 10px;
@@ -716,18 +733,18 @@ export const FooterSocial = styled.div`
 export const FooterSocialButtons = styled.div<{ justify?: string; margin?: string }>`
   display: flex;
   justify-content: ${(props) => props.justify || 'flex-end'};
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   align-items: flex-end;
 
   a {
     transition: 0.2s;
 
     &:not(:first-child) {
-      margin-left: 25px;
+      margin-left: 14px;
     }
 
     :hover {
-      filter: brightness(1.02);
+      filter: brightness(0.8);
     }
   }
 
@@ -752,7 +769,7 @@ export const Copyright = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  opacity: 0.6;
+  color: #79798e;
 `;
 
 export const FooterBg1 = styled.img`
@@ -1204,7 +1221,7 @@ export const SimpleTrade = styled.div`
   margin-bottom: 100px;
   display: flex;
   flex-direction: column;
-  
+
   .trade-right {
     float: right;
     width: 318px;
@@ -1214,13 +1231,13 @@ export const SimpleTrade = styled.div`
       height: 47px;
       float: left;
       margin-right: 16px;
-      border: 1px solid #CDD6E3;
+      border: 1px solid #cdd6e3;
       border-radius: 8px;
       position: relative;
 
       .active-coin {
         font-size: 16px;
-        color: #6C7686;
+        color: #6c7686;
         position: relative;
         height: 50px;
         text-align: center;
@@ -1249,7 +1266,7 @@ export const SimpleTrade = styled.div`
           margin: 0;
           padding: 15px 10px;
           font-size: 15px;
-          color: #6C7686;
+          color: #6c7686;
           border: 1px solid #cdd6e3;
           /* border-radius: 8px; */
           /* border-bottom: 1px solid #cdd6e3; */
@@ -1272,7 +1289,7 @@ export const SimpleTrade = styled.div`
       float: left;
       width: 104px;
       height: 50px;
-      background: #DBF7FF 0% 0% no-repeat padding-box;
+      background: #dbf7ff 0% 0% no-repeat padding-box;
       border-radius: 8px;
       line-height: 23px;
       text-align: center;
@@ -1280,7 +1297,7 @@ export const SimpleTrade = styled.div`
 
       .value {
         font-size: 16px;
-        color: #0ECBFD;
+        color: #0ecbfd;
         text-transform: uppercase;
       }
 
@@ -1293,7 +1310,7 @@ export const SimpleTrade = styled.div`
         height: 0px;
         border-top: 7px solid transparent;
         border-bottom: 7px solid transparent;
-        border-right: 9px solid #0ECBFD;
+        border-right: 9px solid #0ecbfd;
       }
 
       .right {
@@ -1305,13 +1322,13 @@ export const SimpleTrade = styled.div`
         height: 0px;
         border-top: 7px solid transparent;
         border-bottom: 7px solid transparent;
-        border-left: 9px solid #0ECBFD;
+        border-left: 9px solid #0ecbfd;
       }
     }
   }
 
   h3 {
-    color: #242A33;
+    color: #242a33;
     font-size: 58px;
     font-weight: normal;
     margin: 0 0 50px 0;
@@ -1334,10 +1351,10 @@ export const SimpleTrade = styled.div`
 
     button {
       flex: 1;
-      background-color: #D9DCE6;
+      background-color: #d9dce6;
       height: 60px;
       font-size: 18px;
-      color: #6C7686;
+      color: #6c7686;
       border: 0;
       outline: none;
 
@@ -1346,14 +1363,14 @@ export const SimpleTrade = styled.div`
       }
 
       &.active:first-child {
-        background-color: #08AA7D;
-        color: #FFFFFF;
-      } 
+        background-color: #08aa7d;
+        color: #ffffff;
+      }
 
       &.active:last-child {
-        background-color: #D85947;
-        color: #FFFFFF;
-      } 
+        background-color: #d85947;
+        color: #ffffff;
+      }
     }
   }
 
@@ -1364,8 +1381,8 @@ export const SimpleTrade = styled.div`
     .tab-coin {
       margin-right: 1.5%;
       flex: 1;
-      background-color: #FFFFFF;
-      box-shadow: 0px 6px 12px #EDEEF2C6;
+      background-color: #ffffff;
+      box-shadow: 0px 6px 12px #edeef2c6;
       border-radius: 11px;
       padding: 30px 0;
 
@@ -1380,12 +1397,12 @@ export const SimpleTrade = styled.div`
       }
 
       button {
-        background-color: #DBF7FF;
+        background-color: #dbf7ff;
         width: 100%;
         border-radius: 6px;
         border: 0;
         outline: none;
-        color: #0ECBFD;
+        color: #0ecbfd;
         font-size: 14px;
         height: 42px;
         width: 80%;
@@ -1397,7 +1414,7 @@ export const SimpleTrade = styled.div`
       }
 
       p {
-        color: #6C7686;
+        color: #6c7686;
         font-size: 13px;
         text-align: center;
         font-weight: 100;
@@ -1409,7 +1426,7 @@ export const SimpleTrade = styled.div`
       }
 
       h4 {
-        color: #242A33;
+        color: #242a33;
         font-size: 36px;
         margin: 35px 0 45px 0;
         text-align: center;
@@ -1426,24 +1443,27 @@ export const SimpleTrade = styled.div`
         display: flex;
         flex-direction: column;
 
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-          color: #6C7686;
+        ::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #6c7686;
           opacity: 1; /* Firefox */
         }
 
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
-          color: #6C7686;
+        :-ms-input-placeholder {
+          /* Internet Explorer 10-11 */
+          color: #6c7686;
         }
 
-        ::-ms-input-placeholder { /* Microsoft Edge */
-          color: #6C7686;
+        ::-ms-input-placeholder {
+          /* Microsoft Edge */
+          color: #6c7686;
         }
 
         input {
-          border: 1px solid #CDD6E3;
+          border: 1px solid #cdd6e3;
           border-radius: 6px;
           height: 35px;
-          color: #6C7686;
+          color: #6c7686;
           padding-left: 8px;
           outline: none;
           margin-left: 30px;
@@ -1456,51 +1476,50 @@ export const SimpleTrade = styled.div`
   }
 `;
 
-
 export const SimpleTradeLine = styled.div`
-    display: flex;
-    margin-top: 60px;
-    margin-bottom: 130px;
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 130px;
 
-    @media screen and (max-width: 992px) {
-        margin-bottom: 60px;
-        margin-top: 30px;
+  @media screen and (max-width: 992px) {
+    margin-bottom: 60px;
+    margin-top: 30px;
+  }
+
+  .line {
+    width: calc(100% - 240px);
+    height: 9px;
+    background-color: #f2f3f6;
+
+    .active-line {
+      width: 30%;
+      height: 9px;
+      transition: all 0.1s ease;
+      border-radius: 12px;
+      background: transparent linear-gradient(90deg, #08aa7d 0%, #2765c9 100%) 0% 0% no-repeat padding-box;
+
+      &.active-line-ask {
+        background: transparent linear-gradient(90deg, #f7a13c 0%, #d85947 100%) 0% 0% no-repeat padding-box;
+      }
+    }
+  }
+
+  .line-data {
+    margin-left: auto;
+    color: #6c7686;
+    font-size: 16px;
+    text-align: right;
+    position: relative;
+    top: -15px;
+
+    span {
+      color: #0ecbfd;
     }
 
-    .line {
-        width: calc(100% - 240px);
-        height: 9px;
-        background-color: #F2F3F6;
-
-        .active-line {
-            width: 30%;
-            height: 9px;
-            transition: all 0.1s ease;
-            border-radius: 12px;
-            background: transparent linear-gradient(90deg, #08AA7D 0%, #2765C9 100%) 0% 0% no-repeat padding-box;
-
-            &.active-line-ask {
-              background: transparent linear-gradient(90deg, #F7A13C 0%, #D85947 100%) 0% 0% no-repeat padding-box;
-            }
-        }
+    img {
+      margin-right: 12px;
+      position: relative;
+      top: 5px;
     }
-
-    .line-data {
-        margin-left: auto;
-        color: #6C7686;
-        font-size: 16px;
-        text-align: right;
-        position: relative;
-        top: -15px;
-
-        span {
-            color: #0ECBFD;
-        }
-
-        img {
-            margin-right: 12px;
-            position: relative;
-            top: 5px;
-        }
-    }
+  }
 `;

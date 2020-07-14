@@ -22,12 +22,12 @@ export const Footer = () => {
   const { data } = React.useContext(DataContext);
   const pages = data.menu;
 
-  if (['/ka', '/en', 'home'].includes(path)) {
+  if (!['/about'].includes(path)) {
     return (
       <StyledFooter>
         <Container>
           <FooterContainer>
-            <FooterMenu width="55%">
+            <FooterMenu width="48%">
               {pages.map((page: any) => (
                 <Link href={`/${page.slug}`} key={page.slug} passHref>
                   <FooterMenuItem>{page.title}</FooterMenuItem>
@@ -41,7 +41,7 @@ export const Footer = () => {
                 <p>+995 599 123 123</p>
               </FooterMenuItem>
               <FooterMenuItem>
-                <img src="/images/email.svg" />
+                <img src="/images/email.svg" style={{ margin: '0 9px 0 -2px' }} />
                 <p>info@gex.ge</p>
               </FooterMenuItem>
               <FooterMenuItem>
@@ -91,7 +91,7 @@ export const Footer = () => {
             </FooterSocialButtons>
             <Subtext align="center" size="16px" opacity="0.7">
               <img src="/copyright.svg" style={{ position: 'relative', marginRight: '10px', top: '3px' }} />
-              <span> All Rights Reserved</span>
+              <span> Copyright 2020</span>
             </Subtext>
           </FooterSocial>
         </DefaultFooterContainer>
