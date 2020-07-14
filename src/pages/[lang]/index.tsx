@@ -340,10 +340,9 @@ const IndexPage = (_props: any) => {
               {(home?.advantages?.advantages || []).map((item: any, index: number) => (
                 <CoinItem className="item" key={index}>
                   <img src={item.sol_file} />
-                  <H5>
+                  <H5 style={{ marginTop: 15 }}>
                     {item.sol_title}
                     <br />
-                    <a href={item.sol_link}>{t('view_rates')}</a>
                   </H5>
                 </CoinItem>
               ))}

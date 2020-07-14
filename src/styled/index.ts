@@ -47,7 +47,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   ${({ fix }) =>
     fix &&
     css`
-      background-color: #1C2730;
+      background-color: #1c2730;
       box-shadow: 0 6px 6px #a3a1bc29;
     `}
 `;
@@ -644,7 +644,7 @@ export const FooterContainer = styled.div`
   padding: 0 0 70px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
 
   @media ${responsive.sm} {
     align-items: center;
@@ -661,15 +661,27 @@ export const FooterAboutUs = styled.div`
   color: #c4c9d1;
   display: flex;
   flex-direction: column;
+  color: #c4c9d1;
+
+  a {
+    cursor: default;
+
+    :hover {
+      color: unset;
+    }
+
+    img {
+      margin-right: 12px;
+    }
+  }
 
   p {
     text-indent: 10px;
   }
 
   h3 {
-    &:hover {
-      color: #ffffff;
-    }
+    margin-bottom: 10px;
+    font-size: 26px;
   }
 `;
 
@@ -695,12 +707,17 @@ export const FooterMenuItem = styled.a<{ flex?: string }>`
   :hover {
     color: #ffffff;
   }
+
+  @media ${responsive.lg} {
+    font-size: 18px;
+  }
 `;
 
 export const FooterSocial = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px 0;
+  align-self: flex-end;
 
   p {
     padding: 0 10px;
@@ -716,18 +733,18 @@ export const FooterSocial = styled.div`
 export const FooterSocialButtons = styled.div<{ justify?: string; margin?: string }>`
   display: flex;
   justify-content: ${(props) => props.justify || 'flex-end'};
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   align-items: flex-end;
 
   a {
     transition: 0.2s;
 
     &:not(:first-child) {
-      margin-left: 25px;
+      margin-left: 14px;
     }
 
     :hover {
-      filter: brightness(1.02);
+      filter: brightness(0.8);
     }
   }
 
@@ -752,8 +769,7 @@ export const Copyright = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  opacity: 0.6;
-  color: #C4C9D1;
+  color: #79798e;
 `;
 
 export const FooterBg1 = styled.img`
@@ -1219,7 +1235,7 @@ export const CoinItem = styled.div`
 export const SimpleTrade = styled.div`
   display: flex;
   flex-direction: column;
-  
+
   .trade-right {
     width: auto;
     display: flex;
@@ -1229,7 +1245,7 @@ export const SimpleTrade = styled.div`
       height: 47px;
       float: left;
       margin-right: 16px;
-      border: 1px solid #CDD6E3;
+      border: 1px solid #cdd6e3;
       position: relative;
       border-radius: 8px;
 
@@ -1244,7 +1260,7 @@ export const SimpleTrade = styled.div`
 
       .active-coin {
         font-size: 16px;
-        color: #6C7686;
+        color: #6c7686;
         position: relative;
         height: 50px;
         cursor: pointer;
@@ -1275,7 +1291,7 @@ export const SimpleTrade = styled.div`
           margin: 0;
           padding: 15px 10px;
           font-size: 15px;
-          color: #6C7686;
+          color: #6c7686;
           border: 1px solid #cdd6e3;
           /* border-radius: 8px; */
           /* border-bottom: 1px solid #cdd6e3; */
@@ -1301,7 +1317,7 @@ export const SimpleTrade = styled.div`
       justify-content: space-around;
       width: 104px;
       height: 50px;
-      background: #DBF7FF 0% 0% no-repeat padding-box;
+      background: #dbf7ff 0% 0% no-repeat padding-box;
       border-radius: 8px;
       text-align: center;
       padding-left: 10px;
@@ -1314,7 +1330,7 @@ export const SimpleTrade = styled.div`
 
       .value {
         font-size: 16px;
-        color: #0ECBFD;
+        color: #0ecbfd;
         text-transform: uppercase;
         font-weight: 500;
       }
@@ -1325,7 +1341,7 @@ export const SimpleTrade = styled.div`
         height: 0px;
         border-top: 4.5px solid transparent;
         border-bottom: 4.5px solid transparent;
-        border-right: 6.5px solid #0ECBFD;
+        border-right: 6.5px solid #0ecbfd;
       }
 
       .right {
@@ -1334,13 +1350,13 @@ export const SimpleTrade = styled.div`
         height: 0px;
         border-top: 4.5px solid transparent;
         border-bottom: 4.5px solid transparent;
-        border-left: 6.5px solid #0ECBFD;
+        border-left: 6.5px solid #0ecbfd;
       }
     }
   }
 
   h3 {
-    color: #242A33;
+    color: #242a33;
     font-size: 58px;
     font-weight: normal;
     margin: 0 0 50px 0;
@@ -1363,10 +1379,10 @@ export const SimpleTrade = styled.div`
 
     button {
       flex: 1;
-      background-color: #D9DCE6;
+      background-color: #d9dce6;
       height: 60px;
       font-size: 18px;
-      color: #6C7686;
+      color: #6c7686;
       border: 0;
       outline: none;
       cursor: pointer;
@@ -1377,14 +1393,14 @@ export const SimpleTrade = styled.div`
       }
 
       &.active:first-child {
-        background-color: #08AA7D;
-        color: #FFFFFF;
-      } 
+        background-color: #08aa7d;
+        color: #ffffff;
+      }
 
       &.active:last-child {
-        background-color: #D85947;
-        color: #FFFFFF;
-      } 
+        background-color: #d85947;
+        color: #ffffff;
+      }
     }
   }
 
@@ -1393,8 +1409,10 @@ export const SimpleTrade = styled.div`
     flex-wrap: wrap;
 
     .tab-coin {
-      background-color: #FFFFFF;
-      box-shadow: 0px 6px 12px #EDEEF2C6;
+      margin-right: 1.5%;
+      flex: 1;
+      background-color: #ffffff;
+      box-shadow: 0px 6px 12px #edeef2c6;
       border-radius: 11px;
       padding: 30px 0;
       font-weight: 500;
@@ -1415,12 +1433,12 @@ export const SimpleTrade = styled.div`
       }
 
       button {
-        background-color: #DBF7FF;
+        background-color: #dbf7ff;
         width: 100%;
         border-radius: 6px;
         border: 0;
         outline: none;
-        color: #0ECBFD;
+        color: #0ecbfd;
         font-size: 14px;
         height: 42px;
         width: 80%;
@@ -1429,7 +1447,7 @@ export const SimpleTrade = styled.div`
       }
 
       p {
-        color: #6C7686;
+        color: #6c7686;
         font-size: 13px;
         text-align: center;
 
@@ -1443,7 +1461,7 @@ export const SimpleTrade = styled.div`
       }
 
       h4 {
-        color: #242A33;
+        color: #242a33;
         font-size: 36px;
         margin: 35px 0 45px 0;
         text-align: center;
@@ -1460,24 +1478,27 @@ export const SimpleTrade = styled.div`
         display: flex;
         flex-direction: column;
 
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-          color: #6C7686;
+        ::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #6c7686;
           opacity: 1; /* Firefox */
         }
 
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
-          color: #6C7686;
+        :-ms-input-placeholder {
+          /* Internet Explorer 10-11 */
+          color: #6c7686;
         }
 
-        ::-ms-input-placeholder { /* Microsoft Edge */
-          color: #6C7686;
+        ::-ms-input-placeholder {
+          /* Microsoft Edge */
+          color: #6c7686;
         }
 
         input {
-          border: 1px solid #CDD6E3;
+          border: 1px solid #cdd6e3;
           border-radius: 6px;
           height: 40px;
-          color: #6C7686;
+          color: #6c7686;
           padding-left: 8px;
           outline: none;
           margin-top: 15px;
@@ -1487,7 +1508,7 @@ export const SimpleTrade = styled.div`
           margin-right: 10%;
 
           &:hover {
-            border: 1px solid #0ECBFD;
+            border: 1px solid #0ecbfd;
           }
         }
       }
@@ -1503,7 +1524,6 @@ export const SimpleTradeTop = styled.div`
     flex-direction: column;
   }
 `;
-
 
 export const SimpleTradeLine = styled.div`
     display: flex;

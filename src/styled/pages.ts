@@ -19,7 +19,7 @@ export const DefaultFooter = styled.footer`
 export const DefaultFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
 
   @media ${responsive.sm} {
     align-items: center;
@@ -129,7 +129,7 @@ export const PageHeaderBg2 = styled.div<{ opacity?: string; top?: string }>`
 `;
 
 export const PageInner = styled.div`
-  padding: 30px 0;
+  padding: 30px 0 60px;
 
   @media ${responsive.sm} {
     padding: 40px 0;

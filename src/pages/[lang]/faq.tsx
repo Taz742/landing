@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import parse from 'html-react-parser';
 
 import CustomHead from '@/components/custom-head';
 import { Layout } from '@/components/index';
 import Button from '@/components/library/button';
 import Accordion, { AccordionSection } from '@/components/library/accordion';
 import { Container } from '@/styled';
-import { H1, Text } from '@/styled/typography';
+import { H1 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, Input, FaqInput, FaqText, PageInnerTitle } from '@/styled/pages';
-import { replaceEnterSymbol } from '@/utils/helpers';
+import { parseHTML } from '@/utils/helpers';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 
@@ -16,9 +15,8 @@ const Faq = () => {
   const [search, setSearch] = useState('');
   const { t } = useTranslation();
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.find((p: any) => p.slug === 'soso') || { meta: [], title: {}, content: {} };
+  const page: any = data.pages.find((p: any) => p.slug === 'faq') || { meta: [], title: {} };
   const [filteredQuestions, setFiltered] = useState(page.meta);
-  const content = parse(page.content.rendered);
 
   const handleChange = (e: any) => {
     const val = e.target.value;
@@ -52,12 +50,10 @@ const Faq = () => {
               <img src="/search.svg" />
             </FaqInput>
 
-            <Text>{content}</Text>
-
             <Accordion>
               {filteredQuestions.map((p: any) => (
                 <AccordionSection title={p.client_title} key={p.client_title}>
-                  <div dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(p.client_content) }} />
+                  <div>{parseHTML(p.client_content)}</div>
                 </AccordionSection>
               ))}
             </Accordion>

@@ -7,7 +7,7 @@ const strings: Strings = {
     faq_description: 'GEX - Frequently Asked Questions. How can we help?',
     faq_info_text: 'For more information, contact our customer support at the following e-mail address',
     'How can we help?': 'How can we help?',
-    simple_trade: 'Simple Trade',
+    simple_trade: 'Instant Trade',
     buy: 'Buy',
     sell: 'Sell',
     if_you_buy_now: 'If you buy now, you will ',
@@ -24,7 +24,8 @@ const strings: Strings = {
     why_choose_us: 'Why Choose us?',
     multi_currency_platform: 'Multi Currency Platform',
     view_rates: 'View Rates',
-    register: 'Registration'
+    register: 'Registration',
+    'Terms of Use': 'Terms of Use'
   },
   ka: {
     faq: 'ხშირად დასმული კითხვები',
@@ -49,8 +50,9 @@ const strings: Strings = {
     why_choose_us: 'რატომ ჩვენ?',
     multi_currency_platform: 'აქ არ ვიცი :))',
     view_rates: 'იხილეთ ტარიფები',
-    register: 'რეგისტრაცია'
-  },
+    register: 'რეგისტრაცია',
+    'Terms of Use': 'მოხმარების პირობები'
+  }
 };
 
 export default strings;

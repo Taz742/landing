@@ -33,6 +33,7 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
           <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+          <link rel="stylesheet" href="//cdn.web-fonts.ge/fonts/bpg-nino-mtavruli/css/bpg-nino-mtavruli.min.css" />
         </Head>
         <body>
           <Main />
