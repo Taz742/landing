@@ -22,7 +22,8 @@ import {
   CoinsBox,
   CoinItem,
   SimpleTrade,
-  SimpleTradeLine
+  SimpleTradeLine,
+  SimpleTradeTop
 } from '@/styled';
 import { H1, H2, H5, Subtext, H3 } from '@/styled/typography';
 import { stripHtml } from '@/utils/helpers';
@@ -71,8 +72,8 @@ const IndexPage = (_props: any) => {
   const [coinsList, setCoinsList] = useState<any>([]);
   const [activeDropDown, setDropDown] = useState(false);
   const [sellType, setSellType] = useState<'BID' | 'ASK'>('BID');
-  const [sizeVal, setSize] = useState(0);
-  const [priceVal, setPrice] = useState(0);
+  const [sizeVal, setSize] = useState<number | undefined>();
+  const [priceVal, setPrice] = useState<number | undefined>();
   const [time, setTime] = useState<number>(loadTime);
   const [update, setUpdate] = useState(0);
   const [initialized, setInitialized] = useState(false);
@@ -149,7 +150,7 @@ const IndexPage = (_props: any) => {
     }
   };
 
-  const redirect = (size = 0, price = 0) => {
+  const redirect = (size: any, price: any) => {
     if (!size && !price) {
       size = sizeVal;
       price = priceVal;
@@ -196,21 +197,25 @@ const IndexPage = (_props: any) => {
 
         <Container>
           <SimpleTrade>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <SimpleTradeTop style={{ display: "flex", justifyContent: "space-between", marginBottom: 25 }}>
               <H3>Simple Trade</H3>
               <div className="trade-right">
                 <div
                   onMouseEnter={() => setDropDown(true)}
                   onMouseLeave={() => setDropDown(false)}
-                  className={activeDropDown ? 'active coin' : 'coin'}>
+                  className={activeDropDown ? 'active coin' : 'coin'}
+                >
                   <div className="active-coin">
                     {coin.coin} - {currency}
                     <img src="/images/dropdown.svg" />
                   </div>
                   <div className="coin-list-dropdown">
-                    {coinsList.map((item: any) =>
-                      <p key={item.index}
-                        onClick={() => { setCoin(item); setDropDown(false) }}>
+                    {coinsList.map((item: any, index: number) =>
+                      <p
+                        key={index}
+                        onClick={() => { setCoin(item); setDropDown(false) }}
+                      // style={index === coinsList.length - 1 ? { borderBottomLeftRadius: 8, borderBottomRightRadius: 8 } : {}}
+                      >
                         {item.coin}
                       </p>
                     )}
@@ -222,14 +227,14 @@ const IndexPage = (_props: any) => {
                   <span className="right" onClick={() => changeCurrency()}></span>
                 </div>
               </div>
-            </div>
+            </SimpleTradeTop>
 
             <div className="tabs">
               <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'active' : ''}>Buy {coin.coin}</button>
               <button onClick={() => setSellType('ASK')} className={sellType !== 'BID' ? 'active' : ''}>Sell {coin.coin}</button>
             </div>
 
-            <div className="tabs-list flex-container">
+            <div className="tabs-list">
               {trades && currency && trades[currency].length > 0 && (
                 trades[currency][coin.index]['offerEntriesMap'][sellType].map((item: any, index: number) =>
                   <div key={index} className="tab-coin">
@@ -242,7 +247,7 @@ const IndexPage = (_props: any) => {
                     </p>
                     <h4>
                       {sellType === 'BID' ? item.price : item.size}
-                      {sellType === 'BID' ? currency : coin.coin}
+                      <span style={{ fontSize: 22, marginLeft: 10 }}>{sellType === 'BID' ? currency : coin.coin}</span>
                     </h4>
                     <button onClick={() => redirect(item.size, item.price)}>
                       {sellType === 'BID' ? 'Buy' : 'Sell'} now
@@ -269,7 +274,8 @@ const IndexPage = (_props: any) => {
                       }
                       setSize(newSize)
                     }}
-                    placeholder="Enter price" />
+                    placeholder="Enter price"
+                  />
                   <NumberFormat
                     decimalScale={coin.baseScale}
                     value={sizeVal}
@@ -283,9 +289,10 @@ const IndexPage = (_props: any) => {
                       }
                       setPrice(newSize)
                     }}
-                    placeholder="Enter amount" />
+                    placeholder="Enter amount"
+                  />
                 </div>
-                <button onClick={() => redirect()}>
+                <button onClick={() => redirect(null, null)} style={{ marginTop: 10 }}>
                   {sellType === 'BID' ? 'Buy' : 'Sell'} now
                 </button>
               </div>
