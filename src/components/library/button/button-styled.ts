@@ -67,8 +67,8 @@ export const ButtonStyled = styled.button<IProps>`
     `}
 
     ${({ loading, buttonType }) =>
-    loading &&
-    css`
+      loading &&
+      css`
         pointer-events: none;
         color: transparent !important;
         opacity: 0.8;
@@ -147,10 +147,10 @@ export const ButtonStyled = styled.button<IProps>`
             /* height: 47px; */
             padding: ${(props: IProps) => (props.circle ? '10px 13px' : props.padding || '4px')};
             background: transparent;
-            color: #328af7;
+            color: #0ecbfd;
 
             path:not(.icon-background) {
-              fill: #328af7;
+              fill: #0ecbfd;
             }
           }
         `;
@@ -159,11 +159,11 @@ export const ButtonStyled = styled.button<IProps>`
            {
             height: 50px;
             padding: ${(props: IProps) => (props.circle ? '10px 13px' : props.padding || '14px 40px')};
-            background-color: #1A4D60;
-            color: #0ECBFD;
+            background-color: #1a4d60;
+            color: #0ecbfd;
 
             path:not(.icon-background) {
-              fill: #328af7;
+              fill: #0ecbfd;
             }
 
             :hover {
