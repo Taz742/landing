@@ -129,7 +129,7 @@ export const H5 = styled.h5<IH>`
   font-size: 20px;
   line-height: 22px;
   letter-spacing: 0;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 14px;
 
   @media ${responsive.sm} {

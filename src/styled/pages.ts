@@ -28,22 +28,26 @@ export const DefaultFooterContainer = styled.div`
   }
 `;
 
-export const PageHeader = styled.div`
+export const PageHeader = styled.div<{ height?: string }>`
   background-image: url(/images/BG.png);
   background-position: center;
   background-size: cover;
-  height: 667px;
+  height: ${({ height }) => height || '667px'};
+
+  &.hide_image {
+    background-image: none;
+  }
 
   @media ${responsive.lg} {
     /* padding: 130px 0 60px; */
   }
 
   @media ${responsive.md} {
-    height: 540px;
+    height: ${({ height }) => height || '667px'};
   }
-  
+
   @media ${responsive.sm} {
-    height: 440px;
+    height: ${({ height }) => height || '667px'};
   }
 
   h2,
@@ -52,7 +56,7 @@ export const PageHeader = styled.div`
   }
 `;
 
-export const SearchPageHeader = styled.div`
+export const SearchPageHeader = styled.div<{ height?: string }>`
   background: #edf8ff;
   text-align: center;
   position: relative;
@@ -61,7 +65,7 @@ export const SearchPageHeader = styled.div`
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  height: 424px;
+  height: ${({ height }) => height || '424px'};
 
   @media ${responsive.lg} {
     height: 350px;
@@ -69,6 +73,32 @@ export const SearchPageHeader = styled.div`
 
   @media ${responsive.sm} {
     height: 270px;
+  }
+
+  h2,
+  h3 {
+    padding-bottom: 20px;
+  }
+`;
+
+export const DefaultPageHeader = styled.div<{ height?: string }>`
+  background: #edf8ff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-image: url('/images/BG.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  height: ${({ height }) => height || '527px'};
+
+  @media ${responsive.lg} {
+    height: 450px;
+  }
+
+  @media ${responsive.sm} {
+    min-height: 360px;
+    height: auto;
   }
 
   h2,
@@ -295,8 +325,35 @@ export const ContactSuccess = styled.div`
 `;
 
 export const PageSubHeader = styled.div`
-  max-width: 100%;
-  margin-top: 60px;
+  padding: 175px 0 70px;
+  text-align: left;
+
+  p {
+    font-size: 20px;
+    line-height: 34px;
+    color: #ffffff;
+    opacity: 0.6;
+    font-weight: 100;
+    max-width: 65%;
+
+    @media ${responsive.sm} {
+      font-size: 18px;
+      max-width: 100%;
+    }
+  }
+
+  h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  @media ${responsive.lg} {
+    padding: 140px 0 60px;
+  }
+
+  @media ${responsive.sm} {
+    padding: 100px 0 50px;
+  }
 `;
 
 export const SolutionItem = styled.div`
@@ -418,11 +475,15 @@ export const FaqText = styled.div`
     position: relative;
     top: 4px;
   }
+
+  @media ${responsive.sm} {
+    font-size: 17px;
+  }
 `;
 
 export const TeamContainer = styled.div`
   display: flex;
-  
+
   @media ${responsive.sm} {
     flex-direction: column;
     align-items: center;
@@ -691,5 +752,71 @@ export const LanguageChangerWrapper = styled.div`
 
   svg {
     margin: 0px 0 3px 6px;
+  }
+`;
+
+export const OtcContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  bottom: 160px;
+  margin-bottom: -120px;
+
+  @media ${responsive.lg} {
+    bottom: 140px;
+  }
+
+  @media ${responsive.sm} {
+    bottom: 0px;
+    margin-bottom: -40px;
+  }
+`;
+
+export const OtcItem = styled.div`
+  flex: 0 1 23.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 40px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 1px -1px 17px #a3a1bc29;
+
+  .logo {
+    margin-bottom: 34px;
+  }
+
+  h4 {
+    color: #6c7686;
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+  @media ${responsive.lg} {
+    padding: 30px;
+
+    h4 {
+      font-size: 20px;
+    }
+  }
+
+  @media ${responsive.sm} {
+    padding: 24px 14px;
+    flex: 0 1 47%;
+    margin-bottom: 24px;
+
+    h4 {
+      font-size: 17px;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    img {
+      max-width: 80px;
+    }
   }
 `;

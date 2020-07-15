@@ -11,7 +11,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   align-items: center;
   justify-content: space-between;
   padding: 14px 14.5%;
-  height: 110px;
+  height: 100px;
   z-index: 1;
   transition: all 0.15s ease-in-out;
 
@@ -22,7 +22,6 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
 
   @media ${responsive.lg} {
     padding: 10px 10%;
-    height: 100px;
   }
 
   @media ${responsive.md} {
@@ -1800,5 +1799,46 @@ export const ConnectIcons = styled.div`
     &:not(:first-child) {
       margin-left: 10px;
     }
+  }
+`;
+
+export const FeesBox = styled.div`
+  margin: 0 -5px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+`;
+
+export const FeesItem = styled.div`
+  margin: 15px 5px;
+  flex: 0 0 auto;
+  width: 23%;
+  background-color: #ffffff;
+  box-shadow: 0 6px 10px #a3a1bc29;
+  border-radius: 15px;
+  padding: 30px 40px;
+
+  @media ${responsive.lg} {
+    padding: 20px 30px;
+    width: 30%;
+  }
+
+  @media ${responsive.sm} {
+    width: 45%;
+  }
+
+  p.percent {
+    font-size: 44px;
+    color: #0ecbfd;
+
+    @media ${responsive.sm} {
+      font-size: 24px;
+    }
+  }
+
+  p.title {
+    color: #6c7686;
+    font-weight: 500;
+    margin-top: 10px;
   }
 `;

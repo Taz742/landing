@@ -31,13 +31,13 @@ export const Header = () => {
   const { data } = React.useContext(DataContext);
   const pages = data.menu;
 
-  // const fixed = useMemo((): boolean => {
-  //   const path = router.asPath.toLocaleLowerCase();
-  //   return path.endsWith('about');
-  // }, [router.asPath]);
+  const fixed = React.useMemo((): boolean => {
+    const path = router.asPath.toLocaleLowerCase();
+    return path.includes('/about');
+  }, [router.asPath]);
 
   return (
-    <StyledHeader fix={trigger}>
+    <StyledHeader fix={trigger || fixed}>
       <HeaderLeft>
         <Link href="/[lang]" as={`/${locale}`}>
           <div className="logo">

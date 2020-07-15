@@ -6,7 +6,10 @@ const strings: Strings = {
     faq_title: 'GEX - FAQ',
     faq_description: 'GEX - Frequently Asked Questions. How can we help?',
     faq_info_text: 'For more information, contact our customer support at the following e-mail address',
+    fee_info_text: 'Does not include bank and visa card fees',
     'How can we help?': 'How can we help?',
+    'Terms of Use': 'Terms of Use',
+    'OTC Desk': 'OTC Desk',
     simple_trade: 'Instant Trade',
     buy: 'Buy',
     sell: 'Sell',
@@ -24,14 +27,16 @@ const strings: Strings = {
     why_choose_us: 'Why Choose us?',
     multi_currency_platform: 'Multi Currency Platform',
     view_rates: 'View Rates',
-    register: 'Registration',
-    'Terms of Use': 'Terms of Use'
+    register: 'Registration'
   },
   ka: {
     faq: 'ხშირად დასმული კითხვები',
     faq_title: 'GEX - ხ.დ.კ.',
     faq_description: 'GEX - ხშირად დასმული კითხვები. რაში შეგვიძლია დაგეხმაროთ?',
     faq_info_text: 'დამატებითი ინფორმაციისთვის დაგვიკავშირდით ელ-ფოსტაზე',
+    fee_info_text: 'Does not include bank and visa card fees',
+    'Terms of Use': 'მოხმარების პირობები',
+    'OTC Desk': 'OTC Desk',
     'How can we help?': 'რაში შეგვიძლია დაგეხმაროთ?',
     simple_trade: 'მარტივი ვაჭრობა',
     buy: 'იყიდე',
@@ -50,8 +55,7 @@ const strings: Strings = {
     why_choose_us: 'რატომ ჩვენ?',
     multi_currency_platform: 'აქ არ ვიცი :))',
     view_rates: 'იხილეთ ტარიფები',
-    register: 'რეგისტრაცია',
-    'Terms of Use': 'მოხმარების პირობები'
+    register: 'რეგისტრაცია'
   }
 };
 

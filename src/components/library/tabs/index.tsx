@@ -13,6 +13,7 @@ export type IPanel = {
 export interface ITab {
   selected?: number;
   children: IPanel[];
+  content: any;
 }
 
 function renderElem(elem?: IPanel) {
@@ -28,14 +29,20 @@ export const Tabs = (args: ITab) => {
   const [active, setActive] = useState<string>('');
   const [overflow, setOverflow] = useState('');
 
-  function handleChange(index: number) {
+  function handleChange(index: number, el: any = { props: { title: '' } }) {
+    const element = document.getElementById(el.props.title);
+    if (element && window && args.content) {
+      const yOffset = -102; // header height
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
     if (index === selected) return;
-    setOverflow('hidden');
+    if (!args.content) setOverflow('hidden');
     setSelected(index);
     setActive('active');
     setTimeout(() => {
       setActive('');
-      setOverflow('');
+      if (!args.content) setOverflow('');
     }, 100);
   }
 
@@ -45,7 +52,7 @@ export const Tabs = (args: ITab) => {
         if (!elem) return null;
         const style = index === selected ? 'selected' : '';
         return (
-          <li className={style} key={index} onKeyDown={() => handleChange(index)} onClick={() => handleChange(index)}>
+          <li className={style} key={index} onKeyDown={() => handleChange(index, elem)} onClick={() => handleChange(index, elem)}>
             {renderElem(elem)}
             <span className="line"></span>
           </li>
@@ -58,9 +65,7 @@ export const Tabs = (args: ITab) => {
   return (
     <TabContainer overflow={overflow}>
       <TabMenu>{renderTabMenu()}</TabMenu>
-      <Tab>
-        <div className={active}>{args.children[selected]}</div>
-      </Tab>
+      <Tab>{args.content ? <div className={active}>{args.content}</div> : <div className={active}>{args.children[selected]}</div>}</Tab>
     </TabContainer>
   );
 };

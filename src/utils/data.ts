@@ -113,13 +113,94 @@ export default {
     }
   },
   pages: {
+    fee: {
+      data: {
+        title: 'Fee Schedule',
+        universal_trade: {
+          title: 'Universal Trade fees for all pairs',
+          data: [
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            }
+          ]
+        },
+        deposit_fees: {
+          title: 'Deposits Fees',
+          data: [
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            }
+          ]
+        },
+        withdrawals_fees: {
+          title: 'Withdrawals Fees',
+          data: [
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            },
+            {
+              percent: '5.00 %',
+              title: 'Maker'
+            }
+          ]
+        }
+      }
+    },
     terms: {
       data: {
         ID: 17,
         post_author: '1',
         post_date: '2020-06-02 22:52:04',
         post_date_gmt: '2020-06-02 22:52:04',
-        post_content: '',
+        post_content:
+          '<span style="text-decoration: underline"><strong>8. Financial Advice</strong>.</span> To avoid any doubt, we do not provide any investment advice in connection with the Services described in these Terms of Service. We may provide information on the price, range, and volatility of Digital Assets that are available on our Site, but this should not be considered investment advice, nor should it be construed as such. Any decision regarding the purchase or sale of Digital Assets is solely your decision, and we shall not be liable for any loss suffered as a consequence.\r\n\r\n<span style="text-decoration: underline"><strong>9. Availability / No Warranties.</strong></span><strong> </strong>All services defined herein are provided without warranty of any kind, either express or implied, without implied warranties of merchantability and/or fitness for a particular purpose. We do not suggest that this Site or the Services, or the services of any third-party custodian, will be available 100% of the time to meet your needs. We will take all measures to provide you with the Services as soon as possible. We are unable to guarantee access will not be interrupted, or that there will be no delays, failures, errors, omissions, and/or loss of transmitted information. We will use reasonable efforts to be sure that you can access the Site and the related Services following these Terms of Service. However, we may suspend the use of the Site and the Services for maintenance, and we shall make all reasonable efforts to give you notice of this. You agree that this may be impossible in an emergency and that you accept the risks associated with the fact that you may not always be able to use the Site and the related Services or carry out urgent transactions using your Account.\r\n\r\n<span style="text-decoration: underline"><strong>10. Assignment.</strong></span> You and GEX are not legal partners or agents of each other; instead, our relationship to you is that of an independent contractor. This contract is solely for your and our benefit. It is not for the benefit of any other person, except for permitted successors. You may not assign or delegate these Terms, your obligations, rights, or responsibilities. Any attempt by you to do so is void.\r\n\r\nGEX may assign or delegate these Terms, its obligations, rights and responsibilities, in whole or in part, at any time with or without notice to you.\r\n\r\n<span style="text-decoration: underline"><strong>11. External Websites &amp; Applications.</strong></span> GEX makes no representations of any External Websites that you may access through the Site, including third-party storage service providers’ websites. Sometimes a GEX website may contain links to External websites. We do not control the External Websites or third-party websites or any content contained therein. You agree that we do not carry any responsibility for External Websites, either referenced or linked to the GEX website, including but not limited to website content, policies, failures, promotions, products, opinions, advice, statements, prices, actions, advertisements, services, or actions and/or any damages, losses, failures, or problems caused by, associated with, or arising with these websites. You carry all the risks associated with using such content.\r\n\r\nExternal websites have separate and independent Terms of Service and related policies. We ask you to review the policies, rules, and Terms and Conditions of each site when you visit it. It is up to you whether you take precautions to ensure that everything you have chosen for your use is free of viruses, worms, Trojan horses, and other elements of a destructive nature.\r\n\r\n<span style="text-decoration: underline"><strong>12. Fees.</strong></span> Current fees are available in our <a href="/pricing">Fee Schedule</a>.\r\n\r\nGEX is authorized to change its Fees at any time and at its sole discretion. GEX will notify you of any changes in advance through your Account or via e-mail. It is your responsibility to review the amended Fee Schedule upon such notification. At the same time, your continued use of the Site following the posting of notice of Fee changes indicates that you accept and agree to the changes. GEX will not charge you any fees other than the GEX Fees and other fees set out in the Fee Schedule.\r\n\r\n<span style="text-decoration: underline"><strong>13. Taxes.</strong></span> Our fees do not include any taxes, levies, duties, or similar governmental assessments of any nature, including, for example, value-added, sales, use, or withholding taxes, which may be assessed by any jurisdiction whatsoever (collectively, “<strong>Taxes</strong>”). You are responsible for paying all Taxes associated with your transactions.\r\n\r\n<span style="text-decoration: underline"><strong>14. Financial Regulation.</strong></span> Our business model and our Services facilitate the buying, selling, and trading of Digital Assets. According to the domestic law and regulations of the monitoring and filing bodies for financial institutions under the National Bank of Georgia and the LEPL-Financial Monitoring Service of Georgia, the services we provide are currently unregulated within Georgia.\r\n\r\nAlthough GEX is currently unregulated and does not fall within the scope of relevant obligations, the senior management has implemented certain systems and procedures that meet the standards set forth by the European Union. This decision reflects the senior management\'s aspiration to follow current Financial regulations.\r\n\r\n<span style="text-decoration: underline"><strong>15. Intellectual Property Rights; Permissions &amp; Restrictions.</strong></span> Unless otherwise specified, all materials on this Site are GEX\'s property and are protected by trademark, copyright, and other applicable laws. You are allowed to explore or print and/or download a copy of the materials from GEX Site on any single computer solely for your personal, informational, and/or non-commercial use, provided you meet all copyright and other proprietary notices.\r\n\r\nThe logos, trademarks, and service marks of GEX and others used in this Site ("<strong>Trademarks</strong>") are the property of GEX and their respective owners. The software, graphics, text, images, data, prices, trades, charts, graphs, video, and audio used on this Site belong to GEX. The Trademarks and Material should not be modified, copied, reproduced, republished, uploaded, posted, transmitted, scraped, distributed or modified, in any form, whether automated or manual. The use of any such materials mentioned above on any other Site or networked computer environment for any other purpose is prohibited. Any such pirated use may breach copyright, trademark, and other applicable laws and could bring about criminal or civil penalties.\r\n\r\n<span style="text-decoration: underline"><strong>16. Limitation of Liability.</strong></span> To the extent permitted by law, GEX does not bear responsibility for any loss of profit, damages, loss of revenue, loss of data, loss of opportunity, loss of business, or indirect or consequential loss unless the loss arises from negligence, willful deceit or fraud. Nothing in these Terms of Service shall exclude or limit the liability of either party for death, fraud, or personal injury cased by negligence, which may not be limited or excluded by law. Although GEX makes all efforts to provide accurate and timely information on the Site, the Site may not always be entirely accurate, complete, or current, and may include errors. GEX may without notice change or update the Site at any time. Accordingly, all information must be independently verified by you before relying on it to make decisions or actions. You remain fully responsible for your decisions and actions. Subject to the above, you also agree and acknowledge that GEX has no liability or responsibility in respect of the custody of any Digital Assets.\r\n\r\nSubject to the foregoing, GEX\'s total liability for the claims arising out of and/or in connection with any single Member\'s use of GEX, the Site, and/or the Services, whether in agreement, tort (including negligence), or otherwise, shall not exceed the greater of either:\r\n\r\n(a) the total amount held on the Member Account who is the Claimant, less any Fee amount that should be paid in respect of such an Account; or\r\n\r\n(b) 100% of the amount of the Transaction(s) that is the subject of the claim, less any Fee amount that should be paid in respect of such Transaction(s).\r\n\r\n<span style="text-decoration: underline"><strong>17. Force Majeure.</strong></span> We shall not be responsible for the services provided under this agreement if we are unable to perform any of Services outlined in the Terms of Service due to any reasons beyond our control, including but not limited to, an event of Force Majeure, change of law (including but not limited to the acts of any governmental body, agency, authority or official, actions of Banks, "Electronic Platforms" and other parties) or change in sanctions policy. We shall not be liable for the Services provided under this agreement during the time period coincident with the event.\r\n\r\n<span style="text-decoration: underline" id="Support"><strong>18. Disputes &amp; Jurisdiction.</strong></span> This Terms of Service and its enforcement shall be governed by and construed pursuant to the laws of Georgia. Any legal action or proceeding related to this Terms of Service shall be brought to the Georgian Court of Arbitration, Dispute Resolution Center (DRC). The Parties irrevocably accept the exclusive jurisdiction of the aforesaid arbitrage court and hereby further irrevocably agree not to plead or claim in any other court.\r\n\r\n<span style="text-decoration: underline"><strong>19. AML Policy.</strong></span> Although GEX is currently unregulated and does not fall within the scope of the AML/CTF obligations, the senior management has implemented systems and procedures that meet the standards set forth by the European Union. This decision reflects the senior management\'s desire to prevent money laundering and not be used by criminals to launder proceeds of crime. Please see our <a href="/aml">AML Policy</a> for more information.\r\n\r\n<span style="text-decoration: underline"><strong>20. Data Protection &amp; Privacy.</strong></span> In addition to the Terms of Service you should also read our Privacy Policy, which is very important to GEX. Full details of the GEX Privacy Policy can be found at <a href="/privacy">Privacy Policy</a>. We strongly recommend that you read the Privacy Policy carefully so that you know the data that we collect, how we use the data, and with whom we share your data.\r\n\r\nThe General Data Protection Regulation (EU) 2016/679 (“<strong>GDPR</strong>”) is a regulation in EU law on data protection and privacy in the European Union (EU) and the European Economic Area. Along with the GDPR Requirements, GEX follows the Georgian Statute on Personal Data Protection as well as the GDPR Statute on the Activities of and Procedure for Discharge of Powers by the Personal Data Protection Inspector. In terms of disclosure, we may share your Personal Data with law enforcement, namely, domestic legal authorities, authorized financial institutions, data protection authorities, government officials, and other authorities when:\r\n<ul>\r\n \t<li>Required by domestic law;</li>\r\n \t<li>Compelled by subpoena, court order, or other legal procedures;</li>\r\n \t<li>If disclosure is necessary for preventing damage or financial loss;</li>\r\n \t<li>If it is necessary to disclose for reporting suspected illegal activity; and/or</li>\r\n \t<li>If disclosure is necessary in order to investigate violations of our Terms of Service or Privacy Policy.</li>\r\n</ul>\r\nWe may share personal information with other financial institutions and with tax authorities, concerning US citizens who are GEX customers, as authorized under Section 314(b) of the US Patriot Act, including the US Internal Revenue Service, pursuant to the Foreign Account Tax Compliance Act ("<strong>FATCA</strong>"), to the extent that this statute may be determined to apply to these Services. For further information, please refer to the Privacy Policy on how we process your Personal Data.\r\n\r\n<span style="text-decoration: underline"><strong>21. Cookies.</strong></span> The GEX site uses cookies. Cookies are small text files hosted on your computer by the websites you visit. They are widely used to make websites work or work more efficiently, and to provide information to site owners.\r\n\r\nCookies are typically stored on your computer \'s hard drive. Information collected from cookies is used by us to assess the effectiveness of our Site, analyze trends, and administer the platform. The information collected from cookies allows us to determine which parts of our Site are most visited and the difficulties our visitors may face in accessing our Site. With this knowledge, we can improve your experience on the platform by recognizing and providing more of the most needed features and information and eliminating access difficulties. We also use a technology known as web beacons or clear gifs, which are usually stored in e-mails to help us confirm your receipt and response to our e-mails and provide you with a more personalized experience when using our website.\r\n\r\nWe use third-party service providers to help us better understand the use of our Site. Our service providers will store cookies on your computer\'s hard drive and get the information we choose, which will help us learn about how visitors navigate our Site, what products are viewed, and other general information about the Transaction. Our service providers review this information and provide us with aggregated reports. The information and analysis provided by our service providers will be used to help us better understand the interests of our visitors on our Site and how best to serve those interests. The information collected by our service providers can be linked and combined with the information we collect about you while using the platform.\r\n\r\nYour continued use of the GEX site, as well as any subsequent usage, will be interpreted as your consent to cookies being stored on your device.\r\n\r\n<span style="text-decoration: underline"><strong>22. Risk Disclosure.</strong></span> By gaining access to or using any GEX services, you voluntarily choose to be involved in sophisticated and risky financial transactions. You further confirm that you are aware of the many risks related to the use of these services and participation in transactions with cryptocurrencies, including but not limited to risks and financial loss, technology malfunctions (including problems with the blockchain technology), and hacking. GEX works hard at keeping systems and security up to date. However, various issues and risks still are inescapable. If such issues and/or problems arise with respect to your use of GEX\'s services, including technical difficulties with depositing or trading cryptocurrencies, it may take some period of time (days, weeks, months) to resolve. Some issues may not be resolved at all. By accepting these Terms of Service, you deliberately confirm that GEX is not responsible for the risks mentioned above, and you voluntarily assume and accept such risks in deciding to engage in cryptocurrency transactions on the GEX platform.',
         post_title: 'Terms of Service',
         post_excerpt: '',
         post_status: 'publish',

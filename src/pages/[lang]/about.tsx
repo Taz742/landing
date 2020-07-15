@@ -52,17 +52,14 @@ const About = (_props: any) => {
     }
   ];
 
-  console.log(page);
-
   return (
     <>
       <CustomHead title="CryptX - Team" page="/team" description={stripHtml(page?.data?.post_content || '')} />
       <Layout>
-        <PageHeader>
-          <H2>{page?.data?.post_title || 'About Company'}</H2>
-        </PageHeader>
+        <PageHeader height="100px" className="hide_image" />
         <Container>
-          <PageSubHeader>
+          <PageSubHeader style={{ padding: '60px 0 70px' }}>
+            <H2>{page?.data?.post_title || 'About Company'}</H2>
             <Text
               align="left"
               padding="45px 0px"

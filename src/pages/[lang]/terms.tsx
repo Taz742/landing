@@ -7,33 +7,29 @@ import { Container } from '@/styled';
 import { H1 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle } from '@/styled/pages';
 import { parseHTML } from '@/utils/helpers';
-import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 import d from '@/utils/data';
 
 const Faq = () => {
-  const { t } = useTranslation();
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.find((p: any) => p.slug === 'terms') || { meta: [], title: {} };
   const terms: any = d.pages.terms;
 
   return (
     <>
-      <CustomHead title={page.title.rendered} page="/terms" description={t('Terms of Use')} />
+      <CustomHead title={page.title.rendered} page="/terms" description={terms.data.post_title} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{t('Terms of Use')}</H1>
+            <H1>{terms.data.post_title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
 
         <PageInner>
           <Container>
-            <Tabs>
+            <Tabs content={<div>{parseHTML(terms.data.post_content)}</div>}>
               {terms.meta.map((p: any) => (
-                <Panel title={p.carrer_title} key={p.carrer_title}>
-                  <div>{parseHTML(p.carrer_text)}</div>
-                </Panel>
+                <Panel title={p.carrer_title} key={p.carrer_title} />
               ))}
             </Tabs>
           </Container>
