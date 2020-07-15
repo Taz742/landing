@@ -5,7 +5,7 @@ import { Layout } from '@/components/index';
 import Button from '@/components/library/button';
 import { Container } from '@/styled';
 import { H1 } from '@/styled/typography';
-import { SearchPageHeader, PageInner, FaqText, PageSubHeader, OtcContainer, OtcItem } from '@/styled/pages';
+import { DefaultPageHeader, PageInner, FaqText, PageSubHeader, OtcContainer, OtcItem } from '@/styled/pages';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 import d from '@/utils/data';
@@ -21,14 +21,14 @@ const Faq = () => {
     <>
       <CustomHead title={page.title.rendered} page="/otc" description={otc.data.post_title} />
       <Layout>
-        <SearchPageHeader height="527px">
+        <DefaultPageHeader>
           <PageSubHeader>
             <Container>
               <H1>{otc.data.post_title}</H1>
               <p>{otc.data.post_content}</p>
             </Container>
           </PageSubHeader>
-        </SearchPageHeader>
+        </DefaultPageHeader>
 
         <PageInner>
           <Container>

@@ -77,6 +77,32 @@ export const SearchPageHeader = styled.div<{ height?: string }>`
   }
 `;
 
+export const DefaultPageHeader = styled.div<{ height?: string }>`
+  background: #edf8ff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-image: url('/images/BG.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  height: ${({ height }) => height || '527px'};
+
+  @media ${responsive.lg} {
+    height: 450px;
+  }
+
+  @media ${responsive.sm} {
+    min-height: 360px;
+    height: auto;
+  }
+
+  h2,
+  h3 {
+    padding-bottom: 20px;
+  }
+`;
+
 export const PageHeaderBg1 = styled.div<{ opacity?: string }>`
   bottom: -20px;
   left: 0;
@@ -308,12 +334,21 @@ export const PageSubHeader = styled.div`
 
     @media ${responsive.sm} {
       font-size: 18px;
+      max-width: 100%;
     }
   }
 
   h1 {
     color: #ffffff;
     margin-bottom: 20px;
+  }
+
+  @media ${responsive.lg} {
+    padding: 140px 0 60px;
+  }
+
+  @media ${responsive.sm} {
+    padding: 100px 0 50px;
   }
 `;
 
@@ -718,6 +753,16 @@ export const OtcContainer = styled.div`
   flex-wrap: wrap;
   position: relative;
   bottom: 160px;
+  margin-bottom: -120px;
+
+  @media ${responsive.lg} {
+    bottom: 140px;
+  }
+
+  @media ${responsive.sm} {
+    bottom: 0px;
+    margin-bottom: -40px;
+  }
 `;
 
 export const OtcItem = styled.div`
@@ -742,19 +787,28 @@ export const OtcItem = styled.div`
   }
 
   @media ${responsive.lg} {
-    padding: 40px 30px;
+    padding: 30px;
 
     h4 {
-      font-size: 22px;
+      font-size: 20px;
     }
   }
 
   @media ${responsive.sm} {
     padding: 24px 14px;
-    flex: 0 1 50%;
+    flex: 0 1 47%;
+    margin-bottom: 24px;
 
     h4 {
-      font-size: 20px;
+      font-size: 18px;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    img {
+      max-width: 80px;
     }
   }
 `;
