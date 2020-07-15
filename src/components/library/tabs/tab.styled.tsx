@@ -46,13 +46,11 @@ export const Tab = styled.div`
 
   @keyframes fadeInDown {
     0% {
-      opacity: 0;
-      /* -webkit-transform: translateX(260px); */
+      /* opacity: 0; */
     }
 
     100% {
-      opacity: 1;
-      /* -webkit-transform: translateX(0); */
+      /* opacity: 1; */
     }
   }
 `;

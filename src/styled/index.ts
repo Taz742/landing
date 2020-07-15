@@ -11,18 +11,17 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   align-items: center;
   justify-content: space-between;
   padding: 14px 14.5%;
-  height: 110px;
+  height: 100px;
   z-index: 1;
   transition: all 0.15s ease-in-out;
 
   .logo {
-    color: #F4F5FA;
+    color: #f4f5fa;
     cursor: pointer;
   }
 
   @media ${responsive.lg} {
     padding: 10px 10%;
-    height: 100px;
   }
 
   @media ${responsive.md} {
@@ -1526,75 +1525,75 @@ export const SimpleTradeTop = styled.div`
 `;
 
 export const SimpleTradeLine = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 100px;
 
-    @media screen and (max-width: 992px) {
-      margin-bottom: 60px;
-      margin-top: 30px;
-    }
+  @media screen and (max-width: 992px) {
+    margin-bottom: 60px;
+    margin-top: 30px;
+  }
+
+  @media ${responsive.sm} {
+    flex-direction: column-reverse;
+  }
+
+  .line {
+    width: calc(100% - 240px);
+    height: 9px;
+    background-color: #f2f3f6;
 
     @media ${responsive.sm} {
-      flex-direction: column-reverse;
+      width: 100%;
     }
 
-    .line {
-      width: calc(100% - 240px);
+    .active-line {
+      width: 30%;
       height: 9px;
-      background-color: #F2F3F6;
+      transition: all 0.1s ease;
+      border-radius: 12px;
+      background: transparent linear-gradient(90deg, #08aa7d 0%, #2765c9 100%) 0% 0% no-repeat padding-box;
 
-      @media ${responsive.sm} {
-        width: 100%;
-      }
-
-      .active-line {
-        width: 30%;
-        height: 9px;
-        transition: all 0.1s ease;
-        border-radius: 12px;
-        background: transparent linear-gradient(90deg, #08AA7D 0%, #2765C9 100%) 0% 0% no-repeat padding-box;
-
-        &.active-line-ask {
-          background: transparent linear-gradient(90deg, #F7A13C 0%, #D85947 100%) 0% 0% no-repeat padding-box;
-        }
+      &.active-line-ask {
+        background: transparent linear-gradient(90deg, #f7a13c 0%, #d85947 100%) 0% 0% no-repeat padding-box;
       }
     }
+  }
 
-    .line-data {
-      color: #6C7686;
-      font-size: 16px;
-      margin-left: auto;
-      color: #6C7686;
-      font-size: 16px;
-      text-align: right;
+  .line-data {
+    color: #6c7686;
+    font-size: 16px;
+    margin-left: auto;
+    color: #6c7686;
+    font-size: 16px;
+    text-align: right;
+    position: relative;
+    top: -15px;
+    width: 35%;
+
+    @media ${responsive.sm} {
+      margin-left: 0;
+      text-align: left;
+    }
+
+    span {
+      color: #0ecbfd;
+    }
+
+    img {
+      margin-right: 12px;
       position: relative;
-      top: -15px;
-      width: 35%;
-      
-      @media ${responsive.sm} {
-        margin-left: 0;
-        text-align: left;
-      }
-
-      span {
-        color: #0ECBFD;
-      }
-
-      img {
-        margin-right: 12px;
-        position: relative;
-        top: 5px;
-      }
+      top: 5px;
     }
+  }
 `;
 
 export const WeAreHiringBox = styled.div`
   background-image: url('/hiring.png');
   background-repeat: no-repeat;
   min-height: 557px;
-  background-color: #1C2730;
+  background-color: #1c2730;
   padding: 0px 40px;
   margin-bottom: 60px;
 
@@ -1622,11 +1621,11 @@ export const WeAreHiring = styled.div`
   }
 
   h2 {
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   span {
-    color: #707B8D;
+    color: #707b8d;
     line-height: 200%;
   }
 
@@ -1634,7 +1633,7 @@ export const WeAreHiring = styled.div`
     height: 65px;
     padding: 20px 70px;
     background-color: rgba(14, 203, 253, 0.15);
-    color: #0ECBFD;
+    color: #0ecbfd;
     position: relative;
     width: auto;
     max-width: 200px;

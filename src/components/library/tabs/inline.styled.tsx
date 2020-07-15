@@ -11,12 +11,18 @@ export const TabMenu = styled.ul`
   -webkit-margin-end: 0px;
   -webkit-padding-start: 0px;
   max-width: 300px;
+  position: sticky;
+  top: 140px;
+  align-self: flex-start;
+  height: auto;
 
   @media ${responsive.sm} {
     max-width: 100%;
     padding: 0 0 14px;
     margin: 0 0 20px;
     border-bottom: 1px solid #ccc;
+    position: relative;
+    top: 0;
   }
 
   li {
