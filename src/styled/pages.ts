@@ -471,6 +471,10 @@ export const FaqText = styled.div`
     position: relative;
     top: 4px;
   }
+
+  @media ${responsive.sm} {
+    font-size: 17px;
+  }
 `;
 
 export const TeamContainer = styled.div`
@@ -800,7 +804,7 @@ export const OtcItem = styled.div`
     margin-bottom: 24px;
 
     h4 {
-      font-size: 18px;
+      font-size: 17px;
     }
 
     .logo {
