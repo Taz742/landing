@@ -16,7 +16,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   transition: all 0.15s ease-in-out;
 
   .logo {
-    color: #F4F5FA;
+    color: #f4f5fa;
     cursor: pointer;
   }
 
@@ -1526,107 +1526,136 @@ export const SimpleTradeTop = styled.div`
 `;
 
 export const SimpleTradeLine = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 100px;
 
-    @media screen and (max-width: 992px) {
-      margin-bottom: 60px;
-      margin-top: 30px;
-    }
+  @media screen and (max-width: 992px) {
+    margin-bottom: 60px;
+    margin-top: 30px;
+  }
+
+  @media ${responsive.sm} {
+    flex-direction: column-reverse;
+  }
+
+  .line {
+    width: calc(100% - 240px);
+    height: 9px;
+    background-color: #f2f3f6;
 
     @media ${responsive.sm} {
-      flex-direction: column-reverse;
+      width: 100%;
     }
 
-    .line {
-      width: calc(100% - 240px);
+    .active-line {
+      width: 30%;
       height: 9px;
-      background-color: #F2F3F6;
+      transition: all 0.1s ease;
+      border-radius: 12px;
+      background: transparent linear-gradient(90deg, #08aa7d 0%, #2765c9 100%) 0% 0% no-repeat padding-box;
 
-      @media ${responsive.sm} {
-        width: 100%;
-      }
-
-      .active-line {
-        width: 30%;
-        height: 9px;
-        transition: all 0.1s ease;
-        border-radius: 12px;
-        background: transparent linear-gradient(90deg, #08AA7D 0%, #2765C9 100%) 0% 0% no-repeat padding-box;
-
-        &.active-line-ask {
-          background: transparent linear-gradient(90deg, #F7A13C 0%, #D85947 100%) 0% 0% no-repeat padding-box;
-        }
+      &.active-line-ask {
+        background: transparent linear-gradient(90deg, #f7a13c 0%, #d85947 100%) 0% 0% no-repeat padding-box;
       }
     }
+  }
 
-    .line-data {
-      color: #6C7686;
-      font-size: 16px;
-      margin-left: auto;
-      color: #6C7686;
-      font-size: 16px;
-      text-align: right;
+  .line-data {
+    color: #6c7686;
+    font-size: 16px;
+    margin-left: auto;
+    color: #6c7686;
+    font-size: 16px;
+    text-align: right;
+    position: relative;
+    top: -15px;
+    width: 35%;
+
+    @media ${responsive.sm} {
+      margin-left: 0;
+      text-align: left;
+    }
+
+    span {
+      color: #0ecbfd;
+    }
+
+    img {
+      margin-right: 12px;
       position: relative;
-      top: -15px;
-      width: 35%;
-      
-      @media ${responsive.sm} {
-        margin-left: 0;
-        text-align: left;
-      }
-
-      span {
-        color: #0ECBFD;
-      }
-
-      img {
-        margin-right: 12px;
-        position: relative;
-        top: 5px;
-      }
+      top: 5px;
     }
+  }
 `;
 
 export const WeAreHiringBox = styled.div`
-  background-image: url('/hiring.png');
+  /* background-image: url('/hiring.png');
   background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: left top; */
+  background-color: #1c2730;
   min-height: 557px;
-  background-color: #1C2730;
-  padding: 0px 40px;
-  margin-bottom: 60px;
+  margin-bottom: 100px;
+  display: flex;
 
-  @media ${responsive.sm} {
+  img {
+    flex: 0 0 50%;
+    max-width: 50%;
+    object-fit: cover;
+
+    @media ${responsive.md} {
+      display: none;
+    }
+  }
+
+  .hiring-container {
+    display: flex;
+  }
+
+  @media ${responsive.lg} {
+    background-size: 50% 100%;
+  }
+
+  @media ${responsive.md} {
     padding: 0px 20px;
     background-image: none;
+    min-height: 100%;
 
     .hiring-container {
       padding: 0;
+      height: 100%;
     }
   }
 `;
 
 export const WeAreHiring = styled.div`
-  width: 600px;
-  min-height: 557px;
-  float: right;
+  /* float: right; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-left: auto;
+  padding: 20px 40px 20px 0px;
+  flex: 1;
 
-  @media ${responsive.sm} {
+  @media ${responsive.md} {
     width: 100%;
+    min-height: 100%;
     align-items: center;
+    padding: 40px 0px;
   }
 
   h2 {
-    color: #FFFFFF;
+    color: #ffffff;
+
+    @media ${responsive.md} {
+      margin-bottom: 20px;
+    }
   }
 
   span {
-    color: #707B8D;
+    color: #707b8d;
     line-height: 200%;
   }
 
@@ -1634,8 +1663,7 @@ export const WeAreHiring = styled.div`
     height: 65px;
     padding: 20px 70px;
     background-color: rgba(14, 203, 253, 0.15);
-    color: #0ECBFD;
-    position: relative;
+    color: #0ecbfd;
     width: auto;
     max-width: 200px;
     border: 0px;
@@ -1644,12 +1672,133 @@ export const WeAreHiring = styled.div`
     outline: none;
     transition: all 0.2s ease-in-out;
     font-size: 20px;
-    letter-spacing: 0.2px;
-    display: inline-flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    font-weight: 400;
+
+    @media ${responsive.md} {
+      margin-top: 40px;
+    }
+  }
+`;
+
+export const ContactUsBox = styled.div`
+  padding: 0 0 70px;
+  display: flex;
+
+  @media ${responsive.sm} {
+    flex-direction: column;
+  }
+
+  @media ${responsive.lg} {
+    padding: 0 0 50px;
+  }
+`;
+
+export const OurAddress = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 190px;
+  height: auto;
+
+  img {
+    width: 49px;
+    height: 49px;
+  }
+
+  h5 {
+    margin-top: 20px;
+    font-weight: 500;
+  }
+`;
+
+export const OurAddressContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  p {
+    color: #6c7686;
+    line-height: 150%;
+    font-size: 14px;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+`;
+
+export const WriteUs = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 300px;
+  margin-left: 180px;
+
+  @media ${responsive.sm} {
+    margin-left: 0;
+    margin-top: 50px;
+  }
+
+  img {
+    width: 49px;
+    height: 49px;
+  }
+
+  h5 {
+    margin-top: 20px;
+    font-weight: 500;
+  }
+`;
+
+export const WriteUsContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 300px;
+
+  @media ${responsive.sm} {
+    flex-direction: column;
+  }
+
+  p {
+    color: #6c7686;
+    line-height: 150%;
+    font-size: 14px;
+  }
+`;
+
+export const Connect = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin-left: auto;
+
+  @media ${responsive.sm} {
+    margin-left: 0;
+    margin-top: 50px;
+  }
+
+  img {
+    width: 49px;
+    height: 49px;
+  }
+
+  h5 {
+    margin-top: 20px;
+    font-weight: 500;
+  }
+
+  p {
+    color: #6c7686;
+    line-height: 150%;
+    font-size: 14px;
+  }
+`;
+
+export const ConnectIcons = styled.div`
+  margin-top: auto;
+
+  a {
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
   }
 `;

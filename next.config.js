@@ -11,5 +11,8 @@ module.exports = {
   },
   devIndicators: {
     autoPrerender: false
+  },
+  typescript: {
+    ignoreBuildErrors: true
   }
 };
