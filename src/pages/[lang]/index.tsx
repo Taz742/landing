@@ -26,13 +26,13 @@ import {
   SimpleTradeTop
 } from '@/styled';
 import { H1, H2, H5, Subtext, H3 } from '@/styled/typography';
-import { stripHtml } from '@/utils/helpers';
 import { PageHeader } from '@/styled/pages';
 import config from '@/utils/config';
 import NumberFormat from 'react-number-format';
 import useBreakpoint from '@/hooks/use-breakpoints';
-import data from '@/utils/data';
+// import data from '@/utils/data';
 import useTranslation from '@/hooks/useTranslation';
+import { DataContext } from '@/context/app-context';
 
 const loadTime = 90;
 
@@ -57,9 +57,9 @@ function useInterval(callback: any, delay: number) {
   }, [delay]);
 }
 
-
 const IndexPage = (_props: any) => {
-  const { home } = data;
+  const { data } = React.useContext(DataContext);
+  const page = data['home'];
   const [pairs, setPairs] = useState<any>({
     GEL: [],
     USD: []
@@ -120,7 +120,7 @@ const IndexPage = (_props: any) => {
       });
       setCoinsList(lists);
     }
-  }
+  };
 
   useInterval(() => {
     let timeVal = time;
@@ -156,19 +156,19 @@ const IndexPage = (_props: any) => {
       size = sizeVal;
       price = priceVal;
     }
-    const url = `${""}/simple-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}`
+    const url = `${''}/simple-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}`;
     window.open(url, '_blank');
   };
 
   return (
     <>
-      <CustomHead title="CryptX Crypto Wallet" page="" description={stripHtml(String(home.why.why_content))} />
+      <CustomHead title="CryptX Crypto Wallet" page="" description={page?.why?.why_content} />
       <Layout>
         <PageHeader />
         <OtcComp>
           <Container>
-            <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? "100%" : "75%"} style={{ padding: 0 }}>
-              <H1 style={{ color: '#FFFFFF' }}>{home?.hero?.hero_title || 'The Most Liquid Crypto Exchange In Region'}</H1>
+            <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? '100%' : '75%'} style={{ padding: 0 }}>
+              <H1 style={{ color: '#FFFFFF' }}>{page?.hero?.hero_title || 'The Most Liquid Crypto Exchange In Region'}</H1>
               <RegisterButton>
                 <span>{t('register')}</span>
               </RegisterButton>
@@ -198,7 +198,7 @@ const IndexPage = (_props: any) => {
 
         <Container>
           <SimpleTrade>
-            <SimpleTradeTop style={{ display: "flex", justifyContent: "space-between", marginBottom: 25 }}>
+            <SimpleTradeTop style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 25 }}>
               <H3>{t('simple_trade')}</H3>
               <div className="trade-right">
                 <div
@@ -211,14 +211,17 @@ const IndexPage = (_props: any) => {
                     <img src="/images/dropdown.svg" />
                   </div>
                   <div className="coin-list-dropdown">
-                    {coinsList.map((item: any, index: number) =>
+                    {coinsList.map((item: any, index: number) => (
                       <p
                         key={index}
-                        onClick={() => { setCoin(item); setDropDown(false) }}
+                        onClick={() => {
+                          setCoin(item);
+                          setDropDown(false);
+                        }}
                       >
                         {item.coin}
                       </p>
-                    )}
+                    ))}
                   </div>
                 </div>
                 <div className="currency">
@@ -230,13 +233,19 @@ const IndexPage = (_props: any) => {
             </SimpleTradeTop>
 
             <div className="tabs">
-              <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'active' : ''}>{t('buy')} {coin.coin}</button>
-              <button onClick={() => setSellType('ASK')} className={sellType !== 'BID' ? 'active' : ''}>{t('sell')} {coin.coin}</button>
+              <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'active' : ''}>
+                {t('buy')} {coin.coin}
+              </button>
+              <button onClick={() => setSellType('ASK')} className={sellType !== 'BID' ? 'active' : ''}>
+                {t('sell')} {coin.coin}
+              </button>
             </div>
 
             <div className="tabs-list">
-              {trades && currency && trades[currency].length > 0 && (
-                trades[currency][coin.index]['offerEntriesMap'][sellType].map((item: any, index: number) =>
+              {trades &&
+                currency &&
+                trades[currency].length > 0 &&
+                trades[currency][coin.index]['offerEntriesMap'][sellType].map((item: any, index: number) => (
                   <div key={index} className="tab-coin">
                     <p>
                       {sellType === 'BID' ? t('if_you_buy_now') : t('if_you_sell_now')}
@@ -250,12 +259,9 @@ const IndexPage = (_props: any) => {
                       {sellType === 'BID' ? item.price : item.size}
                       <span style={{ fontSize: 22, marginLeft: 10 }}>{sellType === 'BID' ? currency : coin.coin}</span>
                     </h4>
-                    <button onClick={() => redirect(item.size, item.price)}>
-                      {sellType === 'BID' ? t('buy_now') : t('sell_now')}
-                    </button>
+                    <button onClick={() => redirect(item.size, item.price)}>{sellType === 'BID' ? t('buy_now') : t('sell_now')}</button>
                   </div>
-                )
-              )}
+                ))}
               <div className="tab-coin">
                 <p>
                   {t('enter_amount_you')}
@@ -273,7 +279,7 @@ const IndexPage = (_props: any) => {
                       } else {
                         newSize = Number(e.target.value / coin.sellPrice);
                       }
-                      setSize(newSize)
+                      setSize(newSize);
                     }}
                     placeholder={t('enter_price')}
                   />
@@ -288,7 +294,7 @@ const IndexPage = (_props: any) => {
                       } else {
                         newSize = Number(e.target.value * coin.sellPrice);
                       }
-                      setPrice(newSize)
+                      setPrice(newSize);
                     }}
                     placeholder={t('enter_amount')}
                   />
@@ -301,7 +307,10 @@ const IndexPage = (_props: any) => {
           </SimpleTrade>
           <SimpleTradeLine>
             <div className="line">
-              <div style={{ width: `${(100 * (loadTime - time)) / loadTime}%` }} className={`active-line ${sellType === 'ASK' ? 'active-line-ask' : ''}`} />
+              <div
+                style={{ width: `${(100 * (loadTime - time)) / loadTime}%` }}
+                className={`active-line ${sellType === 'ASK' ? 'active-line-ask' : ''}`}
+              />
             </div>
             <div className="line-data">
               <img src="/images/access_alarm.svg" />
@@ -310,20 +319,20 @@ const IndexPage = (_props: any) => {
                 <span>
                   {' '}
                   {`0${(time / 60).toFixed(0)}:${
-                    (parseInt((time - 60).toFixed(0))) <= 9 ? `0${(time - 60).toFixed(0)}` : (time - 60).toFixed(0)
-                    }`}
+                    parseInt((time - 60).toFixed(0)) <= 9 ? `0${(time - 60).toFixed(0)}` : (time - 60).toFixed(0)
+                  }`}
                 </span>
               ) : (
-                  <span> 00:{parseInt(time.toFixed(0)) <= 9 ? `0${time.toFixed(0)}` : time.toFixed(0)}</span>
-                )}
+                <span> 00:{parseInt(time.toFixed(0)) <= 9 ? `0${time.toFixed(0)}` : time.toFixed(0)}</span>
+              )}
             </div>
           </SimpleTradeLine>
         </Container>
         <WhyComp>
           <Container>
-            <H2 style={{ color: "#FFFFFF" }}>{t('why_choose_us')}</H2>
+            <H2 style={{ color: '#FFFFFF' }}>{t('why_choose_us')}</H2>
             <SolutionsBox className="items flex-container">
-              {(home?.solutions?.solutions || []).map((item: any, index: number) => (
+              {(page?.solutions?.solutions || []).map((item: any, index: number) => (
                 <SolutionItem className="item" key={index}>
                   <img src={item.sol_file} />
                   <H5>{item.sol_title}</H5>
@@ -337,7 +346,7 @@ const IndexPage = (_props: any) => {
           <Container>
             <H2>{t('multi_currency_platform')}</H2>
             <CoinsBox className="items">
-              {(home?.advantages?.advantages || []).map((item: any, index: number) => (
+              {(page?.advantages?.advantages || []).map((item: any, index: number) => (
                 <CoinItem className="item" key={index}>
                   <img src={item.sol_file} />
                   <H5 style={{ marginTop: 15 }}>

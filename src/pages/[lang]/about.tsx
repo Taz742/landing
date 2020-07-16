@@ -5,77 +5,42 @@ import { Layout } from '@/components/index';
 import {
   Container,
   WeAreHiringBox,
-  WeAreHiring,
-  ContactUsBox,
-  OurAddress,
-  OurAddressContent,
-  WriteUs,
-  WriteUsContent,
-  Connect,
-  ConnectIcons
+  WeAreHiring
+  // ContactUsBox,
+  // OurAddress,
+  // OurAddressContent,
+  // WriteUs,
+  // WriteUsContent,
+  // Connect,
+  // ConnectIcons
 } from '@/styled';
-import { H2, H5, Text } from '@/styled/typography';
+import { H2, Text } from '@/styled/typography';
 import { PageInner, PageSubHeader, TeamContainer, TeamItem, PageHeader } from '@/styled/pages';
-import { replaceEnterSymbol, stripHtml } from '@/utils/helpers';
 import { Button } from '@/components/library/button';
-import data from '@/utils/data';
+import { DataContext } from '@/context/app-context';
 
 const About = (_props: any) => {
-  // const page = props.pages['Team'];
-
-  const page: any = data.pages.about.data;
-
-  const tempTeamMembers = [
-    {
-      client_logo: 'https://content.cryptx.com/wp-content/uploads/2020/05/DSCF7597-scaled-1.jpg',
-      client_title: 'Name Surname',
-      client_position: 'Customer',
-      client_linkedin: ''
-    },
-    {
-      client_logo: 'https://content.cryptx.com/wp-content/uploads/2020/05/DSCF7597-scaled-1.jpg',
-      client_title: 'Name Surname',
-      client_position: 'Customer',
-      client_linkedin: ''
-    },
-    {
-      client_logo: 'https://content.cryptx.com/wp-content/uploads/2020/05/DSCF7597-scaled-1.jpg',
-      client_title: 'Name Surname',
-      client_position: 'Customer',
-      client_linkedin: ''
-    },
-    {
-      client_logo: 'https://content.cryptx.com/wp-content/uploads/2020/05/DSCF7597-scaled-1.jpg',
-      client_title: 'Name Surname',
-      client_position: 'Customer',
-      client_linkedin: ''
-    }
-  ];
+  const { data } = React.useContext(DataContext);
+  const page: any = data.pages.pages['about'] || { meta: [], data: { post_title: '' } };
+  const about: any = data.static.pages['about'];
 
   return (
     <>
-      <CustomHead title="CryptX - Team" page="/team" description={stripHtml(page?.data?.post_content || '')} />
+      <CustomHead title={page.data.post_title} page="/about" description={page.data.post_title} />
       <Layout>
         <PageHeader height="100px" className="hide_image" />
         <Container>
           <PageSubHeader style={{ padding: '60px 0 70px' }}>
-            <H2>{page?.data?.post_title || 'About Company'}</H2>
-            <Text
-              align="left"
-              padding="45px 0px"
-              dangerouslySetInnerHTML={{
-                __html: replaceEnterSymbol(
-                  page?.data?.post_content ||
-                    'We’re Tbilisi based team of professionals and crypto and blockchain enthusiasts who are passionate about developing user-friendly and intuitive cryptocurrency exchange with the highest liquidity in the region. We bring unique experiences to trade and we continually seek new ways to do so. First of all, we wanted to make sure that onboarding process is simple and fast. Hence, registration and verification takes only one day. We provide 40 trading pairs and using our liquidity aggregator and matching engine, high level of trading activity and order fast execution is guaranteed. At Gex, we have lowest fees in the region and we include diverse alternatives for payments: Visa, Mastercard, Paypal, Wire transfers. High level of security is critical for our business. Therefore, we are compliant to information security standard ISO 27001 and CryptoCurrency Security Standard. We believe that continious striving for improvement is the major key to success. We know that we can always do better. That’s why we never stop working to provide you with the exchange platform with the best possible features and high liquidity.    '
-                )
-              }}
-            />
+            <H2>{page.data.post_title}</H2>
+            <Text align="left" padding="45px 0px">
+              {page.data.post_content}
+            </Text>
           </PageSubHeader>
         </Container>
         <PageInner>
           <Container>
             <TeamContainer>
-              {(page?.meta || tempTeamMembers).map((t: any, i: number) => (
+              {page.meta.map((t: any, i: number) => (
                 <TeamItem key={i}>
                   <div className="logo">
                     <img src={t.client_logo} />
@@ -93,21 +58,14 @@ const About = (_props: any) => {
         <WeAreHiringBox>
           <img src="/hiring.png" />
           <WeAreHiring>
-            <H2>We're Hiring</H2>
-            <span>
-              At GEX, we truly believe in the transformative power of the great team. That’s why we’re always in search for new team members
-              who bring expertise, experience, passion and energy. That’s vital for the longevity and growth of our company.
-            </span>
-            <span>
-              If you’re a trader, digital marketer, blockchain specialist, financial analyst, web developer, web designer or compliance
-              officer and consider yourself to be
-            </span>
-            <Button>Apply</Button>
+            <H2>{about.hiring_title}</H2>
+            <span>{page.about}</span>
+            <Button>{about.apply_title}</Button>
           </WeAreHiring>
         </WeAreHiringBox>
         <Container>
           <H2 style={{ marginBottom: 100 }}>{page?.contact_us?.title}</H2>
-          <ContactUsBox>
+          {/* <ContactUsBox>
             <OurAddress>
               <img src={page.contact_us.our_address.logo} />
               <H5>{page.contact_us.our_address.title}</H5>
@@ -142,7 +100,7 @@ const About = (_props: any) => {
                 </a>
               </ConnectIcons>
             </Connect>
-          </ContactUsBox>
+          </ContactUsBox> */}
         </Container>
       </Layout>
     </>

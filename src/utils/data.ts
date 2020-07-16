@@ -355,7 +355,9 @@ export default {
         about:
           'At GEX, we truly believe in the transformative power of a great team. That’s why we’re always in search of new team members who bring expertise, experience, passion, and energy. This is vital for the longevity and growth of our company. If you’re a trader, digital marketer, blockchain specialist, financial analyst, web developer, web designer, or compliance officer, and consider yourself to be experienced, ambitious and proactive, please don’t hesitate to send your resume to <a href="mailto:careers@gex.ge">careers@gex.ge</a>',
         openings: '',
-        template: 'about'
+        template: 'about',
+        hiring_title: `We're Hiring`,
+        apply_title: 'Apply'
       },
       faq: {
         data: {
@@ -814,7 +816,9 @@ export default {
         about:
           'At GEX, we truly believe in the transformative power of a great team. That’s why we’re always in search of new team members who bring expertise, experience, passion, and energy. This is vital for the longevity and growth of our company. If you’re a trader, digital marketer, blockchain specialist, financial analyst, web developer, web designer, or compliance officer, and consider yourself to be experienced, ambitious and proactive, please don’t hesitate to send your resume to <a href="mailto:careers@gex.ge">careers@gex.ge</a>',
         openings: '',
-        template: 'about'
+        template: 'about',
+        hiring_title: `ჩვენ ვეძებთ`,
+        apply_title: 'გაგზავნა'
       },
       faq: {
         data: {
