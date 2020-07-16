@@ -113,6 +113,15 @@ export const HeaderLeft = styled.div`
 export const HeaderRight = styled.div`
   display: flex;
   align-items: center;
+
+  .links {
+    display: flex;
+    align-items: center;
+
+    @media ${responsive.sm} {
+      display: none;
+    }
+  }
 `;
 
 export const LanguageChangerWrapper = styled.div`
@@ -630,13 +639,13 @@ export const StyledFooter = styled.footer`
   position: relative;
   background-color: #1c2730;
 
-  @media ${responsive.sm} {
-    padding: 100px 0 50px;
-    overflow: hidden;
-  }
-
   @media ${responsive.lg} {
     padding: 120px 0 50px;
+  }
+
+  @media ${responsive.sm} {
+    padding: 60px 0 40px;
+    overflow: hidden;
   }
 `;
 
@@ -646,14 +655,15 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
 
+  @media ${responsive.lg} {
+    padding: 0 0 50px;
+  }
+
   @media ${responsive.sm} {
     align-items: center;
     justify-content: center;
     padding: 0 0 50px;
-  }
-
-  @media ${responsive.lg} {
-    padding: 0 0 50px;
+    flex-direction: column;
   }
 `;
 
@@ -682,6 +692,12 @@ export const FooterAboutUs = styled.div`
   h3 {
     margin-bottom: 10px;
     font-size: 26px;
+  }
+
+  @media ${responsive.sm} {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
   }
 `;
 
@@ -724,6 +740,8 @@ export const FooterSocial = styled.div`
   }
 
   @media ${responsive.sm} {
+    align-self: center;
+
     p {
       text-align: center;
     }
@@ -751,8 +769,8 @@ export const FooterSocialButtons = styled.div<{ justify?: string; margin?: strin
   @media ${responsive.lg} {
     a,
     img {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -813,7 +831,7 @@ export const HamburgerMenuButton = styled.div`
   cursor: pointer;
 
   img {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 
   :hover {
@@ -1808,33 +1826,34 @@ export const ConnectIcons = styled.div`
 `;
 
 export const FeesBox = styled.div`
-  margin: 0 -5px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+
+  @media ${responsive.sm} {
+    justify-content: space-between;
+  }
 `;
 
 export const FeesItem = styled.div`
-  margin: 15px 5px;
-  flex: 0 0 auto;
-  width: 23%;
+  margin: 15px 32px 90px 0;
+  flex: 0 0 23%;
   background-color: #ffffff;
   box-shadow: 0 6px 10px #a3a1bc29;
   border-radius: 15px;
-  padding: 30px 40px;
+  padding: 50px 60px;
 
-  @media ${responsive.lg} {
-    padding: 20px 30px;
-    width: 30%;
-  }
-
-  @media ${responsive.sm} {
-    width: 45%;
+  &:nth-child(4) {
+    margin: 15px 0 90px;
   }
 
   p.percent {
     font-size: 44px;
     color: #0ecbfd;
+    font-weight: 500;
+
+    @media ${responsive.md} {
+      font-size: 32px;
+    }
 
     @media ${responsive.sm} {
       font-size: 24px;
@@ -1845,5 +1864,30 @@ export const FeesItem = styled.div`
     color: #6c7686;
     font-weight: 500;
     margin-top: 10px;
+  }
+
+  @media ${responsive.lg} {
+    flex: 0 0 22%;
+    padding: 40px;
+    margin: 15px 32px 50px 0;
+
+    &:nth-child(4) {
+      margin: 15px 0 50px;
+    }
+  }
+
+  @media ${responsive.md} {
+    flex: 0 0 22%;
+    padding: 30px;
+    margin: 15px 28px 30px 0;
+
+    &:nth-child(4) {
+      margin: 15px 0 30px;
+    }
+  }
+
+  @media ${responsive.sm} {
+    flex: 0 0 46%;
+    margin: 0 0 30px;
   }
 `;

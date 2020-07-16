@@ -41,11 +41,11 @@ export const PcDrawer: React.FC<ResponsiveDrawerProps> = (props: ResponsiveDrawe
       >
         <MobileMenuContainer>
           <MobileMenu>
-            <Link href="/[lang]" as={`/${locale}`}>
+            {/* <Link href="/[lang]" as={`/${locale}`}>
               <a className="logo">
                 <img src="/main_logo.svg" />
               </a>
-            </Link>
+            </Link> */}
             {pages.map((page: any, i: number) => (
               <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={i} passHref>
                 <MobileMenuItem active={router.pathname === `/${page.slug}`} onClick={onClose}>
@@ -65,7 +65,7 @@ export const PcDrawer: React.FC<ResponsiveDrawerProps> = (props: ResponsiveDrawe
             </FooterSocialButtons>
             <Subtext align="center" size="16px" opacity="0.7">
               <img src="/copyright.svg" style={{ position: 'relative', marginRight: '10px', top: '3px' }} />
-              <span>{extra.copy} All Rights Reserved</span>
+              <span>{extra.copy}</span>
             </Subtext>
           </FooterSocial>
         </MobileMenuContainer>

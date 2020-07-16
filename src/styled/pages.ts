@@ -24,7 +24,7 @@ export const DefaultFooterContainer = styled.div`
   @media ${responsive.sm} {
     align-items: center;
     justify-content: center;
-    padding: 0 0 50px;
+    padding: 0 0 20px;
   }
 `;
 
@@ -761,11 +761,12 @@ export const LanguageChangerWrapper = styled.div`
 
 export const OtcContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   position: relative;
   bottom: 160px;
   margin-bottom: -120px;
+  margin-left: -16px;
+  margin-right: -16px;
 
   @media ${responsive.lg} {
     bottom: 140px;
@@ -778,7 +779,7 @@ export const OtcContainer = styled.div`
 `;
 
 export const OtcItem = styled.div`
-  flex: 0 1 23.5%;
+  flex: 0 1 23%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -787,6 +788,7 @@ export const OtcItem = styled.div`
   background: #ffffff;
   border-radius: 15px;
   box-shadow: 1px -1px 17px #a3a1bc29;
+  margin: 0 1%;
 
   .logo {
     margin-bottom: 34px;
@@ -808,8 +810,8 @@ export const OtcItem = styled.div`
 
   @media ${responsive.sm} {
     padding: 24px 14px;
-    flex: 0 1 47%;
-    margin-bottom: 24px;
+    flex: 0 1 43%;
+    margin: 0 3% 24px;
 
     h4 {
       font-size: 17px;

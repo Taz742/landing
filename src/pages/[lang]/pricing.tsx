@@ -11,11 +11,11 @@ import useTranslation from '@/hooks/useTranslation';
 const Faq = () => {
   const { data } = React.useContext(DataContext);
   const { t } = useTranslation();
-  const page: any = data.pages.pages['pricing'];
+  const page: any = data.pages.pages['pricing'] || { meta: [], data: { post_title: '' } };
 
   return (
     <>
-      <CustomHead title={page.data.post_title} page="/terms" description={page.data.post_title} />
+      <CustomHead title={page.data.post_title} page="/pricing" description={page.data.post_title} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
@@ -30,8 +30,8 @@ const Faq = () => {
                 <div key={index}>
                   <H5 style={{ marginTop: (index === 0 ? 0 : 1) * 30 }}>{item.title}</H5>
                   <FeesBox>
-                    {item.content.map((item: any) => (
-                      <FeesItem>
+                    {item.content.map((item: any, i: number) => (
+                      <FeesItem key={`${item.title}-${i}`}>
                         <p className="percent">{item.percent}</p>
                         <p className="title">{item.title}</p>
                       </FeesItem>

@@ -11,9 +11,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .MuiDrawer-paper {
-    background: #83a4d4;
-    background: -webkit-linear-gradient(to top, #b6fbff54, #83a4d42b);
-    background: linear-gradient(to top, #b6fbff54, #83a4d42b);
+    background: #eaefff;
+    background: -webkit-linear-gradient(to bottom, #edf8ff, #eaefff);
+    background: linear-gradient(to bottom, #edf8ff, #eaefff);
   }
 
   body {

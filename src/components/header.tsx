@@ -19,6 +19,7 @@ export const Header = () => {
   const { locale } = useTranslation();
   const { data } = React.useContext(DataContext);
   const pages = data.pages.headerMenu;
+  const extra = data.pages.extra || {};
 
   const fixed = React.useMemo((): boolean => {
     const path = router.asPath.toLocaleLowerCase();
@@ -50,21 +51,23 @@ export const Header = () => {
       <HeaderRight>
         <LocaleSwitcher />
         <HeaderSeperator />
-        <a href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
-          <Button text="Sign In" buttonType="text" padding="0 30px" />
-        </a>
-        <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
-          <Button text="Sign Up" />
-        </a>
-      </HeaderRight>
-      <Hidden smUp>
-        <div>
-          <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
-            <img src="/hamburger.svg" />
-          </HamburgerMenuButton>
-          <MobileMenu pages={pages} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={{}} />
+        <div className="links">
+          <a href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
+            <Button text="Sign In" buttonType="text" padding="0 30px" />
+          </a>
+          <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
+            <Button text="Sign Up" />
+          </a>
         </div>
-      </Hidden>
+        <Hidden smUp>
+          <div>
+            <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
+              <img src="/hamburger.svg" />
+            </HamburgerMenuButton>
+            <MobileMenu pages={pages} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={extra} />
+          </div>
+        </Hidden>
+      </HeaderRight>
     </StyledHeader>
   );
 };

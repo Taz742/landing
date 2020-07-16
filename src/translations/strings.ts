@@ -34,7 +34,7 @@ const strings: Strings = {
     faq_title: 'GEX - ხ.დ.კ.',
     faq_description: 'GEX - ხშირად დასმული კითხვები. რაში შეგვიძლია დაგეხმაროთ?',
     faq_info_text: 'დამატებითი ინფორმაციისთვის დაგვიკავშირდით ელ-ფოსტაზე',
-    fee_info_text: 'Does not include bank and visa card fees',
+    fee_info_text: 'არ მოიცავს ბანკის და ვიზა ბარათის საკომისიოებს',
     'Terms of Use': 'მოხმარების პირობები',
     'OTC Desk': 'OTC Desk',
     'How can we help?': 'რაში შეგვიძლია დაგეხმაროთ?',
