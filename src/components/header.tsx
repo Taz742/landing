@@ -11,6 +11,7 @@ import config from '@/utils/config';
 import { H2 } from '@/styled/typography';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
+import useBreakpoint from '@/hooks/use-breakpoints';
 
 export const Header = () => {
   const router = useRouter();
@@ -19,6 +20,7 @@ export const Header = () => {
   const { locale } = useTranslation();
   const { data } = React.useContext(DataContext);
   const pages = data.pages.headerMenu;
+  const breakpoint = useBreakpoint();
 
   const fixed = React.useMemo((): boolean => {
     const path = router.asPath.toLocaleLowerCase();
@@ -50,20 +52,20 @@ export const Header = () => {
       <HeaderRight>
         <LocaleSwitcher />
         <HeaderSeperator />
-        <a href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
-          <Button text="Sign In" buttonType="text" padding="0 30px" />
-        </a>
-        <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
-          <Button text="Sign Up" />
-        </a>
+        <div style={{ display: `${['xs', 'sm'].includes(breakpoint) ? 'none' : 'flex'}`, alignItems: 'center' }}>
+          <a href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
+            <Button text="Sign In" buttonType="text" padding="0 30px" />
+          </a>
+          <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
+            <Button text="Sign Up" />
+          </a>
+        </div>
       </HeaderRight>
       <Hidden smUp>
-        <div>
-          <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
-            <img src="/hamburger.svg" />
-          </HamburgerMenuButton>
-          <MobileMenu pages={pages} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={{}} />
-        </div>
+        <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
+          <img src="/hamburger.svg" />
+        </HamburgerMenuButton>
+        <MobileMenu pages={pages} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={{}} />
       </Hidden>
     </StyledHeader>
   );
