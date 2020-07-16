@@ -12,8 +12,8 @@ export const GlobalStyle = createGlobalStyle`
 
   .MuiDrawer-paper {
     background: #eaefff;
-    background: -webkit-linear-gradient(to bottom, #edf8ff, #eaefff);
-    background: linear-gradient(to bottom, #edf8ff, #eaefff);
+    background: -webkit-linear-gradient(to bottom, #7394a9, #f0f3ff);
+    background: linear-gradient(to bottom, #7394a9, #f0f3ff);
   }
 
   body {

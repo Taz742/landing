@@ -30,7 +30,7 @@ const About = (_props: any) => {
       <Layout>
         <PageHeader height="100px" className="hide_image" />
         <Container>
-          <PageSubHeader style={{ padding: '60px 0 70px' }}>
+          <PageSubHeader type="about" style={{ padding: '60px 0 70px' }}>
             <H2>{page.data.post_title}</H2>
             <Text align="left" padding="45px 0px">
               {page.data.post_content}

@@ -38,7 +38,9 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
 
     .logo {
       img {
-        max-width: 135px;
+        max-width: 80px;
+        position: relative;
+        top: 4px;
       }
     }
   }
@@ -886,6 +888,8 @@ export const MobileMenuItem = styled.a<{ active: boolean }>`
   transition: 0.15s ease-in-out;
   padding: 14px 34px;
   position: relative;
+  color: #484848;
+  font-weight: 500;
 
   ${({ active }) =>
     active &&
@@ -1463,7 +1467,7 @@ export const SimpleTrade = styled.div`
       }
 
       @media ${responsive.sm} {
-        padding: 15px;
+        padding: 30px 15px;
         margin-bottom: 25px;
         min-width: 100%;
       }

@@ -41,11 +41,11 @@ export const PcDrawer: React.FC<ResponsiveDrawerProps> = (props: ResponsiveDrawe
       >
         <MobileMenuContainer>
           <MobileMenu>
-            {/* <Link href="/[lang]" as={`/${locale}`}>
+            <Link href="/[lang]" as={`/${locale}`}>
               <a className="logo">
-                <img src="/main_logo.svg" />
+                <img src="/logo.svg" />
               </a>
-            </Link> */}
+            </Link>
             {pages.map((page: any, i: number) => (
               <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={i} passHref>
                 <MobileMenuItem active={router.pathname === `/${page.slug}`} onClick={onClose}>

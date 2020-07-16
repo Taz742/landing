@@ -324,7 +324,7 @@ export const ContactSuccess = styled.div`
   }
 `;
 
-export const PageSubHeader = styled.div`
+export const PageSubHeader = styled.div<{ type?: string }>`
   padding: 175px 0 70px;
   text-align: left;
 
@@ -353,6 +353,12 @@ export const PageSubHeader = styled.div`
 
   @media ${responsive.sm} {
     padding: 100px 0 50px;
+
+    ${({ type }) =>
+      type === 'about' &&
+      css`
+        padding: 0 !important;
+      `}
   }
 `;
 

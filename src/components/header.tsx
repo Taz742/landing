@@ -8,7 +8,6 @@ import Button from '@/components/library/button';
 import MobileMenu from '@/components/pc-drawer';
 import { StyledHeader, HeaderLeft, HeaderRight, HeaderMenu, HeaderMenuItem, HamburgerMenuButton, HeaderSeperator } from '@/styled';
 import config from '@/utils/config';
-import { H2 } from '@/styled/typography';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 
@@ -31,7 +30,7 @@ export const Header = () => {
       <HeaderLeft>
         <Link href="/[lang]" as={`/${locale}`}>
           <div className="logo">
-            <H2>GEX</H2>
+            <img src="/logo.svg" />
           </div>
         </Link>
         <HeaderMenu>

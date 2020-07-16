@@ -2,6 +2,7 @@ import React from 'react';
 import NextHead from 'next/head';
 
 import config from '@/utils/config';
+import useTranslation from '@/hooks/useTranslation';
 
 interface Props {
   title: string;
@@ -12,7 +13,9 @@ interface Props {
 
 export const CustomHead = ({ title, description, page, image }: Props) => {
   const desc = description || 'The Most Liquid Crypto Exchange In Region';
-  const img = image || `${config.url}/logo.jpg`;
+  const img = image || `${config.url}/logo.svg`;
+  const { locale } = useTranslation();
+  const url = `${config.url}/${locale}${page}`;
 
   return (
     <NextHead>
@@ -24,10 +27,10 @@ export const CustomHead = ({ title, description, page, image }: Props) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={desc} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={`${config.url + page}`} />
+      <meta property="og:url" content={url} />
       <meta property="og:image" content={img} />
       <meta property="og:site_name" content={config.site_name} />
-      <link rel="canonical" href={`${config.url + page}`} />
+      <link rel="canonical" href={url} />
     </NextHead>
   );
 };
