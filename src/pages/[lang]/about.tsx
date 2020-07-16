@@ -47,6 +47,7 @@ const About = (_props: any) => {
                   </div>
                   <h4>{t.client_title}</h4>
                   <span>{t.client_position}</span>
+                  <p>{t.client_desc}</p>
                   <a href={t.client_linkedin} target="_blank" rel="noopener">
                     <img src="/linkedin.svg" />
                   </a>

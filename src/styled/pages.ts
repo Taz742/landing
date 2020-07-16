@@ -494,8 +494,6 @@ export const TeamItem = styled.div`
   flex: 0 1 25%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
   padding: 60px 40px;
 
   h4 {
@@ -512,9 +510,13 @@ export const TeamItem = styled.div`
     opacity: 0.8;
   }
 
+  p {
+    color: #6c7686;
+  }
+
   a {
     display: block;
-    margin: 0 auto;
+    margin-top: 20px;
     width: 47px;
     height: 47px;
     border-radius: 10rem;
