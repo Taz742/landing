@@ -6,55 +6,41 @@ import { Container, FeesBox, FeesItem } from '@/styled';
 import { H1, H5 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/pages';
 import { DataContext } from '@/context/app-context';
-import d from '@/utils/data';
 import useTranslation from '@/hooks/useTranslation';
+// import d from '@/utils/data';
 
 const Faq = () => {
   const { data } = React.useContext(DataContext);
   const { t } = useTranslation();
-  const page: any = data.pages.find((p: any) => p.slug === 'terms') || { meta: [], title: {} };
-  const fee: any = d.pages.fee;
+  const page: any = data.pages.pages['pricing'];
 
   return (
     <>
-      <CustomHead title={page.title.rendered} page="/terms" description={fee?.data?.post_title || ''} />
+      <CustomHead title={page.data.post_title} page="/terms" description={page.data.post_title} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{fee.data.title}</H1>
+            <H1>{page.data.post_title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
 
         <PageInner>
           <Container>
-            <H5>{fee.data.universal_trade.title}</H5>
-            <FeesBox>
-              {fee.data.universal_trade.data.map((item: any) => (
-                <FeesItem>
-                  <p className="percent">{item.percent}</p>
-                  <p className="title">{item.title}</p>
-                </FeesItem>
-              ))}
-            </FeesBox>
-            <H5 style={{ marginTop: 30 }}>{fee.data.deposit_fees.title}</H5>
-            <FeesBox>
-              {fee.data.deposit_fees.data.map((item: any) => (
-                <FeesItem>
-                  <p className="percent">{item.percent}</p>
-                  <p className="title">{item.title}</p>
-                </FeesItem>
-              ))}
-            </FeesBox>
-            <H5 style={{ marginTop: 30 }}>{fee.data.withdrawals_fees.title}</H5>
-            <FeesBox>
-              {fee.data.withdrawals_fees.data.map((item: any) => (
-                <FeesItem>
-                  <p className="percent">{item.percent}</p>
-                  <p className="title">{item.title}</p>
-                </FeesItem>
-              ))}
-            </FeesBox>
-
+            {page.meta.map((item: any, index: number) => {
+              return (
+                <div key={index}>
+                  <H5 style={{ marginTop: (index === 0 ? 0 : 1) * 30 }}>{item.title}</H5>
+                  <FeesBox>
+                    {item.content.map((item: any) => (
+                      <FeesItem>
+                        <p className="percent">{item.percent}</p>
+                        <p className="title">{item.title}</p>
+                      </FeesItem>
+                    ))}
+                  </FeesBox>
+                </div>
+              );
+            })}
             <FaqText>
               <img src="/info.svg" />
               {t('fee_info_text')}

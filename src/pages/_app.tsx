@@ -44,10 +44,7 @@ class MyApp extends App {
     if (isLocale(lang)) {
       const endpoint = '/index.php?rest_route=/getGeneralData/get';
       const dataUrl = lang === 'en' ? `${config.getDataUrl}${endpoint}` : `${config.getDataUrl}/${lang}${endpoint}`;
-      console.log('dataUrl: ', dataUrl);
       const res = await fetch(dataUrl);
-
-      console.log(res);
       const json = await res.json();
       // const menuUrl = lang === 'en' ? config.getMenuUrl : `${config.getMenuUrl}?lang=${lang}`;
       // const resMenu = await fetch(menuUrl);
