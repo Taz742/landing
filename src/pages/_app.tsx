@@ -49,7 +49,7 @@ class MyApp extends App {
       // const menuUrl = lang === 'en' ? config.getMenuUrl : `${config.getMenuUrl}?lang=${lang}`;
       // const resMenu = await fetch(menuUrl);
       // const jsonMenu = await resMenu.json();
-      return { pageProps: { pages: json, menu: data.headerMenu[lang] } };
+      return { pageProps: { pages: json, menu: data[lang].headerMenu, static: data[lang] } };
     }
     return { pageProps: {} };
   }

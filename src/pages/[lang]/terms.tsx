@@ -8,16 +8,16 @@ import { H1 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle } from '@/styled/pages';
 import { parseHTML } from '@/utils/helpers';
 import { DataContext } from '@/context/app-context';
-import d from '@/utils/data';
 
-const Faq = () => {
+const Terms = () => {
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.find((p: any) => p.slug === 'terms') || { meta: [], title: {} };
-  const terms: any = d.pages.terms;
+  // const page: any = data.pages.find((p: any) => p.slug === 'terms') || { meta: [], title: {} };
+  const page: any = data.pages.pages['terms'] || { meta: [], data: { post_title: '' } };
+  const terms: any = data.static.pages['terms'];
 
   return (
     <>
-      <CustomHead title={page.title.rendered} page="/terms" description={terms.data.post_title} />
+      <CustomHead title={page.data.post_title} page="/terms" description={terms.data.post_title} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
@@ -39,4 +39,4 @@ const Faq = () => {
   );
 };
 
-export default Faq;
+export default Terms;
