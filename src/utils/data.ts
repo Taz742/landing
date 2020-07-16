@@ -1,6 +1,36 @@
 export default {
-  headerMenu: [],
-  footerMenu: [],
+  headerMenu: {
+    en: [
+      {
+        title: 'About',
+        slug: 'about'
+      },
+      {
+        title: 'About',
+        slug: 'about'
+      }
+    ],
+    ka: [
+      {
+        title: 'ჩვენს შესახებ',
+        slug: 'about'
+      }
+    ]
+  },
+  footerMenu: {
+    en: [
+      {
+        title: 'About',
+        slug: 'about'
+      }
+    ],
+    ka: [
+      {
+        title: 'ჩვენს შესახებ',
+        slug: 'about'
+      }
+    ]
+  },
   extra: {
     facebook: 'https://www.facebook.com/cryptxwallet/',
     linkedin: 'https://www.linkedin.com/company/cryptxwallet',

@@ -14,6 +14,7 @@ import { GlobalStyle } from '@/styled/global';
 import config from '@/utils/config';
 import { AppProvider } from '@/context/app-context';
 import { isLocale } from '@/translations/types';
+import data from '@/utils/data';
 
 const RouterComponent: React.FC<{ children: React.ReactNode }> = ({ children, ...props }) => {
   const { asPath } = useRouter();
@@ -48,7 +49,7 @@ class MyApp extends App {
       // const menuUrl = lang === 'en' ? config.getMenuUrl : `${config.getMenuUrl}?lang=${lang}`;
       // const resMenu = await fetch(menuUrl);
       // const jsonMenu = await resMenu.json();
-      return { pageProps: { pages: json, menu: [] } };
+      return { pageProps: { pages: json, menu: data.headerMenu[lang] } };
     }
     return { pageProps: {} };
   }

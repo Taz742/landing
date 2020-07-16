@@ -2,6 +2,7 @@ import React from 'react';
 
 import { LocaleContext } from '@/context/locale-context';
 import config from '@/utils/config';
+import TempData from '@/utils/data';
 
 interface ContextProps {
   readonly data: Record<string, any>;
@@ -30,7 +31,7 @@ export const AppProvider = ({ children, data }: any) => {
       // const menuUrl = locale === 'en' ? config.getMenuUrl : `${config.getMenuUrl}?lang=${locale}`;
       // const resMenu = await fetch(menuUrl);
       // const jsonMenu = await resMenu.json();
-      setData({ pages: json, menu: [] });
+      setData({ pages: json, menu: TempData.headerMenu[locale] });
     };
 
     getData();

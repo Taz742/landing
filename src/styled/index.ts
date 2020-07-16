@@ -54,6 +54,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
 export const HeaderMenu = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 30px;
 
   @media ${responsive.sm} {
     display: none;
