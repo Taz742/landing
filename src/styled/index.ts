@@ -656,9 +656,6 @@ export const FooterContainer = styled.div`
   align-items: flex-start;
 
   @media ${responsive.lg} {
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     padding: 0 0 50px;
   }
 
