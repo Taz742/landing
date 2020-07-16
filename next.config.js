@@ -2,12 +2,12 @@ module.exports = {
   env: {
     gaTrackingId: '',
     website: 'https://gex.ge',
-    targetWebsite: 'https://gex.ge/exchange',
-    getDataUrl: 'https://content.gex.ge/wp-json/wp/v2/pages',
+    targetWebsite: 'https://trade.gex.ge/',
+    getDataUrl: 'https://content.gex.ge',
     getMenuUrl: 'https://content.gex.ge/wp-json/slug/menu',
     contactPostUrl: 'https://content.cryptx.com/index.php/wp-json/sendMail/send',
-    exchangeApi: 'http://10.10.5.4:8080/exchange-connector-1.0/api/',
-    exchangeBaseUrl: 'http://10.10.5.4'
+    exchangeApi: 'https://exchange.gex.ge/exchange-connector-1.0/api/',
+    exchangeBaseUrl: 'https://exchange.gex.ge'
   },
   devIndicators: {
     autoPrerender: false

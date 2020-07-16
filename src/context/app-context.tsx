@@ -23,13 +23,14 @@ export const AppProvider = ({ children, data }: any) => {
     }
 
     const getData = async () => {
-      const dataUrl = locale === 'en' ? config.getDataUrl : `${config.getDataUrl}?lang=${locale}`;
+      const endpoint = '/index.php?rest_route=/getGeneralData/get';
+      const dataUrl = locale === 'en' ? `${config.getDataUrl}${endpoint}` : `${config.getDataUrl}/${locale}${endpoint}`;
       const res = await fetch(dataUrl);
       const json = await res.json();
-      const menuUrl = locale === 'en' ? config.getMenuUrl : `${config.getMenuUrl}?lang=${locale}`;
-      const resMenu = await fetch(menuUrl);
-      const jsonMenu = await resMenu.json();
-      setData({ pages: json, menu: jsonMenu });
+      // const menuUrl = locale === 'en' ? config.getMenuUrl : `${config.getMenuUrl}?lang=${locale}`;
+      // const resMenu = await fetch(menuUrl);
+      // const jsonMenu = await resMenu.json();
+      setData({ pages: json, menu: [] });
     };
 
     getData();
