@@ -161,9 +161,11 @@ const IndexPage = (_props: any) => {
           <Container>
             <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? '100%' : '75%'} style={{ padding: 0 }}>
               <H1 style={{ color: '#FFFFFF' }}>{page?.hero?.hero_title || 'The Most Liquid Crypto Exchange In Region'}</H1>
-              <RegisterButton>
-                <span>{t('register')}</span>
-              </RegisterButton>
+              <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
+                <RegisterButton>
+                  <span>{t('register')}</span>
+                </RegisterButton>
+              </a>
             </Container>
 
             {currency && (
