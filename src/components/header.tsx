@@ -47,7 +47,7 @@ export const Header = () => {
         <HeaderMenu>
           {pages.map(({ title = '', slug = '', link = '' }) =>
             link ? (
-              <HeaderMenuItem href={link} target="_blank" rel="noopener">
+              <HeaderMenuItem href={link} key={title} target="_blank" rel="noopener">
                 {title}
               </HeaderMenuItem>
             ) : (

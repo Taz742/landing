@@ -475,6 +475,57 @@ export default {
         about: '',
         openings: '',
         template: ''
+      },
+      otc: {
+        data: {
+          ID: 15,
+          post_author: '1',
+          post_date: '2020-06-02 22:50:29',
+          post_date_gmt: '2020-06-02 22:50:29',
+          post_content:
+            'At our OTC desk, we connect large buyers and sellers allowing them to bypass the exchanges and keep large trades off the public order books',
+          post_title: 'OTC Desk',
+          post_excerpt: '',
+          post_status: 'publish',
+          comment_status: 'closed',
+          ping_status: 'closed',
+          post_password: '',
+          post_name: 'pricing',
+          to_ping: '',
+          pinged: '',
+          post_modified: '2020-07-11 22:48:55',
+          post_modified_gmt: '2020-07-11 22:48:55',
+          post_content_filtered: '',
+          post_parent: 0,
+          guid: 'https://content.gex.ge/?page_id=15',
+          menu_order: 0,
+          post_type: 'page',
+          post_mime_type: '',
+          comment_count: '0',
+          filter: 'raw'
+        },
+        meta: [
+          {
+            title: 'High Liquidity',
+            logo: '/images/growth.svg'
+          },
+          {
+            title: 'One on One Service',
+            logo: '/images/service.svg'
+          },
+          {
+            title: 'Professional Brokers 24/7',
+            logo: '/images/medal.svg'
+          },
+          {
+            title: 'Sepecial Terms',
+            logo: '/images/wallets.svg'
+          }
+        ],
+        link: '',
+        about: '',
+        openings: '',
+        template: ''
       }
     }
   },
@@ -946,6 +997,57 @@ export default {
           {
             title: 'Withdrawal Fees',
             content: ['Visa/Mastercard -- 5.00 %']
+          }
+        ],
+        link: '',
+        about: '',
+        openings: '',
+        template: ''
+      },
+      otc: {
+        data: {
+          ID: 15,
+          post_author: '1',
+          post_date: '2020-06-02 22:50:29',
+          post_date_gmt: '2020-06-02 22:50:29',
+          post_content:
+            'At our OTC desk, we connect large buyers and sellers allowing them to bypass the exchanges and keep large trades off the public order books',
+          post_title: 'OTC Desk',
+          post_excerpt: '',
+          post_status: 'publish',
+          comment_status: 'closed',
+          ping_status: 'closed',
+          post_password: '',
+          post_name: 'pricing',
+          to_ping: '',
+          pinged: '',
+          post_modified: '2020-07-11 22:48:55',
+          post_modified_gmt: '2020-07-11 22:48:55',
+          post_content_filtered: '',
+          post_parent: 0,
+          guid: 'https://content.gex.ge/?page_id=15',
+          menu_order: 0,
+          post_type: 'page',
+          post_mime_type: '',
+          comment_count: '0',
+          filter: 'raw'
+        },
+        meta: [
+          {
+            title: 'High Liquidity',
+            logo: '/images/growth.svg'
+          },
+          {
+            title: 'One on One Service',
+            logo: '/images/service.svg'
+          },
+          {
+            title: 'Professional Brokers 24/7',
+            logo: '/images/medal.svg'
+          },
+          {
+            title: 'Sepecial Terms',
+            logo: '/images/wallets.svg'
           }
         ],
         link: '',

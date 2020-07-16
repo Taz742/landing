@@ -15,27 +15,20 @@ const Faq = () => {
   const [search, setSearch] = useState('');
   const { t } = useTranslation();
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.find((p: any) => p.slug === 'faq') || { meta: [], title: {} };
-  const [filteredQuestions, setFiltered] = useState(page.meta);
-
-  const handleChange = (e: any) => {
-    const val = e.target.value;
-    setSearch(val);
-    if (val.length >= 3) {
-      setFiltered(
-        page.meta.filter(
+  const page: any = data.pages.pages['faq'] || { meta: [], data: { post_title: '' } };
+  const questions =
+    search.length >= 3
+      ? page.meta.filter(
           (q: any) =>
             String(q.client_title).toLocaleLowerCase().includes(search) || String(q.client_content).toLocaleLowerCase().includes(search)
         )
-      );
-    } else {
-      setFiltered(page.meta);
-    }
-  };
+      : page.meta;
+
+  const handleChange = (e: any) => setSearch(e.target.value);
 
   return (
     <>
-      <CustomHead title={page.title.rendered} page="/faq" description={t('faq_description')} />
+      <CustomHead title={page.data.post_title} page="/faq" description={t('faq_description')} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
@@ -51,7 +44,7 @@ const Faq = () => {
             </FaqInput>
 
             <Accordion>
-              {filteredQuestions.map((p: any) => (
+              {questions.map((p: any) => (
                 <AccordionSection title={p.client_title} key={p.client_title}>
                   <div>{parseHTML(p.client_content)}</div>
                 </AccordionSection>

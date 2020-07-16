@@ -11,7 +11,6 @@ import { DataContext } from '@/context/app-context';
 
 const Terms = () => {
   const { data } = React.useContext(DataContext);
-  // const page: any = data.pages.find((p: any) => p.slug === 'terms') || { meta: [], title: {} };
   const page: any = data.pages.pages['terms'] || { meta: [], data: { post_title: '' } };
   const terms: any = data.static.pages['terms'];
 

@@ -8,18 +8,16 @@ import { H1 } from '@/styled/typography';
 import { DefaultPageHeader, PageInner, FaqText, PageSubHeader, OtcContainer, OtcItem } from '@/styled/pages';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
-import d from '@/utils/data';
 
-const Faq = () => {
+const Otc = () => {
   const { t } = useTranslation();
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.find((p: any) => p.slug === 'otc') || { meta: [], title: {} };
-
-  const otc = d.pages.otc;
+  const page: any = data.pages.pages['otc'] || { meta: [], data: { post_title: '' } };
+  const otc: any = data.static.pages['otc'];
 
   return (
     <>
-      <CustomHead title={page.title.rendered} page="/otc" description={otc.data.post_title} />
+      <CustomHead title={page.data.post_title} page="/otc" description={page.data.post_title} />
       <Layout>
         <DefaultPageHeader>
           <PageSubHeader>
@@ -32,16 +30,18 @@ const Faq = () => {
 
         <PageInner>
           <Container>
-            <OtcContainer>
-              {otc.meta.map((t: any, i: number) => (
-                <OtcItem key={i}>
-                  <div className="logo">
-                    <img src={t.logo} />
-                  </div>
-                  <h4>{t.title}</h4>
-                </OtcItem>
-              ))}
-            </OtcContainer>
+            {page.meta.length > 0 && (
+              <OtcContainer>
+                {page.meta.map((t: any, i: number) => (
+                  <OtcItem key={i}>
+                    <div className="logo">
+                      <img src={t.client_logo} />
+                    </div>
+                    <h4>{t.client_title}</h4>
+                  </OtcItem>
+                ))}
+              </OtcContainer>
+            )}
 
             <FaqText>
               <img src="/info.svg" />
@@ -59,4 +59,4 @@ const Faq = () => {
   );
 };
 
-export default Faq;
+export default Otc;

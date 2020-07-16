@@ -47,7 +47,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
     fix &&
     css`
       background-color: #1c2730;
-      box-shadow: 0 6px 6px #a3a1bc29;
+      box-shadow: 0 2px 2px #a3a1bc29;
     `}
 `;
 
@@ -767,9 +767,13 @@ export const FooterSocialButtons = styled.div<{ justify?: string; margin?: strin
 
 export const Copyright = styled.div`
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   color: #79798e;
+
+  img {
+    margin-right: 6px;
+  }
 `;
 
 export const FooterBg1 = styled.img`
