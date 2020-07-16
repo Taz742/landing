@@ -656,6 +656,9 @@ export const FooterContainer = styled.div`
   align-items: flex-start;
 
   @media ${responsive.lg} {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     padding: 0 0 50px;
   }
 
@@ -672,6 +675,10 @@ export const FooterAboutUs = styled.div`
   display: flex;
   flex-direction: column;
   color: #c4c9d1;
+
+  @media ${responsive.sm} {
+    text-align: center;
+  }
 
   a {
     cursor: default;
@@ -968,7 +975,7 @@ export const OtcComp = styled.div`
   }
 
   @media ${responsive.sm} {
-    margin-top: -500px;
+    margin-top: -530px;
   }
 
   .otc-item {
@@ -1031,17 +1038,23 @@ export const TopCoins = styled.div`
   margin-bottom: 100px;
   box-shadow: 0px 6px 12px #edeef2c6;
 
-  @media screen and (max-width: 992px) {
+  @media ${responsive.md} {
     padding: 20px 0;
     margin-top: 25px;
     margin-bottom: 50px;
+  }
+
+  @media ${responsive.sm} {
+    padding: 20px 0;
+    margin-top: 75px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
   }
 `;
 
 export const TopCoinItem = styled.div`
   text-align: center;
   width: 20%;
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1053,6 +1066,10 @@ export const TopCoinItem = styled.div`
 
   @media ${responsive.md} {
     margin-bottom: 30px;
+  }
+
+  @media ${responsive.sm} {
+    flex: 0 0 50%;
   }
 
   &:not(:last-child) {
@@ -1598,6 +1615,7 @@ export const SimpleTradeLine = styled.div`
     @media ${responsive.sm} {
       margin-left: 0;
       text-align: left;
+      width: 100%;
     }
 
     span {
@@ -1613,10 +1631,6 @@ export const SimpleTradeLine = styled.div`
 `;
 
 export const WeAreHiringBox = styled.div`
-  /* background-image: url('/hiring.png');
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  background-position: left top; */
   background-color: #1c2730;
   min-height: 557px;
   margin-bottom: 100px;
