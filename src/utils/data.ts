@@ -1,13 +1,33 @@
+import config from '@/utils/config';
+
 export default {
   en: {
     headerMenu: [
       {
-        title: 'About',
-        slug: 'about'
+        title: 'Exchange',
+        slug: '',
+        link: config.targetWebsite
+      },
+      {
+        title: 'Instant Trade',
+        slug: '',
+        link: `${config.targetWebsite}instant-trade`
+      },
+      {
+        title: 'FAQ',
+        slug: 'faq'
+      },
+      {
+        title: 'Pricing',
+        slug: 'fee'
       },
       {
         title: 'OTC',
         slug: 'otc'
+      },
+      {
+        title: 'Company',
+        slug: 'about'
       }
     ],
     footerMenu: [
@@ -461,12 +481,30 @@ export default {
   ka: {
     headerMenu: [
       {
-        title: 'ჩვენს შესახებ',
-        slug: 'about'
+        title: 'Exchange',
+        slug: '',
+        link: config.targetWebsite
+      },
+      {
+        title: 'Instant Trade',
+        slug: '',
+        link: `${config.targetWebsite}/instant-trade`
+      },
+      {
+        title: 'ხ.დ.კ.',
+        slug: 'faq'
+      },
+      {
+        title: 'ღირებულება',
+        slug: 'fee'
       },
       {
         title: 'OTC',
         slug: 'otc'
+      },
+      {
+        title: 'კომპანია',
+        slug: 'about'
       }
     ],
     footerMenu: [

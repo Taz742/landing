@@ -45,17 +45,23 @@ export const Header = () => {
           </div>
         </Link>
         <HeaderMenu>
-          {pages.map(({ title = '', slug = '' }) => (
-            <Link href={`/[lang]/${slug}`} as={`/${locale}/${slug}`} key={title} passHref>
-              <HeaderMenuItem active={router.pathname === `/${slug}`}>{title}</HeaderMenuItem>
-            </Link>
-          ))}
+          {pages.map(({ title = '', slug = '', link = '' }) =>
+            link ? (
+              <HeaderMenuItem href={link} target="_blank" rel="noopener">
+                {title}
+              </HeaderMenuItem>
+            ) : (
+              <Link href={`/[lang]/${slug}`} as={`/${locale}/${slug}`} key={title} passHref>
+                <HeaderMenuItem active={router.pathname === `/${slug}`}>{title}</HeaderMenuItem>
+              </Link>
+            )
+          )}
         </HeaderMenu>
       </HeaderLeft>
       <HeaderRight>
         <LocaleSwitcher />
         <HeaderSeperator />
-        <a href={`${config.targetWebsite}/login`} target="_blank" rel="noopener">
+        <a href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
           <Button text="Sign in" />
         </a>
       </HeaderRight>

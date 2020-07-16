@@ -21,7 +21,7 @@ const Terms = () => {
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{terms.data.post_title}</H1>
+            <H1>{page.data.post_title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
 
