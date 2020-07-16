@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import Link from 'next/link';
-// import Grid from '@material-ui/core/Grid';
-
 import CustomHead from '@/components/custom-head';
-// import Button from '@/components/library/button';
 import { Layout } from '@/components/index';
-// import CoinModal from '@/components/coin-modal';
 import {
   Container,
   OtcComp,
@@ -30,7 +25,6 @@ import { PageHeader } from '@/styled/pages';
 import config from '@/utils/config';
 import NumberFormat from 'react-number-format';
 import useBreakpoint from '@/hooks/use-breakpoints';
-// import data from '@/utils/data';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 
@@ -39,12 +33,10 @@ const loadTime = 90;
 function useInterval(callback: any, delay: number) {
   const savedCallback = React.useRef<any>();
 
-  // Remember the latest callback.
   useEffect(() => {
     savedCallback.current = callback;
   }, [callback]);
 
-  // Set up the interval.
   useEffect(() => {
     function tick() {
       savedCallback.current();

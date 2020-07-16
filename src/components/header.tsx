@@ -6,18 +6,7 @@ import { Hidden, useScrollTrigger } from '@material-ui/core';
 import LocaleSwitcher from '@/components/locale-swither';
 import Button from '@/components/library/button';
 import MobileMenu from '@/components/pc-drawer';
-import {
-  StyledHeader,
-  HeaderLeft,
-  HeaderRight,
-  HeaderMenu,
-  HeaderMenuItem,
-  HamburgerMenuButton,
-  HeaderSeperator
-  // HeaderMenuDropdown,
-  // HeaderMenuDropdownItem,
-  // HeaderMenuItemDiv,
-} from '@/styled';
+import { StyledHeader, HeaderLeft, HeaderRight, HeaderMenu, HeaderMenuItem, HamburgerMenuButton, HeaderSeperator } from '@/styled';
 import config from '@/utils/config';
 import { H2 } from '@/styled/typography';
 import useTranslation from '@/hooks/useTranslation';
@@ -29,7 +18,9 @@ export const Header = () => {
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
   const { locale } = useTranslation();
   const { data } = React.useContext(DataContext);
-  const pages = data.menu;
+  const pages = data.pages.headerMenu;
+
+  console.log(pages);
 
   const fixed = React.useMemo((): boolean => {
     const path = router.asPath.toLocaleLowerCase();

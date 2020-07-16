@@ -22,7 +22,7 @@ export const Footer = () => {
   const { locale } = useTranslation();
   const path = useRouter().asPath;
   const { data } = React.useContext(DataContext);
-  const pages = data.menu;
+  const pages = data.pages.footerMenu;
   const extra = data.pages.extra;
 
   if (!['/about'].includes(path)) {

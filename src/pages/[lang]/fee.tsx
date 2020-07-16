@@ -7,7 +7,6 @@ import { H1, H5 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/pages';
 import { DataContext } from '@/context/app-context';
 import useTranslation from '@/hooks/useTranslation';
-// import d from '@/utils/data';
 
 const Faq = () => {
   const { data } = React.useContext(DataContext);

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { IProps } from '.';
-// import { responsive } from '@/styled/responsive';
 
 interface IModalProps extends Partial<IProps> {
   fadeType?: 'in' | 'out';
