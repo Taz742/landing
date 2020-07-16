@@ -20,8 +20,6 @@ export const Header = () => {
   const { data } = React.useContext(DataContext);
   const pages = data.pages.headerMenu;
 
-  console.log(pages);
-
   const fixed = React.useMemo((): boolean => {
     const path = router.asPath.toLocaleLowerCase();
     return path.includes('/about');
