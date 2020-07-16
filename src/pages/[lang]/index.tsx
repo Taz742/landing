@@ -156,7 +156,7 @@ const IndexPage = (_props: any) => {
       size = sizeVal;
       price = priceVal;
     }
-    const url = `${''}/simple-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}`;
+    const url = `${config.targetWebsite}instant-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}`;
     window.open(url, '_blank');
   };
 
