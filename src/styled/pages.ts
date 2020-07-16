@@ -749,6 +749,8 @@ export const LanguageChangerWrapper = styled.div`
   color: #b3c6d8;
   padding-top: 1px;
   cursor: pointer;
+  position: relative;
+  top: 4px;
 
   svg {
     margin: 0px 0 3px 6px;

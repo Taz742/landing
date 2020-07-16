@@ -3,14 +3,15 @@ import { responsive } from '@/styled/responsive';
 
 export const TabMenu = styled.ul`
   list-style: none;
-  padding: 0 50px 0 0;
+  padding: 0 35px 0 0;
   margin-bottom: 0;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
   -webkit-padding-start: 0px;
-  max-width: 300px;
+  max-width: 320px;
+  width: 100%;
   position: sticky;
   top: 140px;
   align-self: flex-start;

@@ -16,11 +16,14 @@ import {
 import { Subtext, H3 } from '@/styled/typography';
 import { DefaultFooter, DefaultFooterContainer } from '@/styled/pages';
 import { DataContext } from '@/context/app-context';
+import useTranslation from '@/hooks/useTranslation';
 
 export const Footer = () => {
+  const { locale } = useTranslation();
   const path = useRouter().asPath;
   const { data } = React.useContext(DataContext);
   const pages = data.menu;
+  const extra = data.pages.extra;
 
   if (!['/about'].includes(path)) {
     return (
@@ -28,11 +31,17 @@ export const Footer = () => {
         <Container>
           <FooterContainer>
             <FooterMenu width="48%">
-              {pages.map((page: any) => (
-                <Link href={`/${page.slug}`} key={page.slug} passHref>
-                  <FooterMenuItem>{page.title}</FooterMenuItem>
-                </Link>
-              ))}
+              {pages.map((page: any) =>
+                page.link ? (
+                  <FooterMenuItem href={page.link} key={page.title} target="_blank" rel="noopener">
+                    {page.title}
+                  </FooterMenuItem>
+                ) : (
+                  <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
+                    <FooterMenuItem>{page.title}</FooterMenuItem>
+                  </Link>
+                )
+              )}
             </FooterMenu>
             <FooterAboutUs>
               <H3>Write us</H3>
@@ -51,16 +60,16 @@ export const Footer = () => {
             </FooterAboutUs>
             <FooterSocial>
               <FooterSocialButtons>
-                <a href="#" target="_blank" rel="noopener">
+                <a href={extra.linkedin} target="_blank" rel="noopener">
                   <img src="/linkedin.svg" />
                 </a>
-                <a href="#" target="_blank" rel="noopener">
+                <a href={extra.facebook} target="_blank" rel="noopener">
                   <img src="/fb.svg" />
                 </a>
               </FooterSocialButtons>
               <Copyright>
                 <img src="/copyright.svg" />
-                &nbsp; Copyright 2020
+                {extra.copy}
               </Copyright>
             </FooterSocial>
           </FooterContainer>
@@ -74,24 +83,30 @@ export const Footer = () => {
       <Container>
         <DefaultFooterContainer>
           <FooterMenu maxHeight="175px" width="50%">
-            {pages.map((page: any) => (
-              <Link href={`/${page.slug}`} key={page.slug} passHref>
-                <FooterMenuItem flex="0 0 33%">{page.title}</FooterMenuItem>
-              </Link>
-            ))}
+            {pages.map((page: any) =>
+              page.link ? (
+                <FooterMenuItem href={page.link} key={page.title} target="_blank" rel="noopener">
+                  {page.title}
+                </FooterMenuItem>
+              ) : (
+                <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
+                  <FooterMenuItem flex="0 0 33%">{page.title}</FooterMenuItem>
+                </Link>
+              )
+            )}
           </FooterMenu>
           <FooterSocial>
             <FooterSocialButtons justify="flex-end" margin="0 4px 30px">
-              <a href="#" target="_blank" rel="noopener">
+              <a href={extra.linkedin} target="_blank" rel="noopener">
                 <img src="/linkedin.svg" />
               </a>
-              <a href="#" target="_blank" rel="noopener">
+              <a href={extra.facebook} target="_blank" rel="noopener">
                 <img src="/fb.svg" />
               </a>
             </FooterSocialButtons>
             <Subtext align="center" size="16px" opacity="0.7">
-              <img src="/copyright.svg" style={{ position: 'relative', marginRight: '10px', top: '3px' }} />
-              <span> Copyright 2020</span>
+              <img src="/copyright.svg" style={{ position: 'relative', marginRight: '6px', top: '3px' }} />
+              <span>{extra.copy}</span>
             </Subtext>
           </FooterSocial>
         </DefaultFooterContainer>

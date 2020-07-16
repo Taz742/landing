@@ -11,9 +11,12 @@ import { DataContext } from '@/context/app-context';
 
 const Terms = () => {
   const { data } = React.useContext(DataContext);
-  // const page: any = data.pages.find((p: any) => p.slug === 'terms') || { meta: [], title: {} };
   const page: any = data.pages.pages['terms'] || { meta: [], data: { post_title: '' } };
   const terms: any = data.static.pages['terms'];
+  let content = '';
+  page.meta.forEach((e: any) => {
+    content += `<div id="${e.carrer_title}">${e.carrer_text}</div>`;
+  });
 
   return (
     <>
@@ -21,14 +24,14 @@ const Terms = () => {
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{terms.data.post_title}</H1>
+            <H1>{page.data.post_title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
 
         <PageInner>
           <Container>
-            <Tabs content={<div>{parseHTML(terms.data.post_content)}</div>}>
-              {terms.meta.map((p: any) => (
+            <Tabs content={<div>{parseHTML(content)}</div>}>
+              {page.meta.map((p: any) => (
                 <Panel title={p.carrer_title} key={p.carrer_title} />
               ))}
             </Tabs>
