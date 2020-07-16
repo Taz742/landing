@@ -950,7 +950,7 @@ export const OtcComp = styled.div`
   }
 
   @media ${responsive.sm} {
-    margin-top: -340px;
+    margin-top: -500px;
   }
 
   .otc-item {
