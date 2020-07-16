@@ -51,7 +51,10 @@ export const Header = () => {
         <LocaleSwitcher />
         <HeaderSeperator />
         <a href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
-          <Button text="Sign in" />
+          <Button text="Sign In" buttonType="text" padding="0 30px" />
+        </a>
+        <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
+          <Button text="Sign Up" />
         </a>
       </HeaderRight>
       <Hidden smUp>
