@@ -24,7 +24,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
     padding: 10px 10%;
   }
 
-  @media ${responsive.md} {
+  @media ${responsive.md2} {
     padding: 25px 7%;
   }
 
@@ -88,7 +88,7 @@ export const HeaderMenuItem = styled.a<{ active?: boolean }>`
     border-radius: 3px;
     left: 0;
     position: absolute;
-    background: #328af7;
+    background: #0ecbfd;
     transition: 0.15s ease-in-out;
   }
 
@@ -226,7 +226,7 @@ export const Container = styled.div<{ maxWidth?: string }>`
     padding: 0 10%;
   }
 
-  @media ${responsive.md} {
+  @media ${responsive.md2} {
     padding: 0 7%;
   }
 
@@ -1366,7 +1366,7 @@ export const SimpleTrade = styled.div`
           padding: 15px 10px;
           font-size: 15px;
           color: #6c7686;
-          border: 1px solid #cdd6e3;
+          border: 1px solid #cdd6e32e;
           /* border-radius: 8px; */
           /* border-bottom: 1px solid #cdd6e3; */
           cursor: pointer;

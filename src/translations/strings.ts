@@ -31,7 +31,8 @@ const strings: Strings = {
     'Sign In': 'Sign In',
     'Sign Up': 'Sign Up',
     Exchange: 'Exchange',
-    'Instant Trade': 'Instant Trade'
+    'Instant Trade': 'Instant Trade',
+    More: 'More'
   },
   ka: {
     faq: 'ხშირად დასმული კითხვები',
@@ -63,7 +64,8 @@ const strings: Strings = {
     'Sign In': 'შესვლა',
     'Sign Up': 'რეგისტრაცია',
     Exchange: 'ბირჟა',
-    'Instant Trade': 'მომენტალური ვაჭრობა'
+    'Instant Trade': 'მომენტალური ვაჭრობა',
+    More: 'ვრცლად'
   }
 };
 

@@ -46,7 +46,7 @@ const Faq = () => {
             <Accordion>
               {questions.map((p: any) => (
                 <AccordionSection title={p.client_title} key={p.client_title}>
-                  <div>{parseHTML(p.client_content)}</div>
+                  <div>{parseHTML(p.client_content || '')}</div>
                 </AccordionSection>
               ))}
             </Accordion>

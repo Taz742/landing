@@ -529,7 +529,56 @@ export default {
         openings: '',
         template: ''
       }
-    }
+    },
+    manualHeaderMenu: [
+      {
+        ID: 60,
+        children: [],
+        link: 'https://trade.gex.ge/',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'Exchange'
+      },
+      {
+        ID: 60,
+        children: [],
+        link: 'https://trade.gex.ge/instant-trade',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'Instant Trade'
+      }
+    ],
+    manualFooterMenu: [
+      {
+        ID: 60,
+        children: [],
+        link: 'https://trade.gex.ge',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'Exchange'
+      },
+      {
+        ID: 61,
+        children: [],
+        link: 'https://trade.gex.ge/instant-trade',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'Buy/Sell'
+      },
+      {
+        ID: 62,
+        children: [],
+        link: 'https://gexge.zendesk.com',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'Support'
+      }
+    ]
   },
   ka: {
     headerMenu: [
@@ -907,7 +956,7 @@ export default {
         openings: '',
         template: 'about',
         hiring_title: `ჩვენ ვეძებთ`,
-        apply_title: 'გაგზავნა'
+        apply_title: 'მოგვმართე'
       },
       faq: {
         data: {
@@ -1059,6 +1108,55 @@ export default {
         openings: '',
         template: ''
       }
-    }
+    },
+    manualHeaderMenu: [
+      {
+        ID: 60,
+        children: [],
+        link: 'https://trade.gex.ge/',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'ბირჟა'
+      },
+      {
+        ID: 60,
+        children: [],
+        link: 'https://trade.gex.ge/instant-trade',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'მომენტალური ვაჭრობა'
+      }
+    ],
+    manualFooterMenu: [
+      {
+        ID: 60,
+        children: [],
+        link: 'https://trade.gex.ge',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'ბირჟა'
+      },
+      {
+        ID: 61,
+        children: [],
+        link: 'https://trade.gex.ge/instant-trade',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'ყიდვა/გაყიდვა'
+      },
+      {
+        ID: 62,
+        children: [],
+        link: 'https://gexge.zendesk.com',
+        parentID: '0',
+        slug: '',
+        text: '',
+        title: 'დახმარება'
+      }
+    ]
   }
 };

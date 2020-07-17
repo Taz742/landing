@@ -22,7 +22,7 @@ export const Footer = () => {
   const { locale } = useTranslation();
   const path = useRouter().asPath;
   const { data } = React.useContext(DataContext);
-  const pages = data.pages.footerMenu;
+  const footerMenu = [...data.static.manualFooterMenu, ...data.pages.footerMenu];
   const extra = data.pages.extra;
 
   if (!['/about'].includes(path)) {
@@ -31,7 +31,7 @@ export const Footer = () => {
         <Container>
           <FooterContainer>
             <FooterMenu width="48%">
-              {pages.map((page: any) =>
+              {footerMenu.map((page: any) =>
                 page.link ? (
                   <FooterMenuItem href={page.link} key={page.title} target="_blank" rel="noopener">
                     {page.title}
@@ -83,7 +83,7 @@ export const Footer = () => {
       <Container>
         <DefaultFooterContainer>
           <FooterMenu maxHeight="175px" width="50%">
-            {pages.map((page: any) =>
+            {footerMenu.map((page: any) =>
               page.link ? (
                 <FooterMenuItem href={page.link} key={page.title} target="_blank" rel="noopener">
                   {page.title}

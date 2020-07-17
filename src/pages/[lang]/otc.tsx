@@ -13,7 +13,7 @@ const Otc = () => {
   const { t } = useTranslation();
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['otc'] || { meta: [], data: { post_title: '' } };
-  const otc: any = data.static.pages['otc'];
+  // const otc: any = data.static.pages['otc'];
 
   return (
     <>
@@ -22,8 +22,8 @@ const Otc = () => {
         <DefaultPageHeader>
           <PageSubHeader>
             <Container>
-              <H1>{otc.data.post_title}</H1>
-              <p>{otc.data.post_content}</p>
+              <H1>{page.data.post_title}</H1>
+              <p>{page.data.post_content}</p>
             </Container>
           </PageSubHeader>
         </DefaultPageHeader>

@@ -1,7 +1,7 @@
 const size = {
   sm: 48, // tablet 768px
   md: 64, // laptop 1024px
-  md2: 75, // laptop2 1200px
+  md2: 80, // laptop2 1200px
   lg: 105.063, // computer 1536px
   xl: 120 // large screen 1920px
 };

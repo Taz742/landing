@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import CustomHead from '@/components/custom-head';
 import { Layout } from '@/components/index';
@@ -18,11 +18,19 @@ import { H2, Text } from '@/styled/typography';
 import { PageInner, PageSubHeader, TeamContainer, TeamItem, PageHeader } from '@/styled/pages';
 import { Button } from '@/components/library/button';
 import { DataContext } from '@/context/app-context';
+import { parseHTML } from '@/utils/helpers';
+import useTranslation from '@/hooks/useTranslation';
 
 const About = (_props: any) => {
+  const [openMembers, setOpenMembers] = useState<any>({});
+  const { t } = useTranslation();
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['about'] || { meta: [], data: { post_title: '' } };
   const about: any = data.static.pages['about'];
+
+  const toggleOpen = (i: number) => {
+    setOpenMembers((prev: any) => ({ ...prev, [i]: !prev[i] }));
+  };
 
   return (
     <>
@@ -30,28 +38,31 @@ const About = (_props: any) => {
       <Layout>
         <PageHeader height="100px" className="hide_image" />
         <Container>
-          <PageSubHeader type="about" style={{ padding: '60px 0 70px' }}>
+          <PageSubHeader type="about" style={{ padding: '60px 0 0' }}>
             <H2>{page.data.post_title}</H2>
             <Text align="left" padding="45px 0px">
-              {page.data.post_content}
+              {parseHTML(page.data.post_content)}
             </Text>
           </PageSubHeader>
         </Container>
         <PageInner>
           <Container>
             <TeamContainer>
-              {page.meta.map((t: any, i: number) => (
-                <TeamItem key={i}>
+              {page.meta.map((member: any, i: number) => (
+                <TeamItem key={i} open={openMembers[i]}>
                   <div className="logo">
-                    <img src={t.client_logo || ''} />
+                    <img src={member.client_logo || ''} />
                   </div>
-                  <h4>{t.client_title}</h4>
-                  <span>{t.client_position}</span>
-                  <p className="description">{t.client_desc}</p>
+                  <h4>{member.client_title}</h4>
+                  <span>{member.client_position}</span>
+                  <p className="description">{member.client_desc}</p>
                   <div className="links">
-                    <a href={t.client_linkedin} target="_blank" rel="noopener">
-                      <img src="/linkedin.svg" style={{ marginRight: '15px' }} />
+                    <a href={member.client_linkedin} target="_blank" rel="noopener" style={{ marginRight: '15px' }}>
+                      <img src="/linkedin.svg" />
                     </a>
+                    <button className="more" onClick={() => toggleOpen(i)}>
+                      {t('More')} <img src="/mini_arrow_down.svg" />
+                    </button>
                   </div>
                 </TeamItem>
               ))}
@@ -63,7 +74,9 @@ const About = (_props: any) => {
           <WeAreHiring>
             <H2>{about.hiring_title}</H2>
             <span>{page.about}</span>
-            <Button>{about.apply_title}</Button>
+            <a href="#" target="_blank" rel="noopener">
+              <Button>{about.apply_title}</Button>
+            </a>
           </WeAreHiring>
         </WeAreHiringBox>
         <Container>
