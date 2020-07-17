@@ -32,7 +32,9 @@ const strings: Strings = {
     'Sign Up': 'Sign Up',
     Exchange: 'Exchange',
     'Instant Trade': 'Instant Trade',
-    More: 'More'
+    More: 'More',
+    'Write us': 'Write us',
+    footer_address: '12 Sulkhan Tsintsadze str.'
   },
   ka: {
     faq: 'ხშირად დასმული კითხვები',
@@ -65,7 +67,9 @@ const strings: Strings = {
     'Sign Up': 'რეგისტრაცია',
     Exchange: 'ბირჟა',
     'Instant Trade': 'მომენტალური ვაჭრობა',
-    More: 'ვრცლად'
+    More: 'ვრცლად',
+    'Write us': 'დაგვიკავშირდით',
+    footer_address: 'სულხან ცინცაძის 12'
   }
 };
 

@@ -4,6 +4,8 @@ export const splitText = (text = '') => text.split(/&nbsp;/);
 
 export const replaceEnterSymbol = (text = '') => text.replace(/(\r\n|\n|\r)/gm, '<br />').replace(/&nbsp;/, '');
 
+export const replaceHTML = (text = '') => text.replace(/ /g, '\u00a0');
+
 export const getCoins = (coinObject: any, size?: number) => {
   if (size) return Object.values(coinObject).slice(0, size);
   else return Object.values(coinObject);

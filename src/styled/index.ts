@@ -680,12 +680,6 @@ export const FooterAboutUs = styled.div`
   }
 
   a {
-    cursor: default;
-
-    :hover {
-      color: unset;
-    }
-
     img {
       margin-right: 12px;
     }
@@ -1689,6 +1683,10 @@ export const WeAreHiringBox = styled.div`
     background-size: 50% 100%;
   }
 
+  @media ${responsive.md2} {
+    margin-bottom: 50px;
+  }
+
   @media ${responsive.md} {
     padding: 0px 20px;
     background-image: none;
@@ -1740,7 +1738,8 @@ export const WeAreHiring = styled.div`
     background-color: rgba(14, 203, 253, 0.15);
     color: #0ecbfd;
     width: auto;
-    max-width: 200px;
+    max-width: 280px;
+    width: 50%;
     border: 0px;
     border-radius: 8px;
     box-shadow: none;
@@ -1752,19 +1751,46 @@ export const WeAreHiring = styled.div`
     @media ${responsive.md} {
       margin-top: 40px;
     }
+
+    @media ${responsive.sm} {
+      width: auto;
+    }
+  }
+`;
+
+export const ContactUsContainer = styled.div`
+  h2 {
+    margin-bottom: 90px;
+
+    @media ${responsive.lg} {
+      margin-bottom: 60px;
+    }
+
+    @media ${responsive.sm} {
+      margin-bottom: 30px;
+    }
   }
 `;
 
 export const ContactUsBox = styled.div`
-  padding: 0 0 70px;
+  padding: 0 0 90px;
   display: flex;
 
-  @media ${responsive.sm} {
-    flex-direction: column;
+  h5 {
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  a:hover {
+    filter: opacity(0.8);
   }
 
   @media ${responsive.lg} {
     padding: 0 0 50px;
+  }
+
+  @media ${responsive.sm} {
+    flex-direction: column;
   }
 `;
 
@@ -1779,9 +1805,12 @@ export const OurAddress = styled.div`
     height: 49px;
   }
 
-  h5 {
-    margin-top: 20px;
-    font-weight: 500;
+  @media ${responsive.sm} {
+    max-width: 100%;
+    flex: 1 1 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 `;
 
@@ -1795,8 +1824,19 @@ export const OurAddressContent = styled.div`
     font-size: 14px;
 
     &:not(:first-child) {
-      margin-top: 10px;
+      margin-top: 36px;
     }
+
+    @media ${responsive.sm} {
+      &:not(:first-child) {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  @media ${responsive.sm} {
+    text-align: center;
+    justify-content: center;
   }
 `;
 
@@ -1810,33 +1850,42 @@ export const WriteUs = styled.div`
   @media ${responsive.sm} {
     margin-left: 0;
     margin-top: 50px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
 
   img {
     width: 49px;
     height: 49px;
   }
-
-  h5 {
-    margin-top: 20px;
-    font-weight: 500;
-  }
 `;
 
 export const WriteUsContent = styled.div`
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 300px;
 
   @media ${responsive.sm} {
     flex-direction: column;
-  }
+  } */
 
   p {
     color: #6c7686;
     line-height: 150%;
     font-size: 14px;
+
+    :nth-child(3n+2) {
+      margin-bottom: 36px;
+    }
+
+    @media ${responsive.sm} {
+      &:not(:first-child) {
+        margin-top: 16px;
+      }
+    }
   }
 `;
 
@@ -1849,16 +1898,15 @@ export const Connect = styled.div`
   @media ${responsive.sm} {
     margin-left: 0;
     margin-top: 50px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
 
   img {
     width: 49px;
     height: 49px;
-  }
-
-  h5 {
-    margin-top: 20px;
-    font-weight: 500;
   }
 
   p {
@@ -1875,6 +1923,10 @@ export const ConnectIcons = styled.div`
     &:not(:first-child) {
       margin-left: 10px;
     }
+  }
+
+  @media ${responsive.sm} {
+    margin-top: 30px;
   }
 `;
 

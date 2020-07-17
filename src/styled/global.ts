@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  br + br { display: none; }
+
   [hidden] {
     display: none;
   }

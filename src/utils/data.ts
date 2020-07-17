@@ -315,16 +315,7 @@ export default {
             write_us: {
               title: 'Write Us',
               logo: '/images/mail.png',
-              data: [
-                'support@brokers.io',
-                'support@brokers.io',
-                'info@brokers.io',
-                'support@brokers.io',
-                'info@brokers.io',
-                'support@brokers.io',
-                'info@brokers.io',
-                'support@brokers.io'
-              ]
+              data: ['info@brokers.io', 'support@brokers.io', 'pr@brokers.io', 'trade@brokers.io']
             },
             connect: {
               title: 'Connect',
@@ -534,41 +525,41 @@ export default {
       {
         ID: 60,
         children: [],
-        link: 'https://trade.gex.ge/',
-        parentID: '0',
-        slug: '',
-        text: '',
-        title: 'Exchange'
-      },
-      {
-        ID: 60,
-        children: [],
         link: 'https://trade.gex.ge/instant-trade',
         parentID: '0',
         slug: '',
         text: '',
         title: 'Instant Trade'
-      }
-    ],
-    manualFooterMenu: [
+      },
       {
         ID: 60,
         children: [],
-        link: 'https://trade.gex.ge',
+        link: 'https://trade.gex.ge/',
         parentID: '0',
         slug: '',
         text: '',
         title: 'Exchange'
-      },
-      {
-        ID: 61,
-        children: [],
-        link: 'https://trade.gex.ge/instant-trade',
-        parentID: '0',
-        slug: '',
-        text: '',
-        title: 'Buy/Sell'
-      },
+      }
+    ],
+    manualFooterMenu: [
+      // {
+      //   ID: 60,
+      //   children: [],
+      //   link: 'https://trade.gex.ge',
+      //   parentID: '0',
+      //   slug: '',
+      //   text: '',
+      //   title: 'Exchange'
+      // },
+      // {
+      //   ID: 61,
+      //   children: [],
+      //   link: 'https://trade.gex.ge/instant-trade',
+      //   parentID: '0',
+      //   slug: '',
+      //   text: '',
+      //   title: 'Buy/Sell'
+      // },
       {
         ID: 62,
         children: [],
@@ -885,29 +876,20 @@ export default {
           comment_count: '0',
           filter: 'raw',
           contact_us: {
-            title: 'Contact us',
+            title: 'დაგვიკავშირდით',
             our_address: {
-              title: 'Our Address',
+              title: 'ჩვენი მისამართი',
               logo: '/images/address.png',
               data: ['12, Sulkhan Tsintsadze Str. Tbilisi, 0160; Georgia', 'Roosikrantsi tn 2-591K, Tallinn, 10119; Estonia']
             },
             write_us: {
-              title: 'Write Us',
+              title: 'მოგვწერეთ',
               logo: '/images/mail.png',
-              data: [
-                'support@brokers.io',
-                'support@brokers.io',
-                'info@brokers.io',
-                'support@brokers.io',
-                'info@brokers.io',
-                'support@brokers.io',
-                'info@brokers.io',
-                'support@brokers.io'
-              ]
+              data: ['info@brokers.io', 'support@brokers.io', 'pr@brokers.io', 'trade@brokers.io']
             },
             connect: {
-              title: 'Connect',
-              subTitle: 'Follow and Join us on:',
+              title: 'შემოგვიერთდით',
+              subTitle: 'გამოგვყევით სოციალურ ქსელებში',
               logo: '/images/connect.png'
             }
           }
@@ -1113,41 +1095,41 @@ export default {
       {
         ID: 60,
         children: [],
-        link: 'https://trade.gex.ge/',
-        parentID: '0',
-        slug: '',
-        text: '',
-        title: 'ბირჟა'
-      },
-      {
-        ID: 60,
-        children: [],
         link: 'https://trade.gex.ge/instant-trade',
         parentID: '0',
         slug: '',
         text: '',
         title: 'მომენტალური ვაჭრობა'
-      }
-    ],
-    manualFooterMenu: [
+      },
       {
         ID: 60,
         children: [],
-        link: 'https://trade.gex.ge',
+        link: 'https://trade.gex.ge/',
         parentID: '0',
         slug: '',
         text: '',
         title: 'ბირჟა'
-      },
-      {
-        ID: 61,
-        children: [],
-        link: 'https://trade.gex.ge/instant-trade',
-        parentID: '0',
-        slug: '',
-        text: '',
-        title: 'ყიდვა/გაყიდვა'
-      },
+      }
+    ],
+    manualFooterMenu: [
+      // {
+      //   ID: 60,
+      //   children: [],
+      //   link: 'https://trade.gex.ge',
+      //   parentID: '0',
+      //   slug: '',
+      //   text: '',
+      //   title: 'ბირჟა'
+      // },
+      // {
+      //   ID: 61,
+      //   children: [],
+      //   link: 'https://trade.gex.ge/instant-trade',
+      //   parentID: '0',
+      //   slug: '',
+      //   text: '',
+      //   title: 'ყიდვა/გაყიდვა'
+      // },
       {
         ID: 62,
         children: [],

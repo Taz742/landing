@@ -5,16 +5,17 @@ import { Layout } from '@/components/index';
 import {
   Container,
   WeAreHiringBox,
-  WeAreHiring
-  // ContactUsBox,
-  // OurAddress,
-  // OurAddressContent,
-  // WriteUs,
-  // WriteUsContent,
-  // Connect,
-  // ConnectIcons
+  WeAreHiring,
+  ContactUsBox,
+  OurAddress,
+  OurAddressContent,
+  WriteUs,
+  WriteUsContent,
+  Connect,
+  ConnectIcons,
+  ContactUsContainer
 } from '@/styled';
-import { H2, Text } from '@/styled/typography';
+import { H2, Text, H5 } from '@/styled/typography';
 import { PageInner, PageSubHeader, TeamContainer, TeamItem, PageHeader } from '@/styled/pages';
 import { Button } from '@/components/library/button';
 import { DataContext } from '@/context/app-context';
@@ -27,6 +28,8 @@ const About = (_props: any) => {
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['about'] || { meta: [], data: { post_title: '' } };
   const about: any = data.static.pages['about'];
+  const aboutUsPage: any = about.data;
+  const extra: any = data.pages.extra;
 
   const toggleOpen = (i: number) => {
     setOpenMembers((prev: any) => ({ ...prev, [i]: !prev[i] }));
@@ -79,44 +82,50 @@ const About = (_props: any) => {
             </a>
           </WeAreHiring>
         </WeAreHiringBox>
+
         <Container>
-          <H2 style={{ marginBottom: 100 }}>{page?.contact_us?.title}</H2>
-          {/* <ContactUsBox>
-            <OurAddress>
-              <img src={page.contact_us.our_address.logo} />
-              <H5>{page.contact_us.our_address.title}</H5>
+          <ContactUsContainer>
+            <H2>{aboutUsPage?.contact_us?.title}</H2>
+            <ContactUsBox>
+              <OurAddress>
+                <img src={aboutUsPage.contact_us?.our_address.logo} />
+                <H5>{aboutUsPage.contact_us?.our_address.title}</H5>
 
-              <OurAddressContent>
-                {page.contact_us.our_address.data.map((item: string, index: number) => (
-                  <p key={index}>{item}</p>
-                ))}
-              </OurAddressContent>
-            </OurAddress>
-            <WriteUs>
-              <img src={page.contact_us.write_us.logo} />
-              <H5>{page.contact_us.write_us.title}</H5>
+                <OurAddressContent>
+                  {aboutUsPage.contact_us?.our_address.data.map((item: string, index: number) => (
+                    <p key={index}>{item}</p>
+                  ))}
+                </OurAddressContent>
+              </OurAddress>
+              <WriteUs>
+                <img src={aboutUsPage.contact_us?.write_us.logo} />
+                <H5>{aboutUsPage.contact_us?.write_us.title}</H5>
 
-              <WriteUsContent>
-                {page.contact_us.write_us.data.map((item: string, index: number) => (
-                  <p key={index}>{item}</p>
-                ))}
-              </WriteUsContent>
-            </WriteUs>
-            <Connect>
-              <img src={page.contact_us.connect.logo} />
-              <H5>{page.contact_us.connect.title}</H5>
-              <p>{page.contact_us.connect.subTitle}</p>
+                <WriteUsContent>
+                  {aboutUsPage.contact_us?.write_us.data.map((item: string, index: number) => (
+                    <p key={index}>{item}</p>
+                  ))}
+                </WriteUsContent>
+              </WriteUs>
+              <Connect>
+                <img src={aboutUsPage.contact_us?.connect.logo} />
+                <H5>{aboutUsPage.contact_us?.connect.title}</H5>
+                <p>{aboutUsPage.contact_us?.connect.subTitle}</p>
 
-              <ConnectIcons>
-                <a href="#" target="_blank" rel="noopener">
-                  <img src="/linkedin.svg" />
-                </a>
-                <a href="#" target="_blank" rel="noopener">
-                  <img src="/fb.svg" />
-                </a>
-              </ConnectIcons>
-            </Connect>
-          </ContactUsBox> */}
+                <ConnectIcons>
+                  <a href={extra.linkedin} target="_blank" rel="noopener">
+                    <img src="/white_linkedin.svg" />
+                  </a>
+                  <a href={extra.facebook} target="_blank" rel="noopener">
+                    <img src="/white_facebook.svg" />
+                  </a>
+                  <a href={extra.twitter} target="_blank" rel="noopener">
+                    <img src="/white_twitter.svg" />
+                  </a>
+                </ConnectIcons>
+              </Connect>
+            </ContactUsBox>
+          </ContactUsContainer>
         </Container>
       </Layout>
     </>
