@@ -86,7 +86,7 @@ export const AccordionContent = styled.div<ISectionProps>`
   line-height: 34px;
   color: #6c7686;
   margin-left: 26px;
-  margin-right: 10%;
+  margin-right: 7%;
 
   a {
     color: #328af7;

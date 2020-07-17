@@ -193,8 +193,8 @@ export const PageInnerTitle = styled.div<{ maxWidth?: string }>`
   }
 
   @media ${responsive.sm} {
-    margin: 0 10%;
-    width: calc(100% - 20%);
+    margin: 0 7%;
+    width: calc(100% - 14%);
     padding: 20px 30px 14px;
     text-align: center;
 
@@ -297,7 +297,7 @@ export const PricingText = styled.p`
 export const ContactContainer = styled.div`
   display: flex;
   justify-content: center;
-  padding: 0 10%;
+  padding: 0 7%;
   flex-wrap: wrap;
 `;
 
@@ -500,7 +500,7 @@ export const TeamItem = styled.div`
   flex: 0 1 25%;
   display: flex;
   flex-direction: column;
-  padding: 60px 40px;
+  padding: 60px 50px;
 
   h4 {
     color: #242a33;
@@ -518,6 +518,11 @@ export const TeamItem = styled.div`
 
   p {
     color: #6c7686;
+    line-height: 25px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 
   a {
@@ -576,6 +581,7 @@ export const TeamItem = styled.div`
   @media ${responsive.sm} {
     padding: 24px 14px;
     flex: 0 1 50%;
+    text-align: center;
 
     h4 {
       font-size: 20px;
@@ -605,6 +611,11 @@ export const TeamItem = styled.div`
       img {
         max-width: 136px;
       }
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
     }
   }
 `;
@@ -798,6 +809,11 @@ export const OtcItem = styled.div`
 
   .logo {
     margin-bottom: 34px;
+
+    img {
+      max-width: 108px;
+      max-height: 100px;
+    }
   }
 
   h4 {

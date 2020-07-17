@@ -25,11 +25,11 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   }
 
   @media ${responsive.md} {
-    padding: 25px 10%;
+    padding: 25px 7%;
   }
 
   @media ${responsive.sm} {
-    padding: 14px 10%;
+    padding: 14px 7%;
     height: 66px;
 
     p {
@@ -227,7 +227,7 @@ export const Container = styled.div<{ maxWidth?: string }>`
   }
 
   @media ${responsive.md} {
-    padding: 0 10%;
+    padding: 0 7%;
   }
 
   ${({ maxWidth }) =>
@@ -877,9 +877,21 @@ export const MobileMenu = styled.div`
       max-width: 170px;
     }
   }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 16px;
+    border-bottom: 1px solid #c1c1c1;
+    margin: 0 34px 14px;
+
+    a {
+      padding: 14px 0;
+    }
+  }
 `;
 
-export const MobileMenuItem = styled.a<{ active: boolean }>`
+export const MobileMenuItem = styled.a<{ active?: boolean }>`
   cursor: pointer;
   font-size: 18px;
   line-height: 21px;
@@ -1046,8 +1058,8 @@ export const TopCoins = styled.div`
   }
 
   @media ${responsive.sm} {
-    padding: 20px 0;
-    margin-top: 75px;
+    padding: 26px 0 0;
+    margin-top: 80px;
     margin-bottom: 50px;
     flex-wrap: wrap;
   }
@@ -1065,14 +1077,6 @@ export const TopCoinItem = styled.div`
     width: 60px;
   }
 
-  @media ${responsive.md} {
-    margin-bottom: 30px;
-  }
-
-  @media ${responsive.sm} {
-    flex: 0 0 50%;
-  }
-
   &:not(:last-child) {
     &:before {
       content: '';
@@ -1082,6 +1086,36 @@ export const TopCoinItem = styled.div`
       width: 0;
       border: 1px solid #e6e8f2;
       top: 18px;
+    }
+  }
+
+  @media ${responsive.md} {
+    margin-bottom: 30px;
+  }
+
+  @media ${responsive.sm} {
+    flex: 0 0 50%;
+
+    :nth-child(n + 5) {
+      display: none;
+    }
+
+    :nth-child(even) {
+      :before {
+        border-color: transparent !important;
+      }
+    }
+
+    :nth-child(odd) {
+      :before {
+        content: '';
+        position: absolute;
+        right: 0;
+        height: 150px;
+        width: 0;
+        border: 1px solid #e6e8f2;
+        top: 18px;
+      }
     }
   }
 `;
@@ -1223,10 +1257,11 @@ export const CoinsBox = styled.div`
 `;
 
 export const CoinItem = styled.div`
-  float: left;
-  width: 18%;
+  flex: 0 0 18%;
   margin-right: 1.25%;
   margin-bottom: 80px;
+  display: inline-flex;
+  align-items: center;
 
   @media ${responsive.md} {
     margin-right: 0;
@@ -1248,8 +1283,7 @@ export const CoinItem = styled.div`
     width: 55px;
     height: 55px;
     object-fit: contain;
-    margin-right: 15px;
-    float: left;
+    margin-right: 20px;
 
     @media ${responsive.sm} {
       margin-right: 0;
@@ -1681,6 +1715,10 @@ export const WeAreHiring = styled.div`
     min-height: 100%;
     align-items: center;
     padding: 40px 0px;
+  }
+
+  @media ${responsive.sm} {
+    text-align: center;
   }
 
   h2 {

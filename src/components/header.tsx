@@ -15,9 +15,10 @@ export const Header = () => {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
-  const { locale } = useTranslation();
+  const { t, locale } = useTranslation();
   const { data } = React.useContext(DataContext);
   const pages = data.pages.headerMenu;
+  const footerMenu = data.pages.footerMenu;
   const extra = data.pages.extra || {};
 
   const fixed = React.useMemo((): boolean => {
@@ -52,10 +53,10 @@ export const Header = () => {
         <HeaderSeperator />
         <div className="links">
           <a href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
-            <Button text="Sign In" buttonType="text" padding="0 30px" />
+            <Button text={t('Sign In')} buttonType="text" padding="0 30px" />
           </a>
           <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
-            <Button text="Sign Up" />
+            <Button text={t('Sign Up')} />
           </a>
         </div>
         <Hidden smUp>
@@ -63,7 +64,7 @@ export const Header = () => {
             <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
               <img src="/hamburger.svg" />
             </HamburgerMenuButton>
-            <MobileMenu pages={pages} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={extra} />
+            <MobileMenu pages={footerMenu} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={extra} />
           </div>
         </Hidden>
       </HeaderRight>

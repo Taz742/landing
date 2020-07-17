@@ -12,8 +12,8 @@ interface Props {
 }
 
 export const CustomHead = ({ title, description, page, image }: Props) => {
-  const desc = description || 'The Most Liquid Crypto Exchange In Region';
-  const img = image || `${config.url}/logo.svg`;
+  const desc = description || 'Highest Liquidity Crypto Exchange in the Region';
+  const img = image || `${config.url}/main_logo.png`;
   const { locale } = useTranslation();
   const url = `${config.url}/${locale}${page}`;
 

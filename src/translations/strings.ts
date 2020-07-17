@@ -27,7 +27,11 @@ const strings: Strings = {
     why_choose_us: 'Why Choose us?',
     multi_currency_platform: 'Multi Currency Platform',
     view_rates: 'View Rates',
-    register: 'Registration'
+    register: 'Registration',
+    'Sign In': 'Sign In',
+    'Sign Up': 'Sign Up',
+    Exchange: 'Exchange',
+    'Instant Trade': 'Instant Trade'
   },
   ka: {
     faq: 'ხშირად დასმული კითხვები',
@@ -55,7 +59,11 @@ const strings: Strings = {
     why_choose_us: 'რატომ ჩვენ?',
     multi_currency_platform: 'აქ არ ვიცი :))',
     view_rates: 'იხილეთ ტარიფები',
-    register: 'რეგისტრაცია'
+    register: 'რეგისტრაცია',
+    'Sign In': 'შესვლა',
+    'Sign Up': 'რეგისტრაცია',
+    Exchange: 'ბირჟა',
+    'Instant Trade': 'მომენტალური ვაჭრობა'
   }
 };
 

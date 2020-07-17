@@ -51,7 +51,7 @@ function useInterval(callback: any, delay: number) {
 
 const IndexPage = (_props: any) => {
   const { data } = React.useContext(DataContext);
-  const page = data['home'];
+  const page = data.pages['home'];
   const [pairs, setPairs] = useState<any>({
     GEL: [],
     USD: []
@@ -154,13 +154,13 @@ const IndexPage = (_props: any) => {
 
   return (
     <>
-      <CustomHead title="CryptX Crypto Wallet" page="" description={page?.why?.why_content} />
+      <CustomHead title="GEX" page="" description={page?.why?.why_content} />
       <Layout>
         <PageHeader />
         <OtcComp>
           <Container>
             <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? '100%' : '75%'} style={{ padding: 0 }}>
-              <H1 style={{ color: '#FFFFFF' }}>{page?.hero?.hero_title || 'The Most Liquid Crypto Exchange In Region'}</H1>
+              <H1 style={{ color: '#FFFFFF' }}>{page?.hero?.hero_sub_title || 'Highest Liquidity Crypto Exchange in the Region'}</H1>
               <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
                 <RegisterButton>
                   <span>{t('register')}</span>
@@ -322,6 +322,7 @@ const IndexPage = (_props: any) => {
             </div>
           </SimpleTradeLine>
         </Container>
+
         <WhyComp>
           <Container>
             <H2 style={{ color: '#FFFFFF' }}>{t('why_choose_us')}</H2>
@@ -336,13 +337,14 @@ const IndexPage = (_props: any) => {
             </SolutionsBox>
           </Container>
         </WhyComp>
+
         <CoinsComp>
           <Container>
-            <H2>{t('multi_currency_platform')}</H2>
+            <H2>{page?.advantages?.adv_title}</H2>
             <CoinsBox className="items">
               {(page?.advantages?.advantages || []).map((item: any, index: number) => (
                 <CoinItem className="item" key={index}>
-                  <img src={item.sol_file} />
+                  <img src={item.sol_file || ''} />
                   <H5 style={{ marginTop: 15 }}>
                     {item.sol_title}
                     <br />

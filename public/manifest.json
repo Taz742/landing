@@ -1,9 +1,9 @@
 {
-  "name": "Gex.ge",
+  "name": "GEX.GE",
   "short_name": "GEX",
-  "theme_color": "#328af7",
-  "background_color": "#ffffff",
-  "display": "standalone",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
+  "display": "browser",
   "Scope": "/",
   "start_url": "/",
   "icons": [

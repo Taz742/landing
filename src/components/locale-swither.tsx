@@ -19,8 +19,8 @@ const LocaleSwitcher: React.FC = () => {
 
   return (
     <LanguageChangerWrapper>
-      {['en'].includes(locale) && <img src="/en.png" alt="en" onClick={() => handleLocaleChange('ka')} />}
-      {['ka'].includes(locale) && <img src="/ge.png" alt="ge" onClick={() => handleLocaleChange('en')} />}
+      {['en'].includes(locale) && <img src="/ge.png" alt="en" onClick={() => handleLocaleChange('ka')} />}
+      {['ka'].includes(locale) && <img src="/en.png" alt="ge" onClick={() => handleLocaleChange('en')} />}
     </LanguageChangerWrapper>
   );
 };

@@ -43,14 +43,16 @@ const About = (_props: any) => {
               {page.meta.map((t: any, i: number) => (
                 <TeamItem key={i}>
                   <div className="logo">
-                    <img src={t.client_logo} />
+                    <img src={t.client_logo || ''} />
                   </div>
                   <h4>{t.client_title}</h4>
                   <span>{t.client_position}</span>
-                  <p>{t.client_desc}</p>
-                  <a href={t.client_linkedin} target="_blank" rel="noopener">
-                    <img src="/linkedin.svg" />
-                  </a>
+                  <p className="description">{t.client_desc}</p>
+                  <div className="links">
+                    <a href={t.client_linkedin} target="_blank" rel="noopener">
+                      <img src="/linkedin.svg" style={{ marginRight: '15px' }} />
+                    </a>
+                  </div>
                 </TeamItem>
               ))}
             </TeamContainer>
