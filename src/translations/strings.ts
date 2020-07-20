@@ -34,7 +34,8 @@ const strings: Strings = {
     'Instant Trade': 'Instant Trade',
     More: 'More',
     'Write us': 'Write us',
-    footer_address: '12 Sulkhan Tsintsadze str.'
+    footer_address: '12 Sulkhan Tsintsadze str.',
+    spend: 'Spend'
   },
   ka: {
     faq: 'ხშირად დასმული კითხვები',
@@ -48,8 +49,8 @@ const strings: Strings = {
     simple_trade: 'მარტივი ვაჭრობა',
     buy: 'იყიდე',
     sell: 'გაყიდე',
-    if_you_buy_now: 'თუ ახლავეს იყიდი, შენ ',
-    if_you_sell_now: 'თუ ახლავეს გაყიდი, შენ ',
+    if_you_buy_now: 'თუკი იყიდით ახლა, თქვენ ',
+    if_you_sell_now: 'თუკი გაყიდით ახლა, თქვენ ',
     receive: 'მიიღებ ',
     buy_now: 'ყიდვა',
     sell_now: 'გაყიდვა',
@@ -69,7 +70,8 @@ const strings: Strings = {
     'Instant Trade': 'მომენტალური ვაჭრობა',
     More: 'ვრცლად',
     'Write us': 'დაგვიკავშირდით',
-    footer_address: 'სულხან ცინცაძის 12'
+    footer_address: 'სულხან ცინცაძის 12',
+    spend: 'დახარჯავთ'
   }
 };
 
