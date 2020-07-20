@@ -96,7 +96,10 @@ export const Footer = () => {
           </FooterMenu>
           <FooterSocial>
             <FooterSocialButtons justify="flex-end" margin="0 4px 30px">
-              <a href={extra.linkedin} target="_blank" rel="noopener">
+              <a href={extra.twitter} target="_blank" rel="noopener">
+                <img src="/Tweet.svg" />
+              </a>
+			  <a href={extra.linkedin} target="_blank" rel="noopener">
                 <img src="/linkedin.svg" />
               </a>
               <a href={extra.facebook} target="_blank" rel="noopener">
