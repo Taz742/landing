@@ -1609,7 +1609,7 @@ export const SimpleTradeLine = styled.div`
   }
 
   .line {
-    width: calc(100% - 240px);
+    width: calc(100% - 0px);
     height: 9px;
     background-color: #f2f3f6;
 

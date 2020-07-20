@@ -241,18 +241,27 @@ const IndexPage = (_props: any) => {
                 trades[currency].length > 0 &&
                 trades[currency][coin.index]['offerEntriesMap'][sellType].map((item: any, index: number) => (
                   <div key={index} className="tab-coin">
-                    <p>
-                      {sellType === 'BID' ? t('if_you_buy_now') : t('if_you_sell_now')}
-                      <span>
-                        {t('receive')}
-                        {sellType === 'BID' ? item.size : item.price}
-                        {sellType === 'BID' ? coin.coin : currency}
-                      </span>
-                    </p>
-                    <h4>
-                      {sellType === 'BID' ? item.price : item.size}
-                      <span style={{ fontSize: 22, marginLeft: 10 }}>{sellType === 'BID' ? currency : coin.coin}</span>
-                    </h4>
+                    {sellType === 'BID' ? (
+                      <>
+                        <p>
+                          {t('if_you_buy_now')}
+                          <span>{`${t('receive')} ${item.size} ${coin.coin}`}</span>
+                        </p>
+                        <h4>
+                          {item.price} <span>{currency}</span>
+                        </h4>
+                      </>
+                    ) : (
+                        <>
+                          <p>
+                            {t('if_you_sell_now')}
+                            <span>{`${t('spend')} ${item.size} ${coin.coin}`}</span>
+                          </p>
+                          <h4>
+                            {item.price} <span>{currency}</span>
+                          </h4>
+                        </>
+                      )}
                     <button onClick={() => redirect(item.size, item.price)}>{sellType === 'BID' ? t('buy_now') : t('sell_now')}</button>
                   </div>
                 ))}
@@ -314,11 +323,11 @@ const IndexPage = (_props: any) => {
                   {' '}
                   {`0${(time / 60).toFixed(0)}:${
                     parseInt((time - 60).toFixed(0)) <= 9 ? `0${(time - 60).toFixed(0)}` : (time - 60).toFixed(0)
-                  }`}
+                    }`}
                 </span>
               ) : (
-                <span> 00:{parseInt(time.toFixed(0)) <= 9 ? `0${time.toFixed(0)}` : time.toFixed(0)}</span>
-              )}
+                  <span> 00:{parseInt(time.toFixed(0)) <= 9 ? `0${time.toFixed(0)}` : time.toFixed(0)}</span>
+                )}
             </div>
           </SimpleTradeLine>
         </Container>
