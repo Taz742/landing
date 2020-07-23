@@ -31,7 +31,7 @@ export const TabMenu = styled.ul`
     justify-content: space-between;
     align-items: center;
     margin-left: 0;
-    padding: 5px 40px 50px 0px;
+    padding: 5px 40px 35px 0px;
     font-size: 20px;
     transition: all 0.2s;
     cursor: pointer;

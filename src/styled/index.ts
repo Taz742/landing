@@ -1639,7 +1639,7 @@ export const SimpleTradeLine = styled.div`
     text-align: right;
     position: relative;
     top: -15px;
-    width: 35%;
+    width: 28%;
 
     @media ${responsive.sm} {
       margin-left: 0;

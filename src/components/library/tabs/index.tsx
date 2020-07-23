@@ -54,7 +54,6 @@ export const Tabs = (args: ITab) => {
         return (
           <li className={style} key={index} onKeyDown={() => handleChange(index, elem)} onClick={() => handleChange(index, elem)}>
             {renderElem(elem)}
-            <span className="line"></span>
           </li>
         );
       });
