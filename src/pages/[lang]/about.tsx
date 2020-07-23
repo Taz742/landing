@@ -26,7 +26,7 @@ const About = (_props: any) => {
   const [openMembers, setOpenMembers] = useState<any>({});
   const { t } = useTranslation();
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.pages['about'] || { meta: [], data: { post_title: '' } };
+  const page: any = data.pages.pages['about'] || { meta: [], title: { title: '', description: '' }, Hiring: {}, contact: [] };
   const about: any = data.static.pages['about'];
   const aboutUsPage: any = about.data;
   const extra: any = data.pages.extra;
@@ -37,14 +37,14 @@ const About = (_props: any) => {
 
   return (
     <>
-      <CustomHead title={page.data.post_title} page="/about" description={page.data.post_title} />
+      <CustomHead title={page.title.title} page="/about" description={page.title.title} />
       <Layout>
         <PageHeader height="100px" className="hide_image" />
         <Container>
           <PageSubHeader type="about" style={{ padding: '60px 0 0' }}>
-            <H2>{page.data.post_title}</H2>
+            <H2>{page.title.title}</H2>
             <Text align="left" padding="45px 0px">
-              {parseHTML(page.data.post_content)}
+              {parseHTML(page.title.description)}
             </Text>
           </PageSubHeader>
         </Container>
@@ -75,9 +75,9 @@ const About = (_props: any) => {
         <WeAreHiringBox>
           <img src="/hiring.png" />
           <WeAreHiring>
-            <H2>{about.hiring_title}</H2>
-            <span>{page.about}</span>
-            <a href="#" target="_blank" rel="noopener">
+            <H2>{page.Hiring['Hiring title']}</H2>
+            <span>{page.Hiring.about}</span>
+            <a href={page.Hiring.link} target="_blank" rel="noopener">
               <Button>{about.apply_title}</Button>
             </a>
           </WeAreHiring>
@@ -87,7 +87,65 @@ const About = (_props: any) => {
           <ContactUsContainer>
             <H2>{aboutUsPage?.contact_us?.title}</H2>
             <ContactUsBox>
-              <OurAddress>
+              {page.contact.map((c: any, i: number) => {
+                if (i === 0) {
+                  return (
+                    <OurAddress key={i}>
+                      <img src={c.contact_logo} />
+                      <H5>{c.contact_title}</H5>
+
+                      <OurAddressContent>
+                        <p>
+                          {c.contact_Text1} {c.contact_Text2}
+                        </p>
+                        <p>
+                          {c.contact_Text3} {c.contact_Text4}
+                        </p>
+                      </OurAddressContent>
+                    </OurAddress>
+                  );
+                }
+
+                if (i === 1) {
+                  return (
+                    <WriteUs key={i}>
+                      <img src={c.contact_logo} />
+                      <H5>{c.contact_title}</H5>
+
+                      <WriteUsContent>
+                        <p>{c.contact_Text1}</p>
+                        <p>{c.contact_Text2}</p>
+                        <p>{c.contact_Text3}</p>
+                        <p>{c.contact_Text4}</p>
+                      </WriteUsContent>
+                    </WriteUs>
+                  );
+                }
+
+                if (i === 3) {
+                  return (
+                    <Connect key={i}>
+                      <img src={c.contact_logo} />
+                      <H5>{c.contact_title}</H5>
+                      <p>{c.contact_Text1}</p>
+
+                      <ConnectIcons>
+                        <a href={extra.linkedin} target="_blank" rel="noopener">
+                          <img src="/white_linkedin.svg" />
+                        </a>
+                        <a href={extra.facebook} target="_blank" rel="noopener">
+                          <img src="/white_facebook.svg" />
+                        </a>
+                        <a href={extra.twitter} target="_blank" rel="noopener">
+                          <img src="/white_twitter.svg" />
+                        </a>
+                      </ConnectIcons>
+                    </Connect>
+                  );
+                }
+              })}
+
+              {/* <OurAddress>
                 <img src={aboutUsPage.contact_us?.our_address.logo} />
                 <H5>{aboutUsPage.contact_us?.our_address.title}</H5>
 
@@ -96,8 +154,9 @@ const About = (_props: any) => {
                     <p key={index}>{item}</p>
                   ))}
                 </OurAddressContent>
-              </OurAddress>
-              <WriteUs>
+              </OurAddress> */}
+
+              {/* <WriteUs>
                 <img src={aboutUsPage.contact_us?.write_us.logo} />
                 <H5>{aboutUsPage.contact_us?.write_us.title}</H5>
 
@@ -106,8 +165,9 @@ const About = (_props: any) => {
                     <p key={index}>{item}</p>
                   ))}
                 </WriteUsContent>
-              </WriteUs>
-              <Connect>
+              </WriteUs> */}
+
+              {/* <Connect>
                 <img src={aboutUsPage.contact_us?.connect.logo} />
                 <H5>{aboutUsPage.contact_us?.connect.title}</H5>
                 <p>{aboutUsPage.contact_us?.connect.subTitle}</p>
@@ -123,7 +183,7 @@ const About = (_props: any) => {
                     <img src="/white_twitter.svg" />
                   </a>
                 </ConnectIcons>
-              </Connect>
+              </Connect> */}
             </ContactUsBox>
           </ContactUsContainer>
         </Container>
