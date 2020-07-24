@@ -12,7 +12,7 @@ import Button from '@/components/library/button';
 
 const Aml = () => {
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.pages['terms'] || { meta: [] };
+  const page: any = data.pages.pages['aml'] || { meta: [] };
   // const aml: any = data.static.pages['aml'];
   let content = '';
   page.meta.forEach((e: any) => {
@@ -42,7 +42,7 @@ const Aml = () => {
                 <img src="/info.svg" />
                 {page.AllPageContact?.AllPageContactText}
                 {page.AllPageContact?.AllPageContactLink && (
-                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=F.A.Q`}>
+                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=AML`}>
                     <Button inline buttonType="text">
                       {page.AllPageContact?.AllPageContactLink}
                     </Button>

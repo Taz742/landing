@@ -3,7 +3,19 @@ import { createPortal } from 'react-dom';
 
 import { ModalBackgroundStyled, ModalBody, ModalTitle, ModalTopPanel, Close } from './modal-styled';
 
-const Modal: FC<IProps> = ({ isOpen, title, closeIcon, width, height, size, closeModal, children, overflow, closable, centerTitle }) => {
+const Modal: FC<IProps> = ({
+  isOpen,
+  title,
+  closeIcon,
+  width,
+  height,
+  size = 'default',
+  closeModal,
+  children,
+  overflow,
+  closable,
+  centerTitle
+}) => {
   const [fadeType, setFadeType] = useState<'in' | 'out'>('out');
   const ref = useRef<any>();
   const [mounted, setMounted] = useState(false);
@@ -30,16 +42,19 @@ const Modal: FC<IProps> = ({ isOpen, title, closeIcon, width, height, size, clos
     return createPortal(
       <ModalBackgroundStyled isOpen={isOpen} onClick={handleClose} fadeType={fadeType}>
         <ModalBody width={width} height={height} size={size} overflow={overflow} onClick={(e) => e.stopPropagation()} fadeType={fadeType}>
-          <ModalTopPanel hidden={!title && !closeIcon} centerTitle={centerTitle}>
-            <ModalTitle>
-              <h2>{title || ''}</h2>
-            </ModalTitle>
-            {closeIcon && (
-              <Close onClick={handleClose}>
-                <img src="/close_icon.svg" />
-              </Close>
-            )}
-          </ModalTopPanel>
+          {title ||
+            (closeIcon && (
+              <ModalTopPanel hidden={!title && !closeIcon} centerTitle={centerTitle}>
+                <ModalTitle>
+                  <h2>{title || ''}</h2>
+                </ModalTitle>
+                {closeIcon && (
+                  <Close onClick={handleClose}>
+                    <img src="/close_icon.svg" />
+                  </Close>
+                )}
+              </ModalTopPanel>
+            ))}
           {children}
         </ModalBody>
       </ModalBackgroundStyled>,
@@ -56,7 +71,7 @@ export interface IProps {
   closeIcon?: boolean;
   width?: string;
   height?: string;
-  size?: 'default' | 'small' | 'large';
+  size?: 'default' | 'small' | 'large' | 'cookie';
   closeModal: () => void;
   overflow?: string;
   closable?: boolean;

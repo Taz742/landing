@@ -16,14 +16,15 @@ import {
 import { H3 } from '@/styled/typography';
 import { DataContext } from '@/context/app-context';
 import useTranslation from '@/hooks/useTranslation';
-import config from '@/utils/config';
+// import config from '@/utils/config';
 
 export const Footer = () => {
-  const { t, locale } = useTranslation();
+  const { locale } = useTranslation();
   const path = useRouter().asPath;
   const { data } = React.useContext(DataContext);
   const footerMenu = [...data.static.manualFooterMenu, ...data.pages.footerMenu];
   const extra = data.pages.extra;
+  const footerInfo = data.pages.pages.footer;
 
   if (!path.includes('/about')) {
     return (
@@ -44,8 +45,16 @@ export const Footer = () => {
               )}
             </FooterMenu>
             <FooterAboutUs>
-              <H3>{t('Write us')}</H3>
-              <FooterMenuItem href="tel:+995599123123">
+              <H3>{footerInfo.title.title}</H3>
+              {footerInfo.meta.map((f: any, i: number) => (
+                <FooterMenuItem key={i} onClick={(e: any) => e.preventDefault()} type="info">
+                  <div className="logo">
+                    <img src={f.logo} />
+                  </div>
+                  <p>{f.text}</p>
+                </FooterMenuItem>
+              ))}
+              {/* <FooterMenuItem href={`tel:+995 599 123 123`}>
                 <img src="/images/call.svg" />
                 <p>+995 599 123 123</p>
               </FooterMenuItem>
@@ -56,7 +65,7 @@ export const Footer = () => {
               <FooterMenuItem href={config.googleAddress} target="_blank" rel="noopener">
                 <img src="/images/map.svg" />
                 <p>{t('footer_address')}</p>
-              </FooterMenuItem>
+              </FooterMenuItem> */}
             </FooterAboutUs>
             <FooterSocial>
               <FooterSocialButtons>

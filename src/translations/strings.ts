@@ -35,7 +35,10 @@ const strings: Strings = {
     More: 'More',
     'Write us': 'Write us',
     footer_address: '12 Sulkhan Tsintsadze St.',
-    spend: 'Spend'
+    spend: 'Spend',
+    cookie_popup_title: 'This site uses cookies',
+    cookie_popup_desc: 'You can also read our ',
+    cookie_popup_link: 'Cookie Policy'
   },
   ka: {
     faq: 'ხშირად დასმული კითხვები',
@@ -71,7 +74,10 @@ const strings: Strings = {
     More: 'ვრცლად',
     'Write us': 'დაგვიკავშირდით',
     footer_address: 'სულხან ცინცაძის 12',
-    spend: 'დახარჯავთ'
+    spend: 'დახარჯავთ',
+    cookie_popup_title: 'ეს საიტი იყენებს cookies',
+    cookie_popup_desc: 'ასევე შეგიძლიათ ნახოთ ჩვენი ',
+    cookie_popup_link: 'Cookie პოლიტიკა'
   }
 };
 

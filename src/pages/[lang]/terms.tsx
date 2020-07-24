@@ -12,7 +12,7 @@ import Button from '@/components/library/button';
 
 const Terms = () => {
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.pages['aml'] || { meta: [], data: { post_title: '' } };
+  const page: any = data.pages.pages['terms'] || { meta: [] };
   let content = '';
   page.meta.forEach((e: any) => {
     content += `<div id="${e.carrer_title}">${e.carrer_text || ''}</div>`;
@@ -41,7 +41,7 @@ const Terms = () => {
                 <img src="/info.svg" />
                 {page.AllPageContact?.AllPageContactText}
                 {page.AllPageContact?.AllPageContactLink && (
-                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=F.A.Q`}>
+                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=Terms`}>
                     <Button inline buttonType="text">
                       {page.AllPageContact?.AllPageContactLink}
                     </Button>

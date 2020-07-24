@@ -890,3 +890,75 @@ export const OtcItem = styled.div`
     }
   }
 `;
+
+export const CookieContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 40px 30px 70px;
+
+  img {
+    margin-right: 32px;
+  }
+
+  p {
+    margin-top: 9px;
+  }
+
+  button {
+    width: 139px;
+    height: 64px;
+    background: #0ecbfd;
+    border-radius: 32px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+
+    :hover {
+      filter: opacity(0.9);
+    }
+  }
+
+  h5 {
+    font-weight: 500;
+    font-size: 22px;
+    color: #2d2d52;
+  }
+
+  a {
+    color: #0ecbfd;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+  }
+
+  @media ${responsive.sm} {
+    padding: 20px;
+
+    img {
+      height: 34px;
+    }
+
+    h5 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    button {
+      width: auto;
+      color: #0ecbfd;
+      background: transparent;
+    }
+
+    a {
+      display: block;
+    }
+  }
+`;

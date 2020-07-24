@@ -46,7 +46,7 @@ const Otc = () => {
                 <img src="/info.svg" />
                 {page.AllPageContact?.AllPageContactText}
                 {page.AllPageContact?.AllPageContactLink && (
-                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=F.A.Q`}>
+                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=OTC`}>
                     <Button inline buttonType="text">
                       {page.AllPageContact?.AllPageContactLink}
                     </Button>

@@ -2,19 +2,26 @@ import React from 'react';
 
 import CustomHead from '@/components/custom-head';
 import { Layout } from '@/components/index';
-import { Container, FeesBox, FeesItem } from '@/styled';
-import { H1, H5 } from '@/styled/typography';
+import Tabs, { Panel } from '@/components/library/tabs';
+import { Container } from '@/styled';
+import { H1 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/pages';
+import { replaceEnterSymbol } from '@/utils/helpers';
 import { DataContext } from '@/context/app-context';
 import Button from '@/components/library/button';
 
-const Faq = () => {
+const Terms = () => {
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.pages['pricing'] || { meta: [] };
+  const page: any = data.pages.pages['cookies'] || { meta: [] };
+  const meta = page.meta || [];
+  let content = '';
+  meta.forEach((e: any) => {
+    content += `<div id="${e.carrer_title}">${e.carrer_text || ''}</div>`;
+  });
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/pricing" description={page.title.description} />
+      <CustomHead title={page.title.title} page="/terms" description={page.title.description} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
@@ -24,28 +31,18 @@ const Faq = () => {
 
         <PageInner>
           <Container>
-            {page.meta.map((item: any, index: number) => {
-              return (
-                <div key={index}>
-                  <H5 style={{ marginTop: (index === 0 ? 0 : 1) * 30 }}>{item.title}</H5>
-                  <FeesBox>
-                    {item.content.map((item: any, i: number) => (
-                      <FeesItem key={`${item.title}-${i}`}>
-                        <p className="percent">{item.percent}</p>
-                        <p className="title">{item.title}</p>
-                      </FeesItem>
-                    ))}
-                  </FeesBox>
-                </div>
-              );
-            })}
+            <Tabs content={<div dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(content) }}></div>}>
+              {meta.map((p: any) => (
+                <Panel title={p.carrer_title} key={p.carrer_title} />
+              ))}
+            </Tabs>
 
             {page.AllPageContact?.AllPageContactText && (
               <FaqText>
                 <img src="/info.svg" />
                 {page.AllPageContact?.AllPageContactText}
                 {page.AllPageContact?.AllPageContactLink && (
-                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=Pricing`}>
+                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=Cookies`}>
                     <Button inline buttonType="text">
                       {page.AllPageContact?.AllPageContactLink}
                     </Button>
@@ -60,4 +57,4 @@ const Faq = () => {
   );
 };
 
-export default Faq;
+export default Terms;

@@ -712,7 +712,7 @@ export const FooterMenu = styled.div<{ maxHeight?: string; width?: string }>`
   }
 `;
 
-export const FooterMenuItem = styled.a<{ flex?: string }>`
+export const FooterMenuItem = styled.a<{ flex?: string; type?: string }>`
   display: inline-flex;
   color: #c4c9d1;
   font-size: 20px;
@@ -727,6 +727,21 @@ export const FooterMenuItem = styled.a<{ flex?: string }>`
   @media ${responsive.lg} {
     font-size: 18px;
   }
+
+  ${({ type }) =>
+    type === 'info' &&
+    css`
+      cursor: default;
+
+      :hover {
+        color: #c4c9d1;
+      }
+
+      .logo {
+        width: 20px;
+        margin-right: 12px;
+      }
+    `}
 `;
 
 export const FooterSocial = styled.div`
