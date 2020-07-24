@@ -25,6 +25,7 @@ export const Footer = () => {
   const footerMenu = [...data.static.manualFooterMenu, ...data.pages.footerMenu];
   const extra = data.pages.extra;
   const footerInfo = data.pages.pages.footer;
+  const footerMeta = data.pages.pages.footer.meta || [];
 
   if (!path.includes('/about')) {
     return (
@@ -46,7 +47,7 @@ export const Footer = () => {
             </FooterMenu>
             <FooterAboutUs>
               <H3>{footerInfo.title.title}</H3>
-              {footerInfo.meta.map((f: any, i: number) => (
+              {footerMeta.map((f: any, i: number) => (
                 <FooterMenuItem key={i} onClick={(e: any) => e.preventDefault()} type="info">
                   <div className="logo">
                     <img src={f.logo} />

@@ -11,6 +11,7 @@ import { DataContext } from '@/context/app-context';
 const Otc = () => {
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['otc'] || { meta: [] };
+  const meta = page.meta || [];
   // const otc: any = data.static.pages['otc'];
 
   return (
@@ -28,9 +29,9 @@ const Otc = () => {
 
         <PageInner>
           <Container>
-            {page.meta.length > 0 && (
+            {meta.length > 0 && (
               <OtcContainer>
-                {page.meta.map((t: any, i: number) => (
+                {meta.map((t: any, i: number) => (
                   <OtcItem key={i}>
                     <div className="logo">
                       <img src={t.client_logo} />
