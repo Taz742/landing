@@ -23,7 +23,7 @@ export const Footer = () => {
   const path = useRouter().asPath;
   const { data } = React.useContext(DataContext);
   const footerMenu = [...data.static.manualFooterMenu, ...data.pages.footerMenu];
-  const extra = data.pages?.extra;
+  const extra = data.pages?.extra || {};
   const footerInfo = data.pages.pages.footer;
   const footerMeta = data.pages.pages.footer.meta || [];
 
