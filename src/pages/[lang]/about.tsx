@@ -144,46 +144,6 @@ const About = (_props: any) => {
                   );
                 }
               })}
-
-              {/* <OurAddress>
-                <img src={aboutUsPage.contact_us?.our_address.logo} />
-                <H5>{aboutUsPage.contact_us?.our_address.title}</H5>
-
-                <OurAddressContent>
-                  {aboutUsPage.contact_us?.our_address.data.map((item: string, index: number) => (
-                    <p key={index}>{item}</p>
-                  ))}
-                </OurAddressContent>
-              </OurAddress> */}
-
-              {/* <WriteUs>
-                <img src={aboutUsPage.contact_us?.write_us.logo} />
-                <H5>{aboutUsPage.contact_us?.write_us.title}</H5>
-
-                <WriteUsContent>
-                  {aboutUsPage.contact_us?.write_us.data.map((item: string, index: number) => (
-                    <p key={index}>{item}</p>
-                  ))}
-                </WriteUsContent>
-              </WriteUs> */}
-
-              {/* <Connect>
-                <img src={aboutUsPage.contact_us?.connect.logo} />
-                <H5>{aboutUsPage.contact_us?.connect.title}</H5>
-                <p>{aboutUsPage.contact_us?.connect.subTitle}</p>
-
-                <ConnectIcons>
-                  <a href={extra.linkedin} target="_blank" rel="noopener">
-                    <img src="/white_linkedin.svg" />
-                  </a>
-                  <a href={extra.facebook} target="_blank" rel="noopener">
-                    <img src="/white_facebook.svg" />
-                  </a>
-                  <a href={extra.twitter} target="_blank" rel="noopener">
-                    <img src="/white_twitter.svg" />
-                  </a>
-                </ConnectIcons>
-              </Connect> */}
             </ContactUsBox>
           </ContactUsContainer>
         </Container>

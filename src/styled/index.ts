@@ -1609,7 +1609,7 @@ export const SimpleTradeLine = styled.div`
   }
 
   .line {
-    width: calc(100% - 0px);
+    flex: 1;
     height: 9px;
     background-color: #f2f3f6;
 
@@ -1638,8 +1638,8 @@ export const SimpleTradeLine = styled.div`
     font-size: 16px;
     text-align: right;
     position: relative;
-    top: -15px;
-    width: 28%;
+    top: -16px;
+    margin-left: 20px;
 
     @media ${responsive.sm} {
       margin-left: 0;
@@ -1768,6 +1768,7 @@ export const ContactUsContainer = styled.div`
 
     @media ${responsive.sm} {
       margin-bottom: 30px;
+      text-align: center;
     }
   }
 `;

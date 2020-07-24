@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Hidden, useScrollTrigger } from '@material-ui/core';
 
-// import LocaleSwitcher from '@/components/locale-swither';
+import LocaleSwitcher from '@/components/locale-swither';
 import Button from '@/components/library/button';
 import MobileMenu from '@/components/pc-drawer';
-import { StyledHeader, HeaderLeft, HeaderRight, HeaderMenu, HeaderMenuItem, HamburgerMenuButton } from '@/styled';
+import { StyledHeader, HeaderLeft, HeaderRight, HeaderMenu, HeaderMenuItem, HamburgerMenuButton, HeaderSeperator } from '@/styled';
 import config from '@/utils/config';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
@@ -51,8 +51,8 @@ export const Header = () => {
         </HeaderMenu>
       </HeaderLeft>
       <HeaderRight>
-        {/* <LocaleSwitcher />
-        <HeaderSeperator /> */}
+        <LocaleSwitcher />
+        <HeaderSeperator />
         <div className="links">
           <a href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
             <Button text={t('Sign In')} buttonType="text" padding="0 30px" />

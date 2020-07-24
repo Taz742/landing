@@ -590,6 +590,10 @@ export const TeamItem = styled.div<{ open?: boolean }>`
         background: #d7f3fb;
         border: 1px solid #d7f3fb;
       }
+
+      @media ${responsive.lg} {
+        height: 40px;
+      }
     }
   }
 
