@@ -19,7 +19,7 @@ export const Header = () => {
   const { data } = React.useContext(DataContext);
   const headerMenu = [...data.static.manualHeaderMenu, ...data.pages.headerMenu];
   const footerMenu = [...data.static.manualFooterMenu, ...data.pages.footerMenu];
-  const extra = data.pages.extra || {};
+  const extra = data.pages?.extra || {};
 
   const fixed = React.useMemo((): boolean => {
     const path = router.asPath.toLocaleLowerCase();

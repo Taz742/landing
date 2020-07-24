@@ -9,7 +9,7 @@ if (gaTrackingId && process.env.NODE_ENV === 'production') ReactGA.initialize(ga
 
 export const useGaTrackPage = (path: string) => {
   const { data } = useContext(DataContext);
-  const extra = data.pages.extra;
+  const extra = data.pages?.extra || {};
 
   useEffect(() => {
     if (gaTrackingId && process.env.NODE_ENV === 'production') ReactGA.pageview(path);

@@ -29,7 +29,7 @@ const About = (_props: any) => {
   const page: any = data.pages.pages['about'] || { meta: [], title: { title: '', description: '' }, Hiring: {}, contact: [] };
   const about: any = data.static.pages['about'];
   const aboutUsPage: any = about.data;
-  const extra: any = data.pages.extra;
+  const extra: any = data.pages?.extra;
 
   const toggleOpen = (i: number) => {
     setOpenMembers((prev: any) => ({ ...prev, [i]: !prev[i] }));
