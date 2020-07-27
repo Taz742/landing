@@ -15,7 +15,7 @@ const Terms = () => {
   const page: any = data.pages.pages['terms'] || { meta: [] };
   let content = '';
   page.meta.forEach((e: any) => {
-    content += `<div id="${e.carrer_title}">${e.carrer_text || ''}</div>`;
+    content += `<div id="${e.carrer_title}" class="content-section">${e.carrer_text || ''}</div>`;
   });
 
   return (

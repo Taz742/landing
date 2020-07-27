@@ -27,6 +27,7 @@ import useBreakpoint from '@/hooks/use-breakpoints';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 import Timer from '@/components/instant-trade-timer';
+import ArrowIcon from '@/components/arrow-icon';
 
 const IndexPage = (_props: any) => {
   const { data } = React.useContext(DataContext);
@@ -146,8 +147,8 @@ const IndexPage = (_props: any) => {
                     <TopCoinBaseVolume>
                       {currency === 'GEL' ? <>&#8382;</> : '$'} {item.baseVolume} <span>24 H</span>
                     </TopCoinBaseVolume>
-                    <TopCoinPricePercent>
-                      <img src="/images/Arrow.svg" />
+                    <TopCoinPricePercent percent={item.priceChange}>
+                      {Number(item.priceChange) !== 0 && <ArrowIcon />}
                       {item.priceChange}%
                     </TopCoinPricePercent>
                   </TopCoinItem>

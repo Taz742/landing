@@ -13,10 +13,9 @@ import Button from '@/components/library/button';
 const Aml = () => {
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['aml'] || { meta: [] };
-  // const aml: any = data.static.pages['aml'];
   let content = '';
   page.meta.forEach((e: any) => {
-    content += `<div id="${e.carrer_title}">${e.carrer_text || ''}</div>`;
+    content += `<div id="${e.carrer_title}" class="content-section">${e.carrer_text || ''}</div>`;
   });
 
   return (

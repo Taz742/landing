@@ -12,10 +12,10 @@ import Button from '@/components/library/button';
 
 const PrivacyPolicy = () => {
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.pages['privacy'] || { meta: [], data: { post_title: '' } };
+  const page: any = data.pages.pages['privacy'] || { meta: [] };
   let content = '';
   page.meta.forEach((e: any) => {
-    content += `<div id="${e.carrer_title}">${e.carrer_text || ''}</div>`;
+    content += `<div id="${e.carrer_title}" class="content-section">${e.carrer_text || ''}</div>`;
   });
 
   return (

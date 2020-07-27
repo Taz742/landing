@@ -1151,14 +1151,16 @@ export const TopCoinBaseVolume = styled.p`
   }
 `;
 
-export const TopCoinPricePercent = styled.p`
-  color: #06b787;
+export const TopCoinPricePercent = styled.p<{ percent: string | number }>`
+  color: ${({ percent }) => (Number(percent) < 0 ? '#ff5722' : '#06b787')};
   margin: 0;
 
-  img {
-    height: 13px;
+  svg {
+    height: 12px;
     width: auto;
     margin-right: 5px;
+    fill: ${({ percent }) => (Number(percent) < 0 ? '#ff5722' : '#06b787')};
+    transform: ${({ percent }) => (Number(percent) < 0 ? 'rotate(180deg)' : 'rotate(0)')};
   }
 `;
 
