@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { responsive } from '@/styled/responsive';
 
 import { IProps } from '.';
 
@@ -19,7 +21,7 @@ export const ModalBackgroundStyled = styled.div<IModalProps>`
   width: 100%;
   height: 100%;
   z-index: 8;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in;
   overflow: overlay;
 
@@ -82,6 +84,28 @@ export const ModalBody = styled.div<IModalProps>`
     max-height: 80%;
     padding: 27px 20px;
   }
+
+  ${({ size }) =>
+    size === 'cookie' &&
+    css`
+      width: 50%;
+      height: auto;
+      height: auto;
+      border-radius: 66px;
+      overflow: hidden;
+      bottom: 60px;
+      padding: 0;
+
+      @media ${responsive.lg} {
+        width: 70%;
+      }
+
+      @media ${responsive.sm} {
+        width: 90%;
+        padding: 0;
+        max-height: auto;
+      }
+    `}
 `;
 
 export const ModalTopPanel = styled.div<{ centerTitle?: boolean }>`

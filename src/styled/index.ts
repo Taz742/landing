@@ -712,7 +712,7 @@ export const FooterMenu = styled.div<{ maxHeight?: string; width?: string }>`
   }
 `;
 
-export const FooterMenuItem = styled.a<{ flex?: string }>`
+export const FooterMenuItem = styled.a<{ flex?: string; type?: string }>`
   display: inline-flex;
   color: #c4c9d1;
   font-size: 20px;
@@ -727,6 +727,21 @@ export const FooterMenuItem = styled.a<{ flex?: string }>`
   @media ${responsive.lg} {
     font-size: 18px;
   }
+
+  ${({ type }) =>
+    type === 'info' &&
+    css`
+      cursor: default;
+
+      :hover {
+        color: #c4c9d1;
+      }
+
+      .logo {
+        width: 20px;
+        margin-right: 12px;
+      }
+    `}
 `;
 
 export const FooterSocial = styled.div`
@@ -1140,12 +1155,6 @@ export const TopCoinPricePercent = styled.p<{ ltZero: boolean }>`
   color: ${({ ltZero }) => ltZero ? 'red' : '#06b787'};
   margin: 0;
 
-  img {
-    height: 13px;
-    width: auto;
-    margin-right: 5px;
-  }
-  
   span {
     padding-left: 5px;
   }
@@ -1613,7 +1622,7 @@ export const SimpleTradeLine = styled.div`
   }
 
   .line {
-    width: calc(100% - 0px);
+    flex: 1;
     height: 9px;
     background-color: #f2f3f6;
 
@@ -1642,8 +1651,8 @@ export const SimpleTradeLine = styled.div`
     font-size: 16px;
     text-align: right;
     position: relative;
-    top: -15px;
-    width: 28%;
+    top: -16px;
+    margin-left: 20px;
 
     @media ${responsive.sm} {
       margin-left: 0;
@@ -1772,6 +1781,7 @@ export const ContactUsContainer = styled.div`
 
     @media ${responsive.sm} {
       margin-bottom: 30px;
+      text-align: center;
     }
   }
 `;

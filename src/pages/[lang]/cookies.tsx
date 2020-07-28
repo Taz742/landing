@@ -10,17 +10,18 @@ import { replaceEnterSymbol } from '@/utils/helpers';
 import { DataContext } from '@/context/app-context';
 import Button from '@/components/library/button';
 
-const PrivacyPolicy = () => {
+const Terms = () => {
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.pages['privacy'] || { meta: [] };
+  const page: any = data.pages.pages['cookies'] || { meta: [] };
+  const meta = page.meta || [];
   let content = '';
-  page.meta.forEach((e: any) => {
+  meta.forEach((e: any) => {
     content += `<div id="${e.carrer_title}" class="content-section">${e.carrer_text || ''}</div>`;
   });
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/privacy-policy" description={page.title.description} />
+      <CustomHead title={page.title.title} page="/terms" description={page.title.description} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
@@ -31,7 +32,7 @@ const PrivacyPolicy = () => {
         <PageInner>
           <Container>
             <Tabs content={<div dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(content) }}></div>}>
-              {page.meta.map((p: any) => (
+              {meta.map((p: any) => (
                 <Panel title={p.carrer_title} key={p.carrer_title} />
               ))}
             </Tabs>
@@ -41,7 +42,7 @@ const PrivacyPolicy = () => {
                 <img src="/info.svg" />
                 {page.AllPageContact?.AllPageContactText}
                 {page.AllPageContact?.AllPageContactLink && (
-                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=Privacy`}>
+                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=Cookies`}>
                     <Button inline buttonType="text">
                       {page.AllPageContact?.AllPageContactLink}
                     </Button>
@@ -56,4 +57,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default Terms;

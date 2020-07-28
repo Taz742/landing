@@ -28,11 +28,11 @@ const Faq = () => {
 
   return (
     <>
-      <CustomHead title={page.data.post_title} page="/faq" description={t('faq_description')} />
+      <CustomHead title={page.title.title} page="/faq" description={page.title.decsription} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{t('faq')}</H1>
+            <H1>{page.title.title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
 
@@ -50,15 +50,20 @@ const Faq = () => {
                 </AccordionSection>
               ))}
             </Accordion>
-            <FaqText>
-              <img src="/info.svg" />
-              {t('faq_info_text')}:
-              <a href="mailto:support@gex.ge?subject=F.A.Q">
-                <Button inline buttonType="text">
-                  support@gex.ge
-                </Button>
-              </a>
-            </FaqText>
+
+            {page.AllPageContact?.AllPageContactText && (
+              <FaqText>
+                <img src="/info.svg" />
+                {page.AllPageContact?.AllPageContactText}
+                {page.AllPageContact?.AllPageContactLink && (
+                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=F.A.Q`}>
+                    <Button inline buttonType="text">
+                      {page.AllPageContact?.AllPageContactLink}
+                    </Button>
+                  </a>
+                )}
+              </FaqText>
+            )}
           </Container>
         </PageInner>
       </Layout>

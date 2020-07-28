@@ -6,20 +6,19 @@ import { Container, FeesBox, FeesItem } from '@/styled';
 import { H1, H5 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/pages';
 import { DataContext } from '@/context/app-context';
-import useTranslation from '@/hooks/useTranslation';
+import Button from '@/components/library/button';
 
 const Faq = () => {
   const { data } = React.useContext(DataContext);
-  const { t } = useTranslation();
-  const page: any = data.pages.pages['pricing'] || { meta: [], data: { post_title: '' } };
+  const page: any = data.pages.pages['pricing'] || { meta: [] };
 
   return (
     <>
-      <CustomHead title={page.data.post_title} page="/pricing" description={page.data.post_title} />
+      <CustomHead title={page.title.title} page="/pricing" description={page.title.description} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{page.data.post_title}</H1>
+            <H1>{page.title.title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
 
@@ -40,10 +39,20 @@ const Faq = () => {
                 </div>
               );
             })}
-            <FaqText>
-              <img src="/info.svg" />
-              {t('fee_info_text')}
-            </FaqText>
+
+            {page.AllPageContact?.AllPageContactText && (
+              <FaqText>
+                <img src="/info.svg" />
+                {page.AllPageContact?.AllPageContactText}
+                {page.AllPageContact?.AllPageContactLink && (
+                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=Pricing`}>
+                    <Button inline buttonType="text">
+                      {page.AllPageContact?.AllPageContactLink}
+                    </Button>
+                  </a>
+                )}
+              </FaqText>
+            )}
           </Container>
         </PageInner>
       </Layout>

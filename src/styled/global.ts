@@ -132,4 +132,8 @@ export const GlobalStyle = createGlobalStyle`
   [type="submit"]:-moz-focusring {
     outline: 1px dotted ButtonText;
   }
+
+  .content-section {
+    margin-bottom: 20px;
+  }
 `;

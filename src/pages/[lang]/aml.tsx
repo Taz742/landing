@@ -5,26 +5,26 @@ import { Layout } from '@/components/index';
 import Tabs, { Panel } from '@/components/library/tabs';
 import { Container } from '@/styled';
 import { H1 } from '@/styled/typography';
-import { SearchPageHeader, PageInner, PageInnerTitle } from '@/styled/pages';
+import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/pages';
 import { replaceEnterSymbol } from '@/utils/helpers';
 import { DataContext } from '@/context/app-context';
+import Button from '@/components/library/button';
 
 const Aml = () => {
   const { data } = React.useContext(DataContext);
-  const page: any = data.pages.pages['terms'] || { meta: [], data: { post_title: '' } };
-  // const aml: any = data.static.pages['aml'];
+  const page: any = data.pages.pages['aml'] || { meta: [] };
   let content = '';
   page.meta.forEach((e: any) => {
-    content += `<div id="${e.carrer_title}">${e.carrer_text || ''}</div>`;
+    content += `<div id="${e.carrer_title}" class="content-section">${e.carrer_text || ''}</div>`;
   });
 
   return (
     <>
-      <CustomHead title={page.data.post_title} page="/aml" description={page.data.post_title} />
+      <CustomHead title={page.title.title} page="/aml" description={page.title.description} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{page.data.post_title}</H1>
+            <H1>{page.title.title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
 
@@ -35,6 +35,20 @@ const Aml = () => {
                 <Panel title={p.carrer_title} key={p.carrer_title} />
               ))}
             </Tabs>
+
+            {page.AllPageContact?.AllPageContactText && (
+              <FaqText>
+                <img src="/info.svg" />
+                {page.AllPageContact?.AllPageContactText}
+                {page.AllPageContact?.AllPageContactLink && (
+                  <a href={`mailto:${page.AllPageContact?.AllPageContactLink}?subject=AML`}>
+                    <Button inline buttonType="text">
+                      {page.AllPageContact?.AllPageContactLink}
+                    </Button>
+                  </a>
+                )}
+              </FaqText>
+            )}
           </Container>
         </PageInner>
       </Layout>

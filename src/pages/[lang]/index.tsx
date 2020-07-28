@@ -17,7 +17,6 @@ import {
   CoinsBox,
   CoinItem,
   SimpleTrade,
-  SimpleTradeLine,
   SimpleTradeTop
 } from '@/styled';
 import { H1, H2, H5, Subtext, H3 } from '@/styled/typography';
@@ -27,6 +26,7 @@ import NumberFormat from 'react-number-format';
 import useBreakpoint from '@/hooks/use-breakpoints';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
+import Timer from '@/components/instant-trade-timer';
 
 const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
   return (
@@ -38,30 +38,9 @@ const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
   );
 };
 
-const loadTime = 90;
-
-function useInterval(callback: any, delay: number) {
-  const savedCallback = React.useRef<any>();
-
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
-
-  useEffect(() => {
-    function tick() {
-      savedCallback.current();
-    }
-
-    if (delay !== null) {
-      let id = setInterval(tick, delay);
-      return () => clearInterval(id);
-    }
-  }, [delay]);
-}
-
 const IndexPage = (_props: any) => {
   const { data } = React.useContext(DataContext);
-  const page = data.pages['home'];
+  const page: any = data.pages['home'] || {};
   const [pairs, setPairs] = useState<any>({
     GEL: [],
     USD: []
@@ -78,7 +57,6 @@ const IndexPage = (_props: any) => {
   const [sellType, setSellType] = useState<'BID' | 'ASK'>('BID');
   const [sizeVal, setSize] = useState<number | undefined>();
   const [priceVal, setPrice] = useState<number | undefined>();
-  const [time, setTime] = useState<number>(loadTime);
   const [update, setUpdate] = useState(0);
   const [initialized, setInitialized] = useState(false);
   const breakpoint = useBreakpoint();
@@ -124,17 +102,6 @@ const IndexPage = (_props: any) => {
     }
   };
 
-  useInterval(() => {
-    let timeVal = time;
-    timeVal = timeVal - 0.1;
-    setTime(timeVal);
-
-    if (timeVal < 0) {
-      setTime(loadTime);
-      setUpdate(update + 1);
-    }
-  }, 100);
-
   useEffect(() => {
     getData();
   }, [update]);
@@ -164,13 +131,13 @@ const IndexPage = (_props: any) => {
 
   return (
     <>
-      <CustomHead title="GEX" page="" description={page?.why?.why_content} />
+      <CustomHead title={page.title.title} page="" description={page?.why?.why_content} />
       <Layout>
         <PageHeader />
         <OtcComp>
           <Container>
             <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? '100%' : '75%'} style={{ padding: 0 }}>
-              <H1 style={{ color: '#FFFFFF' }}>{page?.hero?.hero_sub_title || 'Highest Liquidity Crypto Exchange in the Region'}</H1>
+              <H1 style={{ color: '#FFFFFF' }}>{page.title.description || 'Highest Liquidity Crypto Exchange in the Region'}</H1>
               <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
                 <RegisterButton>
                   <span>{t('register')}</span>
@@ -318,39 +285,18 @@ const IndexPage = (_props: any) => {
               </div>
             </div>
           </SimpleTrade>
-          <SimpleTradeLine>
-            <div className="line">
-              <div
-                style={{ width: `${(100 * (loadTime - time)) / loadTime}%` }}
-                className={`active-line ${sellType === 'ASK' ? 'active-line-ask' : ''}`}
-              />
-            </div>
-            <div className="line-data">
-              <img src="/images/access_alarm.svg" />
-              {t('price_change_in')}
-              {parseInt(time.toFixed(0)) > 60 ? (
-                <span>
-                  {' '}
-                  {`0${(time / 60).toFixed(0)}:${
-                    parseInt((time - 60).toFixed(0)) <= 9 ? `0${(time - 60).toFixed(0)}` : (time - 60).toFixed(0)
-                    }`}
-                </span>
-              ) : (
-                  <span> 00:{parseInt(time.toFixed(0)) <= 9 ? `0${time.toFixed(0)}` : time.toFixed(0)}</span>
-                )}
-            </div>
-          </SimpleTradeLine>
+          <Timer setUpdate={setUpdate} sellType={sellType} />
         </Container>
 
         <WhyComp>
           <Container>
-            <H2 style={{ color: '#FFFFFF' }}>{t('why_choose_us')}</H2>
+            <H2 style={{ color: '#FFFFFF' }}>{page.Why.header_title}</H2>
             <SolutionsBox className="items flex-container">
-              {(page?.solutions?.solutions || []).map((item: any, index: number) => (
+              {(page.Why.Why || []).map((item: any, index: number) => (
                 <SolutionItem className="item" key={index}>
-                  <img src={item.sol_file} />
-                  <H5>{item.sol_title}</H5>
-                  <Subtext align={breakpoint === 'md' || breakpoint === 'lg' ? 'left' : 'center'}>{item.sol_text}</Subtext>
+                  <img src={item.Why_file} />
+                  <H5>{item.Why_title}</H5>
+                  <Subtext align={breakpoint === 'md' || breakpoint === 'lg' ? 'left' : 'center'}>{item.Why_text}</Subtext>
                 </SolutionItem>
               ))}
             </SolutionsBox>
@@ -359,13 +305,13 @@ const IndexPage = (_props: any) => {
 
         <CoinsComp>
           <Container>
-            <H2>{page?.advantages?.adv_title}</H2>
+            <H2>{page.coins.coin_title}</H2>
             <CoinsBox className="items">
-              {(page?.advantages?.advantages || []).map((item: any, index: number) => (
+              {(page.coins.coins || []).map((item: any, index: number) => (
                 <CoinItem className="item" key={index}>
-                  <img src={item.sol_file || ''} />
+                  <img src={item.coin_file || ''} />
                   <H5 style={{ marginTop: 15 }}>
-                    {item.sol_title}
+                    {item.coin_title}
                     <br />
                   </H5>
                 </CoinItem>
