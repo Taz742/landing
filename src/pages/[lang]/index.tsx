@@ -28,6 +28,16 @@ import useBreakpoint from '@/hooks/use-breakpoints';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 
+const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
+  return (
+    <svg style={{ transform: `rotate(${ltZero ? '180deg' : '0deg'})` }} xmlns="http://www.w3.org/2000/svg" width="5.835" height="11.51" viewBox="0 0 5.835 11.51">
+      <defs>
+      </defs>
+      <path style={{ fill: `${ltZero ? 'red' : '#06b787'}` }} d="M3.342,5.388V3.8h7.282a.886.886,0,0,0,0-1.772H3.342V.444a.439.439,0,0,0-.753-.31L.126,2.606a.455.455,0,0,0,0,.629L2.589,5.707A.443.443,0,0,0,3.342,5.388Z" transform="translate(5.835) rotate(90)" />
+    </svg>
+  );
+};
+
 const loadTime = 90;
 
 function useInterval(callback: any, delay: number) {
@@ -179,9 +189,9 @@ const IndexPage = (_props: any) => {
                     <TopCoinBaseVolume>
                       {currency === 'GEL' ? <>&#8382;</> : '$'} {item.baseVolume} <span>24 H</span>
                     </TopCoinBaseVolume>
-                    <TopCoinPricePercent>
-                      <img src="/images/Arrow.svg" />
-                      {item.priceChange}%
+                    <TopCoinPricePercent ltZero={parseFloat(item.priceChange) < 0}>
+                      <Arrow ltZero={parseFloat(item.priceChange) < 0} />
+                      <span>{item.priceChange}%</span>
                     </TopCoinPricePercent>
                   </TopCoinItem>
                 ))}
