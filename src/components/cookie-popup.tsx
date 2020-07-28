@@ -12,15 +12,15 @@ const CookiePopup: React.FC<any> = () => {
 
   const openCookieModal = () => {
     openModal();
-    if (typeof window !== 'undefined') localStorage.setItem('cookie_popup', 'true');
   };
 
   const closeCookieModal = () => {
     closeModal();
+    localStorage.setItem('cookie_popup', JSON.stringify(true));
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && localStorage.getItem('cookie_popup') !== 'true') openCookieModal();
+    if (Boolean(localStorage.getItem('cookie_popup')) !== true) openCookieModal();
   }, []);
 
   if (!isOpen) return null;
