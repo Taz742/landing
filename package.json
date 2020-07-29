@@ -7,33 +7,37 @@
     "dev": "next",
     "build:next": "next build",
     "build": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "ncu": "ncu",
+    "ncu:u": "ncu -u"
   },
   "author": "Zura Daraselia",
   "license": "ISC",
   "dependencies": {
-    "@material-ui/core": "4.9.11",
+    "@material-ui/core": "4.11.0",
     "html-react-parser": "^0.13.0",
-    "next": "9.3.5",
-    "nextjs-progressbar": "0.0.4",
+    "next": "9.5.0",
+    "nextjs-progressbar": "0.0.5",
     "node-fetch": "^2.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-ga": "2.7.0",
+    "react-ga": "3.1.2",
     "react-gtm-module": "^2.0.10",
     "react-number-format": "^4.4.1",
     "react-visibility-sensor": "^5.1.1",
-    "styled-components": "5.1.0"
+    "styled-components": "5.1.1"
   },
   "devDependencies": {
-    "@types/next": "8.0.7",
-    "@types/react": "16.9.34",
-    "@types/react-dom": "16.9.6",
+    "@types/next": "9.0.0",
+    "@types/node": "^14.0.27",
+    "@types/node-fetch": "^2.5.7",
+    "@types/react": "16.9.43",
+    "@types/react-dom": "16.9.8",
     "@types/react-gtm-module": "^2.0.0",
-    "@types/styled-components": "5.1.0",
+    "@types/styled-components": "5.1.1",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-styled-components": "1.10.7",
-    "prettier": "2.0.4",
-    "typescript": "3.8.3"
+    "prettier": "2.0.5",
+    "typescript": "3.9.7"
   }
 }

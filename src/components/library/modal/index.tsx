@@ -42,19 +42,18 @@ const Modal: FC<IProps> = ({
     return createPortal(
       <ModalBackgroundStyled isOpen={isOpen} onClick={handleClose} fadeType={fadeType}>
         <ModalBody width={width} height={height} size={size} overflow={overflow} onClick={(e) => e.stopPropagation()} fadeType={fadeType}>
-          {title ||
-            (closeIcon && (
-              <ModalTopPanel hidden={!title && !closeIcon} centerTitle={centerTitle}>
-                <ModalTitle>
-                  <h2>{title || ''}</h2>
-                </ModalTitle>
-                {closeIcon && (
-                  <Close onClick={handleClose}>
-                    <img src="/close_icon.svg" />
-                  </Close>
-                )}
-              </ModalTopPanel>
-            ))}
+          {(title || closeIcon) && (
+            <ModalTopPanel hidden={!title && !closeIcon} centerTitle={centerTitle}>
+              <ModalTitle>
+                <h2>{title || ''}</h2>
+              </ModalTitle>
+              {closeIcon && (
+                <Close onClick={handleClose}>
+                  <img src="/close_icon.svg" />
+                </Close>
+              )}
+            </ModalTopPanel>
+          )}
           {children}
         </ModalBody>
       </ModalBackgroundStyled>,
