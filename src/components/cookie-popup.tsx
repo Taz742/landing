@@ -14,9 +14,9 @@ const CookiePopup: React.FC<any> = () => {
     openModal();
   };
 
-  const closeCookieModal = () => {
-    closeModal();
+  const acceptCookies = () => {
     localStorage.setItem('cookie_popup', JSON.stringify(true));
+    closeModal();
   };
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const CookiePopup: React.FC<any> = () => {
   if (!isOpen) return null;
 
   return (
-    <Modal size="cookie" isOpen={isOpen} closeModal={closeCookieModal} closeIcon={false}>
+    <Modal size="cookie" isOpen={isOpen} closeModal={closeModal} closeIcon={false}>
       <CookieContainer>
         <div className="content">
           <img src="/images/cookie_logo.svg" alt="logo" height="46px" />
@@ -42,7 +42,7 @@ const CookiePopup: React.FC<any> = () => {
             )}
           </div>
         </div>
-        <button className="ok" onClick={closeCookieModal}>
+        <button className="ok" onClick={acceptCookies}>
           OK
         </button>
       </CookieContainer>

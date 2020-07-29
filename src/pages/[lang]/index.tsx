@@ -27,7 +27,16 @@ import useBreakpoint from '@/hooks/use-breakpoints';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 import Timer from '@/components/instant-trade-timer';
-import ArrowIcon from '@/components/arrow-icon';
+
+const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
+  return (
+    <svg style={{ transform: `rotate(${ltZero ? '180deg' : '0deg'})` }} xmlns="http://www.w3.org/2000/svg" width="5.835" height="11.51" viewBox="0 0 5.835 11.51">
+      <defs>
+      </defs>
+      <path style={{ fill: `${ltZero ? 'red' : '#06b787'}` }} d="M3.342,5.388V3.8h7.282a.886.886,0,0,0,0-1.772H3.342V.444a.439.439,0,0,0-.753-.31L.126,2.606a.455.455,0,0,0,0,.629L2.589,5.707A.443.443,0,0,0,3.342,5.388Z" transform="translate(5.835) rotate(90)" />
+    </svg>
+  );
+};
 
 const IndexPage = (_props: any) => {
   const { data } = React.useContext(DataContext);
@@ -147,9 +156,9 @@ const IndexPage = (_props: any) => {
                     <TopCoinBaseVolume>
                       {currency === 'GEL' ? <>&#8382;</> : '$'} {item.baseVolume} <span>24 H</span>
                     </TopCoinBaseVolume>
-                    <TopCoinPricePercent percent={item.priceChange}>
-                      {Number(item.priceChange) !== 0 && <ArrowIcon />}
-                      {item.priceChange}%
+                    <TopCoinPricePercent ltZero={parseFloat(item.priceChange) < 0}>
+                      <Arrow ltZero={parseFloat(item.priceChange) < 0} />
+                      <span>{item.priceChange}%</span>
                     </TopCoinPricePercent>
                   </TopCoinItem>
                 ))}
@@ -220,16 +229,16 @@ const IndexPage = (_props: any) => {
                         </h4>
                       </>
                     ) : (
-                      <>
-                        <p>
-                          {t('if_you_sell_now')}
-                          <span>{`${t('spend')} ${item.size} ${coin.coin}`}</span>
-                        </p>
-                        <h4>
-                          {item.price} <span>{currency}</span>
-                        </h4>
-                      </>
-                    )}
+                        <>
+                          <p>
+                            {t('if_you_sell_now')}
+                            <span>{`${t('spend')} ${item.size} ${coin.coin}`}</span>
+                          </p>
+                          <h4>
+                            {item.price} <span>{currency}</span>
+                          </h4>
+                        </>
+                      )}
                     <button onClick={() => redirect(item.size, item.price)}>{sellType === 'BID' ? t('buy_now') : t('sell_now')}</button>
                   </div>
                 ))}
