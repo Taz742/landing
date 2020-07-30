@@ -32,7 +32,8 @@ const CookiePopup: React.FC<any> = () => {
           <img src="/images/cookie_logo.svg" alt="logo" height="46px" />
           <div>
             <h5>{t('cookie_popup_title')}</h5>
-            {false && (
+            <h4 style={{ color: '#333' }}>{t('cookie_sub_title')}</h4>
+            {true && (
               <p>
                 {t('cookie_popup_desc')}
                 <Link href="/[lang]/cookies" as={`/${locale}/cookies`}>

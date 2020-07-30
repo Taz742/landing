@@ -91,7 +91,7 @@ export const ModalBody = styled.div<IModalProps>`
       width: 50%;
       height: auto;
       height: auto;
-      border-radius: 66px;
+      border-radius: 4px;
       overflow: hidden;
       bottom: 60px;
       padding: 0;

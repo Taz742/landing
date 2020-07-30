@@ -76,7 +76,7 @@ const strings: Strings = {
     'Write us': 'დაგვიკავშირდით',
     footer_address: 'სულხან ცინცაძის 12',
     spend: 'დახარჯავთ',
-    cookie_popup_title: 'ეს საიტი იყენებს cookies',
+    cookie_popup_title: 'ეს საიტი იყენებს Cookies',
     cookie_popup_desc: 'ასევე შეგიძლიათ ნახოთ ჩვენი ',
     cookie_popup_link: 'Cookie პოლიტიკა',
     Less: 'ნაკლები'

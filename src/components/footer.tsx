@@ -27,8 +27,6 @@ export const Footer = () => {
   const footerInfo = data.pages.pages.footer;
   const footerMeta = data.pages.pages.footer.meta || [];
 
-  console.log(extra);
-
   if (!path.includes('/about')) {
     return (
       <StyledFooter>
