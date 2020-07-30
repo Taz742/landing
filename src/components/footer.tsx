@@ -27,6 +27,8 @@ export const Footer = () => {
   const footerInfo = data.pages.pages.footer;
   const footerMeta = data.pages.pages.footer.meta || [];
 
+  console.log(extra);
+
   if (!path.includes('/about')) {
     return (
       <StyledFooter>
@@ -39,10 +41,10 @@ export const Footer = () => {
                     {page.title}
                   </FooterMenuItem>
                 ) : (
-                  <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
-                    <FooterMenuItem>{page.title}</FooterMenuItem>
-                  </Link>
-                )
+                    <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
+                      <FooterMenuItem>{page.title}</FooterMenuItem>
+                    </Link>
+                  )
               )}
             </FooterMenu>
             <FooterAboutUs>
@@ -76,6 +78,9 @@ export const Footer = () => {
                 <a href={extra.facebook} target="_blank" rel="noopener">
                   <img src="/fb.svg" />
                 </a>
+                <a href={extra.twitter} target="_blank" rel="noopener">
+                  <img src="/Tweet.png" />
+                </a>
               </FooterSocialButtons>
               <Copyright>
                 <img src="/copyright.svg" />
@@ -99,10 +104,10 @@ export const Footer = () => {
                   {page.title}
                 </FooterMenuItem>
               ) : (
-                <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
-                  <FooterMenuItem>{page.title}</FooterMenuItem>
-                </Link>
-              )
+                  <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
+                    <FooterMenuItem>{page.title}</FooterMenuItem>
+                  </Link>
+                )
             )}
           </FooterMenu>
         </FooterContainer>

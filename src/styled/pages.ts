@@ -29,7 +29,7 @@ export const DefaultFooterContainer = styled.div`
 `;
 
 export const PageHeader = styled.div<{ height?: string }>`
-  background-image: url(/images/BG.png);
+  background-image: url(/images/BG2.png);
   background-position: center;
   background-size: cover;
   height: ${({ height }) => height || '667px'};
@@ -61,7 +61,7 @@ export const SearchPageHeader = styled.div<{ height?: string }>`
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-image: url('/images/BG.png');
+  background-image: url('/images/BG2.png');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -86,7 +86,7 @@ export const DefaultPageHeader = styled.div<{ height?: string }>`
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-image: url('/images/BG.png');
+  background-image: url('/images/BG2.png');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -355,8 +355,8 @@ export const PageSubHeader = styled.div<{ type?: string }>`
     padding: 100px 0 50px;
 
     ${({ type }) =>
-      type === 'about' &&
-      css`
+    type === 'about' &&
+    css`
         padding: 0 !important;
       `}
   }
@@ -527,8 +527,8 @@ export const TeamItem = styled.div<{ open?: boolean }>`
     max-height: 75px;
 
     ${({ open }) =>
-      open &&
-      css`
+    open &&
+    css`
         max-height: 500px;
         -webkit-line-clamp: unset;
       `}
