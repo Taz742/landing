@@ -4,11 +4,12 @@ import CustomHead from '@/components/custom-head';
 import { Layout } from '@/components/index';
 import Tabs, { Panel } from '@/components/library/tabs';
 import { Container } from '@/styled';
-import { H1 } from '@/styled/typography';
+import { H1, Text } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/pages';
 import { replaceEnterSymbol } from '@/utils/helpers';
 import { DataContext } from '@/context/app-context';
 import Button from '@/components/library/button';
+import { parseHTML } from '@/utils/helpers';
 
 const Terms = () => {
   const { data } = React.useContext(DataContext);
@@ -31,6 +32,10 @@ const Terms = () => {
 
         <PageInner>
           <Container>
+            <Text align="left" padding="45px 0px">
+              {parseHTML(page.title.description)}
+            </Text>
+
             <Tabs content={<div dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(content) }}></div>}>
               {meta.map((p: any) => (
                 <Panel title={p.carrer_title} key={p.carrer_title} />

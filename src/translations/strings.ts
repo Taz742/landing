@@ -15,14 +15,14 @@ const strings: Strings = {
     sell: 'Sell',
     if_you_buy_now: 'If you buy now, you will ',
     if_you_sell_now: 'If you sell now, you will',
-    receive: 'receive ',
+    receive: 'spend ',
     buy_now: 'Buy now',
     sell_now: 'Sell now',
     enter_amount_you: 'Enter amount you',
     want_to_buy: 'want to buy',
     want_to_sell: 'want to sell',
-    enter_price: 'Enter price',
-    enter_amount: 'Enter amount',
+    enter_price: 'Fiat price',
+    enter_amount: 'Crypto amount',
     price_change_in: 'Price change in ',
     why_choose_us: 'Why Choose Us?',
     multi_currency_platform: 'Multi Currency Platform',
@@ -38,7 +38,8 @@ const strings: Strings = {
     spend: 'Spend',
     cookie_popup_title: 'This site uses cookies',
     cookie_popup_desc: 'You can also read our ',
-    cookie_popup_link: 'Cookie Policy'
+    cookie_popup_link: 'Cookie Policy',
+    Less: 'Less'
   },
   ka: {
     faq: 'ხშირად დასმული კითხვები',
@@ -77,7 +78,8 @@ const strings: Strings = {
     spend: 'დახარჯავთ',
     cookie_popup_title: 'ეს საიტი იყენებს cookies',
     cookie_popup_desc: 'ასევე შეგიძლიათ ნახოთ ჩვენი ',
-    cookie_popup_link: 'Cookie პოლიტიკა'
+    cookie_popup_link: 'Cookie პოლიტიკა',
+    Less: 'ნაკლები'
   }
 };
 

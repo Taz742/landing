@@ -10,7 +10,7 @@ export const TabMenu = styled.ul`
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
   -webkit-padding-start: 0px;
-  max-width: 320px;
+  max-width: 405px;
   width: 100%;
   position: sticky;
   top: 140px;

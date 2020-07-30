@@ -22,7 +22,7 @@ const Otc = () => {
           <PageSubHeader>
             <Container>
               <H1>{page.title.title}</H1>
-              <p>{page.title.decription}</p>
+              <p>{page.title.description}</p>
             </Container>
           </PageSubHeader>
         </DefaultPageHeader>

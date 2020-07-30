@@ -64,7 +64,7 @@ const About = (_props: any) => {
                       <img src="/linkedin.svg" />
                     </a>
                     <button className="more" onClick={() => toggleOpen(i)}>
-                      {t('More')} <img src="/mini_arrow_down.svg" />
+                      {!Boolean(openMembers[i]) ? t('More') : t('Less')} <img src="/mini_arrow_down.svg" />
                     </button>
                   </div>
                 </TeamItem>
