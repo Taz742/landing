@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+     xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+
+<url>
+  <loc>https://www.gex.ge/en</loc>
+  <lastmod>2020-08-03T17:08:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+  <xhtml:link 
+               rel="alternate"
+               hreflang="ka"
+               href="www.gex.ge/ka"/>
+</url>
+<url>
+  <loc>https://www.gex.ge/en/otc</loc>
+  <changefreq>weekly</changefreq>
+  <lastmod>2020-08-03T17:08:57+00:00</lastmod>
+  <priority>0.90</priority>
+  <xhtml:link 
+               rel="alternate"
+               hreflang="ka"
+               href="www.gex.ge/ka/otc"/>
+</url>
+<url>
+  <loc>https://www.gex.ge/en/pricing</loc>
+  <lastmod>2020-08-03T17:08:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+  <xhtml:link 
+               rel="alternate"
+               hreflang="ka"
+               href="www.gex.ge/ka/pricing"/>
+</url>
+<url>
+  <loc>https://www.gex.ge/en/about</loc>
+  <lastmod>2020-08-03T17:08:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+  <xhtml:link 
+               rel="alternate"
+               hreflang="ka"
+               href="www.gex.ge/ka/about"/>
+</url>
+<url>
+  <loc>https://www.gex.ge/en/terms</loc>
+  <lastmod>2020-08-03T17:08:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.70</priority>
+  <xhtml:link 
+               rel="alternate"
+               hreflang="ka"
+               href="www.gex.ge/ka/terms"/>
+</url>
+<url>
+  <loc>https://www.gex.ge/en/privacy-policy</loc>
+  <lastmod>2020-08-03T17:08:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.70</priority>
+  <xhtml:link 
+               rel="alternate"
+               hreflang="ka"
+               href="www.gex.ge/ka/privacy-policy"/>
+</url>
+<url>
+  <loc>https://www.gex.ge/en/aml</loc>
+  <lastmod>2020-08-03T17:08:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+  <xhtml:link 
+               rel="alternate"
+               hreflang="ka"
+               href="www.gex.ge/ka/aml"/>
+</url>
+<url>
+  <loc>https://www.gex.ge/en/faq</loc>
+  <lastmod>2020-08-03T17:08:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+  <xhtml:link 
+               rel="alternate"
+               hreflang="ka"
+               href="www.gex.ge/ka/faq"/>
+</url>
+
+
+</urlset>
