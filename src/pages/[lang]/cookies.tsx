@@ -6,23 +6,19 @@ import Tabs, { Panel } from '@/components/library/tabs';
 import { Container } from '@/styled';
 import { H1, Text } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/pages';
-import { replaceEnterSymbol } from '@/utils/helpers';
+import { replaceEnterSymbol, generateContentBlocks } from '@/utils/helpers';
 import { DataContext } from '@/context/app-context';
 import Button from '@/components/library/button';
-import { parseHTML } from '@/utils/helpers';
 
-const Terms = () => {
+const Cookies = () => {
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['cookies'] || { meta: [] };
   const meta = page.meta || [];
-  let content = '';
-  meta.forEach((e: any) => {
-    content += `<div id="${e.carrer_title}" class="content-section">${e.carrer_text || ''}</div>`;
-  });
+  const content = generateContentBlocks({ meta });
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/terms" description={page.title.description} />
+      <CustomHead title={page.title.title} page="/cookies" description={page.title.description} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
@@ -32,9 +28,7 @@ const Terms = () => {
 
         <PageInner>
           <Container>
-            <Text align="left" padding="45px 0px">
-              {parseHTML(page.title.description)}
-            </Text>
+            <Text align="left" padding="45px 0px" dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.title.description) }} />
 
             <Tabs content={<div dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(content) }}></div>}>
               {meta.map((p: any) => (
@@ -62,4 +56,4 @@ const Terms = () => {
   );
 };
 
-export default Terms;
+export default Cookies;

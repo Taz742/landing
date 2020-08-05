@@ -1468,6 +1468,7 @@ export const SimpleTrade = styled.div`
       outline: none;
       cursor: pointer;
       font-weight: 500;
+      text-transform: capitalize;
 
       @media screen and (max-width: 992px) {
         height: 50px;
@@ -1488,9 +1489,14 @@ export const SimpleTrade = styled.div`
   .tabs-list {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 -15px;
+
+    @media ${responsive.sm} {
+      margin: 0;
+    }
 
     .tab-coin {
-      margin-right: 1.5%;
+      margin: 0 15px;
       flex: 1;
       background-color: #ffffff;
       box-shadow: 0px 6px 12px #edeef2c6;
@@ -1499,15 +1505,8 @@ export const SimpleTrade = styled.div`
       font-weight: 500;
       width: 18.3%;
 
-      &:not(:first-child) {
-        margin-left: 2%;
-
-        @media ${responsive.sm} {
-          margin-left: 0%;
-        }
-      }
-
       @media ${responsive.sm} {
+        margin: 0;
         padding: 30px 15px;
         margin-bottom: 25px;
         min-width: 100%;
@@ -1542,13 +1541,19 @@ export const SimpleTrade = styled.div`
       }
 
       h4 {
-        color: #242a33;
+        color: #43484e;
         font-size: 36px;
         margin: 35px 0 45px 0;
         text-align: center;
+        font-weight: 600;
+
+        span {
+          font-size: 76%;
+          margin-left: 6px;
+        }
 
         @media screen and (max-width: 992px) {
-          font-size: 26px;
+          font-size: 30px;
           margin: 25px 0 20px 0;
         }
       }
@@ -1558,6 +1563,8 @@ export const SimpleTrade = styled.div`
         width: 100%;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
 
         ::placeholder {
           /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -1579,17 +1586,30 @@ export const SimpleTrade = styled.div`
           border: 1px solid #cdd6e3;
           border-radius: 6px;
           height: 40px;
-          color: #6c7686;
-          padding-left: 8px;
+          width: 100%;
           outline: none;
-          margin-top: 15px;
           text-indent: 15px;
           font-size: 11px;
-          margin-left: 10%;
-          margin-right: 10%;
+          color: #6c7686;
+          font-weight: 500;
 
           &:hover {
             border: 1px solid #0ecbfd;
+          }
+        }
+
+        .instant-input {
+          position: relative;
+          margin: 0 10% 8px;
+          width: 80%;
+
+          span {
+            position: absolute;
+            right: 16px;
+            top: 14px;
+            font-size: 11px;
+            color: #6c768680;
+            font-weight: 500;
           }
         }
       }

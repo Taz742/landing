@@ -30,10 +30,19 @@ import Timer from '@/components/instant-trade-timer';
 
 const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
   return (
-    <svg style={{ transform: `rotate(${ltZero ? '180deg' : '0deg'})` }} xmlns="http://www.w3.org/2000/svg" width="5.835" height="11.51" viewBox="0 0 5.835 11.51">
-      <defs>
-      </defs>
-      <path style={{ fill: `${ltZero ? 'red' : '#06b787'}` }} d="M3.342,5.388V3.8h7.282a.886.886,0,0,0,0-1.772H3.342V.444a.439.439,0,0,0-.753-.31L.126,2.606a.455.455,0,0,0,0,.629L2.589,5.707A.443.443,0,0,0,3.342,5.388Z" transform="translate(5.835) rotate(90)" />
+    <svg
+      style={{ transform: `rotate(${ltZero ? '180deg' : '0deg'})` }}
+      xmlns="http://www.w3.org/2000/svg"
+      width="5.835"
+      height="11.51"
+      viewBox="0 0 5.835 11.51"
+    >
+      <defs></defs>
+      <path
+        style={{ fill: `${ltZero ? 'red' : '#06b787'}` }}
+        d="M3.342,5.388V3.8h7.282a.886.886,0,0,0,0-1.772H3.342V.444a.439.439,0,0,0-.753-.31L.126,2.606a.455.455,0,0,0,0,.629L2.589,5.707A.443.443,0,0,0,3.342,5.388Z"
+        transform="translate(5.835) rotate(90)"
+      />
     </svg>
   );
 };
@@ -41,6 +50,7 @@ const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
 const IndexPage = (_props: any) => {
   const { data } = React.useContext(DataContext);
   const page: any = data.pages['home'] || {};
+  const InstantTrade: any = page.InstantTrade || {};
   const [pairs, setPairs] = useState<any>({
     GEL: [],
     USD: []
@@ -113,11 +123,23 @@ const IndexPage = (_props: any) => {
 
   const changeCurrency = () => {
     const index = allCurencies.indexOf(currency);
-    if (allCurencies[index + 1]) {
-      setCurrency(allCurencies[index + 1]);
-    } else {
-      setCurrency(allCurencies[0]);
-    }
+    const selected = allCurencies[index + 1];
+    const curr = selected || allCurencies[0];
+
+    setCurrency(curr);
+    let lists: any[] = [];
+    trades[curr].forEach((item: any, index: number) => {
+      lists.push({
+        index: index,
+        buyPrice: item.buyPrice,
+        sellPrice: item.sellPrice,
+        baseScale: item.pair.baseScale,
+        coin: item.pair.baseCurrency
+      });
+    });
+    setCoinsList(lists);
+    const c = lists.find((c) => c.coin === coin.coin);
+    if (c) setCoin(c);
   };
 
   const redirect = (size: any, price: any) => {
@@ -131,7 +153,7 @@ const IndexPage = (_props: any) => {
 
   return (
     <>
-      <CustomHead title={page.title.title} page="" description={page?.why?.why_content} />
+      <CustomHead title={page.title.title} page="" description={page.title.description} />
       <Layout>
         <PageHeader />
         <OtcComp>
@@ -170,7 +192,7 @@ const IndexPage = (_props: any) => {
         <Container>
           <SimpleTrade>
             <SimpleTradeTop style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 25 }}>
-              <H3>{t('simple_trade')}</H3>
+              <H3>{page.InstantTrade?.title}</H3>
               <div className="trade-right">
                 <div
                   onMouseEnter={() => setDropDown(true)}
@@ -205,10 +227,10 @@ const IndexPage = (_props: any) => {
 
             <div className="tabs">
               <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'active' : ''}>
-                {t('buy')} {coin.coin}
+                {InstantTrade?.ButtonTop[0]} {coin.coin}
               </button>
               <button onClick={() => setSellType('ASK')} className={sellType !== 'BID' ? 'active' : ''}>
-                {t('sell')} {coin.coin}
+                {InstantTrade?.ButtonTop[1]} {coin.coin}
               </button>
             </div>
 
@@ -221,71 +243,91 @@ const IndexPage = (_props: any) => {
                     {sellType === 'BID' ? (
                       <>
                         <p>
-                          {t('if_you_buy_now')}
-                          <span>{`${t('receive')} ${item.size} ${coin.coin}`}</span>
+                          {InstantTrade?.BuyCardText[0]}
+                          <span>{`${InstantTrade?.BuyCardText[1]} ${item.size} ${coin.coin}`}</span>
                         </p>
                         <h4>
-                          {item.price} <span>{currency}</span>
+                          {Number.parseInt(item.price)}
+                          <span>{currency}</span>
                         </h4>
                       </>
                     ) : (
-                        <>
-                          <p>
-                            {t('if_you_sell_now')}
-                            <span>{`${t('spend')} ${item.size} ${coin.coin}`}</span>
-                          </p>
-                          <h4>
-                            {item.price} <span>{currency}</span>
-                          </h4>
-                        </>
-                      )}
-                    <button onClick={() => redirect(item.size, item.price)}>{sellType === 'BID' ? t('buy_now') : t('sell_now')}</button>
+                      <>
+                        <p>
+                          {InstantTrade?.SellCardText[0]}
+                          <span>{`${InstantTrade?.SellCardText[1]} ${item.size} ${coin.coin}`}</span>
+                        </p>
+                        <h4>
+                          {Number.parseInt(item.price)}
+                          <span>{currency}</span>
+                        </h4>
+                      </>
+                    )}
+                    <button onClick={() => redirect(item.size, item.price)}>
+                      {sellType === 'BID' ? InstantTrade?.ButtonBottom[0] : InstantTrade?.ButtonBottom[1]}
+                    </button>
                   </div>
                 ))}
               <div className="tab-coin">
                 <p>
-                  {t('enter_amount_you')}
-                  <span>{sellType === 'BID' ? t('want_to_buy') : t('want_to_sell')}</span>
+                  {sellType === 'BID' ? InstantTrade?.Custom?.CustomBuy?.CustomTop : InstantTrade?.Custom?.CustomSell?.CustomTop}
+                  <span>
+                    {sellType === 'BID' ? InstantTrade?.Custom?.CustomBuy?.CustomBottom : InstantTrade?.Custom?.CustomSell?.CustomBottom}
+                  </span>
                 </p>
                 <div className="inputs">
-                  <NumberFormat
-                    decimalScale={2}
-                    value={priceVal}
-                    onChange={(e: any) => {
-                      setPrice(e.target.value);
-                      let newSize = 0;
-                      if (sellType === 'BID') {
-                        newSize = Number(e.target.value / coin.buyPrice);
-                      } else {
-                        newSize = Number(e.target.value / coin.sellPrice);
+                  <div className="instant-input">
+                    <NumberFormat
+                      decimalScale={2}
+                      value={priceVal}
+                      onInput={(e: any) => {
+                        setPrice(e.target.value);
+                        let newSize = 0;
+                        if (sellType === 'BID') {
+                          newSize = Number(e.target.value / coin.buyPrice);
+                        } else {
+                          newSize = Number(e.target.value / coin.sellPrice);
+                        }
+                        setSize(newSize);
+                      }}
+                      placeholder={
+                        sellType === 'BID'
+                          ? InstantTrade?.Custom?.CustomBuy?.CustomInputTop
+                          : InstantTrade?.Custom?.CustomSell?.CustomInputTop
                       }
-                      setSize(newSize);
-                    }}
-                    placeholder={t('enter_price')}
-                  />
-                  <NumberFormat
-                    decimalScale={coin.baseScale}
-                    value={sizeVal}
-                    onChange={(e: any) => {
-                      setSize(e.target.value);
-                      let newSize = 0;
-                      if (sellType === 'BID') {
-                        newSize = Number(e.target.value * coin.buyPrice);
-                      } else {
-                        newSize = Number(e.target.value * coin.sellPrice);
+                    />
+                    <span>{currency}</span>
+                  </div>
+                  <div className="instant-input">
+                    <NumberFormat
+                      decimalScale={coin.baseScale}
+                      value={sizeVal}
+                      onInput={(e: any) => {
+                        setSize(e.target.value);
+                        let newSize = 0;
+                        if (sellType === 'BID') {
+                          newSize = Number(e.target.value * coin.buyPrice);
+                        } else {
+                          newSize = Number(e.target.value * coin.sellPrice);
+                        }
+                        setPrice(newSize);
+                      }}
+                      placeholder={
+                        sellType === 'BID'
+                          ? InstantTrade?.Custom?.CustomBuy?.CustomInputBottom
+                          : InstantTrade?.Custom?.CustomSell?.CustomInputBottom
                       }
-                      setPrice(newSize);
-                    }}
-                    placeholder={t('enter_amount')}
-                  />
+                    />
+                    <span>{coin.coin}</span>
+                  </div>
                 </div>
                 <button onClick={() => redirect(null, null)} style={{ marginTop: 10 }}>
-                  {sellType === 'BID' ? t('buy_now') : t('sell_now')}
+                  {sellType === 'BID' ? InstantTrade?.ButtonBottom[0] : InstantTrade?.ButtonBottom[1]}
                 </button>
               </div>
             </div>
           </SimpleTrade>
-          <Timer setUpdate={setUpdate} sellType={sellType} />
+          <Timer setUpdate={setUpdate} sellType={sellType} text={InstantTrade?.PriceProgress} />
         </Container>
 
         <WhyComp>

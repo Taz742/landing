@@ -17,8 +17,8 @@ export const Header = () => {
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
   const { t, locale } = useTranslation();
   const { data } = React.useContext(DataContext);
-  const headerMenu = [...data.static.manualHeaderMenu, ...data.pages.headerMenu];
-  const footerMenu = [...data.static.manualFooterMenu, ...data.pages.footerMenu];
+  const headerMenu = data.pages.headerMenu;
+  const footerMenu = data.pages.footerMenu;
   const extra = data.pages?.extra || {};
 
   const fixed = React.useMemo((): boolean => {
@@ -35,9 +35,9 @@ export const Header = () => {
           </div>
         </Link>
         <HeaderMenu>
-          {headerMenu.map(({ title = '', slug = '', link = '' }) =>
-            link ? (
-              <HeaderMenuItem href={link} key={title} target="_blank" rel="noopener">
+          {headerMenu.map(({ title = '', slug = '', url = '', blank = '' }) =>
+            blank ? (
+              <HeaderMenuItem href={url} key={title} target="_blank" rel="noopener">
                 {title}
               </HeaderMenuItem>
             ) : (

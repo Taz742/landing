@@ -139,6 +139,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .content-section {
-    margin-bottom: 20px;
+    margin-bottom: 35px;
+
+    a {
+      color: #20cffd;
+    }
+
+    h3 {
+      font-size: 30px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
   }
 `;

@@ -18,3 +18,11 @@ export const stripHtml = (text = '') =>
     .replace(/(\r\n|\n|\r)/gm, ' ');
 
 export const parseHTML = (html: string) => parse(html);
+
+export const generateContentBlocks = ({ meta = [] }) => {
+  let content = '';
+  meta.forEach((e: any, i) => {
+    content += `<div id="${e.carrer_title}" class="content-section"><h3>${e.carrer_title}</h3>${e.carrer_text || ''}</div>`;
+  });
+  return content;
+};

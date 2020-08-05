@@ -1,12 +1,10 @@
 import React, { useEffect, useState, memo } from 'react';
 
 import { SimpleTradeLine } from '@/styled';
-import useTranslation from '@/hooks/useTranslation';
 
-const Timer = ({ setUpdate, sellType }: any) => {
+const Timer = ({ setUpdate, sellType, text }: any) => {
   const loadTime = 90;
   const [time, setTime] = useState<number>(loadTime);
-  const { t } = useTranslation();
 
   function useInterval(callback: any, delay: number) {
     const savedCallback = React.useRef<any>();
@@ -48,7 +46,7 @@ const Timer = ({ setUpdate, sellType }: any) => {
       </div>
       <div className="line-data">
         <img src="/images/access_alarm.svg" />
-        {t('price_change_in')}
+        {text}
         {parseInt(time.toFixed(0)) > 60 ? (
           <span>
             {' '}

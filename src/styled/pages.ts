@@ -969,3 +969,37 @@ export const CookieContainer = styled.div`
     }
   }
 `;
+
+export const NotFoundWrapperStyled = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 52vh;
+
+  @media ${responsive.sm} {
+    padding-top: 100px;
+  }
+
+  h2 {
+    font-size: 42px;
+    font-weight: 400;
+    margin: 22px 0 12px;
+
+    @media ${responsive.sm} {
+      font-size: 26px;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+    color: #79798e;
+    font-weight: 400;
+    display: inline-flex;
+  }
+
+  button {
+    font-size: 20px;
+  }
+`;

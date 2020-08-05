@@ -13,9 +13,16 @@ export const TabMenu = styled.ul`
   max-width: 405px;
   width: 100%;
   position: sticky;
-  top: 140px;
+  top: 126px;
   align-self: flex-start;
   height: auto;
+  max-height: calc(100vh - 140px);
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    background-color: transparent;
+  }
 
   @media ${responsive.sm} {
     max-width: 100%;
@@ -31,7 +38,7 @@ export const TabMenu = styled.ul`
     justify-content: space-between;
     align-items: center;
     margin-left: 0;
-    padding: 5px 40px 35px 0px;
+    padding: 5px 40px 30px 0px;
     font-size: 20px;
     transition: all 0.2s;
     cursor: pointer;
