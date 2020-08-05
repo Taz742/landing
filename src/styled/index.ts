@@ -1152,7 +1152,7 @@ export const TopCoinBaseVolume = styled.p`
 `;
 
 export const TopCoinPricePercent = styled.p<{ ltZero: boolean }>`
-  color: ${({ ltZero }) => ltZero ? 'red' : '#06b787'};
+  color: ${({ ltZero }) => (ltZero ? 'red' : '#06b787')};
   margin: 0;
 
   span {
@@ -1713,10 +1713,9 @@ export const WeAreHiringBox = styled.div`
 `;
 
 export const WeAreHiring = styled.div`
-  /* float: right; */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   margin-left: auto;
   padding: 20px 40px 20px 0px;
   flex: 1;
@@ -1734,6 +1733,7 @@ export const WeAreHiring = styled.div`
 
   h2 {
     color: #ffffff;
+    margin-bottom: 30px;
 
     @media ${responsive.md} {
       margin-bottom: 20px;
@@ -1858,7 +1858,7 @@ export const WriteUs = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
-  width: 300px;
+  width: 265px;
   margin-left: 180px;
 
   @media ${responsive.sm} {

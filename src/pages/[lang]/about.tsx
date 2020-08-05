@@ -17,9 +17,9 @@ import {
 } from '@/styled';
 import { H2, Text, H5 } from '@/styled/typography';
 import { PageInner, PageSubHeader, TeamContainer, TeamItem, PageHeader } from '@/styled/pages';
-import { Button } from '@/components/library/button';
+// import { Button } from '@/components/library/button';
 import { DataContext } from '@/context/app-context';
-import { parseHTML } from '@/utils/helpers';
+import { replaceEnterSymbol } from '@/utils/helpers';
 import useTranslation from '@/hooks/useTranslation';
 
 const About = (_props: any) => {
@@ -43,9 +43,7 @@ const About = (_props: any) => {
         <Container>
           <PageSubHeader type="about" style={{ padding: '60px 0 0' }}>
             <H2>{page.title.title}</H2>
-            <Text align="left" padding="45px 0px">
-              {parseHTML(page.title.description)}
-            </Text>
+            <Text align="left" padding="45px 0px" dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.title.description) }} />
           </PageSubHeader>
         </Container>
         <PageInner>
@@ -64,7 +62,7 @@ const About = (_props: any) => {
                       <img src="/linkedin.svg" />
                     </a>
                     <button className="more" onClick={() => toggleOpen(i)}>
-                      {!Boolean(openMembers[i]) ? t('More') : t('Less')} <img src="/mini_arrow_down.svg" />
+                      {!Boolean(openMembers[i]) ? t('More') : t('Less')} <img src="/mini_arrow_down.svg" alt="" className="arrow" />
                     </button>
                   </div>
                 </TeamItem>
@@ -76,10 +74,10 @@ const About = (_props: any) => {
           <img src="/hiring.png" />
           <WeAreHiring>
             <H2>{page.Hiring['Hiring title']}</H2>
-            <span>{page.Hiring.about}</span>
-            <a href={page.Hiring.link} target="_blank" rel="noopener">
+            <span dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.Hiring.about) }} />
+            {/* <a href={page.Hiring.link} target="_blank" rel="noopener">
               <Button>{about.apply_title}</Button>
-            </a>
+            </a> */}
           </WeAreHiring>
         </WeAreHiringBox>
 
@@ -122,7 +120,20 @@ const About = (_props: any) => {
                   );
                 }
 
-                if (i === 3) {
+                if (i === 2 && page.contact.length === 4) {
+                  return (
+                    <WriteUs key={i} style={{ margin: '100px 0 0' }}>
+                      <WriteUsContent>
+                        {c.contact_Text1 && <p>{c.contact_Text1}</p>}
+                        {c.contact_Text2 && <p>{c.contact_Text2}</p>}
+                        {c.contact_Text3 && <p>{c.contact_Text3}</p>}
+                        {c.contact_Text4 && <p>{c.contact_Text4}</p>}
+                      </WriteUsContent>
+                    </WriteUs>
+                  );
+                }
+
+                if (i === 3 || (i === 2 && page.contact.length === 3)) {
                   return (
                     <Connect key={i}>
                       <img src={c.contact_logo} />

@@ -2,7 +2,7 @@ import parse from 'html-react-parser';
 
 export const splitText = (text = '') => text.split(/&nbsp;/);
 
-export const replaceEnterSymbol = (text = '') => text.replace(/(\r\n|\n|\r)/gm, '<br />').replace(/&nbsp;/, '');
+export const replaceEnterSymbol = (text = '') => text.replace(/(\r\n|\n|\r)/gm, '<div class="line-break"></div>').replace(/&nbsp;/, '');
 
 export const replaceHTML = (text = '') => text.replace(/ /g, '\u00a0');
 

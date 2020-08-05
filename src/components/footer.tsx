@@ -39,10 +39,10 @@ export const Footer = () => {
                     {page.title}
                   </FooterMenuItem>
                 ) : (
-                    <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
-                      <FooterMenuItem>{page.title}</FooterMenuItem>
-                    </Link>
-                  )
+                  <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
+                    <FooterMenuItem>{page.title}</FooterMenuItem>
+                  </Link>
+                )
               )}
             </FooterMenu>
             <FooterAboutUs>
@@ -95,17 +95,17 @@ export const Footer = () => {
     <StyledFooter>
       <Container>
         <FooterContainer>
-          <FooterMenu width="48%">
+          <FooterMenu width="65%">
             {footerMenu.map((page: any) =>
               page.link ? (
-                <FooterMenuItem href={page.link} key={page.title} target="_blank" rel="noopener">
+                <FooterMenuItem flex="0 0 33%" href={page.link} key={page.title} target="_blank" rel="noopener">
                   {page.title}
                 </FooterMenuItem>
               ) : (
-                  <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
-                    <FooterMenuItem>{page.title}</FooterMenuItem>
-                  </Link>
-                )
+                <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
+                  <FooterMenuItem flex="0 0 33%">{page.title}</FooterMenuItem>
+                </Link>
+              )
             )}
           </FooterMenu>
         </FooterContainer>

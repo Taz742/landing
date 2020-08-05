@@ -355,8 +355,8 @@ export const PageSubHeader = styled.div<{ type?: string }>`
     padding: 100px 0 50px;
 
     ${({ type }) =>
-    type === 'about' &&
-    css`
+      type === 'about' &&
+      css`
         padding: 0 !important;
       `}
   }
@@ -527,8 +527,8 @@ export const TeamItem = styled.div<{ open?: boolean }>`
     max-height: 75px;
 
     ${({ open }) =>
-    open &&
-    css`
+      open &&
+      css`
         max-height: 500px;
         -webkit-line-clamp: unset;
       `}
@@ -584,6 +584,13 @@ export const TeamItem = styled.div<{ open?: boolean }>`
         position: relative;
         top: 1px;
         margin-left: 10px;
+        transition: 0.3s;
+
+        ${({ open }) =>
+          open &&
+          css`
+            transform: rotate(180deg);
+          `}
       }
 
       :hover {

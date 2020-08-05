@@ -1,7 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  br + br { display: none; }
+  br + br, .line-break + .line-break { display: none; }
+
+  .line-break {
+    display: block !important;
+    margin: 14px 0;
+  }
 
   [hidden] {
     display: none;
