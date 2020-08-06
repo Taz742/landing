@@ -8,6 +8,7 @@ import NextNprogress from 'nextjs-progressbar';
 
 import WithLocale from '@/components/with-locale';
 import CookiePopup from '@/components/cookie-popup';
+import MessengerChat from '@/components/messenger-chat';
 import { Header, Footer } from '@/components';
 import theme from '@/material/theme';
 import { useGaTrackPage } from '@/hooks/ga-hook';
@@ -29,6 +30,7 @@ const RouterComponent: React.FC<{ children: React.ReactNode }> = ({ children, ..
       <div className="contents-wrapper">{children}</div>
       {asPath !== '/' && <Footer {...props} />}
       <CookiePopup />
+      <MessengerChat />
     </div>
   );
 };

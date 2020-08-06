@@ -17,7 +17,7 @@ import {
 } from '@/styled';
 import { H2, Text, H5 } from '@/styled/typography';
 import { PageInner, PageSubHeader, TeamContainer, TeamItem, PageHeader } from '@/styled/pages';
-// import { Button } from '@/components/library/button';
+import { Button } from '@/components/library/button';
 import { DataContext } from '@/context/app-context';
 import { replaceEnterSymbol } from '@/utils/helpers';
 import useTranslation from '@/hooks/useTranslation';
@@ -75,9 +75,9 @@ const About = (_props: any) => {
           <WeAreHiring>
             <H2>{page.Hiring['Hiring title']}</H2>
             <span dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.Hiring.about) }} />
-            {/* <a href={page.Hiring.link} target="_blank" rel="noopener">
-              <Button>{about.apply_title}</Button>
-            </a> */}
+            <a href={page.Hiring.link} target="_blank" rel="noopener">
+              <Button>{page.Hiring.linkName}</Button>
+            </a>
           </WeAreHiring>
         </WeAreHiringBox>
 

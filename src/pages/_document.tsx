@@ -36,6 +36,34 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" href="//cdn.web-fonts.ge/fonts/bpg-nino-mtavruli/css/bpg-nino-mtavruli.min.css" />
         </Head>
         <body>
+          {/* <div id="fb-root"></div>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.fbAsyncInit = function() {
+                  FB.init({
+                    xfbml            : true,
+                    version          : 'v8.0'
+                  });
+                };
+                (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));`
+            }}
+          ></script>
+
+          <div
+            className="fb-customerchat"
+            // @ts-ignore
+            attribution="setup_tool"
+            page_id="107413211066997"
+            theme_color="#0ecbfd"
+            logged_in_greeting="მოგესალმებით! რით შეგვიძლია დაგეხმაროთ?"
+            logged_out_greeting="მოგესალმებით! რით შეგვიძლია დაგეხმაროთ?"
+          ></div> */}
           <Main />
           <div id="modal" />
           <NextScript />

@@ -1780,6 +1780,7 @@ export const WeAreHiring = styled.div`
     transition: all 0.2s ease-in-out;
     font-size: 20px;
     cursor: pointer;
+    margin-top: 50px;
 
     @media ${responsive.md} {
       margin-top: 40px;
