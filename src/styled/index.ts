@@ -1810,6 +1810,7 @@ export const ContactUsContainer = styled.div`
 export const ContactUsBox = styled.div`
   padding: 0 0 90px;
   display: flex;
+  justify-content: space-between;
 
   h5 {
     margin-top: 20px;
@@ -1832,7 +1833,7 @@ export const ContactUsBox = styled.div`
 export const OurAddress = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 190px;
+  /* max-width: 190px; */
   height: auto;
 
   img {
@@ -1879,8 +1880,8 @@ export const WriteUs = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
-  width: 265px;
-  margin-left: 180px;
+  /* width: 265px; */
+  /* margin-left: 180px; */
 
   @media ${responsive.sm} {
     margin-left: 0;
@@ -1928,7 +1929,6 @@ export const Connect = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
-  margin-left: auto;
 
   @media ${responsive.sm} {
     margin-left: 0;
