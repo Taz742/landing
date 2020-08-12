@@ -14,6 +14,7 @@ export interface ITab {
   selected?: number;
   children: IPanel[];
   content: any;
+  handleChangeIndex?: (index: number) => void;
 }
 
 function renderElem(elem?: IPanel) {
@@ -24,8 +25,8 @@ function renderElem(elem?: IPanel) {
 }
 
 export const Tabs = (args: ITab) => {
-  const initialSelected = args.selected || (args.children && args.children[0] ? 0 : 1);
-  const [selected, setSelected] = useState<number>(initialSelected);
+  // const initialSelected = args.selected || (args.children && args.children[0] ? 0 : 1);
+  // const [selected, setSelected] = useState<number>(initialSelected);
   const [active, setActive] = useState<string>('');
   const [overflow, setOverflow] = useState('');
 
@@ -36,9 +37,9 @@ export const Tabs = (args: ITab) => {
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
-    if (index === selected) return;
+    if (index === args.selected) return;
     if (!args.content) setOverflow('hidden');
-    setSelected(index);
+    if (args.handleChangeIndex) args.handleChangeIndex(index);
     setActive('active');
     setTimeout(() => {
       setActive('');
@@ -50,7 +51,7 @@ export const Tabs = (args: ITab) => {
     if (args.children) {
       return args.children.map((elem, index) => {
         if (!elem) return null;
-        const style = index === selected ? 'selected' : '';
+        const style = index === args.selected ? 'selected' : '';
         return (
           <li className={style} key={index} onKeyDown={() => handleChange(index, elem)} onClick={() => handleChange(index, elem)}>
             {renderElem(elem)}
