@@ -19,7 +19,7 @@ import {
   SimpleTrade,
   SimpleTradeTop
 } from '@/styled';
-import { H1, H2, H5, Subtext, H3 } from '@/styled/typography';
+import { H1, H2, H5, Subtext } from '@/styled/typography';
 import { PageHeader } from '@/styled/pages';
 import config from '@/utils/config';
 import NumberFormat from 'react-number-format';
@@ -70,7 +70,7 @@ const IndexPage = (_props: any) => {
   const [update, setUpdate] = useState(0);
   const [initialized, setInitialized] = useState(false);
   const breakpoint = useBreakpoint();
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   const getData = async () => {
     const pairsResponse: any[] = await (await fetch(`${config.exchangeApi}public/ticker`)).json();
@@ -159,7 +159,9 @@ const IndexPage = (_props: any) => {
         <OtcComp>
           <Container>
             <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? '100%' : '75%'} style={{ padding: 0 }}>
-              <H1 style={{ color: '#FFFFFF' }}>{page.title.description || 'Highest Liquidity Crypto Exchange in the Region'}</H1>
+              <H1 locale={locale} style={{ color: '#FFFFFF' }}>
+                {page.title.description || 'Highest Liquidity Crypto Exchange in the Region'}
+              </H1>
               <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
                 <RegisterButton>
                   <span>{t('register')}</span>
@@ -190,9 +192,9 @@ const IndexPage = (_props: any) => {
         </OtcComp>
 
         <Container>
-          <SimpleTrade>
+          <SimpleTrade locale={locale}>
             <SimpleTradeTop style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 25 }}>
-              <H3>{page.InstantTrade?.title}</H3>
+              <H2>{page.InstantTrade?.title}</H2>
               <div className="trade-right">
                 <div
                   onMouseEnter={() => setDropDown(true)}

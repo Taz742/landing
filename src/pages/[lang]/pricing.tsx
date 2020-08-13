@@ -7,10 +7,12 @@ import { H1, H5 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/pages';
 import { DataContext } from '@/context/app-context';
 import Button from '@/components/library/button';
+import useTranslation from '@/hooks/useTranslation';
 
 const Faq = () => {
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['pricing'] || { meta: [] };
+  const { locale } = useTranslation();
 
   return (
     <>
@@ -18,7 +20,7 @@ const Faq = () => {
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{page.title.title}</H1>
+            <H1 locale={locale}>{page.title.title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
 
@@ -27,10 +29,12 @@ const Faq = () => {
             {page.meta.map((item: any, index: number) => {
               return (
                 <div key={index}>
-                  <H5 style={{ marginTop: (index === 0 ? 0 : 1) * 30 }}>{item.title}</H5>
+                  <H5 locale={locale} style={{ marginTop: (index === 0 ? 0 : 1) * 30 }}>
+                    {item.title}
+                  </H5>
                   <FeesBox>
                     {item.content.map((item: any, i: number) => (
-                      <FeesItem key={`${item.title}-${i}`}>
+                      <FeesItem locale={locale} key={`${item.title}-${i}`}>
                         <p className="percent">{item.percent}</p>
                         <p className="title">{item.title}</p>
                       </FeesItem>
@@ -41,7 +45,7 @@ const Faq = () => {
             })}
 
             {page.AllPageContact?.AllPageContactText && (
-              <FaqText>
+              <FaqText locale={locale}>
                 <img src="/info.svg" />
                 {page.AllPageContact?.AllPageContactText}
                 {page.AllPageContact?.AllPageContactLink && (

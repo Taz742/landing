@@ -37,12 +37,15 @@ export const Header = () => {
         <HeaderMenu>
           {headerMenu.map(({ title = '', slug = '', url = '', blank = '' }) =>
             blank ? (
-              <HeaderMenuItem href={url} key={title} target="_blank" rel="noopener">
+              <HeaderMenuItem locale={locale} href={url} key={title} target="_blank" rel="noopener">
                 {title}
               </HeaderMenuItem>
             ) : (
               <Link href={`/[lang]/${slug}`} as={`/${locale}/${slug}`} key={title} passHref>
-                <HeaderMenuItem active={router.pathname !== '/[lang]' ? `/[lang]/${slug}`.includes(router.pathname) : false}>
+                <HeaderMenuItem
+                  locale={locale}
+                  active={router.pathname !== '/[lang]' ? `/[lang]/${slug}`.includes(router.pathname) : false}
+                >
                   {title}
                 </HeaderMenuItem>
               </Link>
@@ -50,7 +53,7 @@ export const Header = () => {
           )}
         </HeaderMenu>
       </HeaderLeft>
-      <HeaderRight>
+      <HeaderRight locale={locale}>
         <LocaleSwitcher />
         <HeaderSeperator />
         <div className="links">

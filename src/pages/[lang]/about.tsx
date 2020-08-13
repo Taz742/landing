@@ -15,7 +15,7 @@ import {
   ConnectIcons,
   ContactUsContainer
 } from '@/styled';
-import { H2, Text, H5 } from '@/styled/typography';
+import { H2, Text, H5, H1 } from '@/styled/typography';
 import { PageInner, PageSubHeader, TeamContainer, TeamItem, PageHeader } from '@/styled/pages';
 import { Button } from '@/components/library/button';
 import { DataContext } from '@/context/app-context';
@@ -24,7 +24,7 @@ import useTranslation from '@/hooks/useTranslation';
 
 const About = (_props: any) => {
   const [openMembers, setOpenMembers] = useState<any>({});
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['about'] || { meta: [], title: { title: '', description: '' }, Hiring: {}, contact: [] };
   const about: any = data.static.pages['about'];
@@ -42,15 +42,22 @@ const About = (_props: any) => {
         <PageHeader height="100px" className="hide_image" />
         <Container>
           <PageSubHeader type="about" style={{ padding: '60px 0 0' }}>
-            <H2>{page.title.title}</H2>
-            <Text align="left" padding="45px 0px" dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.title.description) }} />
+            <H1 locale={locale} className="title">
+              {page.title.title}
+            </H1>
+            <Text
+              locale={locale}
+              align="left"
+              padding="45px 0px"
+              dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.title.description) }}
+            />
           </PageSubHeader>
         </Container>
         <PageInner>
           <Container>
             <TeamContainer>
               {page.meta.map((member: any, i: number) => (
-                <TeamItem key={i} open={openMembers[i]}>
+                <TeamItem locale={locale} key={i} open={openMembers[i]}>
                   <div className="logo">
                     <img src={member.client_logo || ''} />
                   </div>

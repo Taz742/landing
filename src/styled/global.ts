@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: Ubuntu, "BPG Nino Mtavruli", sans-serif;
+    font-family: Ubuntu, "BPG Mrgvlovani Caps", sans-serif;
     padding: 0;
     margin:  0;
     color: #242A33;

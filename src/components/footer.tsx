@@ -35,20 +35,20 @@ export const Footer = () => {
             <FooterMenu width="48%">
               {footerMenu.map((page: any) =>
                 page.blank ? (
-                  <FooterMenuItem href={page.url} key={page.title} target="_blank" rel="noopener">
+                  <FooterMenuItem locale={locale} href={page.url} key={page.title} target="_blank" rel="noopener">
                     {page.title}
                   </FooterMenuItem>
                 ) : (
                   <Link href={`/[lang]/${page.slug}`} as={`/${locale}/${page.slug}`} key={page.title} passHref>
-                    <FooterMenuItem>{page.title}</FooterMenuItem>
+                    <FooterMenuItem locale={locale}>{page.title}</FooterMenuItem>
                   </Link>
                 )
               )}
             </FooterMenu>
-            <FooterAboutUs>
+            <FooterAboutUs locale={locale}>
               <H3>{footerInfo.title.title}</H3>
               {footerMeta.map((f: any, i: number) => (
-                <FooterMenuItem key={i} onClick={(e: any) => e.preventDefault()} type="info">
+                <FooterMenuItem locale={locale} key={i} onClick={(e: any) => e.preventDefault()} type="info">
                   <div className="logo">
                     <img src={f.logo} />
                   </div>

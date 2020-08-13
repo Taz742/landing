@@ -347,6 +347,10 @@ export const PageSubHeader = styled.div<{ type?: string }>`
     margin-bottom: 20px;
   }
 
+  .title {
+    color: #000;
+  }
+
   @media ${responsive.lg} {
     padding: 140px 0 60px;
   }
@@ -469,10 +473,10 @@ export const FaqInput = styled.div`
   }
 `;
 
-export const FaqText = styled.div`
+export const FaqText = styled.div<{ locale?: 'ka' | 'en' }>`
   text-align: center;
   color: #b1b9c4;
-  font-size: 18px;
+  font-size: ${({ locale }) => (locale === 'ka' ? '14px' : '18px')};
   line-height: 26px;
   margin-top: 80px;
 
@@ -483,7 +487,7 @@ export const FaqText = styled.div`
   }
 
   @media ${responsive.sm} {
-    font-size: 17px;
+    font-size: ${({ locale }) => (locale === 'ka' ? '13px' : '17px')};
   }
 `;
 
@@ -496,7 +500,7 @@ export const TeamContainer = styled.div`
   }
 `;
 
-export const TeamItem = styled.div<{ open?: boolean }>`
+export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
   flex: 0 1 25%;
   display: flex;
   flex-direction: column;
@@ -504,27 +508,28 @@ export const TeamItem = styled.div<{ open?: boolean }>`
 
   h4 {
     color: #242a33;
-    font-size: 26px;
+    font-size: ${({ locale }) => (locale === 'ka' ? '16px' : '22px')};
     font-weight: normal;
     margin-bottom: 10px;
   }
 
   span {
     color: #a5adba;
-    font-size: 16px;
+    font-size: ${({ locale }) => (locale === 'ka' ? '12px' : '16px')};
     margin-bottom: 16px;
     opacity: 0.8;
   }
 
   p {
     color: #6c7686;
-    line-height: 25px;
+    line-height: 20px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     transition: 0.2s;
     max-height: 75px;
+    font-size: 11px;
 
     ${({ open }) =>
       open &&
@@ -608,11 +613,11 @@ export const TeamItem = styled.div<{ open?: boolean }>`
     padding: 40px 30px;
 
     h4 {
-      font-size: 22px;
+      font-size: ${({ locale }) => (locale === 'ka' ? '16px' : '22px')};
     }
 
     span {
-      font-size: 16px;
+      font-size: ${({ locale }) => (locale === 'ka' ? '12px' : '16px')};
     }
 
     .logo {
@@ -844,7 +849,7 @@ export const OtcContainer = styled.div`
   }
 `;
 
-export const OtcItem = styled.div`
+export const OtcItem = styled.div<{ locale?: 'ka' | 'en' }>`
   flex: 0 1 23%;
   display: flex;
   flex-direction: column;
@@ -867,16 +872,13 @@ export const OtcItem = styled.div`
 
   h4 {
     color: #6c7686;
-    font-size: 20px;
+    font-size: ${({ locale }) => (locale === 'ka' ? '16px' : '20px')};
     font-weight: normal;
+    line-height: 26px;
   }
 
   @media ${responsive.lg} {
     padding: 30px;
-
-    h4 {
-      font-size: 20px;
-    }
   }
 
   @media ${responsive.sm} {

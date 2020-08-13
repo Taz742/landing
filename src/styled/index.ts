@@ -63,15 +63,15 @@ export const HeaderMenu = styled.div`
   }
 `;
 
-export const HeaderMenuItem = styled.a<{ active?: boolean }>`
+export const HeaderMenuItem = styled.a<{ active?: boolean; locale: 'ka' | 'en' }>`
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 21px;
   letter-spacing: 0;
   color: ${(props) => (props.active ? '#0ECBFD' : '#DBE2ED')};
   transition: 0.15s ease-in-out;
   padding: 11px 0;
-  margin: 0 24px;
+  margin: ${({ locale }) => (locale === 'ka' ? '0 10px' : '0 24px')};
   position: relative;
 
   :hover {
@@ -112,7 +112,7 @@ export const HeaderLeft = styled.div`
   align-items: center;
 `;
 
-export const HeaderRight = styled.div`
+export const HeaderRight = styled.div<{ locale?: 'ka' | 'en' }>`
   display: flex;
   align-items: center;
 
@@ -123,6 +123,10 @@ export const HeaderRight = styled.div`
     @media ${responsive.sm} {
       display: none;
     }
+  }
+
+  button {
+    font-size: ${({ locale }) => (locale === 'ka' ? '12px' : '16px')};
   }
 `;
 
@@ -669,7 +673,7 @@ export const FooterContainer = styled.div`
   }
 `;
 
-export const FooterAboutUs = styled.div`
+export const FooterAboutUs = styled.div<{ locale?: 'ka' | 'en' }>`
   color: #c4c9d1;
   display: flex;
   flex-direction: column;
@@ -691,7 +695,7 @@ export const FooterAboutUs = styled.div`
 
   h3 {
     margin-bottom: 10px;
-    font-size: 26px;
+    font-size: ${({ locale }) => locale === 'ka' ? '20px' : '26px'};
   }
 
   @media ${responsive.sm} {
@@ -712,10 +716,14 @@ export const FooterMenu = styled.div<{ maxHeight?: string; width?: string }>`
   }
 `;
 
-export const FooterMenuItem = styled.a<{ flex?: string; type?: string }>`
+export const FooterMenuItem = styled.a<{
+  flex?: string;
+  type?: string;
+  locale?: 'ka' | 'en';
+}>`
   display: inline-flex;
   color: #c4c9d1;
-  font-size: 20px;
+  font-size: ${({ locale }) => (locale === 'ka' ? '16px' : '20px')};
   margin: 15px 0;
   cursor: pointer;
   flex: ${(props) => props.flex || '0 0 50%'};
@@ -725,7 +733,7 @@ export const FooterMenuItem = styled.a<{ flex?: string; type?: string }>`
   }
 
   @media ${responsive.lg} {
-    font-size: 18px;
+    font-size: ${({ locale }) => (locale === 'ka' ? '14px' : '18px')};
   }
 
   ${({ type }) =>
@@ -1313,7 +1321,7 @@ export const CoinItem = styled.div`
   }
 `;
 
-export const SimpleTrade = styled.div`
+export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
   display: flex;
   flex-direction: column;
 
@@ -1438,7 +1446,7 @@ export const SimpleTrade = styled.div`
 
   h3 {
     color: #242a33;
-    font-size: 58px;
+    font-size: ${({ locale }) => (locale === 'ka' ? '40px' : '58px')};
     font-weight: normal;
     margin: 0 0 50px 0;
 
@@ -1732,7 +1740,7 @@ export const WeAreHiringBox = styled.div`
   }
 `;
 
-export const WeAreHiring = styled.div`
+export const WeAreHiring = styled.div<{ locale?: 'ka' | 'en' }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1762,7 +1770,7 @@ export const WeAreHiring = styled.div`
 
   span {
     color: #707b8d;
-    line-height: 200%;
+    line-height: 150%;
   }
 
   button {
@@ -1974,7 +1982,7 @@ export const FeesBox = styled.div`
   }
 `;
 
-export const FeesItem = styled.div`
+export const FeesItem = styled.div<{ locale?: 'ka' | 'en' }>`
   margin: 15px 32px 90px 0;
   flex: 0 0 23%;
   background-color: #ffffff;
@@ -2004,6 +2012,7 @@ export const FeesItem = styled.div`
     color: #6c7686;
     font-weight: 500;
     margin-top: 10px;
+    font-size: ${({ locale }) => (locale === 'ka' ? '14px' : '18px')};
   }
 
   @media ${responsive.lg} {

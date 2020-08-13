@@ -4,14 +4,16 @@ import CustomHead from '@/components/custom-head';
 import { Layout } from '@/components/index';
 import Button from '@/components/library/button';
 import { Container } from '@/styled';
-import { H1 } from '@/styled/typography';
+import { H1, H4 } from '@/styled/typography';
 import { DefaultPageHeader, PageInner, FaqText, PageSubHeader, OtcContainer, OtcItem } from '@/styled/pages';
 import { DataContext } from '@/context/app-context';
+import useTranslation from '@/hooks/useTranslation';
 
 const Otc = () => {
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['otc'] || { meta: [] };
   const meta = page.meta || [];
+  const { locale } = useTranslation();
   // const otc: any = data.static.pages['otc'];
 
   return (
@@ -32,18 +34,18 @@ const Otc = () => {
             {meta.length > 0 && (
               <OtcContainer>
                 {meta.map((t: any, i: number) => (
-                  <OtcItem key={i}>
+                  <OtcItem key={i} locale={locale}>
                     <div className="logo">
                       <img src={t.client_logo} />
                     </div>
-                    <h4>{t.client_title}</h4>
+                    <H4>{t.client_title}</H4>
                   </OtcItem>
                 ))}
               </OtcContainer>
             )}
 
             {page.AllPageContact?.AllPageContactText && (
-              <FaqText>
+              <FaqText locale={locale}>
                 <img src="/info.svg" />
                 {page.AllPageContact?.AllPageContactText}
                 {page.AllPageContact?.AllPageContactLink && (

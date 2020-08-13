@@ -65,7 +65,9 @@ export const Tabs = (args: ITab) => {
   return (
     <TabContainer overflow={overflow}>
       <TabMenu>{renderTabMenu()}</TabMenu>
-      <Tab>{args.content ? <div className={active}>{args.content}</div> : <div className={active}>{args.children[selected]}</div>}</Tab>
+      <Tab>
+        {args.content ? <div className={active}>{args.content}</div> : <div className={active}>{args.children[args.selected || 0]}</div>}
+      </Tab>
     </TabContainer>
   );
 };
