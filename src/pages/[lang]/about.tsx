@@ -93,6 +93,8 @@ const About = (_props: any) => {
             <H2>{aboutUsPage?.contact_us?.title}</H2>
             <ContactUsBox>
               {page.contact.map((c: any, i: number) => {
+                console.log(i, c);
+
                 if (i === 0) {
                   return (
                     <OurAddress key={i}>
@@ -129,7 +131,10 @@ const About = (_props: any) => {
 
                 if (i === 2 && page.contact.length === 4) {
                   return (
-                    <WriteUs key={i} style={{ margin: '100px 0 0' }}>
+                    <WriteUs key={i}>
+                      {c.contant_logo && <img src={c.contact_logo} />}
+                      <H5>{c.contact_title}</H5>
+
                       <WriteUsContent>
                         {c.contact_Text1 && <p>{c.contact_Text1}</p>}
                         {c.contact_Text2 && <p>{c.contact_Text2}</p>}

@@ -1,4 +1,5 @@
 module.exports = {
+  exportTrailingSlash: true,
   env: {
     gaTrackingId: '',
     website: 'https://gex.ge',
