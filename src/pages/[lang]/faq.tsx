@@ -8,7 +8,6 @@ import { Container } from '@/styled';
 import { H1 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, Input, FaqInput, FaqText, PageInnerTitle } from '@/styled/pages';
 import { parseHTML } from '@/utils/helpers';
-import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 
 const Faq = () => {
