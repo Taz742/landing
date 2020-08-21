@@ -13,7 +13,6 @@ import { DataContext } from '@/context/app-context';
 
 const Faq = () => {
   const [search, setSearch] = useState('');
-  const { t } = useTranslation();
   const { data } = React.useContext(DataContext);
   const page: any = data.pages.pages['faq'] || { meta: [], data: { post_title: '' } };
   const questions =
