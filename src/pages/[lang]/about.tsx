@@ -102,12 +102,10 @@ const About = (_props: any) => {
                       <H5>{c.contact_title}</H5>
 
                       <OurAddressContent>
-                        <p>
-                          {c.contact_Text1} {c.contact_Text2}
-                        </p>
-                        <p>
-                          {c.contact_Text3} {c.contact_Text4}
-                        </p>
+                        <p>{c.contact_Text1}</p>
+                        <p>{c.contact_Text2}</p>
+                        <p>{c.contact_Text3}</p>
+                        <p>{c.contact_Text4}</p>
                       </OurAddressContent>
                     </OurAddress>
                   );
@@ -132,7 +130,7 @@ const About = (_props: any) => {
                 if (i === 2 && page.contact.length === 4) {
                   return (
                     <WriteUs key={i}>
-                      {c.contant_logo && <img src={c.contact_logo} />}
+                      {c.contact_logo && <img src={c.contact_logo} />}
                       <H5>{c.contact_title}</H5>
 
                       <WriteUsContent>

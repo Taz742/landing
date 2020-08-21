@@ -39,7 +39,7 @@ const Faq = () => {
         <PageInner>
           <Container>
             <FaqInput>
-              <Input name="search" placeholder={t('How can we help?')} value={search} onChange={handleChange} autoComplete="off" />
+              <Input name="search" placeholder={page.search} value={search} onChange={handleChange} autoComplete="off" />
               <img src="/search.svg" />
             </FaqInput>
 

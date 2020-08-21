@@ -49,7 +49,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
     fix &&
     css`
       background-color: #1c2730;
-      box-shadow: 0 2px 2px #a3a1bc29;
+      box-shadow: 0 2px 7px #000;
     `}
 `;
 
@@ -695,7 +695,7 @@ export const FooterAboutUs = styled.div<{ locale?: 'ka' | 'en' }>`
 
   h3 {
     margin-bottom: 10px;
-    font-size: ${({ locale }) => locale === 'ka' ? '20px' : '26px'};
+    font-size: ${({ locale }) => (locale === 'ka' ? '20px' : '26px')};
   }
 
   @media ${responsive.sm} {
@@ -1066,7 +1066,7 @@ export const TopCoins = styled.div`
   margin-top: 70px;
   display: flex;
   margin-bottom: 100px;
-  box-shadow: 0px 6px 12px #edeef2c6;
+  box-shadow: 0px 0px 7px #666;
 
   @media ${responsive.md} {
     padding: 20px 0;
@@ -1395,7 +1395,7 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
 
       &.active {
         .coin-list-dropdown {
-          max-height: 200px;
+          max-height: 500px;
         }
       }
     }
@@ -1861,6 +1861,7 @@ export const OurAddress = styled.div`
 export const OurAddressContent = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 
   p {
     color: #6c7686;
@@ -1868,7 +1869,7 @@ export const OurAddressContent = styled.div`
     font-size: 14px;
 
     &:not(:first-child) {
-      margin-top: 36px;
+      margin-top: 6px;
     }
 
     @media ${responsive.sm} {

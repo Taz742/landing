@@ -174,7 +174,9 @@ const IndexPage = (_props: any) => {
                 {pairs[currency].map((item: any, index: number) => (
                   <TopCoinItem key={index}>
                     <img src={getImage(item.pair)} />
-                    <TopCointLastTradePrice>{item.lastTradePrice}</TopCointLastTradePrice>
+                    <TopCointLastTradePrice>
+                      {currency === 'GEL' ? <>&#8382;</> : '$'} {item.lastTradePrice}
+                    </TopCointLastTradePrice>
                     <TopCoinBaseVolume>
                       {item.baseVolume} <span>24 H</span>
                     </TopCoinBaseVolume>
