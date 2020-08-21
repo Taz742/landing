@@ -93,8 +93,6 @@ const About = (_props: any) => {
             <H2>{aboutUsPage?.contact_us?.title}</H2>
             <ContactUsBox>
               {page.contact.map((c: any, i: number) => {
-                console.log(i, c);
-
                 if (i === 0) {
                   return (
                     <OurAddress key={i}>
