@@ -33,13 +33,19 @@ export const Tabs = (args: ITab) => {
   function handleChange(index: number, el: any = { props: { title: '' } }) {
     const element = document.getElementById(el.props.title);
     if (element && window && args.content) {
-      const yOffset = -102; // header height
+      const yOffset = -108; // header height
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      window.scrollTo({ top: y, behavior: 'auto' });
     }
     if (index === args.selected) return;
     if (!args.content) setOverflow('hidden');
-    if (args.handleChangeIndex) args.handleChangeIndex(index);
+
+    if (typeof args.handleChangeIndex === 'function') {
+      setTimeout(() => {
+        if (typeof args.handleChangeIndex === 'function') args.handleChangeIndex(index);
+      }, 700);
+    }
+
     setActive('active');
     setTimeout(() => {
       setActive('');
