@@ -505,6 +505,7 @@ export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
   display: flex;
   flex-direction: column;
   padding: 60px 50px;
+  text-align: center;
 
   h4 {
     color: #242a33;
@@ -571,6 +572,7 @@ export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
   .links {
     margin-top: 20px;
     display: flex;
+    justify-content: center;
 
     button {
       outline: none;
@@ -815,13 +817,13 @@ export const CareerTableContainer = styled.div`
   }
 `;
 
-export const LanguageChangerWrapper = styled.div`
+export const LanguageChangerWrapper = styled.div<{ loading?: 'true' | 'false' }>`
   font-size: 12px;
   line-height: 1.75;
   letter-spacing: 0.02px;
   color: #b3c6d8;
   padding-top: 1px;
-  cursor: pointer;
+  cursor: ${({ loading }) => (loading === 'true' ? 'default' : 'pointer')};
   position: relative;
   top: 4px;
 

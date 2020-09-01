@@ -69,7 +69,7 @@ export const HeaderMenuItem = styled.a<{ active?: boolean; locale: 'ka' | 'en' }
   line-height: 21px;
   letter-spacing: 0;
   color: ${(props) => (props.active ? '#0ECBFD' : '#DBE2ED')};
-  transition: 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out, font-size 0s;
   padding: 11px 0;
   margin: ${({ locale }) => (locale === 'ka' ? '0 10px' : '0 24px')};
   position: relative;

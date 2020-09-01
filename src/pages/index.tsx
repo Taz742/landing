@@ -8,7 +8,9 @@ const Index: React.FC = () => {
   const url = `${config.url}/en`;
 
   React.useEffect(() => {
-    window.location.replace(`/${getInitialLocale()}`);
+    if (typeof window !== 'undefined') {
+      window.location.replace(`/${getInitialLocale()}`);
+    }
   }, []);
 
   return (

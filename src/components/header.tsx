@@ -19,6 +19,7 @@ export const Header = () => {
   const { data } = React.useContext(DataContext);
   const headerMenu = data.pages.headerMenu;
   const footerMenu = data.pages.footerMenu;
+  const hamburgerMenu = [...headerMenu, ...footerMenu].filter((v, i, a) => a.findIndex((t) => t.slug === v.slug) === i);
   const extra = data.pages?.extra || {};
 
   const fixed = React.useMemo((): boolean => {
@@ -69,7 +70,7 @@ export const Header = () => {
             <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
               <img src="/hamburger.svg" />
             </HamburgerMenuButton>
-            <MobileMenu pages={footerMenu} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={extra} />
+            <MobileMenu pages={hamburgerMenu} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={extra} />
           </div>
         </Hidden>
       </HeaderRight>

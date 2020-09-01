@@ -76,15 +76,14 @@ const IndexPage = (_props: any) => {
     const pairsResponse: any[] = await (await fetch(`${config.exchangeApi}public/ticker`)).json();
     const gelPairs = pairsResponse.filter((item) => item.pair.endsWith('-GEL'));
     const usdPairs = pairsResponse.filter((item) => item.pair.endsWith('-USD'));
-    setPairs({
-      GEL: gelPairs,
-      USD: usdPairs
-    });
+    setPairs({ GEL: gelPairs, USD: usdPairs });
+
+    const offers = await (await fetch(`${config.exchangeApi}private/simpleTrade/offers`)).json();
+    setTrades(offers);
 
     if (!initialized) {
       setInitialized(true);
 
-      const offers = await (await fetch(`${config.exchangeApi}private/simpleTrade/offers`)).json();
       const currencies = Object.keys(offers);
       setAllCurencies(currencies);
       setCurrency(currencies[0]);
@@ -97,7 +96,6 @@ const IndexPage = (_props: any) => {
         baseScale: offers[currentCurrency][0].pair.baseScale,
         coin: offers[currentCurrency][0].pair.baseCurrency
       });
-      setTrades(offers);
       let lists: any[] = [];
       offers[currentCurrency].forEach((item: any, index: number) => {
         lists.push({
@@ -240,6 +238,7 @@ const IndexPage = (_props: any) => {
               {trades &&
                 currency &&
                 trades[currency].length > 0 &&
+                trades[currency][coin.index] &&
                 trades[currency][coin.index]['offerEntriesMap'][sellType].map((item: any, index: number) => (
                   <div key={index} className="tab-coin">
                     {sellType === 'BID' ? (

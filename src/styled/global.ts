@@ -12,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     display: none;
   }
 
+  [disabaled] {
+    pointer-events: none;
+  }
+
   [hide] {
     opacity: 0;
     visibility: hidden;
@@ -43,6 +47,7 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+    color: #0ecbfd;
   }
 
   a:-webkit-any-link:active {
@@ -63,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    transition: 0.2s;
+    transition: all 0.2s, font-size 0s, line-height 0s;
     
     ::-webkit-scrollbar-track {
       border-radius: 0;
@@ -85,6 +90,8 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.15;
     -webkit-text-size-adjust: 100%; 
     scroll-behavior: smooth;
+    scrollbar-color: #d1d1de #f9f9f97a;
+    scrollbar-width: thin;
   }
 
   strong, b {

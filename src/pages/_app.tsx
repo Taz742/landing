@@ -19,6 +19,7 @@ import { isLocale } from '@/translations/types';
 import data from '@/utils/data';
 
 const RouterComponent: React.FC<{ children: React.ReactNode }> = ({ children, ...props }) => {
+  const isDev = process.env.NODE_ENV !== 'production';
   const { asPath } = useRouter();
   if (typeof window !== 'undefined') {
     useGaTrackPage(asPath);
@@ -30,7 +31,7 @@ const RouterComponent: React.FC<{ children: React.ReactNode }> = ({ children, ..
       <div className="contents-wrapper">{children}</div>
       {asPath !== '/' && <Footer {...props} />}
       <CookiePopup />
-      <MessengerChat />
+      {!isDev && <MessengerChat />}
     </div>
   );
 };
@@ -45,7 +46,7 @@ class MyApp extends App {
 
   static async getInitialProps(ctx: any) {
     const lang = ctx.router.query.lang;
-    if (isLocale(lang)) {
+    if (isLocale(lang) && ctx.ctx?.req) {
       const endpoint = '/index.php?rest_route=/getGeneralData/get';
       const dataUrl = lang === 'en' ? `${config.getDataUrl}${endpoint}` : `${config.getDataUrl}/${lang}${endpoint}`;
       const res = await fetch(dataUrl);
