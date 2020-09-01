@@ -9,24 +9,7 @@ import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/p
 import { replaceEnterSymbol } from '@/utils/helpers';
 import { DataContext } from '@/context/app-context';
 import Button from '@/components/library/button';
-import { useInView } from 'react-hook-inview';
-
-const View = ({ e, onEnter }: any) => {
-  const [ref] = useInView({
-    threshold: 1,
-    onEnter
-  });
-
-  return (
-    <div ref={ref}>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `<div id="${e.carrer_title}" class="content-section"><h3>${e.carrer_title}</h3>${e.carrer_text || ''}</div>`
-        }}
-      />
-    </div>
-  );
-};
+import TabContent from '@/components/tab-content';
 
 const Cookies = () => {
   const [selected, setSelected] = React.useState<number>(0);
@@ -35,7 +18,7 @@ const Cookies = () => {
   const meta = page.meta || [];
 
   const content = meta.map((e: any, index: number) => {
-    return <View key={index} e={e} onEnter={() => setSelected(index)} />;
+    return <TabContent key={index} e={e} onChange={(isVisible: boolean) => isVisible && setSelected(index)} />;
   });
 
   return (
