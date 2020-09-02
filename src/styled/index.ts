@@ -58,7 +58,7 @@ export const HeaderMenu = styled.div`
   align-items: center;
   margin-left: 30px;
 
-  @media ${responsive.sm} {
+  @media ${responsive.md} {
     display: none;
   }
 `;
@@ -120,7 +120,7 @@ export const HeaderRight = styled.div<{ locale?: 'ka' | 'en' }>`
     display: flex;
     align-items: center;
 
-    @media ${responsive.sm} {
+    @media ${responsive.md} {
       display: none;
     }
   }

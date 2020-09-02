@@ -65,7 +65,7 @@ export const Header = () => {
             <Button text={t('Sign Up')} />
           </a>
         </div>
-        <Hidden smUp>
+        <Hidden mdUp>
           <div>
             <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
               <img src="/hamburger.svg" />
