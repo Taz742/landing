@@ -151,7 +151,6 @@ export const H5 = styled.h5<IH>`
 
 export const Text = styled.div<IH>`
   font-size: ${(props) => (props.locale === 'ka' ? '14px' : props.size || '18px')};
-  line-height: ${(props) => (props.locale === 'ka' ? '20px' : props.lineHeight || '33px')};
   text-align: ${(props) => props.align || 'center'};
   opacity: ${(props) => props.opacity || '1'};
   letter-spacing: 0;
