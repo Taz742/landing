@@ -505,7 +505,7 @@ export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
   display: flex;
   flex-direction: column;
   padding: 60px 50px;
-  text-align: left;
+  text-align: center;
 
   h4 {
     color: #242a33;

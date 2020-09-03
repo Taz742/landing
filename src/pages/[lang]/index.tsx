@@ -157,6 +157,7 @@ const IndexPage = (_props: any) => {
         <OtcComp>
           <Container>
             <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? '100%' : '75%'} style={{ padding: 0 }}>
+	<img src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=3e54afd06cb2069577a0a0607d76742bf0bf0d119fad796f296d5af8405b4ed7" width="1" height="1" />									  
               <H1 locale={locale} style={{ color: '#FFFFFF' }}>
                 {page.title.description || 'Highest Liquidity Crypto Exchange in the Region'}
               </H1>

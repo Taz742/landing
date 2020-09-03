@@ -20,6 +20,7 @@ const Faq = () => {
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
+<img src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=3e54afd06cb2069577a0a0607d76742bf0bf0d119fad796f296d5af8405b4ed7" width="1" height="1" />
             <H1 locale={locale}>{page.title.title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
