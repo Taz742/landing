@@ -8,6 +8,7 @@ module.exports = {
     getMenuUrl: 'https://content.gex.ge/wp-json/slug/menu',
     exchangeApi: 'https://exchange.gex.ge/exchange-connector-1.0/api/',
     exchangeBaseUrl: 'https://trade.gex.ge',
+    localeCookieUrl: '.gex.ge',
     fbPageId: '107413211066997',
     fbAppId: '315470196311206'
   },

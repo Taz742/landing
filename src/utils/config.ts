@@ -1,4 +1,5 @@
 export default {
+  isDev: process.env.NODE_ENV === 'development',
   url: process.env.website,
   site_name: 'GEX',
   targetWebsite: process.env.targetWebsite,
@@ -6,6 +7,7 @@ export default {
   getMenuUrl: process.env.getMenuUrl || '',
   exchangeApi: process.env.exchangeApi || '',
   exchangeBaseUrl: process.env.exchangeBaseUrl || '',
+  localeCookieUrl: process.env.localeCookieUrl || '',
   fbPageId: process.env.fbPageId || '',
   fbAppId: process.env.fbAppId || '',
   googleAddress:
