@@ -18,6 +18,8 @@ export const TabMenu = styled.ul`
   height: auto;
   max-height: calc(100vh - 140px);
   overflow: auto;
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
 
   ::-webkit-scrollbar {
     width: 0px;

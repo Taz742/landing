@@ -38,7 +38,7 @@ export const Header = () => {
         <HeaderMenu>
           {headerMenu.map(({ title = '', slug = '', url = '', blank = '' }) =>
             blank ? (
-              <HeaderMenuItem locale={locale} href={url} key={title} target="_blank" rel="noopener">
+              <HeaderMenuItem locale={locale} href={`${url}?lang=${locale}`} key={title} target="_blank" rel="noopener">
                 {title}
               </HeaderMenuItem>
             ) : (
@@ -58,10 +58,10 @@ export const Header = () => {
         <LocaleSwitcher />
         <HeaderSeperator />
         <div className="links">
-          <a href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
+          <a href={`${config.targetWebsite}?login=true&lang=${locale}`} target="_blank" rel="noopener">
             <Button text={t('Sign In')} buttonType="text" padding="0 30px" />
           </a>
-          <a href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
+          <a href={`${config.targetWebsite}?register=true&lang=${locale}`} target="_blank" rel="noopener">
             <Button text={t('Sign Up')} />
           </a>
         </div>
