@@ -27,7 +27,7 @@ const Cookies = () => {
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{page.title.title}</H1>
+            <H1 style={{ fontSize: 40 }}>{page.title.title}</H1>
           </PageInnerTitle>
         </SearchPageHeader>
 
