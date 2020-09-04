@@ -1066,7 +1066,7 @@ export const TopCoins = styled.div`
   margin-top: 70px;
   display: flex;
   margin-bottom: 100px;
-  box-shadow: 0px 0px 7px #666;
+  box-shadow: 0px 3px 15px #6666661f;
 
   @media ${responsive.md} {
     padding: 20px 0;

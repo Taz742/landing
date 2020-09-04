@@ -48,17 +48,17 @@ export const PcDrawer: React.FC<ResponsiveDrawerProps> = (props: ResponsiveDrawe
               </a>
             </Link>
             <div className="links">
-              <MobileMenuItem href={`${config.targetWebsite}?login=true`} target="_blank" rel="noopener">
+              <MobileMenuItem href={`${config.targetWebsite}?login=true&lang=${locale}`} target="_blank" rel="noopener">
                 {t('Sign In')}
               </MobileMenuItem>
-              <MobileMenuItem href={`${config.targetWebsite}?register=true`} target="_blank" rel="noopener">
+              <MobileMenuItem href={`${config.targetWebsite}?register=true&lang=${locale}`} target="_blank" rel="noopener">
                 {t('Sign Up')}
               </MobileMenuItem>
             </div>
 
             {pages.map((page: any, i: number) =>
-              page.link ? (
-                <MobileMenuItem href={page.link} key={page.title} target="_blank" rel="noopener">
+              page.blank ? (
+                <MobileMenuItem href={`${page.url}?lang=${locale}`} key={page.title} target="_blank" rel="noopener">
                   {page.title}
                 </MobileMenuItem>
               ) : (
