@@ -4,7 +4,7 @@ import CustomHead from '@/components/custom-head';
 import { Layout } from '@/components/index';
 import Tabs, { Panel } from '@/components/library/tabs';
 import { Container } from '@/styled';
-import { H1 } from '@/styled/typography';
+import { H1, H3 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, PageInnerTitle, FaqText } from '@/styled/pages';
 import { DataContext } from '@/context/app-context';
 import Button from '@/components/library/button';
@@ -26,6 +26,7 @@ const Terms = () => {
         <SearchPageHeader>
           <PageInnerTitle>
             <H1 style={{ fontSize: 40 }}>{page.title.title}</H1>
+            <H3 style={{ fontSize: 18, color: '#666' }}>{page.title.description}</H3>
           </PageInnerTitle>
         </SearchPageHeader>
 
