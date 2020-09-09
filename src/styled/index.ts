@@ -1468,10 +1468,8 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
 
     button {
       flex: 1;
-      background-color: #d9dce6;
       height: 60px;
       font-size: 18px;
-      color: #6c7686;
       border: 0;
       outline: none;
       cursor: pointer;
@@ -1482,14 +1480,26 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
         height: 50px;
       }
 
-      &.active:first-child {
-        background-color: #08aa7d;
-        color: #ffffff;
+      &.tab-bid {
+        background: rgb(8, 170, 125, 0.6);
+        color: rgb(8, 170, 125);
+
+        &.active,
+        &:hover {
+          background: rgb(8, 170, 125, 1);
+          color: #ffffff;
+        }
       }
 
-      &.active:last-child {
-        background-color: #d85947;
-        color: #ffffff;
+      &.tab-sell {
+        background-color: rgb(216, 89, 71, 0.6);
+        color: rgb(216, 89, 71);
+
+        &.active,
+        &:hover {
+          background-color: rgb(216, 89, 71, 1);
+          color: #ffffff;
+        }
       }
     }
   }

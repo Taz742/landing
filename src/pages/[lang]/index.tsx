@@ -231,10 +231,10 @@ const IndexPage = (_props: any) => {
             </SimpleTradeTop>
 
             <div className="tabs">
-              <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'active' : ''}>
+              <button onClick={() => setSellType('BID')} className={sellType === 'BID' ? 'tab-bid active' : 'tab-bid'}>
                 {InstantTrade?.ButtonTop[0]} {coin.coin}
               </button>
-              <button onClick={() => setSellType('ASK')} className={sellType !== 'BID' ? 'active' : ''}>
+              <button onClick={() => setSellType('ASK')} className={sellType !== 'BID' ? 'tab-sell active' : 'tab-sell'}>
                 {InstantTrade?.ButtonTop[1]} {coin.coin}
               </button>
             </div>
