@@ -11,7 +11,7 @@ import config from '@/utils/config';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 
-export const Header = () => {
+export const Header = ({ notFoundPage }: any) => {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
@@ -27,8 +27,10 @@ export const Header = () => {
     return path.includes('/about');
   }, [router.asPath]);
 
+  const fixHeader = notFoundPage || trigger || fixed;
+
   return (
-    <StyledHeader fix={trigger || fixed}>
+    <StyledHeader fix={fixHeader}>
       <HeaderLeft>
         <Link href="/[lang]" as={`/${locale}`}>
           <div className="logo">
@@ -42,7 +44,7 @@ export const Header = () => {
                 {title}
               </HeaderMenuItem>
             ) : (
-              <Link href={`/[lang]/${slug}`} as={`/${locale}/${slug}`} key={title} passHref>
+              <Link href={`/[lang]/${slug}`} as={`/${locale}/${slug}`} key={`${title}-${router.query.lang}`} passHref>
                 <HeaderMenuItem
                   locale={locale}
                   active={router.pathname !== '/[lang]' ? `/[lang]/${slug}`.includes(router.pathname) : false}

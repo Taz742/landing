@@ -27,6 +27,7 @@ import useBreakpoint from '@/hooks/use-breakpoints';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 import Timer from '@/components/instant-trade-timer';
+import ErrorPage from '@/pages/404';
 
 const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
   return (
@@ -47,7 +48,7 @@ const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
   );
 };
 
-const IndexPage = (_props: any) => {
+const IndexPage = ({ notFoundPage }: any) => {
   const { data } = React.useContext(DataContext);
   const page: any = data.pages['home'] || {};
   const InstantTrade: any = page.InstantTrade || {};
@@ -148,6 +149,8 @@ const IndexPage = (_props: any) => {
     const url = `${config.targetWebsite}instant-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}&lang=${locale}`;
     window.open(url, '_blank');
   };
+
+  if (notFoundPage) return <ErrorPage />;
 
   return (
     <>

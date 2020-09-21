@@ -17,8 +17,9 @@ import config from '@/utils/config';
 import { AppProvider } from '@/context/app-context';
 import { isLocale } from '@/translations/types';
 import data from '@/utils/data';
+import { defaultLocale } from '@/translations/config';
 
-const RouterComponent: React.FC<{ children: React.ReactNode }> = ({ children, ...props }) => {
+const RouterComponent: React.FC<{ children: React.ReactNode; notFoundPage: boolean }> = ({ children, notFoundPage, ...props }) => {
   const isDev = process.env.NODE_ENV !== 'production';
   const { asPath } = useRouter();
   if (typeof window !== 'undefined') {
@@ -27,7 +28,7 @@ const RouterComponent: React.FC<{ children: React.ReactNode }> = ({ children, ..
 
   return (
     <div className="app-wrapper">
-      {asPath !== '/' && <Header {...props} />}
+      {asPath !== '/' && <Header {...props} notFoundPage={notFoundPage} />}
       <div className="contents-wrapper">{children}</div>
       {asPath !== '/' && <Footer {...props} />}
       <CookiePopup />
@@ -46,29 +47,28 @@ class MyApp extends App {
 
   static async getInitialProps(ctx: any) {
     const lang = ctx.router.query.lang;
-    if (isLocale(lang) && ctx.ctx?.req) {
+    const language = isLocale(lang) ? lang : defaultLocale;
+
+    if (ctx.ctx?.req) {
       const endpoint = '/index.php?rest_route=/getGeneralData/get';
-      const dataUrl = lang === 'en' ? `${config.getDataUrl}${endpoint}` : `${config.getDataUrl}/${lang}${endpoint}`;
+      const dataUrl = language === 'en' ? `${config.getDataUrl}${endpoint}` : `${config.getDataUrl}/${language}${endpoint}`;
       const res = await fetch(dataUrl);
       const json = await res.json();
-      // const menuUrl = lang === 'en' ? config.getMenuUrl : `${config.getMenuUrl}?lang=${lang}`;
-      // const resMenu = await fetch(menuUrl);
-      // const jsonMenu = await resMenu.json();
-      return { pageProps: { pages: json, menu: data[lang].headerMenu, static: data[lang] } };
+      return { pageProps: { pages: json, menu: data[language].headerMenu, static: data[language] } };
     }
     return { pageProps: {} };
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, notFoundPage }: any = this.props;
 
     return (
       <AppProvider data={pageProps}>
         <NextNprogress color="#0ECBFD" />
         <GlobalStyle />
         <ThemeProvider theme={theme}>
-          <RouterComponent {...pageProps}>
-            <Component {...pageProps} />
+          <RouterComponent {...pageProps} notFoundPage={notFoundPage}>
+            <Component {...pageProps} notFoundPage={notFoundPage} />
           </RouterComponent>
         </ThemeProvider>
       </AppProvider>
