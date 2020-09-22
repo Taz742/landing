@@ -14,8 +14,6 @@ const Faq = () => {
   const page: any = data.pages.pages['pricing'] || { meta: [] };
   const { locale } = useTranslation();
 
-  console.log(page);
-
   return (
     <>
       <CustomHead title={page.title.title} page="/pricing" description={page.title.description} />
