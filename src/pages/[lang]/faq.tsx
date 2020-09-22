@@ -5,7 +5,7 @@ import { Layout } from '@/components/index';
 import Button from '@/components/library/button';
 import Accordion, { AccordionSection } from '@/components/library/accordion';
 import { Container } from '@/styled';
-import { H1 } from '@/styled/typography';
+import { H1, H3 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, Input, FaqInput, FaqText, PageInnerTitle } from '@/styled/pages';
 import { parseHTML } from '@/utils/helpers';
 import { DataContext } from '@/context/app-context';
@@ -31,6 +31,9 @@ const Faq = () => {
         <SearchPageHeader>
           <PageInnerTitle>
             <H1 style={{ fontSize: 40 }}>{page.title.title}</H1>
+            <H3 style={{ fontSize: 20, color: '#808080', margin: 0, padding: 0, marginBottom: -25, marginTop: 5 }}>
+              {page.title.description}
+            </H3>
           </PageInnerTitle>
         </SearchPageHeader>
 
