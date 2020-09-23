@@ -7,8 +7,8 @@ import Accordion, { AccordionSection } from '@/components/library/accordion';
 import { Container } from '@/styled';
 import { H1, H3 } from '@/styled/typography';
 import { SearchPageHeader, PageInner, Input, FaqInput, FaqText, PageInnerTitle } from '@/styled/pages';
-import { parseHTML } from '@/utils/helpers';
 import { DataContext } from '@/context/app-context';
+import { replaceEnterSymbol } from '@/utils/helpers';
 
 const Faq = () => {
   const [search, setSearch] = useState('');
@@ -47,7 +47,7 @@ const Faq = () => {
             <Accordion>
               {questions.map((p: any) => (
                 <AccordionSection title={p.client_title} key={p.client_title}>
-                  <div>{parseHTML(p.client_content || '')}</div>
+                  <span dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(p.client_content) }} />
                 </AccordionSection>
               ))}
             </Accordion>
