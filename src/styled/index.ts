@@ -1481,7 +1481,7 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
       }
 
       &.tab-bid {
-        background: rgb(8, 170, 125, 0.6);
+        background: rgb(8, 170, 125, 0.15);
         color: rgb(8, 170, 125);
 
         &.active,
@@ -1492,7 +1492,7 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
       }
 
       &.tab-sell {
-        background-color: rgb(216, 89, 71, 0.6);
+        background-color: rgb(216, 89, 71, 0.15);
         color: rgb(216, 89, 71);
 
         &.active,
