@@ -25,7 +25,9 @@ const Faq = () => {
               width="1"
               height="1"
             />
-            <H1 locale={locale}>{page.title.title}</H1>
+            <H1 locale={locale} style={{ fontSize: 44 }}>
+              {page.title.title}
+            </H1>
             <H3 style={{ fontSize: 20, color: '#808080', margin: 0, padding: 0, marginBottom: -25, marginTop: 5 }}>
               {page.title.description}
             </H3>

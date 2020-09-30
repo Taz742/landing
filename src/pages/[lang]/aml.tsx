@@ -25,7 +25,7 @@ const Aml = () => {
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
-            <H1>{page.title.title}</H1>
+            <H1 style={{ fontSize: 44 }}>{page.title.title}</H1>
             <H3 style={{ fontSize: 20, color: '#808080', margin: 0, padding: 0, marginBottom: -25, marginTop: 5 }}>
               {page.title.description}
             </H3>

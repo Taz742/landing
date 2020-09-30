@@ -9,7 +9,7 @@ export const H1 = styled.h1<IH>`
   margin: 0 0 35px;
 
   @media ${responsive.lg} {
-    font-size: ${({ locale }) => (locale === 'ka' ? '40px' : '44px')};
+    font-size: ${({ locale }) => (locale === 'ka' ? '44px' : '44px')};
     line-height: 52px;
   }
 

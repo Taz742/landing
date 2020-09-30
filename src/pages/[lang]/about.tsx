@@ -42,7 +42,7 @@ const About = (_props: any) => {
         <PageHeader height="100px" className="hide_image" />
         <Container>
           <PageSubHeader type="about" style={{ padding: '60px 0 0' }}>
-            <H1 locale={locale} className="title" style={{ fontSize: 40 }}>
+            <H1 locale={locale} className="title" style={{ fontSize: 44 }}>
               {page.title.title}
             </H1>
             <Text

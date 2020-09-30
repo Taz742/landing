@@ -200,7 +200,7 @@ const IndexPage = ({ notFoundPage }: any) => {
         <Container>
           <SimpleTrade locale={locale}>
             <SimpleTradeTop style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 25 }}>
-              <H2>{page.InstantTrade?.title}</H2>
+              <H2 style={{ fontSize: 44 }}>{page.InstantTrade?.title}</H2>
               <div className="trade-right">
                 <div
                   onMouseEnter={() => setDropDown(true)}
