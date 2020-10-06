@@ -165,7 +165,7 @@ const IndexPage = ({ notFoundPage }: any) => {
                 width="1"
                 height="1"
               />
-              <H1 locale={locale} style={{ color: '#FFFFFF' }}>
+              <H1 locale={locale} style={{ color: '#FFFFFF', fontSize: 44 }}>
                 {page.title.description || 'Highest Liquidity Crypto Exchange in the Region'}
               </H1>
               <a href={`${config.targetWebsite}?register=true&lang=${locale}`} target="_blank" rel="noopener">

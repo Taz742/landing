@@ -28,7 +28,7 @@ const Otc = () => {
                 width="1"
                 height="1"
               />
-              <H1>{page.title.title}</H1>
+              <H1 style={{ fontSize: 44 }}>{page.title.title}</H1>
               <p>{page.title.description}</p>
             </Container>
           </PageSubHeader>
