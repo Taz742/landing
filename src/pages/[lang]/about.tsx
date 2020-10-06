@@ -82,7 +82,7 @@ const About = (_props: any) => {
         <WeAreHiringBox>
           <img src="/hiring.png" />
           <WeAreHiring>
-            <H2>{page.Hiring['Hiring title']}</H2>
+            <H2 style={{ fontSize: 44 }}>{page.Hiring['Hiring title']}</H2>
             <span dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.Hiring.about) }} />
             <a href={page.Hiring.link} target="_blank" rel="noopener">
               <Button>{page.Hiring.linkName}</Button>
