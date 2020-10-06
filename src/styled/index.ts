@@ -58,7 +58,7 @@ export const HeaderMenu = styled.div`
   align-items: center;
   margin-left: 30px;
 
-  @media ${responsive.md} {
+  @media (max-width: 1400px) {
     display: none;
   }
 `;
@@ -119,9 +119,16 @@ export const HeaderRight = styled.div<{ locale?: 'ka' | 'en' }>`
   .links {
     display: flex;
     align-items: center;
-
-    @media ${responsive.md} {
+    @media (max-width: 1400px) {
       display: none;
+    }
+  }
+
+  .material-hamburger-menu {
+    display: none;
+
+    @media (max-width: 1400px) {
+      display: block;
     }
   }
 
@@ -139,6 +146,10 @@ export const LanguageChangerWrapper = styled.div`
   cursor: pointer;
   svg {
     margin: 0px 0 3px 6px;
+  }
+
+  @media (max-width: 1400px) {
+    display: none;
   }
 `;
 

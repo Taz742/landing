@@ -67,14 +67,12 @@ export const Header = ({ notFoundPage }: any) => {
             <Button text={t('Sign Up')} />
           </a>
         </div>
-        <Hidden mdUp>
-          <div>
-            <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
-              <img src="/hamburger.svg" />
-            </HamburgerMenuButton>
-            <MobileMenu pages={hamburgerMenu} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={extra} />
-          </div>
-        </Hidden>
+        <div className="material-hamburger-menu">
+          <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
+            <img src="/hamburger.svg" />
+          </HamburgerMenuButton>
+          <MobileMenu pages={hamburgerMenu} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={extra} />
+        </div>
       </HeaderRight>
     </StyledHeader>
   );
