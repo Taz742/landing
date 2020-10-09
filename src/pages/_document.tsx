@@ -55,17 +55,20 @@ export default class MyDocument extends Document {
                 fjs.parentNode.insertBefore(js, fjs);
               }(document, 'script', 'facebook-jssdk'));`
             }}
+          ></script> */}
+          <script
+            src="https://my.rtmark.net/p.js?f=sync&lr=1&partner=01a4c800479727b6a617fc6209de7e7042d4df6c0f7a466a457cb3ca875e91d2"
+            defer
           ></script>
+          <noscript>
+            <img
+              src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=01a4c800479727b6a617fc6209de7e7042d4df6c0f7a466a457cb3ca875e91d2"
+              width="1"
+              height="1"
+            />
+          </noscript>
+          <script type="text/javascript" src="https://propeller-tracking.com/fv.js?t=82125"></script>
 
-          <div
-            className="fb-customerchat"
-            // @ts-ignore
-            attribution="setup_tool"
-            page_id="107413211066997"
-            theme_color="#0ecbfd"
-            logged_in_greeting="მოგესალმებით! რით შეგვიძლია დაგეხმაროთ?"
-            logged_out_greeting="მოგესალმებით! რით შეგვიძლია დაგეხმაროთ?"
-          ></div> */}
           <Main />
           <div id="modal" />
           <NextScript />
