@@ -5,84 +5,84 @@
 
 
 <url>
-  <loc>https://www.gex.ge/en</loc>
+  <loc>https://www.gex.exchange/en</loc>
   <lastmod>2020-08-03T17:08:57+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
   <xhtml:link 
                rel="alternate"
                hreflang="ka"
-               href="www.gex.ge/ka"/>
+               href="www.gex.exchange/ka"/>
 </url>
 <url>
-  <loc>https://www.gex.ge/en/otc</loc>
+  <loc>https://www.gex.exchange/en/otc</loc>
   <changefreq>weekly</changefreq>
   <lastmod>2020-08-03T17:08:57+00:00</lastmod>
   <priority>0.90</priority>
   <xhtml:link 
                rel="alternate"
                hreflang="ka"
-               href="www.gex.ge/ka/otc"/>
+               href="www.gex.exchange/ka/otc"/>
 </url>
 <url>
-  <loc>https://www.gex.ge/en/pricing</loc>
+  <loc>https://www.gex.exchange/en/pricing</loc>
   <lastmod>2020-08-03T17:08:57+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
   <xhtml:link 
                rel="alternate"
                hreflang="ka"
-               href="www.gex.ge/ka/pricing"/>
+               href="www.gex.exchange/ka/pricing"/>
 </url>
 <url>
-  <loc>https://www.gex.ge/en/about</loc>
+  <loc>https://www.gex.exchange/en/about</loc>
   <lastmod>2020-08-03T17:08:57+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
   <xhtml:link 
                rel="alternate"
                hreflang="ka"
-               href="www.gex.ge/ka/about"/>
+               href="www.gex.exchange/ka/about"/>
 </url>
 <url>
-  <loc>https://www.gex.ge/en/terms</loc>
+  <loc>https://www.gex.exchange/en/terms</loc>
   <lastmod>2020-08-03T17:08:57+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.70</priority>
   <xhtml:link 
                rel="alternate"
                hreflang="ka"
-               href="www.gex.ge/ka/terms"/>
+               href="www.gex.exchange/ka/terms"/>
 </url>
 <url>
-  <loc>https://www.gex.ge/en/privacy-policy</loc>
+  <loc>https://www.gex.exchange/en/privacy-policy</loc>
   <lastmod>2020-08-03T17:08:57+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.70</priority>
   <xhtml:link 
                rel="alternate"
                hreflang="ka"
-               href="www.gex.ge/ka/privacy-policy"/>
+               href="www.gex.exchange/ka/privacy-policy"/>
 </url>
 <url>
-  <loc>https://www.gex.ge/en/aml</loc>
+  <loc>https://www.gex.exchange/en/aml</loc>
   <lastmod>2020-08-03T17:08:57+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
   <xhtml:link 
                rel="alternate"
                hreflang="ka"
-               href="www.gex.ge/ka/aml"/>
+               href="www.gex.exchange/ka/aml"/>
 </url>
 <url>
-  <loc>https://www.gex.ge/en/faq</loc>
+  <loc>https://www.gex.exchange/en/faq</loc>
   <lastmod>2020-08-03T17:08:57+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
   <xhtml:link 
                rel="alternate"
                hreflang="ka"
-               href="www.gex.ge/ka/faq"/>
+               href="www.gex.exchange/ka/faq"/>
 </url>
 
 
