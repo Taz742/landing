@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.gex.exchange/sitemap.xml
+Sitemap: https://www.gex.ge/sitemap.xml

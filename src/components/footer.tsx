@@ -63,6 +63,18 @@ export const Footer = () => {
                   <p>{f.text}</p>
                 </FooterMenuItem>
               ))}
+              {/* <FooterMenuItem href={`tel:+995 599 123 123`}>
+                <img src="/images/call.svg" />
+                <p>+995 599 123 123</p>
+              </FooterMenuItem>
+              <FooterMenuItem href="mailto:info@gex.ge?subject=Write us">
+                <img src="/images/email.svg" style={{ margin: '0 9px 0 -2px' }} />
+                <p>info@gex.ge</p>
+              </FooterMenuItem>
+              <FooterMenuItem href={config.googleAddress} target="_blank" rel="noopener">
+                <img src="/images/map.svg" />
+                <p>{t('footer_address')}</p>
+              </FooterMenuItem> */}
             </FooterAboutUs>
             <FooterSocial>
               <FooterSocialButtons>
