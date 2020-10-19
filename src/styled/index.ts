@@ -773,7 +773,7 @@ export const FooterSocial = styled.div`
     padding: 0 10px;
   }
 
-  @media ${responsive.sm} {
+  @media ${responsive.md2} {
     align-self: center;
 
     p {
@@ -808,7 +808,7 @@ export const FooterSocialButtons = styled.div<{ justify?: string; margin?: strin
     }
   }
 
-  @media ${responsive.sm} {
+  @media ${responsive.md2} {
     justify-content: center;
 
     a {
@@ -1982,7 +1982,7 @@ export const Connect = styled.div`
 `;
 
 export const ConnectIcons = styled.div`
-  margin-top: auto;
+  margin-top: 14px;
 
   a {
     &:not(:first-child) {

@@ -498,6 +498,10 @@ export const TeamContainer = styled.div`
     flex-direction: column;
     align-items: center;
   }
+
+  @media ${responsive.md2} {
+    flex-wrap: wrap;
+  }
 `;
 
 export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
@@ -632,6 +636,10 @@ export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
         max-width: 160px;
       }
     }
+  }
+
+  @media ${responsive.md2} {
+    flex: 0 1 50%;
   }
 
   @media ${responsive.sm} {
