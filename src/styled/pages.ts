@@ -502,8 +502,7 @@ export const TeamContainer = styled.div`
 
 export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
   flex: 0 1 25%;
-  display: flex;
-  flex-direction: column;
+  display: block;
   padding: 60px 50px;
   text-align: center;
 
@@ -517,7 +516,6 @@ export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
   span {
     color: #a5adba;
     font-size: ${({ locale }) => (locale === 'ka' ? '12px' : '16px')};
-    margin-bottom: 16px;
     opacity: 0.8;
   }
 
@@ -531,6 +529,7 @@ export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
     transition: 0.2s;
     max-height: 75px;
     font-size: 11px;
+    margin-top: 20px;
 
     ${({ open }) =>
       open &&

@@ -63,9 +63,7 @@ const About = (_props: any) => {
                   </div>
                   <h4>{member.client_title}</h4>
                   <span>{member.client_position}</span>
-                  <p className="description" style={{ textAlign: 'left' }}>
-                    {member.client_desc}
-                  </p>
+                  <p className="description">{member.client_desc}</p>
                   <div className="links">
                     <a href={member.client_linkedin} target="_blank" rel="noopener" style={{ marginRight: '15px' }}>
                       <img src="/linkedin.svg" />
