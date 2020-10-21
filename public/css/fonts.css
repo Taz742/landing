@@ -1,0 +1,28 @@
+@font-face {
+	font-family: 'BPG Arial';
+	src: url(../fonts/bpg-arial-webfont.eot);
+	src: url(../fonts/bpg-arial-webfont.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/bpg-arial-webfont.woff2) format('woff2'), url(../fonts/bpg-arial-webfont.woff) format('woff'),
+		url(../fonts/bpg-arial-webfont.ttf) format('truetype'),
+		url(../fonts/bpg-arial-webfont.svg#bpg_arialregular) format('svg');
+}
+
+@font-face {
+	font-family: 'BPG Mrgvlovani Caps';
+	src: url(../fonts/bpg-mrgvlovani-caps-webfont.eot);
+	src: url(../fonts/bpg-mrgvlovani-caps-webfont.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/bpg-mrgvlovani-caps-webfont.woff2) format('woff2'),
+		url(../fonts/bpg-mrgvlovani-caps-webfont.woff) format('woff'),
+		url(../fonts/bpg-mrgvlovani-caps-webfont.ttf) format('truetype'),
+		url(../fonts/bpg-mrgvlovani-caps-webfont.svg#bpg_mrgvlovani_capsregular) format('svg');
+}
+
+@font-face {
+	font-family: 'BPG Nino Medium Caps';
+	src: url(../fonts/bpg-nino-medium-caps-webfont.eot);
+	src: url(../fonts/bpg-nino-medium-caps-webfont.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/bpg-nino-medium-caps-webfont.woff2) format('woff2'),
+		url(../fonts/bpg-nino-medium-caps-webfont.woff) format('woff'),
+		url(../fonts/bpg-nino-medium-caps-webfont.ttf) format('truetype'),
+		url(../fonts/bpg-nino-medium-caps-webfont.svg#bpg_nino_medium_capsregular) format('svg');
+}
