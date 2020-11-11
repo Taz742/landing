@@ -874,13 +874,14 @@ export const HamburgerMenuButton = styled.div`
 `;
 
 export const MobileMenuContainer = styled.div`
-  height: auto;
+  /* height: 100%;
   min-height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 40px;
+  overflow-y: auto; */
 
   .social-buttons {
     a,
@@ -903,6 +904,7 @@ export const MobileMenu = styled.div`
 
     img {
       max-width: 170px;
+      max-height: 100px;
     }
   }
 
