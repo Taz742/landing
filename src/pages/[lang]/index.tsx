@@ -71,7 +71,7 @@ const IndexPage = ({ notFoundPage }: any) => {
   const [update, setUpdate] = useState(0);
   const [initialized, setInitialized] = useState(false);
   const breakpoint = useBreakpoint();
-  const { t, locale } = useTranslation();
+  const { locale } = useTranslation();
 
   const getData = async () => {
     const pairsResponse: any[] = await (await fetch(`${config.exchangeApi}public/ticker`)).json();
@@ -165,7 +165,7 @@ const IndexPage = ({ notFoundPage }: any) => {
               </H1>
               <a href={`${config.targetWebsite}?register=true&lang=${locale}`} target="_blank" rel="noopener">
                 <RegisterButton>
-                  <span>{t('register')}</span>
+                  <span>{page.title.Button}</span>
                 </RegisterButton>
               </a>
             </Container>

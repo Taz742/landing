@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Hidden, useScrollTrigger } from '@material-ui/core';
+import { useScrollTrigger } from '@material-ui/core';
 
 import LocaleSwitcher from '@/components/locale-swither';
 import Button from '@/components/library/button';
 import MobileMenu from '@/components/pc-drawer';
 import { StyledHeader, HeaderLeft, HeaderRight, HeaderMenu, HeaderMenuItem, HamburgerMenuButton, HeaderSeperator } from '@/styled';
-import config from '@/utils/config';
 import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 
@@ -15,12 +14,13 @@ export const Header = ({ notFoundPage }: any) => {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
-  const { t, locale } = useTranslation();
+  const { locale } = useTranslation();
   const { data } = React.useContext(DataContext);
   const headerMenu = data.pages.headerMenu;
   const footerMenu = data.pages.footerMenu;
   const hamburgerMenu = [...headerMenu, ...footerMenu].filter((v, i, a) => a.findIndex((t) => t.slug === v.slug) === i);
   const extra = data.pages?.extra || {};
+  const links: any = data.pages['home'].SignUp || {};
 
   const fixed = React.useMemo((): boolean => {
     const path = router.asPath.toLocaleLowerCase();
@@ -60,11 +60,11 @@ export const Header = ({ notFoundPage }: any) => {
         <LocaleSwitcher />
         <HeaderSeperator />
         <div className="links">
-          <a href={`${config.targetWebsite}?login=true&lang=${locale}`} target="_blank" rel="noopener">
-            <Button text={t('Sign In')} buttonType="text" padding="0 30px" />
+          <a href={links.LogInURL} target="_blank" rel="noopener">
+            <Button text={links.LogInText} buttonType="text" padding="0 30px" />
           </a>
-          <a href={`${config.targetWebsite}?register=true&lang=${locale}`} target="_blank" rel="noopener">
-            <Button text={t('Sign Up')} />
+          <a href={links.SignUpUrl} target="_blank" rel="noopener">
+            <Button text={links.SignUpText} />
           </a>
         </div>
         <div className="material-hamburger-menu">
