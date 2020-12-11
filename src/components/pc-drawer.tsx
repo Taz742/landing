@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const PcDrawer: React.FC<ResponsiveDrawerProps> = (props: ResponsiveDrawerProps) => {
-  const { open, onClose, pages, router, extra } = props;
+  const { open, onClose, pages, router, extra, links } = props;
   const classes = useStyles();
   const { t, locale } = useTranslation();
 
@@ -50,10 +50,10 @@ export const PcDrawer: React.FC<ResponsiveDrawerProps> = (props: ResponsiveDrawe
               </a>
             </Link>
             <div className="links">
-              <MobileMenuItem href={`${config.targetWebsite}?login=true&lang=${locale}`} target="_blank" rel="noopener">
+              <MobileMenuItem href={links?.logIn?.url} target={links?.logIn?.newTab ? '_blank' : undefined} rel="noopener">
                 {t('Sign In')}
               </MobileMenuItem>
-              <MobileMenuItem href={`${config.targetWebsite}?register=true&lang=${locale}`} target="_blank" rel="noopener">
+              <MobileMenuItem href={links?.signUp?.url} target={links?.signUp?.newTab ? '_blank' : undefined} rel="noopener">
                 {t('Sign Up')}
               </MobileMenuItem>
             </div>
@@ -98,6 +98,7 @@ interface ResponsiveDrawerProps {
   pages: any[];
   router: any;
   extra: any;
+  links: any;
 }
 
 export default PcDrawer;

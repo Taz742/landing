@@ -8,7 +8,7 @@ import { NotFoundWrapperStyled } from '@/styled/pages';
 
 const ErrorPage = () => (
   <>
-    <CustomHead title="GEX - 404 Page not found" page="" description="404" />
+    <CustomHead title="Cryptal - 404 Page not found" page="" description="404" />
     <Layout>
       <Hero>
         <InnerPage>

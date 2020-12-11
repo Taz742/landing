@@ -18,6 +18,10 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
   .logo {
     color: #f4f5fa;
     cursor: pointer;
+
+    img {
+      max-width: 140px;
+    }
   }
 
   @media ${responsive.lg} {
@@ -38,7 +42,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
 
     .logo {
       img {
-        max-width: 80px;
+        max-width: 120px;
         position: relative;
         top: 4px;
       }

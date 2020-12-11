@@ -20,7 +20,7 @@ export const Header = ({ notFoundPage }: any) => {
   const footerMenu = data.pages.footerMenu;
   const hamburgerMenu = [...headerMenu, ...footerMenu].filter((v, i, a) => a.findIndex((t) => t.slug === v.slug) === i);
   const extra = data.pages?.extra || {};
-  const links: any = data.pages['home'].SignUp || {};
+  const links: any = data?.pages?.settings || {};
 
   const fixed = React.useMemo((): boolean => {
     const path = router.asPath.toLocaleLowerCase();
@@ -60,18 +60,25 @@ export const Header = ({ notFoundPage }: any) => {
         <LocaleSwitcher />
         <HeaderSeperator />
         <div className="links">
-          <a href={links.LogInURL} target="_blank" rel="noopener">
-            <Button text={links.LogInText} buttonType="text" padding="0 30px" />
+          <a href={links?.logIn?.url} target={links?.logIn?.newTab ? '_blank' : undefined} rel="noopener">
+            <Button text={links?.logIn?.text} buttonType="text" padding="0 30px" />
           </a>
-          <a href={links.SignUpUrl} target="_blank" rel="noopener">
-            <Button text={links.SignUpText} />
+          <a href={links?.signUp?.url} target={links?.signUp?.newTab ? '_blank' : undefined} rel="noopener">
+            <Button text={links?.signUp?.text} />
           </a>
         </div>
         <div className="material-hamburger-menu">
           <HamburgerMenuButton onClick={() => setSidebarOpen(true)}>
             <img src="/hamburger.svg" />
           </HamburgerMenuButton>
-          <MobileMenu pages={hamburgerMenu} router={router} open={sidebarOpen} onClose={() => setSidebarOpen(false)} extra={extra} />
+          <MobileMenu
+            links={links}
+            pages={hamburgerMenu}
+            router={router}
+            open={sidebarOpen}
+            onClose={() => setSidebarOpen(false)}
+            extra={extra}
+          />
         </div>
       </HeaderRight>
     </StyledHeader>

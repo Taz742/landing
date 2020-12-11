@@ -74,12 +74,12 @@ const IndexPage = ({ notFoundPage }: any) => {
   const { locale } = useTranslation();
 
   const getData = async () => {
-    const pairsResponse: any[] = await (await fetch(`${config.exchangeApi}public/ticker`)).json();
+    const pairsResponse: any[] = await (await fetch(`${data?.pages?.settings?.url?.exchangeApi}public/ticker`)).json();
     const gelPairs = pairsResponse.filter((item) => item.pair.endsWith('-GEL'));
     const usdPairs = pairsResponse.filter((item) => item.pair.endsWith('-USD'));
     setPairs({ GEL: gelPairs, USD: usdPairs });
 
-    const offers = await (await fetch(`${config.exchangeApi}private/simpleTrade/offers`)).json();
+    const offers = await (await fetch(`${data?.pages?.settings?.url?.exchangeApi}private/simpleTrade/offers`)).json();
     setTrades(offers);
 
     if (!initialized) {
@@ -117,7 +117,7 @@ const IndexPage = ({ notFoundPage }: any) => {
 
   const getImage = (baseCurrency: string) => {
     baseCurrency = baseCurrency.substr(0, baseCurrency.indexOf('-'));
-    return `${config.exchangeBaseUrl}/icons/SVG/${baseCurrency.toLowerCase()}.svg`;
+    return `${data?.pages?.settings?.url?.exchangeBaseUrl}/icons/SVG/${baseCurrency.toLowerCase()}.svg`;
   };
 
   const changeCurrency = () => {
@@ -146,7 +146,7 @@ const IndexPage = ({ notFoundPage }: any) => {
       size = sizeVal;
       price = priceVal;
     }
-    const url = `${config.targetWebsite}instant-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}&lang=${locale}`;
+    const url = `${data?.pages?.settings?.url?.exchangeBaseUrl}/instant-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}&lang=${locale}`;
     window.open(url, '_blank');
   };
 
@@ -163,9 +163,9 @@ const IndexPage = ({ notFoundPage }: any) => {
               <H1 locale={locale} style={{ color: '#FFFFFF', fontSize: 44 }}>
                 {page.title.description || 'Highest Liquidity Crypto Exchange in the Region'}
               </H1>
-              <a href={`${config.targetWebsite}?register=true&lang=${locale}`} target="_blank" rel="noopener">
+              <a href={page?.getStarted?.url} target={page?.getStarted?.newTab ? '_blank' : undefined} rel="noopener">
                 <RegisterButton>
-                  <span>{page.title.Button}</span>
+                  <span>{page?.getStarted?.text}</span>
                 </RegisterButton>
               </a>
             </Container>
