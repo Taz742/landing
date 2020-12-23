@@ -160,7 +160,7 @@ const IndexPage = ({ notFoundPage }: any) => {
         <OtcComp>
           <Container>
             <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? '100%' : '75%'} style={{ padding: 0 }}>
-              <H1 locale={locale} style={{ color: '#FFFFFF', fontSize: breakPoint === 'sm' ? 32 : 44 }}>
+              <H1 locale={locale} style={{ color: '#FFFFFF', fontSize: breakpoint === 'sm' ? 32 : 44 }}>
                 {page.title.description || 'Highest Liquidity Crypto Exchange in the Region'}
               </H1>
               <a href={page?.getStarted?.url} target={page?.getStarted?.newTab ? '_blank' : undefined} rel="noopener">
