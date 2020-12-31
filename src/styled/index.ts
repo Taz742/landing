@@ -20,7 +20,7 @@ export const StyledHeader = styled.header<{ fix?: boolean }>`
     cursor: pointer;
 
     img {
-      max-width: 140px;
+      width: 140px;
     }
   }
 
