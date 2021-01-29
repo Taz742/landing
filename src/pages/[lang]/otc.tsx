@@ -18,7 +18,7 @@ const Otc = () => {
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/otc" description={page.title.description} />
+      <CustomHead title={page.title.title} page="/otc" description={page.title.description} seo={page.seo} />
       <Layout>
         <DefaultPageHeader>
           <PageSubHeader>

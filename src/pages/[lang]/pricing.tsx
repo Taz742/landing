@@ -16,7 +16,7 @@ const Faq = () => {
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/pricing" description={page.title.description} />
+      <CustomHead title={page.title.title} page="/pricing" description={page.title.description} seo={page.seo} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>

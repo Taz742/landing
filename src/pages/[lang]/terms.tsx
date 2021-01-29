@@ -21,7 +21,7 @@ const Terms = () => {
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/terms" description={page.title.description} />
+      <CustomHead title={page.title.title} page="/terms" description={page.title.description} seo={page.seo} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>

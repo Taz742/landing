@@ -153,7 +153,7 @@ const IndexPage = ({ notFoundPage }: any) => {
 
   return (
     <>
-      <CustomHead title={page.title.title} page="" description={page.title.description} />
+      <CustomHead title={page.title.title} page="" description={page.title.description} seo={page.seo} />
       <Layout>
         <PageHeader />
         <OtcComp>

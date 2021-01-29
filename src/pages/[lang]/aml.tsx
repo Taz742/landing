@@ -21,7 +21,7 @@ const Aml = () => {
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/aml" description={page.title.description} />
+      <CustomHead title={page.title.title} page="/aml" description={page.title.description} seo={page.seo} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>

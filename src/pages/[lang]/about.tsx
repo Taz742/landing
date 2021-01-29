@@ -37,7 +37,7 @@ const About = (_props: any) => {
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/about" description={page.title.title} />
+      <CustomHead title={page.title.title} page="/about" description={page.title.title} seo={page.seo} />
       <Layout>
         <PageHeader height="100px" className="hide_image" />
         <Container>

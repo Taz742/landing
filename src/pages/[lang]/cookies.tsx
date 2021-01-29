@@ -23,7 +23,7 @@ const Cookies = () => {
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/cookies" description={page.title.description} />
+      <CustomHead title={page.title.title} page="/cookies" description={page.title.description} seo={page.seo} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>

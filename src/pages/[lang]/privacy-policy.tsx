@@ -21,7 +21,7 @@ const PrivacyPolicy = () => {
 
   return (
     <>
-      <CustomHead title={page.title.title} page="/privacy-policy" description={page.title.description} />
+      <CustomHead title={page.title.title} page="/privacy-policy" description={page.title.description} seo={page.seo} />
       <Layout>
         <SearchPageHeader>
           <PageInnerTitle>
