@@ -32,16 +32,14 @@ export const CustomHead = ({ title, description, page, image, seo }: Props) => {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes,minimum-scale=0.5,maximum-scale=2" />
         {titleTag && <title>{titleTag.content}</title>}
-        {nameTags.map((i) =>
-          i.name === 'canonical' ? (
-            <link key={i.name} rel={i.name} href={i.content || ''} />
-          ) : (
-            <meta key={i.name} name={i.name} content={i.content || ''} />
-          )
-        )}
+        {nameTags.map((i) => (
+          <meta key={i.name} name={i.name} content={i.content || ''} />
+        ))}
         {propertyTags.map((i) => (
           <meta key={i.name} property={i.name} content={i.content || ''} />
         ))}
+        <meta property="og:url" content={url} />
+        <link rel="canonical" href={url} />
       </NextHead>
     );
   }
