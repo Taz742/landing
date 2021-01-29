@@ -21,7 +21,6 @@ import {
 } from '@/styled';
 import { H1, H2, H5, Subtext } from '@/styled/typography';
 import { PageHeader } from '@/styled/pages';
-import config from '@/utils/config';
 import NumberFormat from 'react-number-format';
 import useBreakpoint from '@/hooks/use-breakpoints';
 import useTranslation from '@/hooks/useTranslation';
@@ -366,6 +365,14 @@ const IndexPage = ({ notFoundPage }: any) => {
           </Container>
         </CoinsComp>
       </Layout>
+
+      <script src="https://embed.lpcontent.net/leadboxes/current/embed.js" async defer></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "window.addEventListener('LPLeadboxesReady',function(){LPLeadboxes.addDelayedLeadbox('oLdxcbwbQSWTWDRZZzfLig',{delay:'5s',views:0,dontShowFor:'1d',domain:'cryptal.lpages.co'});});"
+        }}
+      ></script>
     </>
   );
 };
