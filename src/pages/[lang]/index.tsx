@@ -145,7 +145,7 @@ const IndexPage = ({ notFoundPage }: any) => {
       size = sizeVal;
       price = priceVal;
     }
-    const url = `${data?.pages?.settings?.url?.exchangeBaseUrl}/instant-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}&lang=${locale}`;
+    const url = `${data?.pages?.settings?.url?.exchangeBaseUrl}/instant-trade/${coin.coin}-${currency}?size=${size}&price=${price}&type=${sellType}&lang=${locale}`;
     window.open(url, '_blank');
   };
 
