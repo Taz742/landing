@@ -12,7 +12,7 @@ export const AccordionTitle = styled.div<ISectionProps>`
   justify-content: space-between;
   cursor: pointer;
   transition: 0.2s ease;
-  color: ${(props) => (props.expanded ? '#0ECBFD' : '#242a33')};
+  color: ${(props) => (props.expanded ? '#4A6DFF' : '#242a33')};
 
   h4 {
     user-select: none;
@@ -25,7 +25,7 @@ export const AccordionTitle = styled.div<ISectionProps>`
       padding: 4px;
       margin-right: 18px;
       border-radius: 100%;
-      background: ${(props) => (props.expanded ? '#0ECBFD' : '#242a33')};
+      background: ${(props) => (props.expanded ? '#4A6DFF' : '#242a33')};
       opacity: 0.7;
     }
   }
@@ -61,7 +61,7 @@ export const AccordionIcon = styled.div<ISectionProps>`
 `;
 
 export const Line = styled.div<ISectionProps & { second?: boolean }>`
-  background-color: ${(props) => (props.expanded ? '#0ECBFD' : '#6c7686')};
+  background-color: ${(props) => (props.expanded ? '#4A6DFF' : '#6c7686')};
   border-radius: 4px;
   width: 18px;
   height: 3px;
@@ -89,7 +89,7 @@ export const AccordionContent = styled.div<ISectionProps>`
   margin-right: 7%;
 
   a {
-    color: #0ecbfd;
+    color: #4A6DFF;
 
     :hover {
       color: #1c68c5;

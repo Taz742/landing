@@ -72,14 +72,14 @@ export const HeaderMenuItem = styled.a<{ active?: boolean; locale: 'ka' | 'en' }
   font-size: 16px;
   line-height: 21px;
   letter-spacing: 0;
-  color: ${(props) => (props.active ? '#0ECBFD' : '#DBE2ED')};
+  color: ${(props) => (props.active ? '#4A6DFF' : '#DBE2ED')};
   transition: all 0.15s ease-in-out, font-size 0s;
   padding: 11px 0;
   margin: ${({ locale }) => (locale === 'ka' ? '0 10px' : '0 24px')};
   position: relative;
 
   :hover {
-    color: #0ecbfd;
+    color: #4A6DFF;
   }
 
   :after {
@@ -92,7 +92,7 @@ export const HeaderMenuItem = styled.a<{ active?: boolean; locale: 'ka' | 'en' }
     border-radius: 3px;
     left: 0;
     position: absolute;
-    background: #0ecbfd;
+    background: #4A6DFF;
     transition: 0.15s ease-in-out;
   }
 
@@ -370,7 +370,7 @@ export const HeroSection = styled.section`
 export const RegisterButton = styled.button`
   height: 65px;
   padding: 20px 70px;
-  background-color: #0ecbfd;
+  background-color: #4A6DFF;
   color: #fff;
   position: relative;
   width: auto;
@@ -1423,7 +1423,7 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
       justify-content: space-around;
       width: 104px;
       height: 50px;
-      background: #dbf7ff 0% 0% no-repeat padding-box;
+      background: rgba(101, 130, 253, 0.3) 0% 0% no-repeat padding-box;
       border-radius: 8px;
       text-align: center;
       padding-left: 10px;
@@ -1436,7 +1436,7 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
 
       .value {
         font-size: 16px;
-        color: #0ecbfd;
+        color: #4A6DFF;
         text-transform: uppercase;
         font-weight: 500;
       }
@@ -1447,7 +1447,7 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
         height: 0px;
         border-top: 4.5px solid transparent;
         border-bottom: 4.5px solid transparent;
-        border-right: 6.5px solid #0ecbfd;
+        border-right: 6.5px solid #4A6DFF;
       }
 
       .right {
@@ -1456,7 +1456,7 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
         height: 0px;
         border-top: 4.5px solid transparent;
         border-bottom: 4.5px solid transparent;
-        border-left: 6.5px solid #0ecbfd;
+        border-left: 6.5px solid #4A6DFF;
       }
     }
   }
@@ -1548,12 +1548,12 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
       }
 
       button {
-        background-color: #dbf7ff;
+        background-color: rgba(101, 130, 253, 0.1);
         width: 100%;
         border-radius: 6px;
         border: 0;
         outline: none;
-        color: #0ecbfd;
+        color: #4A6DFF;
         font-size: 14px;
         height: 42px;
         width: 80%;
@@ -1629,7 +1629,7 @@ export const SimpleTrade = styled.div<{ locale?: 'ka' | 'en' }>`
           font-weight: 500;
 
           &:hover {
-            border: 1px solid #0ecbfd;
+            border: 1px solid #4A6DFF;
           }
         }
 
@@ -1716,7 +1716,7 @@ export const SimpleTradeLine = styled.div`
     }
 
     span {
-      color: #0ecbfd;
+      color: #4A6DFF;
     }
 
     img {
@@ -1803,8 +1803,8 @@ export const WeAreHiring = styled.div<{ locale?: 'ka' | 'en' }>`
   button {
     height: 65px;
     padding: 20px 70px;
-    background-color: rgba(14, 203, 253, 0.15);
-    color: #0ecbfd;
+    background-color: rgba(101, 130, 253, 0.1);
+    color: #4A6DFF;
     width: auto;
     max-width: 280px;
     width: 50%;
@@ -2024,7 +2024,7 @@ export const FeesItem = styled.div<{ locale?: 'ka' | 'en' }>`
 
   p.percent {
     font-size: 44px;
-    color: #0ecbfd;
+    color: #4A6DFF;
     font-weight: 500;
 
     @media ${responsive.md} {

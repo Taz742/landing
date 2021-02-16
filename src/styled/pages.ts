@@ -580,8 +580,8 @@ export const TeamItem = styled.div<{ open?: boolean; locale?: 'ka' | 'en' }>`
     button {
       outline: none;
       cursor: pointer;
-      border: 1px solid #0ecbfd;
-      color: #0ecbfd;
+      border: 1px solid #4A6DFF;
+      color: #4A6DFF;
       border-radius: 9px;
       background: transparent;
       height: 47px;
@@ -926,7 +926,7 @@ export const CookieContainer = styled.div`
   button {
     width: 139px;
     height: 64px;
-    background: #0ecbfd;
+    background: #4A6DFF;
     border-radius: 32px;
     outline: none;
     border: none;
@@ -946,7 +946,7 @@ export const CookieContainer = styled.div`
   }
 
   a {
-    color: #0ecbfd;
+    color: #4A6DFF;
   }
 
   .content {
@@ -971,7 +971,7 @@ export const CookieContainer = styled.div`
 
     button {
       width: auto;
-      color: #0ecbfd;
+      color: #4A6DFF;
       background: transparent;
     }
 

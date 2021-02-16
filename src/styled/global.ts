@@ -47,7 +47,7 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: #0ecbfd;
+    color: #4A6DFF;
   }
 
   a:-webkit-any-link:active {

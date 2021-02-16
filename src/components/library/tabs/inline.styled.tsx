@@ -62,10 +62,10 @@ export const TabMenu = styled.ul`
     }
 
     &.selected {
-      color: #0ecbfd;
+      color: #4A6DFF;
 
       span.line {
-        background-color: #0ecbfd;
+        background-color: #4A6DFF;
       }
     }
   }

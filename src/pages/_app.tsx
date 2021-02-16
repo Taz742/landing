@@ -64,7 +64,7 @@ class MyApp extends App {
 
     return (
       <AppProvider data={pageProps}>
-        <NextNprogress color="#0ECBFD" />
+        <NextNprogress color="#4A6DFF" />
         <GlobalStyle />
         <ThemeProvider theme={theme}>
           <RouterComponent {...pageProps} notFoundPage={notFoundPage}>
