@@ -160,7 +160,7 @@ const IndexPage = ({ notFoundPage }: any) => {
         <OtcComp>
           <Container>
             <Container maxWidth={'100%'} style={{ padding: 0 }}>
-              <H1 locale={locale} style={{ color: '#FFFFFF', fontSize: breakpoint === 'sm' ? 32 : 44 }} dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.title.description) }} />
+              <div dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.title.description) }} />
               <a href={page?.getStarted?.url} target={page?.getStarted?.newTab ? '_blank' : undefined} rel="noopener">
                 <RegisterButton>
                   <span>{page?.getStarted?.text}</span>
