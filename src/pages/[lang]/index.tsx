@@ -27,6 +27,7 @@ import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 import Timer from '@/components/instant-trade-timer';
 import ErrorPage from '@/pages/404';
+import { replaceEnterSymbol } from '@/utils/helpers';
 
 const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
   return (
@@ -158,10 +159,8 @@ const IndexPage = ({ notFoundPage }: any) => {
         <PageHeader />
         <OtcComp>
           <Container>
-            <Container maxWidth={['xs', 'sm'].includes(breakpoint) ? '100%' : '75%'} style={{ padding: 0 }}>
-              <H1 locale={locale} style={{ color: '#FFFFFF', fontSize: breakpoint === 'sm' ? 32 : 44 }}>
-                {page.title.description || 'Highest Liquidity Crypto Exchange in the Region'}
-              </H1>
+            <Container maxWidth={'100%'} style={{ padding: 0 }}>
+              <H1 locale={locale} style={{ color: '#FFFFFF', fontSize: breakpoint === 'sm' ? 32 : 44 }} dangerouslySetInnerHTML={{ __html: replaceEnterSymbol(page.title.description) }} />
               <a href={page?.getStarted?.url} target={page?.getStarted?.newTab ? '_blank' : undefined} rel="noopener">
                 <RegisterButton>
                   <span>{page?.getStarted?.text}</span>
