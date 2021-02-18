@@ -149,7 +149,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 35px;
 
     a {
-      color: #20cffd;
+      color: #4A6DFF;
     }
 
     h3 {

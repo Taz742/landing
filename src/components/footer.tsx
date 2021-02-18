@@ -73,7 +73,7 @@ export const Footer = () => {
                   <img src="/fb.svg" />
                 </a>
                 <a href={extra.twitter} target="_blank" rel="noopener">
-                  <img src="/Tweet.png" />
+                  <img src="/Tweet.svg" />
                 </a>
               </FooterSocialButtons>
               <Copyright>

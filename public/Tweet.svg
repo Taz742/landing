@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
-  <g id="Tweet" transform="translate(-366 -4845)">
-    <g id="facebook" transform="translate(380.812 4857.562)">
-      <path id="Path_7961" data-name="Path 7961" d="M9,0H31a9,9,0,0,1,9,9V31a9,9,0,0,1-9,9H9a9,9,0,0,1-9-9V9A9,9,0,0,1,9,0Z" transform="translate(-14.812 -12.562)" fill="#4A6DFF" opacity="0.15"/>
-    </g>
-    <path id="Path_8205" data-name="Path 8205" d="M10.441,16.643H8.27a4.931,4.931,0,0,1-4.926-4.925V7.705H2.4a1.4,1.4,0,1,1,0-2.8h.944V1.4a1.4,1.4,0,0,1,2.8,0V4.906H8.78a1.4,1.4,0,1,1,0,2.8H6.144v4.012A2.128,2.128,0,0,0,8.27,13.844h2.171a1.4,1.4,0,0,1,0,2.8Z" transform="translate(380 4857.562)" fill="#4A6DFF"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><defs><style>.a,.b{fill:#4A6DFF;}.a{opacity:0.15;}</style></defs><g transform="translate(-366 -4845)"><g transform="translate(380.812 4857.562)"><path class="a" d="M9,0H31a9,9,0,0,1,9,9V31a9,9,0,0,1-9,9H9a9,9,0,0,1-9-9V9A9,9,0,0,1,9,0Z" transform="translate(-14.812 -12.562)"/></g><path class="b" d="M10.441,16.643H8.27a4.931,4.931,0,0,1-4.926-4.925V7.705H2.4a1.4,1.4,0,1,1,0-2.8h.944V1.4a1.4,1.4,0,0,1,2.8,0V4.906H8.78a1.4,1.4,0,1,1,0,2.8H6.144v4.012A2.128,2.128,0,0,0,8.27,13.844h2.171a1.4,1.4,0,0,1,0,2.8Z" transform="translate(380 4857.562)"/></g></svg>
