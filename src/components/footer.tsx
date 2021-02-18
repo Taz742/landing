@@ -35,15 +35,7 @@ export const Footer = () => {
             <FooterMenu width="48%">
               {footerMenu.map((page: any) =>
                 page.blank ? (
-                  <FooterMenuItem
-                    locale={locale}
-                    href={
-                      page.slug === 'support' || page.slug === 'support-2' ? `${page.url}hc/${locale === 'en' ? 'en-us' : 'ka'}` : page.url
-                    }
-                    key={page.title}
-                    target="_blank"
-                    rel="noopener"
-                  >
+                  <FooterMenuItem locale={locale} href={page.url} key={page.title} target="_blank" rel="noopener">
                     {page.title}
                   </FooterMenuItem>
                 ) : (
