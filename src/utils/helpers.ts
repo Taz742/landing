@@ -31,7 +31,7 @@ export const generateContentBlocks = ({ meta = [] }) => {
 export const isInternational = (): boolean => {
   if (typeof window !== 'undefined' && config.internationDomainStartsWith !== undefined) {
     console.log(window.location.hostname, config.internationDomainStartsWith);
-    return window.location.hostname.startsWith(config.internationDomainStartsWith);
+    return !window.location.hostname.startsWith(config.internationDomainStartsWith);
   }
   
   return false;
