@@ -1,4 +1,5 @@
 import parse from 'html-react-parser';
+import config from '@/utils/config';
 
 export const splitText = (text = '') => text.split(/&nbsp;/);
 
@@ -25,4 +26,12 @@ export const generateContentBlocks = ({ meta = [] }) => {
     content += `<div id="${e.carrer_title}" class="content-section"><h3>${e.carrer_title}</h3>${e.carrer_text || ''}</div>`;
   });
   return content;
+};
+
+export const isInternational = (): boolean => {
+  if (typeof window !== 'undefined' && config.internationDomainStartsWith !== undefined) {
+    return window.location.hostname.startsWith(config.internationDomainStartsWith);
+  }
+  
+  return false;
 };

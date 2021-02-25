@@ -27,7 +27,7 @@ import useTranslation from '@/hooks/useTranslation';
 import { DataContext } from '@/context/app-context';
 import Timer from '@/components/instant-trade-timer';
 import ErrorPage from '@/pages/404';
-import { replaceEnterSymbol } from '@/utils/helpers';
+import { replaceEnterSymbol, isInternational } from '@/utils/helpers';
 
 const Arrow: React.FC<{ ltZero: boolean }> = ({ ltZero }): JSX.Element => {
   return (
@@ -72,6 +72,7 @@ const IndexPage = ({ notFoundPage }: any) => {
   const [initialized, setInitialized] = useState(false);
   const breakpoint = useBreakpoint();
   const { locale } = useTranslation();
+  const baseUrl = isInternational() ? data.pages.settings.url.exchangeBaseUrls['INT'] : data.pages.settings.url.exchangeBaseUrls['GEO'];
 
   const getData = async () => {
     const pairsResponse: any[] = await (await fetch(`${data?.pages?.settings?.url?.exchangeApi}public/ticker`)).json();
@@ -146,7 +147,7 @@ const IndexPage = ({ notFoundPage }: any) => {
       size = sizeVal;
       price = priceVal;
     }
-    const url = `${data?.pages?.settings?.url?.exchangeBaseUrl}/instant-trade?size=${size}&price=${price}&type=${sellType}&coint=${coin.coin}&currency=${currency}&lang=${locale}`;
+    const url = `${data?.pages?.settings?.url?.exchangeBaseUrl}/instant-trade/${coin.coin}-${currency}?size=${size}&type=${sellType}&lang=${locale}`;
     window.open(url, '_blank');
   };
 
@@ -218,11 +219,13 @@ const IndexPage = ({ notFoundPage }: any) => {
                     ))}
                   </div>
                 </div>
-                <div className="currency">
-                  <span className="left" onClick={() => changeCurrency()}></span>
-                  <span className="value">{currency}</span>
-                  <span className="right" onClick={() => changeCurrency()}></span>
-                </div>
+                {isInternational() && (
+                  <div className="currency">
+                    <span className="left" onClick={() => changeCurrency()}></span>
+                    <span className="value">{currency}</span>
+                    <span className="right" onClick={() => changeCurrency()}></span>
+                  </div>
+                )}
               </div>
             </SimpleTradeTop>
 

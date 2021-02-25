@@ -54,6 +54,7 @@ class MyApp extends App {
       const dataUrl = language === 'en' ? `${config.getDataUrl}${endpoint}` : `${config.getDataUrl}/${language}${endpoint}`;
       const res = await fetch(dataUrl);
       const json = await res.json();
+      console.log(json.settings);
       return { pageProps: { pages: json, menu: data[language].headerMenu, static: data[language] } };
     }
     return { pageProps: {} };

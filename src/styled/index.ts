@@ -1994,6 +1994,10 @@ export const ConnectIcons = styled.div`
     &:not(:first-child) {
       margin-left: 10px;
     }
+
+    img {
+      width: 40px;
+    }
   }
 
   @media ${responsive.sm} {
