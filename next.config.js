@@ -10,7 +10,8 @@ module.exports = {
     // exchangeBaseUrl: 'https://trade.gex.exchange', // <--
     localeCookieUrl: '.cryptal.com',
     fbPageId: '107413211066997',
-    fbAppId: '315470196311206'
+    fbAppId: '315470196311206',
+    internationDomainStartsWith: 'lan'
   },
   devIndicators: {
     autoPrerender: false
