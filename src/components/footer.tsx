@@ -27,7 +27,7 @@ export const Footer = () => {
   const extra = data.pages?.extra || {};
   const footerInfo = data.pages.pages.footer;
   const footerMeta = data.pages.pages.footer.meta || [];
-  const baseUrl = isInternational() ? data.pages.settings.url.exchangeBaseUrls['INT'] : data.pages.settings.url.exchangeBaseUrls['GEO'];
+  const baseUrl = !isInternational() ? data.pages.settings.url.exchangeBaseUrls['INT'] : data.pages.settings.url.exchangeBaseUrls['GEO'];
 
   if (!path.includes('/about')) {
     return (

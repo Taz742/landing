@@ -72,7 +72,7 @@ const IndexPage = ({ notFoundPage }: any) => {
   const [initialized, setInitialized] = useState(false);
   const breakpoint = useBreakpoint();
   const { locale } = useTranslation();
-  const baseUrl = isInternational() ? data.pages.settings.url.exchangeBaseUrls['INT'] : data.pages.settings.url.exchangeBaseUrls['GEO'];
+  const baseUrl = !isInternational() ? data.pages.settings.url.exchangeBaseUrls['INT'] : data.pages.settings.url.exchangeBaseUrls['GEO'];
 
   const getData = async () => {
     const pairsResponse: any[] = await (await fetch(`${data?.pages?.settings?.url?.exchangeApi}public/ticker`)).json();
@@ -219,7 +219,7 @@ const IndexPage = ({ notFoundPage }: any) => {
                     ))}
                   </div>
                 </div>
-                {isInternational() && (
+                {!isInternational() && (
                   <div className="currency">
                     <span className="left" onClick={() => changeCurrency()}></span>
                     <span className="value">{currency}</span>

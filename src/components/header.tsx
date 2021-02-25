@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useScrollTrigger } from '@material-ui/core';
@@ -19,7 +19,7 @@ export const Header = ({ notFoundPage }: any) => {
   const { data } = React.useContext(DataContext);
   const headerMenu = data.pages.menu.header;
   const footerMenu = data.pages.menu.footer;
-  const baseUrl = isInternational() ? data.pages.settings.url.exchangeBaseUrls['INT'] : data.pages.settings.url.exchangeBaseUrls['GEO'];
+  const baseUrl = !isInternational() ? data.pages.settings.url.exchangeBaseUrls['INT'] : data.pages.settings.url.exchangeBaseUrls['GEO'];
   const hamburgerMenu = [...headerMenu, ...footerMenu].filter((v, i, a) => a.findIndex((t) => t.slug === v.slug) === i);
   const extra = data.pages?.extra || {};
   const links: any = data?.pages?.settings || {};
@@ -59,7 +59,7 @@ export const Header = ({ notFoundPage }: any) => {
         </HeaderMenu>
       </HeaderLeft>
       <HeaderRight locale={locale}>
-        {isInternational() && (
+        {!isInternational() && (
           <>
             <LocaleSwitcher />
             <HeaderSeperator />
