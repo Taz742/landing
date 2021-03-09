@@ -11,7 +11,7 @@ module.exports = {
     localeCookieUrl: '.cryptal.com',
     fbPageId: '107413211066997',
     fbAppId: '315470196311206',
-    internationDomainStartsWith: 'lan'
+    internationDomainStartsWith: 'FF'
   },
   devIndicators: {
     autoPrerender: false
