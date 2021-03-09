@@ -219,7 +219,7 @@ const IndexPage = ({ notFoundPage }: any) => {
                     ))}
                   </div>
                 </div>
-                {!isInternational() && (
+                {Object.keys(trades).length !== 1 && (
                   <div className="currency">
                     <span className="left" onClick={() => changeCurrency()}></span>
                     <span className="value">{currency}</span>
